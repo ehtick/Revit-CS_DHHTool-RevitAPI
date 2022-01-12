@@ -1,0 +1,24 @@
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_Hoc_2_PICK_TEXT_TO_ELEMENT\bin\Debug\Lesson 02_PICK TEXT to ELEMENT.dll
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_Hoc_2_PICK_TEXT_TO_ELEMENT\bin\Debug\Lesson 02_PICK TEXT to ELEMENT.pdb
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_Hoc_2_PICK_TEXT_TO_ELEMENT\obj\Debug\Lesson 02_PICK TEXT to ELEMENT.csproj.CoreCompileInputs.cache
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_Hoc_2_PICK_TEXT_TO_ELEMENT\obj\Debug\Lesson 02_PICK TEXT to ELEMENT.dll
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_Hoc_2_PICK_TEXT_TO_ELEMENT\obj\Debug\Lesson 02_PICK TEXT to ELEMENT.pdb
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_Hoc_2_PICK_TEXT_TO_ELEMENT\obj\Debug\Lesson 02_PICK TEXT to ELEMENT.csprojAssemblyReference.cache
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_02_PICK_TEXT_TO_ELEMENT\bin\Debug\Lesson 02_PICK TEXT to ELEMENT.dll
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_02_PICK_TEXT_TO_ELEMENT\bin\Debug\Lesson 02_PICK TEXT to ELEMENT.pdb
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_02_PICK_TEXT_TO_ELEMENT\obj\Debug\Lesson 02_PICK TEXT to ELEMENT.csprojAssemblyReference.cache
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_02_PICK_TEXT_TO_ELEMENT\obj\Debug\Lesson 02_PICK TEXT to ELEMENT.csproj.CoreCompileInputs.cache
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_02_PICK_TEXT_TO_ELEMENT\obj\Debug\Lesson 02_PICK TEXT to ELEMENT.dll
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_02_PICK_TEXT_TO_ELEMENT\obj\Debug\Lesson 02_PICK TEXT to ELEMENT.pdb
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_02_PICK_TEXT_TO_ELEMENT\bin\Debug\QApps_Lib2020.dll
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_02_PICK_TEXT_TO_ELEMENT\bin\Debug\QApps_Lib2020.pdb
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_02_PICK_TEXT_TO_ELEMENT\obj\Debug\Lesson 02_PICK TEXT to ELEMENT.csproj.CopyComplete
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\bin\Debug\Lesson 02_PICK TEXT to ELEMENT.dll
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\bin\Debug\Lesson 02_PICK TEXT to ELEMENT.pdb
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\bin\Debug\QApps_Lib2020.dll
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\bin\Debug\QApps_Lib2020.pdb
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\obj\Debug\Lesson 02_PICK TEXT to ELEMENT.csprojAssemblyReference.cache
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\obj\Debug\Lesson 02_PICK TEXT to ELEMENT.csproj.CoreCompileInputs.cache
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\obj\Debug\Lesson 02_PICK TEXT to ELEMENT.csproj.CopyComplete
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\obj\Debug\Lesson 02_PICK TEXT to ELEMENT.dll
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\obj\Debug\Lesson 02_PICK TEXT to ELEMENT.pdb

@@ -1,0 +1,18 @@
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_CreateRibbon\bin\Debug\DHHTools_Library.dll
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_CreateRibbon\bin\Debug\DHHTools_Library.pdb
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_CreateRibbon\obj\Debug\00.DHHTools_CreateRibbon.csprojAssemblyReference.cache
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_CreateRibbon\obj\Debug\00.DHHTools_CreateRibbon.csproj.CoreCompileInputs.cache
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_CreateRibbon\obj\Debug\00.DHHTools_CreateRibbon.csproj.CopyComplete
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_CreateRibbon\bin\Debug\00.CreateRibbon.dll
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_CreateRibbon\bin\Debug\00.CreateRibbon.pdb
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_CreateRibbon\obj\Debug\00.CreateRibbon.dll
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_CreateRibbon\obj\Debug\00.CreateRibbon.pdb
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_CreateRibbon\bin\Debug\00.CreateRibbon.dll
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_CreateRibbon\bin\Debug\00.CreateRibbon.pdb
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_CreateRibbon\bin\Debug\DHHTools_Library.dll
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_CreateRibbon\bin\Debug\DHHTools_Library.pdb
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_CreateRibbon\obj\Debug\00.DHHTools_CreateRibbon.csproj.AssemblyReference.cache
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_CreateRibbon\obj\Debug\00.DHHTools_CreateRibbon.csproj.CoreCompileInputs.cache
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_CreateRibbon\obj\Debug\00.DHHTools_CreateRibbon.csproj.CopyComplete
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_CreateRibbon\obj\Debug\00.CreateRibbon.dll
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_CreateRibbon\obj\Debug\00.CreateRibbon.pdb

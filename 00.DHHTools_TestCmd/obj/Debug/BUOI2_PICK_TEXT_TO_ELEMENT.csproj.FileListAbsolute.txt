@@ -1,0 +1,6 @@
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Training Solutions\Q'Apps_Revit API Training\BUOI2_PICK_TEXT_TO_ELEMENT\bin\Debug\BUOI2_PICK_TEXT_TO_ELEMENT.dll
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Training Solutions\Q'Apps_Revit API Training\BUOI2_PICK_TEXT_TO_ELEMENT\bin\Debug\BUOI2_PICK_TEXT_TO_ELEMENT.pdb
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Training Solutions\Q'Apps_Revit API Training\BUOI2_PICK_TEXT_TO_ELEMENT\obj\Debug\BUOI2_PICK_TEXT_TO_ELEMENT.csprojAssemblyReference.cache
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Training Solutions\Q'Apps_Revit API Training\BUOI2_PICK_TEXT_TO_ELEMENT\obj\Debug\BUOI2_PICK_TEXT_TO_ELEMENT.csproj.CoreCompileInputs.cache
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Training Solutions\Q'Apps_Revit API Training\BUOI2_PICK_TEXT_TO_ELEMENT\obj\Debug\BUOI2_PICK_TEXT_TO_ELEMENT.dll
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Training Solutions\Q'Apps_Revit API Training\BUOI2_PICK_TEXT_TO_ELEMENT\obj\Debug\BUOI2_PICK_TEXT_TO_ELEMENT.pdb

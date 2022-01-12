@@ -1,0 +1,9 @@
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Release\DHHTools_TestCmd.dll
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Release\DHHTools_TestCmd.pdb
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Release\DHHTools_Library.dll
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Release\DHHTools_Library.pdb
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Release\00.DHHTools_TestCmd.csproj.AssemblyReference.cache
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Release\00.DHHTools_TestCmd.csproj.CoreCompileInputs.cache
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Release\00.DHHTools_TestCmd.csproj.CopyComplete
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Release\DHHTools_TestCmd.dll
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Release\DHHTools_TestCmd.pdb

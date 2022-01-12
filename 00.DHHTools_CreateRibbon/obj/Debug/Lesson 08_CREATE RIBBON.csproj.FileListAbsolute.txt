@@ -1,0 +1,6 @@
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_08_CREATE RIBBON\bin\Debug\Lesson 08_CREATE RIBBON.dll
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_08_CREATE RIBBON\bin\Debug\Lesson 08_CREATE RIBBON.pdb
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_08_CREATE RIBBON\obj\Debug\Lesson 08_CREATE RIBBON.csproj.CoreCompileInputs.cache
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_08_CREATE RIBBON\obj\Debug\Lesson 08_CREATE RIBBON.dll
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_08_CREATE RIBBON\obj\Debug\Lesson 08_CREATE RIBBON.pdb
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Buoi_08_CREATE RIBBON\obj\Debug\Lesson 08_CREATE RIBBON.csprojAssemblyReference.cache

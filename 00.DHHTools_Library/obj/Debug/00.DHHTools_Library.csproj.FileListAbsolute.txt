@@ -1,0 +1,104 @@
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\DHHTools_Library.pdb
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csprojAssemblyReference.cache
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\ButtonStyle.baml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\CheckBoxStyle.baml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\ComboBoxStyle.baml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\DataGridStyle.baml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\GroupBoxStyle.baml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\ProgressBarStyle.baml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\RadiobuttonStyle.baml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\Styles.baml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\TextBoxStyle.baml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library_MarkupCompile.cache
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library_MarkupCompile.lref
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\TreeViewStyle.baml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library.g.resources
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.CoreCompileInputs.cache
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library.dll
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library.pdb
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\DHHTools_Library.dll
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\MaterialDesignColors.dll
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\MaterialDesignColors.pdb
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.CopyComplete
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\DHHTools_Library.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\DHHTools_Library.pdb
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\MaterialDesignColors.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\MaterialDesignColors.pdb
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.AssemblyReference.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\ButtonStyle.baml
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\CheckBoxStyle.baml
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\ComboBoxStyle.baml
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\DataGridStyle.baml
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\GroupBoxStyle.baml
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\ProgressBarStyle.baml
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\RadiobuttonStyle.baml
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\Styles.baml
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\TextBoxStyle.baml
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library_MarkupCompile.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library_MarkupCompile.lref
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\TreeViewStyle.baml
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library.g.resources
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.CoreCompileInputs.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.CopyComplete
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library.pdb
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\DHHTools_Library.dll
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\DHHTools_Library.pdb
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\MaterialDesignColors.dll
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\MaterialDesignColors.pdb
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.AssemblyReference.cache
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\ButtonStyle.baml
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\CheckBoxStyle.baml
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\ComboBoxStyle.baml
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\DataGridStyle.baml
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\GroupBoxStyle.baml
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\ProgressBarStyle.baml
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\RadiobuttonStyle.baml
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\Styles.baml
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\TextBoxStyle.baml
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library_MarkupCompile.cache
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library_MarkupCompile.lref
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\TreeViewStyle.baml
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library.g.resources
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.CoreCompileInputs.cache
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.CopyComplete
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library.dll
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library.pdb
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\DHHTools_Library.dll
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\DHHTools_Library.pdb
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\MaterialDesignColors.dll
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\MaterialDesignColors.pdb
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.AssemblyReference.cache
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\ButtonStyle.baml
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\CheckBoxStyle.baml
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\ComboBoxStyle.baml
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\DataGridStyle.baml
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\GroupBoxStyle.baml
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\ProgressBarStyle.baml
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\RadiobuttonStyle.baml
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\Styles.baml
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\TextBoxStyle.baml
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library_MarkupCompile.cache
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library_MarkupCompile.lref
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\WPF\Resource\TreeViewStyle.baml
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library.g.resources
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.CoreCompileInputs.cache
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.CopyComplete
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library.dll
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library.pdb

@@ -1,0 +1,41 @@
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\DHHTools_TestCmd.dll
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\DHHTools_TestCmd.pdb
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\DHHTools_Library.dll
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\DHHTools_Library.pdb
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Debug\00.DHHTools_TestCmd.csproj.CoreCompileInputs.cache
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Debug\00.DHHTools_TestCmd.csproj.CopyComplete
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Debug\DHHTools_TestCmd.dll
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Debug\DHHTools_TestCmd.pdb
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Debug\00.DHHTools_TestCmd.csprojAssemblyReference.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Debug\00.DHHTools_TestCmd.csproj.AssemblyReference.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Debug\00.DHHTools_TestCmd.csproj.CoreCompileInputs.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Debug\DHHTools_TestCmd.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Debug\DHHTools_TestCmd.pdb
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\DHHTools_TestCmd.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\DHHTools_TestCmd.pdb
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\DHHTools_Library.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\DHHTools_Library.pdb
+D:\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Debug\00.DHHTools_TestCmd.csproj.CopyComplete
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\DHHTools_TestCmd.dll
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\DHHTools_TestCmd.pdb
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\DHHTools_Library.dll
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\DHHTools_Library.pdb
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Debug\00.DHHTools_TestCmd.csproj.AssemblyReference.cache
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Debug\00.DHHTools_TestCmd.csproj.CoreCompileInputs.cache
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Debug\00.DHHTools_TestCmd.csproj.CopyComplete
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Debug\DHHTools_TestCmd.dll
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Debug\DHHTools_TestCmd.pdb
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\DHHTools_TestCmd.dll
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\DHHTools_TestCmd.pdb
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\DHHTools_Library.dll
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\DHHTools_Library.pdb
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Debug\00.DHHTools_TestCmd.csproj.AssemblyReference.cache
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Debug\00.DHHTools_TestCmd.csproj.CoreCompileInputs.cache
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Debug\00.DHHTools_TestCmd.csproj.CopyComplete
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Debug\DHHTools_TestCmd.dll
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\obj\Debug\DHHTools_TestCmd.pdb
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\DHHTools_TestCmd.tlb
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\RevitAPI.dll
+C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\RevitAPIUI.dll
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\RevitAPI.dll
+C:\Users\Ngoc Hien\OneDrive\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_TestCmd\bin\Debug\RevitAPIUI.dll

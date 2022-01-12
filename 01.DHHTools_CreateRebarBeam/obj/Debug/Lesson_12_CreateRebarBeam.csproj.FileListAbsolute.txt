@@ -1,0 +1,15 @@
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DangLeQuan\03.QApp_RevitAPI\Lesson_12_CreateRebarBeam\obj\Debug\Lesson_12_CreateRebarBeam.csprojAssemblyReference.cache
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DangLeQuan\03.QApp_RevitAPI\Lesson_12_CreateRebarBeam\obj\Debug\Lesson_12_CreateRebarBeamWindow.baml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DangLeQuan\03.QApp_RevitAPI\Lesson_12_CreateRebarBeam\obj\Debug\WPF\Resource\ButtonStyle.baml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DangLeQuan\03.QApp_RevitAPI\Lesson_12_CreateRebarBeam\obj\Debug\WPF\Resource\CheckBoxStyle.baml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DangLeQuan\03.QApp_RevitAPI\Lesson_12_CreateRebarBeam\obj\Debug\WPF\Resource\ComboBoxStyle.baml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DangLeQuan\03.QApp_RevitAPI\Lesson_12_CreateRebarBeam\obj\Debug\WPF\Resource\DataGridStyle.baml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DangLeQuan\03.QApp_RevitAPI\Lesson_12_CreateRebarBeam\obj\Debug\WPF\Resource\GroupBoxStyle.baml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DangLeQuan\03.QApp_RevitAPI\Lesson_12_CreateRebarBeam\obj\Debug\WPF\Resource\ProgressBarStyle.baml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DangLeQuan\03.QApp_RevitAPI\Lesson_12_CreateRebarBeam\obj\Debug\WPF\Resource\RadiobuttonStyle.baml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DangLeQuan\03.QApp_RevitAPI\Lesson_12_CreateRebarBeam\obj\Debug\WPF\Resource\Styles.baml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DangLeQuan\03.QApp_RevitAPI\Lesson_12_CreateRebarBeam\obj\Debug\WPF\Resource\TextBoxStyle.baml
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DangLeQuan\03.QApp_RevitAPI\Lesson_12_CreateRebarBeam\obj\Debug\Lesson_12_CreateRebarBeamWindow.g.cs
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DangLeQuan\03.QApp_RevitAPI\Lesson_12_CreateRebarBeam\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DangLeQuan\03.QApp_RevitAPI\Lesson_12_CreateRebarBeam\obj\Debug\Lesson_12_CreateRebarBeam_MarkupCompile.cache
+D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DangLeQuan\03.QApp_RevitAPI\Lesson_12_CreateRebarBeam\obj\Debug\Lesson_12_CreateRebarBeam_MarkupCompile.lref
