@@ -28,7 +28,6 @@
                 Height="35"
                 Margin="15,5,0,5"
                 HorizontalAlignment="Center"
-                Click="Btn_SelectFilter"
                 Content="Chọn cột"
                 FontSize="12"
                 FontWeight="Bold"
@@ -266,7 +265,6 @@
             Dock="Bottom"
             LastChildFill="True">
             <Button
-                Click="btnCancel_Click"
                 Content="Cancel"
                 DockPanel.Dock="Right"
                 IsCancel="True"
@@ -274,7 +272,6 @@
                 Style="{DynamicResource ButtonStyle}" />
             <Button
                 HorizontalAlignment="Right"
-                Click="btnOk_Click"
                 Content="OK"
                 Height ="32"
                 DockPanel.Dock="Right"
