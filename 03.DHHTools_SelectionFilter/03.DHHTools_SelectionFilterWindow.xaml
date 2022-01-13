@@ -16,266 +16,28 @@
     <Window.Resources>
         <ResourceDictionary Source="/DHHTools_Library;component/WPF/Resource/Styles.xaml" />
     </Window.Resources>
-    <StackPanel>
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100" />
-                <ColumnDefinition Width="400" />
-            </Grid.ColumnDefinitions>
-            <Button
-                Name="ButtonSlect"
-                Width="80"
-                Height="35"
-                Margin="15,5,0,5"
-                HorizontalAlignment="Center"
-                Content="Chọn cột"
-                FontSize="12"
-                FontWeight="Bold"
-                Style="{DynamicResource ButtonStyle}">
-            </Button>
-            <TextBox
-                Grid.Column="1"
-                Width="380"
-                Height="35"
-                Margin="0,5"
-                IsReadOnly="True"
-                Style="{DynamicResource TextBoxStyle}"
-                Text="{Binding ColumnInformation}"
-                TextChanged="OnContentChanged" />
-        </Grid>
-        <DockPanel
-            Height="20"
-            VerticalAlignment="Center"
-            Background="#00CCFF"
-            Dock="Bottom"
-            LastChildFill="True">
-            <TextBlock
-                Width="80"
-                Height="30"
-                Padding="6,6"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="12"
-                FontWeight="SemiBold"
-                Text="Thép chủ"
-                TextAlignment="Center" />
-        </DockPanel>
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="80" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250" />
-                <ColumnDefinition Width="250" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40" />
-                    <RowDefinition Height="40" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="130" />
-                    <ColumnDefinition Width="120" />
-                </Grid.ColumnDefinitions>
-                <TextBlock
-                    Padding="12,4,4,8"
-                    FontWeight="SemiBold"
-                    Text="Thép chủ"
-                    TextAlignment="Left" />
-                <ComboBox
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Width="100"
-                    Height="30"
-                    ItemsSource="{Binding allRebarTypeName, UpdateSourceTrigger=PropertyChanged}"
-                    SelectedItem="{Binding RebarTypeNameMain, UpdateSourceTrigger=PropertyChanged}"
-                    Style="{DynamicResource ComboBoxStyle}" />
-                <TextBlock
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Padding="12,4,4,8"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    FontWeight="SemiBold"
-                    Text="Hàm lượng thép (%)"
-                    TextAlignment="Left" />
-                <TextBox
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Width="109"
-                    Height="35"
-                    IsReadOnly="True"
-                    Style="{DynamicResource TextBoxStyle}"
-                    Text="{Binding HamLuongThep, UpdateSourceTrigger=PropertyChanged}" />
-            </Grid>
-            <Grid
-                Grid.Row="0"
-                Grid.Column="1"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40" />
-                    <RowDefinition Height="40" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120" />
-                    <ColumnDefinition Width="120" />
-                </Grid.ColumnDefinitions>
-                <TextBlock
-                    Width="120"
-                    Height="30"
-                    Margin="0,5,0,5"
-                    Padding="0,6,0,6"
-                    VerticalAlignment="Center"
-                    FontSize="12"
-                    FontWeight="SemiBold"
-                    Text="Số lượng thép cạnh h"
-                    TextAlignment="Left" />
-                <TextBox
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Width="100"
-                    Height="35"
-                    Style="{DynamicResource TextBoxStyle}"
-                    Text="{Binding SoluongH, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBlock
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Width="120"
-                    Height="30"
-                    Margin="0,5,0,5"
-                    Padding="0,6,0,6"
-                    VerticalAlignment="Center"
-                    FontSize="12"
-                    FontWeight="SemiBold"
-                    Text="Số lượng thép cạnh b"
-                    TextAlignment="Left" />
-                <TextBox
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Width="100"
-                    Height="35"
-                    Style="{DynamicResource TextBoxStyle}"
-                    Text="{Binding SoluongB, UpdateSourceTrigger=PropertyChanged}" />
-            </Grid>
-        </Grid>
-        <DockPanel
-            Height="20"
-            VerticalAlignment="Center"
-            Background="#00CCFF"
-            Dock="Bottom"
-            LastChildFill="True">
-            <TextBlock
-                Width="80"
-                Height="30"
-                Padding="6,6"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="12"
-                FontWeight="SemiBold"
-                Text="Thép đai"
-                TextAlignment="Center" />
-        </DockPanel>
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="140" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250" />
-                <ColumnDefinition Width="250" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="35" />
-                    <RowDefinition Height="35" />
-                    <RowDefinition Height="35" />
-                    <RowDefinition Height="35" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="130" />
-                    <ColumnDefinition Width="120" />
-                </Grid.ColumnDefinitions>
-                <TextBlock
-                    Padding="12,4,4,8"
-                    FontWeight="SemiBold"
-                    Text="Thép đai"
-                    TextAlignment="Left" />
-                <ComboBox
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Width="100"
-                    Height="25"
-                    ItemsSource="{Binding allRebarTypeName, UpdateSourceTrigger=PropertyChanged}"
-                    SelectedItem="{Binding RebarTypeNameStirrup, UpdateSourceTrigger=PropertyChanged}"
-                    Style="{DynamicResource ComboBoxStyle}" />
-                <TextBlock
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Padding="12,4,4,8"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    FontWeight="SemiBold"
-                    Text="L đai chân cột (mm)"
-                    TextAlignment="Left" />
-                <TextBox
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Width="110"
-                    Height="35"
-                    Text ="{Binding LChan}"
-                    Style="{DynamicResource TextBoxStyle}" />
-                <TextBlock
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    Padding="12,4,4,8"
-                    FontWeight="SemiBold"
-                    Text="L đai giữa cột (mm)"
-                    TextAlignment="Left" />
-                <TextBox
-                    Grid.Row="2"
-                    Grid.Column="1"
-                    Width="110"
-                    Height="35"
-                    Text ="{Binding LGiua}"
-                    Style="{DynamicResource TextBoxStyle}" />
-                <TextBlock
-                    Grid.Row="3"
-                    Grid.Column="0"
-                    Padding="12,4,4,8"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    FontWeight="SemiBold"
-                    Text="L đai đỉnh cột (mm)"
-                    TextAlignment="Left" />
-                <TextBox
-                    Grid.Row="3"
-                    Grid.Column="1"
-                    Width="110"
-                    Height="35"
-                    Text ="{Binding LDinh}"
-                    Style="{DynamicResource TextBoxStyle}" />
-            </Grid>
-
-        </Grid>
-        <DockPanel
-            Height="40"
+    <DockPanel
             VerticalAlignment="Bottom"
             Dock="Bottom"
             LastChildFill="True">
-            <Button
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+            </Grid.ColumnDefinitions>
+         
+        </Grid>
+        <Button
                 Content="Cancel"
                 DockPanel.Dock="Right"
                 IsCancel="True"
                 Height ="32"
                 Style="{DynamicResource ButtonStyle}" />
-            <Button
+        <Button
                 HorizontalAlignment="Right"
                 Content="OK"
                 Height ="32"
                 DockPanel.Dock="Right"
                 Style="{DynamicResource ButtonStyle}" />
-        </DockPanel>
-    </StackPanel>
+     </DockPanel>
+
 </Window>
