@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Name="MainWindow"
     Title="Filter Selection"
-    Width="600"
+    Width="500"
     Height="600"
     ShowInTaskbar="True"
     Topmost="False"
