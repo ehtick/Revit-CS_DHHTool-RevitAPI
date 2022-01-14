@@ -16,28 +16,27 @@
     <Window.Resources>
         <ResourceDictionary Source="/DHHTools_Library;component/WPF/Resource/Styles.xaml" />
     </Window.Resources>
-    <DockPanel
-            VerticalAlignment="Bottom"
-            Dock="Bottom"
-            LastChildFill="True">
+    <DockPanel LastChildFill="True">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
-         
         </Grid>
-        <Button
+        <Grid DockPanel.Dock="Bottom">
+            <Button
+                HorizontalAlignment="Right"
                 Content="Cancel"
                 DockPanel.Dock="Right"
                 IsCancel="True"
                 Height ="32"
                 Style="{DynamicResource ButtonStyle}" />
-        <Button
-                HorizontalAlignment="Right"
+            <Button
                 Content="OK"
                 Height ="32"
                 DockPanel.Dock="Right"
                 Style="{DynamicResource ButtonStyle}" />
+        </Grid>
+
      </DockPanel>
 
 </Window>
