@@ -36,7 +36,7 @@
                 DockPanel.Dock="Right"
                 Style="{DynamicResource ButtonStyle}" />
         </Grid>
-
+        <Grid></Grid>
      </DockPanel>
 
 </Window>
