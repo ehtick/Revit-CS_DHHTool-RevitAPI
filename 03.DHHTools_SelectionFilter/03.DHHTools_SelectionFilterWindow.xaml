@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Name="MainWindow"
     Title="Filter Selection"
+    ResizeMode="CanResize"
     Width="500"
     Height="600"
     ShowInTaskbar="True"
@@ -17,26 +18,38 @@
         <ResourceDictionary Source="/DHHTools_Library;component/WPF/Resource/Styles.xaml" />
     </Window.Resources>
     <DockPanel LastChildFill="True">
-        <Grid>
+        <Grid DockPanel.Dock="Top">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+
         </Grid>
-        <Grid DockPanel.Dock="Bottom">
-            <Button
-                HorizontalAlignment="Right"
-                Content="Cancel"
-                DockPanel.Dock="Right"
-                IsCancel="True"
-                Height ="32"
-                Style="{DynamicResource ButtonStyle}" />
-            <Button
-                Content="OK"
-                Height ="32"
-                DockPanel.Dock="Right"
-                Style="{DynamicResource ButtonStyle}" />
+        <Grid 
+            DockPanel.Dock="Bottom"
+            Height="50"
+            VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="220"/>
+            </Grid.ColumnDefinitions>
+            <DockPanel LastChildFill="True"
+                Grid.Column="1"
+                Width="220"
+                HorizontalAlignment="Right">
+                <Button
+                    HorizontalAlignment="Right"
+                    Content="Cancel"
+                    DockPanel.Dock="Right"
+                    IsCancel="True"
+                    Height ="32"
+                    Style="{DynamicResource ButtonStyle}" />
+                <Button
+                    Content="OK"
+                    Height ="32"
+                    DockPanel.Dock="Right"
+                    Style="{DynamicResource ButtonStyle}" />
+            </DockPanel>
         </Grid>
-        <Grid></Grid>
-     </DockPanel>
+    </DockPanel>
 
 </Window>
