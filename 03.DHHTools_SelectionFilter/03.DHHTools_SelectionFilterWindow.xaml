@@ -18,38 +18,31 @@
     <Window.Resources>
         <ResourceDictionary Source="/DHHTools_Library;component/WPF/Resource/Styles.xaml" />
     </Window.Resources>
-    <DockPanel LastChildFill="True">
-        <Grid DockPanel.Dock="Top">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <DockPanel LastChildFill="True">
-                <TreeView 
-                    ItemsSource="{Binding AllViewsExtension}"
-                    dhhTools:CustomTreeView.SelectedItems
-                    ="{Binding SelectedViewsExtension}"
-                    dhhTools:CustomTreeView.EnableMultiSelect="True"
-                    ItemContainerStyle="{DynamicResource TreeViewStyle}">
-                    <TreeView.ItemTemplate>
-                        <HierarchicalDataTemplate DataType="dhhTools:ViewExtension"
-                                                  ItemsSource="{Binding ViewItems}">
-                            <StackPanel Orientation="Horizontal"
-                                        Height="20">
-                                <CheckBox Style="{DynamicResource CheckBoxStyle}"
-                                      IsChecked="{Binding IsSelected}" />
-                                <TextBlock Text="{Binding Name}"
-                                           VerticalAlignment="Center" />
-                            </StackPanel>
-
-                        </HierarchicalDataTemplate>
-                    </TreeView.ItemTemplate>
-                </TreeView>
-            </DockPanel>
-        </Grid>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <TreeView ItemsSource="{Binding AllViewsExtension}"
+                  dhhTools:CustomTreeView.SelectedItems
+                  ="{Binding SelectedViewsExtension}"
+                  dhhTools:CustomTreeView.EnableMultiSelect="True"
+                  ItemContainerStyle="{DynamicResource TreeViewStyle}">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate DataType="dhhTools:ViewExtension"
+                                          ItemsSource="{Binding ViewItems}">
+                    <StackPanel Orientation="Horizontal"
+                                Height="20">
+                        <CheckBox Style="{DynamicResource CheckBoxStyle}"
+                                  IsChecked="{Binding IsSelected}" />
+                        <TextBlock Text="{Binding Name}"
+                                   VerticalAlignment="Center" />
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
         <Grid 
+            Grid.Row="1"
             DockPanel.Dock="Bottom"
             Height="50"
             VerticalAlignment="Bottom">
@@ -58,41 +51,42 @@
                 <ColumnDefinition Width="220"/>
             </Grid.ColumnDefinitions>
             <DockPanel
-                Grid.Column="0"
-                HorizontalAlignment="Left">
+            Grid.Column="0"
+            HorizontalAlignment="Left">
                 <RadioButton 
-                    Content="Entire Project"
-                    GroupName="ScopeExcute"
-                    Style="{StaticResource RadioButtonStyle}"
-                    IsChecked="{Binding IsEntireProject}" />
+                Content="Entire Project"
+                GroupName="ScopeExcute"
+                Style="{StaticResource RadioButtonStyle}"
+                IsChecked="{Binding IsEntireProject}" />
                 <RadioButton 
-                    Content="Current Selection"
-                    GroupName="ScopeExcute"
-                    Style="{StaticResource RadioButtonStyle}"
-                    IsChecked="{Binding IsCurrentSelection}" />
+                Content="Current Selection"
+                GroupName="ScopeExcute"
+                Style="{StaticResource RadioButtonStyle}"
+                IsChecked="{Binding IsCurrentSelection}" />
                 <RadioButton 
-                    Content="Current Selection"
-                    GroupName="ScopeExcute"
-                    Style="{StaticResource RadioButtonStyle}"
-                    IsChecked="{Binding IsCurrentSelection}" />
+                Content="Current Selection"
+                GroupName="ScopeExcute"
+                Style="{StaticResource RadioButtonStyle}"
+                IsChecked="{Binding IsCurrentSelection}" />
             </DockPanel>
             <DockPanel LastChildFill="True"
-                Grid.Column="1"
-                Width="220"
-                HorizontalAlignment="Right">
+            Grid.Column="1"
+            Width="220"
+            HorizontalAlignment="Right">
                 <Button
-                    HorizontalAlignment="Right"
-                    Content="Cancel"
-                    DockPanel.Dock="Right"
-                    IsCancel="True"
-                    Height ="32"
-                    Style="{DynamicResource ButtonStyle}" />
+                HorizontalAlignment="Right"
+                Content="Cancel"
+                DockPanel.Dock="Right"
+                IsCancel="True"
+                Height ="32"
+                Style="{DynamicResource ButtonStyle}" />
                 <Button
-                    Content="OK"
-                    Height ="32"
-                    DockPanel.Dock="Right"
-                    Style="{DynamicResource ButtonStyle}" />
+                Content="OK"
+                Height ="32"
+                DockPanel.Dock="Right"
+                Style="{DynamicResource ButtonStyle}" />
             </DockPanel>
         </Grid>
-    </DockPanel>
+    </Grid>
+    
 </Window>
