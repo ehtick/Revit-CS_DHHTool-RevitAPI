@@ -13,7 +13,7 @@
     ShowInTaskbar="True"
     Topmost="False"
     WindowStartupLocation="CenterScreen"
-    mc:Ignorable="d" Background="White" WindowStyle="ThreeDBorderWindow" d:DesignWidth="600" d:DesignHeight="600">
+    mc:Ignorable="d" Background="White" WindowStyle="ThreeDBorderWindow" d:DesignWidth="600" d:DesignHeight="762">
 
     <Window.Resources>
         <ResourceDictionary Source="/DHHTools_Library;component/WPF/Resource/Styles.xaml" />
