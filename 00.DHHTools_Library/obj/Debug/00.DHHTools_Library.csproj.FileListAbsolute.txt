@@ -102,3 +102,17 @@ C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Li
 C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.CopyComplete
 C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library.dll
 C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\00.DHHTools_Library\obj\Debug\DHHTools_Library.pdb
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.AssemblyReference.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\WPF\Resource\ButtonStyle.baml
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\WPF\Resource\ComboBoxStyle.baml
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\WPF\Resource\DataGridStyle.baml
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\WPF\Resource\GroupBoxStyle.baml
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\WPF\Resource\ProgressBarStyle.baml
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\WPF\Resource\RadiobuttonStyle.baml
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\WPF\Resource\Styles.baml
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\WPF\Resource\TextBoxStyle.baml
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\DHHTools_Library_MarkupCompile.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\DHHTools_Library_MarkupCompile.lref
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\DHHTools_Library.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\DHHTools_Library.pdb
