@@ -35,7 +35,7 @@ namespace DHHTools
             set
             {
                 _isEntireProject = value;
-                UpdateAllElementSelection();
+                //UpdateAllElementSelection();
             }
         }
         public bool IsCurrentSelection
@@ -44,7 +44,7 @@ namespace DHHTools
             set
             {
                 _isCurrentSelection = value;
-                UpdateAllElementSelection();
+                //UpdateAllElementSelection();
             }
         }
         #endregion
