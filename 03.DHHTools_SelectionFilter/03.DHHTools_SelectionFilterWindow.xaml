@@ -23,14 +23,14 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <TreeView ItemsSource="{Binding AllObjectSelection}"
+        <TreeView ItemsSource="{Binding AllElementSelection}"
                   dhhTools:CustomTreeView.SelectedItems
-                  ="{Binding SelectedObjectExtension}"
+                  ="{Binding SelectedElementExtension}"
                   dhhTools:CustomTreeView.EnableMultiSelect="True"
                   ItemContainerStyle="{DynamicResource TreeViewStyle}">
             <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate DataType="dhhTools:ViewExtension"
-                                          ItemsSource="{Binding ViewItems}">
+                <HierarchicalDataTemplate DataType="dhhTools:ElementExtension"
+                                          ItemsSource="{Binding Category}">
                     <StackPanel Orientation="Horizontal"
                                 Height="20">
                         <CheckBox Style="{DynamicResource CheckBoxStyle}"

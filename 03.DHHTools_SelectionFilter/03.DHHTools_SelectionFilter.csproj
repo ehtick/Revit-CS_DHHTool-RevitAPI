@@ -58,10 +58,7 @@
     <Compile Include="03.DHHTools_SelectionFilterWindow.xaml.cs">
       <DependentUpon>03.DHHTools_SelectionFilterWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lib\FamilySymbolUtils.cs" />
-    <Compile Include="Lib\GeneralUtils.cs" />
-    <Compile Include="Lib\LineSelectionFilter.cs" />
-    <Compile Include="Lib\ParameterUtils.cs" />
+    <Compile Include="Lib\ElementExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

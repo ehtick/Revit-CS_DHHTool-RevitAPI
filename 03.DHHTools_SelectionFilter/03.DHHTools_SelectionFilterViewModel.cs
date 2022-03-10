@@ -5,6 +5,7 @@ using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using Application = Autodesk.Revit.ApplicationServices.Application;
 using Curve = Autodesk.Revit.DB.Curve;
@@ -47,6 +48,8 @@ namespace DHHTools
             }
         }
         #endregion
+        public ObservableCollection<ElementExtension> AllElementSelection { get; set; }
+            = new ObservableCollection<ElementExtension>();
         #region 03. View Model
         public SelectionFilterViewModel(ExternalCommandData commandData)
         {
