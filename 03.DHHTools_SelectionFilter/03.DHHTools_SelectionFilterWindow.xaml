@@ -1,11 +1,10 @@
 ﻿<Window
-    x:Class="DHHTools.RebarColumnWindow"
+    x:Class="DHHTools.SelectionFillterWindow, SelectionFilter"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:dhhTools="clr-namespace:DHHTools;assembly=DHHTools_Library"
-    x:Name="MainWindow"
     Title="Filter Selection"
     ResizeMode="CanResize"
     MinWidth="500"

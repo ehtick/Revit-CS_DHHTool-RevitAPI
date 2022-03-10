@@ -58,7 +58,6 @@
     <Compile Include="03.DHHTools_SelectionFilterWindow.xaml.cs">
       <DependentUpon>03.DHHTools_SelectionFilterWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lib\ElementExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +71,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Lib\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

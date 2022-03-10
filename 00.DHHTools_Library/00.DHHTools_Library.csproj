@@ -66,6 +66,7 @@
     <Compile Include="DhhGeometryUtils.cs" />
     <Compile Include="DhhElementUtils.cs" />
     <Compile Include="DhhUnitUtils.cs" />
+    <Compile Include="ElementExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewExtension.cs" />
     <Compile Include="WPF\CustomControls\CustomDataGrid.cs" />
