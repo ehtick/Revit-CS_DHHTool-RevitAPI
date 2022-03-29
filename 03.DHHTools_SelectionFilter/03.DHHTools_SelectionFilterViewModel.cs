@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Documents;
 using Application = Autodesk.Revit.ApplicationServices.Application;
 using Curve = Autodesk.Revit.DB.Curve;
 using PlanarFace = Autodesk.Revit.DB.PlanarFace;
@@ -17,6 +18,7 @@ namespace DHHTools
 {
     public class SelectionFilterViewModel : ViewModelBase
     {
+
         #region 01. Private Property
         protected internal ExternalEvent ExEvent;
         private UIApplication uiapp;
@@ -47,20 +49,41 @@ namespace DHHTools
                 //UpdateAllElementSelection();
             }
         }
-        #endregion
         public ObservableCollection<ElementExtension> AllElementSelection { get; set; }
             = new ObservableCollection<ElementExtension>();
+        public List<Element> SeElements = new List<Element>();
+        #endregion
         #region 03. View Model
         public SelectionFilterViewModel(ExternalCommandData commandData)
         {
+            // Lưu trữ data từ Revit vào 2 Field Doc, UiDoc
             uiapp = commandData.Application;
             uidoc = uiapp.ActiveUIDocument;
             app = uiapp.Application;
             doc = uidoc.Document;
             UiDoc = uidoc;
             Doc = UiDoc.Document;
-
+            //Khởi tạo data cho WPF
+            if (UiDoc.Selection.GetElementIds().Count>0)
+            {
+                List<ElementId> elementIds = UiDoc.Selection.GetElementIds().ToList();
+                foreach (var elementId in elementIds)
+                {
+                    Element e = doc.GetElement(elementId);
+                    SeElements.Add(e);
+                }
+            }
+            if (!SeElements.Any())
+            {
+                IsEntireProject = true;
+            }
+            else
+            {
+                IsCurrentSelection = true;
+            }
         }
+
+
         #endregion
     }
 }

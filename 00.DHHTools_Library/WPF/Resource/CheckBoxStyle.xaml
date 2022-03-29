@@ -144,7 +144,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <EventSetter Event="Checked" Handler="TreeView_OnChecked" />
     </Style>
 
 </ResourceDictionary>

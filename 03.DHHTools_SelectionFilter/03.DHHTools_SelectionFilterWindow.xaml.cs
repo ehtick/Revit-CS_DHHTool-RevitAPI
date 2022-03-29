@@ -21,7 +21,6 @@ namespace DHHTools
         public UIDocument UiDoc;
         public Document Doc;
         public Element ColumnElement;
-        public SelectionFilterHandler eventHandler;
         public ExternalEvent MyExternalEvent;
 
         public SelectionFilterWindow(SelectionFilterViewModel viewModel)
@@ -30,8 +29,7 @@ namespace DHHTools
             _viewModel = viewModel;
             DataContext = _viewModel;
             Doc = _viewModel.Doc;
-            eventHandler = new SelectionFilterHandler();
-            MyExternalEvent = ExternalEvent.Create(eventHandler);
+
             //Icon = _dhhConstraint.IconWindow;
         }
 
@@ -43,7 +41,6 @@ namespace DHHTools
         public void Btn_SelectFilter(object sender, RoutedEventArgs e)
         {
             Hide();
-            _viewModel.SelectElementBtn();
             Show();
         }
 
@@ -56,7 +53,6 @@ namespace DHHTools
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            eventHandler.ViewModel = _viewModel;
             MyExternalEvent.Raise();
         }
     }

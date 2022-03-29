@@ -53,7 +53,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="03.DHHTools_SelectionFilterCmd.cs" />
-    <Compile Include="03.DHHTools_SelectionFilterHandler.cs" />
     <Compile Include="03.DHHTools_SelectionFilterViewModel.cs" />
     <Compile Include="03.DHHTools_SelectionFilterWindow.xaml.cs">
       <DependentUpon>03.DHHTools_SelectionFilterWindow.xaml</DependentUpon>
