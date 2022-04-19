@@ -16,6 +16,7 @@ namespace DHHTools
         public Element Element { get; set; }
         public string Name { get; set; }
         public string Category { get; set; }
+        public ObservableCollection<ElementExtension> ElementItems { get; set; }
         public bool IsSelected
         {
             get => _isSelected;
@@ -25,13 +26,18 @@ namespace DHHTools
                 OnPropertyChanged();
             }
         }
-
         public ElementExtension(Element e)
         {
             Element = e;
             Name = e.Name;
             Category = e.Category.Name;
-            IsSelected = true;
+            IsSelected = false;
+        }
+        public ElementExtension(string name)
+        {
+            ElementItems = new ObservableCollection<ElementExtension>();
+            Name = name;
+            IsSelected = false;
         }
     }
 }

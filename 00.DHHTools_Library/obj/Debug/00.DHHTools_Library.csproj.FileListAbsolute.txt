@@ -142,3 +142,15 @@ D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Librar
 D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\DHHTools_Library.g.resources
 D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.CoreCompileInputs.cache
 D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.CopyComplete
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\bin\Debug\DHHTools_Library.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\bin\Debug\DHHTools_Library.pdb
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\bin\Debug\MaterialDesignColors.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\bin\Debug\MaterialDesignColors.pdb
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\WPF\Resource\CheckBoxStyle.baml
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\WPF\Resource\TreeViewStyle.baml
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\DHHTools_Library.g.resources
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.CoreCompileInputs.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.CopyComplete

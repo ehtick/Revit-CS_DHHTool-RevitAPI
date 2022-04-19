@@ -9,22 +9,8 @@ using View = Autodesk.Revit.DB.View;
 
 namespace DHHTools
 {
-    public static class ViewUtils
+    public static class ElementUtils
     {
-        /// <summary>
-        /// Lấy về tất cả các Views có trong document
-        /// </summary>
-        /// <param name="doc"></param>
-        /// <returns></returns>
-        public static List<View> GetAllViews(this Document doc)
-        {
-            return new FilteredElementCollector(doc)
-                .OfCategory(BuiltInCategory.OST_Views)
-                .Cast<View>()
-                .Where(view => !view.IsTemplate)
-                .ToList();
-        }
-
         /// <summary>
         /// Lấy về tất cả ViewType của các View có trên doc hoặc của selectedViews nếu isCurentSelected = true
         /// </summary>
@@ -32,62 +18,57 @@ namespace DHHTools
         /// <param name="iscurentSelected"></param>
         /// <param name="selectedViews"></param>
         /// <returns></returns>
-        public static List<ViewType> GetAllViewsType(Document doc, bool iscurentSelected,List<View> selectedViews)
+        public static List<Category> GetAllCategory(Document doc, bool iscurentSelected, List<Element> selectedElements)
         {
-            List<ViewType> viewTypes;
-
+            List<Category> listCategories = new List<Category>();
+            List<Element> listElements;
             if (iscurentSelected)
             {
-                viewTypes = selectedViews
-                    .Where(view => !view.IsTemplate)
-                    .Select(view => view.ViewType)
-                    .ToList();
+                foreach (Element selectedElement in selectedElements)
+                {
+                    listCategories.Add(selectedElement.Category);
+                }
             }
             else
             {
-                viewTypes = new FilteredElementCollector(doc)
-                    .OfCategory(BuiltInCategory.OST_Views)
-                    .Cast<View>()
-                    .Where(view => !view.IsTemplate)
-                    .Select(view => view.ViewType)
-                    .ToList();
+                listElements = new FilteredElementCollector(doc)
+                            .WhereElementIsNotElementType()
+                            .Cast<Element>()
+                            .ToList();
+                foreach (Element eElement in listElements)
+                {
+                    listCategories.Add(eElement.Category);
+                }
             }
-            viewTypes =
-                viewTypes.Distinct(new EqualityComparer()).ToList();
-            viewTypes.Sort(new QAppsComparerName());
-            return viewTypes;
+            listCategories.Distinct();
+            listCategories.Sort();
+            return listCategories ;
         }
-
-        /// <summary>
-        /// Lấy về tất cả View có Type là viewType trong doc hoặc trong selectedViews nếu iscurentSelected = true
-        /// </summary>
-        /// <param name="doc"></param>
-        /// <param name="viewType"></param>
-        /// <param name="iscurentSelected"></param>
-        /// <param name="selectedViews"></param>
-        /// <returns></returns>
-        public static List<View> GetAllViewsWithViewType(Document doc,ViewType viewType,bool iscurentSelected,List<View> selectedViews)
+        public static List<string> GetAllCategoryWithName(Document doc, bool iscurentSelected, List<Element> selectedElements)
         {
-            List<View> resultViews;
-
+            List<string> listnameCategories = new List<string>();
+            List<Element> listElements;
             if (iscurentSelected)
             {
-                resultViews = selectedViews
-                        .Where(view => view.ViewType.ToString()
-                        .Equals(viewType.ToString()))
-                        .ToList();
+                foreach (Element selectedElement in selectedElements)
+                {
+                    listnameCategories.Add(selectedElement.Category.Name);
+                }
             }
             else
             {
-                resultViews = doc.GetAllViews()
-                                    .Where(view => view.ViewType.ToString()
-                                    .Equals(viewType.ToString()))
-                                    .ToList();
-
+                listElements = new FilteredElementCollector(doc)
+                            .WhereElementIsNotElementType()
+                            .Cast<Element>()
+                            .ToList();
+                foreach (Element eElement in listElements)
+                {
+                    listnameCategories.Add(eElement.Category.Name);
+                }
             }
-
-            resultViews.Sort(new QAppsComparerName());
-            return resultViews;
+            listnameCategories.Distinct();
+            listnameCategories.Sort();
+            return listnameCategories;
         }
     }
 }

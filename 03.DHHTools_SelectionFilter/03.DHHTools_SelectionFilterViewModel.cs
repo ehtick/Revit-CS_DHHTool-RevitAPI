@@ -53,7 +53,7 @@ namespace DHHTools
             = new ObservableCollection<ElementExtension>();
         public List<Element> SeElements = new List<Element>();
         #endregion
-        #region 03. View Model
+                #region 03. View Model
         public SelectionFilterViewModel(ExternalCommandData commandData)
         {
             // Lưu trữ data từ Revit vào 2 Field Doc, UiDoc
@@ -82,9 +82,39 @@ namespace DHHTools
                 IsCurrentSelection = true;
             }
         }
-
-
         #endregion
+        private void UpdateAllViewsExtensions()
+        {
+            ElementExtension level1 = new ElementExtension("All");
+
+            List<ViewType> viewTypes = ViewUtils.GetAllViewsType(Doc,IsCurrentSelection, SelectedViews);
+
+            //foreach (ViewType viewType in viewTypes)
+            //{
+            //    List<View> allViewsWithViewType
+            //        = ViewUtils.GetAllViewsWithViewType(Doc,
+            //            viewType,
+            //            IsCurrentSelection, SelectedViews);
+
+            //    if (!allViewsWithViewType.Any()) continue;
+
+            //    ViewExtension level2 = new ViewExtension(viewType);
+
+            //    level1.ViewItems.Add(level2);
+
+            //    foreach (var view in allViewsWithViewType)
+            //    {
+            //        ViewExtension level3
+            //            = new ViewExtension(view);
+            //        level2.ViewItems.Add(level3);
+            //    }
+            //}
+
+            //AllViewsExtension = new ObservableCollection<ViewExtension>();
+            //AllViewsExtension.Add(level1);
+
+            //OnPropertyChanged("AllViewsExtension");
+        }
     }
 }
 

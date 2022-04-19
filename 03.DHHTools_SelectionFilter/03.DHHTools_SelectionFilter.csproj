@@ -57,7 +57,6 @@
     <Compile Include="03.DHHTools_SelectionFilterWindow.xaml.cs">
       <DependentUpon>03.DHHTools_SelectionFilterWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Library\ElementExtension.cs" />
     <Compile Include="Library\ElementUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
