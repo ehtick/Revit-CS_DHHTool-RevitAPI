@@ -33,7 +33,6 @@ namespace DHHTools
             {
                 listElements = new FilteredElementCollector(doc)
                             .WhereElementIsNotElementType()
-                            .Cast<Element>()
                             .ToList();
                 foreach (Element eElement in listElements)
                 {
@@ -47,7 +46,6 @@ namespace DHHTools
         public static List<string> GetAllCategoryWithName(Document doc, bool iscurentSelected, List<Element> selectedElements)
         {
             List<string> listnameCategories = new List<string>();
-            List<Element> listElements;
             if (iscurentSelected)
             {
                 foreach (Element selectedElement in selectedElements)
@@ -57,10 +55,9 @@ namespace DHHTools
             }
             else
             {
-                listElements = new FilteredElementCollector(doc)
-                            .WhereElementIsNotElementType()
-                            .Cast<Element>()
-                            .ToList();
+                List<Element> listElements = new FilteredElementCollector(doc)
+                    .WhereElementIsNotElementType()
+                    .ToList();
                 foreach (Element eElement in listElements)
                 {
                     listnameCategories.Add(eElement.Category.Name);
