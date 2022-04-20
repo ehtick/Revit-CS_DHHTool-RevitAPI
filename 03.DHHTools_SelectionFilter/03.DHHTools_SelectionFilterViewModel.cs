@@ -83,11 +83,10 @@ namespace DHHTools
             }
         }
         #endregion
-        private void UpdateAllViewsExtensions()
+        public void UpdateAllElementExtensions()
         {
             ElementExtension level1 = new ElementExtension("All");
-
-            List<ViewType> viewTypes = ViewUtils.GetAllViewsType(Doc,IsCurrentSelection, SelectedViews);
+            List<Category> categories = ElementUtils.GetAllCategory(Doc, IsCurrentSelection, SeElements);
 
             //foreach (ViewType viewType in viewTypes)
             //{
