@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Autodesk.Revit.DB;
-using Autodesk.Revit.UI;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.UI.Selection;
 #endregion
@@ -36,7 +35,7 @@ namespace DHHTools
                 {
                     if (ebeamDetail.Name == "ICIC_KC_ThepDamV2")
                     {
-
+                        //List<Line> curvesb = new List<Line>();
                         //List<Line> curvesb = new List<Line>();
                         //List<Line> curvesh = new List<Line>();
                         //ReferenceArray bRa = new ReferenceArray();
@@ -50,7 +49,6 @@ namespace DHHTools
                         //if (eLp != null)
                         FamilySymbol familySymbol = ebeamDetail as FamilySymbol;
                         XYZ originPoint = new XYZ(0, 0, 0);
-                         
                         using (Transaction trans2 = new Transaction(doc, "Dim Detail Beam"))
                         {
                             trans2.Start();
