@@ -43,3 +43,18 @@ C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\02.DHHTools_Cr
 C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\02.DHHTools_CreateRebarColumn\obj\Debug\02.DHHTools_CreateRebarColumn.csproj.CopyComplete
 C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\02.DHHTools_CreateRebarColumn\obj\Debug\CreateRebarColumn.dll
 C:\OneDrive\Project\DHH_Programming\C-Sharp_DHHTools-DinhHoangHoa\02.DHHTools_CreateRebarColumn\obj\Debug\CreateRebarColumn.pdb
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02.DHHTools_CreateRebarColumn\bin\Debug\CreateRebarColumn.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02.DHHTools_CreateRebarColumn\bin\Debug\CreateRebarColumn.pdb
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02.DHHTools_CreateRebarColumn\bin\Debug\DHHTools_Library.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02.DHHTools_CreateRebarColumn\bin\Debug\RevitAPI.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02.DHHTools_CreateRebarColumn\bin\Debug\RevitAPIUI.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02.DHHTools_CreateRebarColumn\bin\Debug\DHHTools_Library.pdb
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02.DHHTools_CreateRebarColumn\obj\Debug\02.DHHTools_CreateRebarColumn.csproj.AssemblyReference.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02.DHHTools_CreateRebarColumn\obj\Debug\02.DHHTools_CreateRebarColumnWindow.baml
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02.DHHTools_CreateRebarColumn\obj\Debug\02.DHHTools_CreateRebarColumnWindow.g.cs
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02.DHHTools_CreateRebarColumn\obj\Debug\CreateRebarColumn_MarkupCompile.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02.DHHTools_CreateRebarColumn\obj\Debug\CreateRebarColumn.g.resources
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02.DHHTools_CreateRebarColumn\obj\Debug\02.DHHTools_CreateRebarColumn.csproj.CoreCompileInputs.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02.DHHTools_CreateRebarColumn\obj\Debug\02.DHHTools_CreateRebarColumn.csproj.CopyComplete
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02.DHHTools_CreateRebarColumn\obj\Debug\CreateRebarColumn.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02.DHHTools_CreateRebarColumn\obj\Debug\CreateRebarColumn.pdb
