@@ -24,41 +24,31 @@ namespace DHHTools
             List<Element> listElements = new List<Element>();
             List<string> str = new List<string>();
             List<string> strSection = new List<string>();
-            IList<Element> beamDetail = new FilteredClassCollector(doc, doc.ActiveView.Id)
-                .WhereElementIsElementType()
-                .ToList();
-            using (TransactionGroup transGr = new TransactionGroup(doc))
-            {
-                transGr.Start("Detail Beam 2D");
-                foreach (var ebeamDetail in beamDetail)
-                {
-                    if (ebeamDetail.Name == "ICIC_KC_ThepDamV2")
-                    {
-                        //List<Line> curvesb = new List<Line>();
-                        //List<Line> curvesb = new List<Line>();
-                        //List<Line> curvesh = new List<Line>();
-                        //ReferenceArray bRa = new ReferenceArray();
-                        //ReferenceArray hRa = new ReferenceArray();
-                        //listElements.Add(ebeamDetail);
-                        //Parameter bPara = ebeamDetail.LookupParameter("b");
-                        //Parameter hPara = ebeamDetail.LookupParameter("h");
-                        //double b = Math.Round(DhhUnitUtils.FeetToMm(bPara.AsDouble()));
-                        //double h = Math.Round(DhhUnitUtils.FeetToMm(hPara.AsDouble()));
-                        //LocationPoint eLp = ebeamDetail.Location as LocationPoint;
-                        //if (eLp != null)
-                        FamilySymbol familySymbol = ebeamDetail as FamilySymbol;
-                        XYZ originPoint = new XYZ(0, 0, 0);
-                        using (Transaction trans2 = new Transaction(doc, "Dim Detail Beam"))
-                        {
-                            trans2.Start();
-                            doc.Create.NewFamilyInstance(originPoint, familySymbol, doc.ActiveView);
-                            trans2.Commit();
-                        }
+            FamilySymbol detailitemSymbol = new FilteredElementCollector(doc)
+                .Cast<FamilySymbol>()
+                .Where(sym => sym.Category.Name.Equals("Detail Items"))
+                .FirstOrDefault(s => s.Name.Equals("ICIC_KC_ThepDamV2"));
+            XYZ originPoint = new XYZ(0, 0, 0);
 
-                    }
+            XYZ originPoint2 = new XYZ(0, 0, 0);
+            using (Transaction trans2 = new Transaction(doc, "Create Detail Beam"))
+                {
+                    trans2.Start();
+                    doc.Create.NewFamilyInstance(originPoint, detailitemSymbol, doc.ActiveView);
+                    trans2.Commit();
                 }
-                transGr.Assimilate();
-            }
+                //List<Line> curvesb = new List<Line>();
+                //List<Line> curvesb = new List<Line>();
+                //List<Line> curvesh = new List<Line>();
+                //ReferenceArray bRa = new ReferenceArray();
+                //ReferenceArray hRa = new ReferenceArray();
+                //listElements.Add(ebeamDetail);
+                //Parameter bPara = ebeamDetail.LookupParameter("b");
+                //Parameter hPara = ebeamDetail.LookupParameter("h");
+                //double b = Math.Round(DhhUnitUtils.FeetToMm(bPara.AsDouble()));
+                //double h = Math.Round(DhhUnitUtils.FeetToMm(hPara.AsDouble()));
+                //LocationPoint eLp = ebeamDetail.Location as LocationPoint;
+                //if (eLp != null)
             return Result.Succeeded;
         }
     }

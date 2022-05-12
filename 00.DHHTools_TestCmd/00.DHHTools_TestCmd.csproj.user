@@ -5,4 +5,22 @@
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
     <StartWorkingDirectory>D:\JOB\DESIGN\2021\57 - NX_PhinNestle_ICIC\FILE REVIT\02A. WAREHOUSE\</StartWorkingDirectory>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <StartProgram>C:\Program Files\Autodesk\Revit 2020\Revit.exe</StartProgram>
+    <StartWorkingDirectory>D:\JOB\DESIGN\2021\57 - NX_PhinNestle_ICIC\FILE REVIT\02A. WAREHOUSE\</StartWorkingDirectory>
+    <StartAction>Program</StartAction>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <StartProgram>C:\Program Files\Autodesk\Revit 2020\Revit.exe</StartProgram>
+    <StartAction>Program</StartAction>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <StartProgram>C:\Program Files\Autodesk\Revit 2020\Revit.exe</StartProgram>
+    <StartWorkingDirectory>D:\JOB\DESIGN\2021\57 - NX_PhinNestle_ICIC\FILE REVIT\02A. WAREHOUSE\</StartWorkingDirectory>
+    <StartAction>Program</StartAction>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <StartProgram>C:\Program Files\Autodesk\Revit 2020\Revit.exe</StartProgram>
+    <StartAction>Program</StartAction>
+  </PropertyGroup>
 </Project>
