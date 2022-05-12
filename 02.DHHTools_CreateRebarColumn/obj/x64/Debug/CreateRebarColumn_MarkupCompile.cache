@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02.DHHTools_CreateRebarColumn\obj\Debug\
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02.DHHTools_CreateRebarColumn\obj\x64\Debug\
 DHHTools
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE
 1-1527286599
 
 91977957425
-151699236263
+15-2078522020
 02.DHHTools_CreateRebarColumnWindow.xaml;
 
 False
