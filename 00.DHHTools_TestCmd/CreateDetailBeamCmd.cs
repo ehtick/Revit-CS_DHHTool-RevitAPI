@@ -24,8 +24,7 @@ namespace DHHTools
             List<Element> listElements = new List<Element>();
             List<string> str = new List<string>();
             List<string> strSection = new List<string>();
-
-            IList<Element> beamDetail = new FilteredElementCollector(doc, doc.ActiveView.Id)
+            IList<Element> beamDetail = new FilteredClassCollector(doc, doc.ActiveView.Id)
                 .WhereElementIsElementType()
                 .ToList();
             using (TransactionGroup transGr = new TransactionGroup(doc))

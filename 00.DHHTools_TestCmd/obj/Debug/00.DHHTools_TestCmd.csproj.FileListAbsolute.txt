@@ -120,3 +120,12 @@ D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_TestCm
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_TestCmd\bin\Debug\ru-RU\AdWindows.resources.dll
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_TestCmd\bin\Debug\zh-CN\AdWindows.resources.dll
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_TestCmd\bin\Debug\zh-TW\AdWindows.resources.dll
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_TestCmd\bin\Debug\DHHTools_TestCmd.dll
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_TestCmd\bin\Debug\DHHTools_TestCmd.pdb
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_TestCmd\bin\Debug\DHHTools_Library.dll
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_TestCmd\bin\Debug\DHHTools_Library.pdb
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_TestCmd\obj\Debug\00.DHHTools_TestCmd.csproj.AssemblyReference.cache
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_TestCmd\obj\Debug\00.DHHTools_TestCmd.csproj.CoreCompileInputs.cache
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_TestCmd\obj\Debug\00.DHHTools_TestCmd.csproj.CopyComplete
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_TestCmd\obj\Debug\DHHTools_TestCmd.dll
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_TestCmd\obj\Debug\DHHTools_TestCmd.pdb

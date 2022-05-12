@@ -154,3 +154,29 @@ D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Librar
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\DHHTools_Library.g.resources
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.CoreCompileInputs.cache
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.CopyComplete
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\bin\Debug\DHHTools_Library.dll
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\bin\Debug\DHHTools_Library.pdb
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\bin\Debug\MaterialDesignColors.dll
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\bin\Debug\MaterialDesignColors.pdb
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.AssemblyReference.cache
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\WPF\Resource\ButtonStyle.baml
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\WPF\Resource\CheckBoxStyle.baml
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\WPF\Resource\ComboBoxStyle.baml
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\WPF\Resource\DataGridStyle.baml
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\WPF\Resource\GroupBoxStyle.baml
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\WPF\Resource\ProgressBarStyle.baml
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\WPF\Resource\RadiobuttonStyle.baml
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\WPF\Resource\Styles.baml
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\WPF\Resource\TextBoxStyle.baml
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\DHHTools_Library_MarkupCompile.cache
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\DHHTools_Library_MarkupCompile.lref
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\WPF\Resource\TreeViewStyle.baml
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\DHHTools_Library.g.resources
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.CoreCompileInputs.cache
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\00.DHHTools_Library.csproj.CopyComplete
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\DHHTools_Library.dll
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00.DHHTools_Library\obj\Debug\DHHTools_Library.pdb
