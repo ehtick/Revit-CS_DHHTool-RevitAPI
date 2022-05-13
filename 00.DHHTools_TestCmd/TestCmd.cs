@@ -312,7 +312,6 @@ namespace DHHTools
 
             //MessageBox.Show(FeetToMm(curveLoops[0].GetRectangularWidth(Plane.CreateByNormalAndOrigin(faceNormal, midPointSolid))).ToString(), "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             //MessageBox.Show(faces.ToString(), "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
             return Result.Succeeded;
         }
     }
