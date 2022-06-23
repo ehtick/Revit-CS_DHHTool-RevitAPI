@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "00.DHHTools_Library", "00.DHHTools_Library\00.DHHTools_Library.csproj", "{C1343206-2654-4111-B0FA-B296CBBA6B66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "00.DHHTools_TestCmd", "00.DHHTools_TestCmd\00.DHHTools_TestCmd.csproj", "{B32B4BC7-3EED-413A-9FBD-BA1EE5272066}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "00.DHHTools_Cmd", "00.DHHTools_TestCmd\00.DHHTools_Cmd.csproj", "{B32B4BC7-3EED-413A-9FBD-BA1EE5272066}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.DHHTools_CreateRebarBeam", "01.DHHTools_CreateRebarBeam\01.DHHTools_CreateRebarBeam.csproj", "{23E53AD0-3125-4B9A-9F0A-2B54E574C0B5}"
 EndProject
