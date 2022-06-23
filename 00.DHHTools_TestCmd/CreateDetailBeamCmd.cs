@@ -33,6 +33,7 @@ namespace DHHTools
                 doc.Create.NewFamilyInstance(originPoint, detailitemSymbol, doc.ActiveView);
                 trans2.Commit();
             }
+
             //List<Line> curvesb = new List<Line>();
             //List<Line> curvesb = new List<Line>();
             //List<Line> curvesh = new List<Line>();
