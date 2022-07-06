@@ -27,7 +27,6 @@ namespace DHHTools
                 .Where(sym => sym.Category.Name.Equals("Detail Items"))
                 .FirstOrDefault(s => s.Name.Equals("ICIC_KC_ThepDamV2"));
             XYZ originPoint = new XYZ(0, 0, 0);
-
             using (Transaction trans2 = new Transaction(doc, "Create Detail Beam"))
             {
                 trans2.Start();

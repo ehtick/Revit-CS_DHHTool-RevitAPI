@@ -24,7 +24,7 @@
     <StartAction>Program</StartAction>
     <StartProgram>$(ProgramW6432)\Autodesk\Revit 2020\Revit.exe</StartProgram>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <RegisterForComInterop>true</RegisterForComInterop>
+    <RegisterForComInterop>false</RegisterForComInterop>
     <DocumentationFile>
     </DocumentationFile>
   </PropertyGroup>
