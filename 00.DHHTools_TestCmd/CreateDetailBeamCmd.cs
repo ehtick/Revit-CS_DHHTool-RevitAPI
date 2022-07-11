@@ -9,6 +9,8 @@ using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.UI.Selection;
+using System.Windows.Forms;
+using Application = Autodesk.Revit.ApplicationServices.Application;
 #endregion
 
 namespace DHHTools
@@ -22,19 +24,20 @@ namespace DHHTools
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Application app = uiapp.Application;
             Document doc = uidoc.Document;
-            FamilySymbol detailitemSymbol = new FilteredElementCollector(doc)
-                .Cast<FamilySymbol>()
+            XYZ originPoint = new XYZ(0, 0, 0);
+            FilteredElementCollector detailitemSymbol = new FilteredElementCollector(doc);
+            detailitemSymbol
+                .OfClass(typeof(FamilySymbol))
+                .WhereElementIsElementType()
                 .Where(sym => sym.Category.Name.Equals("Detail Items"))
                 .FirstOrDefault(s => s.Name.Equals("ICIC_KC_ThepDamV2"));
-            XYZ originPoint = new XYZ(0, 0, 0);
-
-
-            using (Transaction trans2 = new Transaction(doc, "Create Detail Beam"))
-            {
-                trans2.Start();
-                doc.Create.NewFamilyInstance(originPoint, detailitemSymbol, doc.ActiveView);
-                trans2.Commit();
-            }
+            MessageBox.Show(detailitemSymbol.Name.ToString(), "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            //using (Transaction trans2 = new Transaction(doc, "Create Detail Beam"))
+            //{
+            //    trans2.Start();
+            //    doc.Create.NewFamilyInstance(originPoint, detailitemSymbol, doc.ActiveView);
+            //    trans2.Commit();
+            //}
             //List<Line> curvesb = new List<Line>();
             //List<Line> curvesb = new List<Line>();
             //List<Line> curvesh = new List<Line>();

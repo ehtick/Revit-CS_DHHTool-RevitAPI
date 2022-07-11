@@ -38,6 +38,7 @@ namespace DHHTools
             double hFeet = hParameter.AsDouble();
             #endregion Get Parameter Framing
 
+
             #region Get Column Interect
             PlanarFace face = element.GetGeometryObjectFromReference(refer) as PlanarFace;
             XYZ faceNormalline = face.FaceNormal;
