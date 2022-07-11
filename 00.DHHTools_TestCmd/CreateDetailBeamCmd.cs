@@ -25,12 +25,13 @@ namespace DHHTools
             Application app = uiapp.Application;
             Document doc = uidoc.Document;
             XYZ originPoint = new XYZ(0, 0, 0);
-            FilteredElementCollector detailitemSymbol = new FilteredElementCollector(doc);
-            detailitemSymbol
-                .OfClass(typeof(FamilySymbol))
+            FamilySymbol detailitemSymbol = new FilteredElementCollector(doc)
+                //.OfClass(typeof(FamilySymbol))
                 .WhereElementIsElementType()
-                .Where(sym => sym.Category.Name.Equals("Detail Items"))
+                .OfCategory(BuiltInCategory.OST_DetailComponents)
+                .Cast<FamilySymbol>()
                 .FirstOrDefault(s => s.Name.Equals("ICIC_KC_ThepDamV2"));
+
             MessageBox.Show(detailitemSymbol.Name.ToString(), "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             //using (Transaction trans2 = new Transaction(doc, "Create Detail Beam"))
             //{
