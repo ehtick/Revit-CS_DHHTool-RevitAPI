@@ -50,7 +50,7 @@
         }
 
         /// <summary>
-        /// Convert a given length in metres to feet.
+        /// Convert a given length in meters to feet.
         /// </summary>
         public static double MeterToFeet(double metter)
         {
