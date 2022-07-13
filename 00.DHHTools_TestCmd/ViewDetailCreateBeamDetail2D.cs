@@ -43,24 +43,25 @@ namespace DHHTools
 
             XYZ xyz = new XYZ(0, 0, 0);
             FilteredElementCollector filterdetailItem = new FilteredElementCollector(doc)
-               //.OfClass(typeof(FamilySymbol))
                .WhereElementIsElementType()
-               .OfCategory(BuiltInCategory.OST_DetailComponents);
+               .OfCategory(BuiltInCategory.OST_DetailComponents)
+               .OfClass(typeof(FamilySymbol));
+            //.Cast<FamilySymbol>();
             List<FamilySymbol> listFamilySymbol = new List<FamilySymbol>();
             List<FamilySymbol> familySymbolDetailBeam = new List<FamilySymbol>();
             foreach (var e in filterdetailItem)
             {
-                if(e.GetType().ToString()== "Autodesk.Revit.DB.FamilySymbol")
+                if (e.GetType().ToString() == "Autodesk.Revit.DB.FamilySymbol")
                 {
                     listFamilySymbol.Add(e as FamilySymbol);
                 }
-            }    
+            }
             foreach (var e in listFamilySymbol)
             {
-                if(e.Name == "ICIC_KC_ThepDamV2")
+                if (e.Name == "ICIC_KC_ThepDamV2")
                 {
                     familySymbolDetailBeam.Add(e);
-                }    
+                }
             }
             FamilySymbol fselement = familySymbolDetailBeam[0];
             ReferenceArray referenceArray = new ReferenceArray();
@@ -71,9 +72,10 @@ namespace DHHTools
             XYZ xyz3 = new XYZ(-DhhUnitUtils.MmToFeet(250), -DhhUnitUtils.MmToFeet(350), 0);
             XYZ xyz4 = new XYZ(-DhhUnitUtils.MmToFeet(-250), 0, 0);
             Line line2 = Line.CreateBound(xyz3, xyz4);
-            using (Transaction tran = new Transaction(doc)) {
+            using (Transaction tran = new Transaction(doc))
+            {
                 tran.Start("Create Detail Beam 2D");
-                FamilyInstance newinstance = doc.Create.NewFamilyInstance(xyz,fselement,doc.ActiveView);
+                FamilyInstance newinstance = doc.Create.NewFamilyInstance(xyz, fselement, doc.ActiveView);
                 referenceArray.Append(newinstance.GetReferenceByName("Top"));
                 referenceArray.Append(newinstance.GetReferenceByName("Bottom"));
                 referenceArray2.Append(newinstance.GetReferenceByName("Left"));
