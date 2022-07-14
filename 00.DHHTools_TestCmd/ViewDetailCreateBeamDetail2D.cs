@@ -38,8 +38,10 @@ namespace DHHTools
             //Parameter hParameter = elementType.LookupParameter("h");
             //double bFeet = bParameter.AsDouble();
             //double hFeet = hParameter.AsDouble();
-            List<double> blist = new List<double>() { 500, 600, 700, 800 };
-            List<double> hlist = new List<double>() { 600, 750, 900, 1000 };
+            List<double> blist = new List<double>() { 500, 600, 700, 800, 600, 900 };
+            List<double> hlist = new List<double>() { 600, 750, 900, 1000, 700, 1200 };
+            List<int> slTop1List = new List<int>() {2, 4, 5, 7, 9, 7};
+            List<int> slBot1List = new List<int>() { 2, 4, 5, 7, 9, 7 };
             double bkhung = blist[0];
             double hkhung = hlist[0];
             for (int i =0; i<blist.Count; i++)
@@ -78,20 +80,22 @@ namespace DHHTools
                     hParameter.Set(DhhUnitUtils.MmToFeet(hlist[i]));
                     ReferenceArray referenceArrayX = new ReferenceArray();
                     ReferenceArray referenceArrayY = new ReferenceArray();
-                    //referenceArrayY.Append(newinstance.GetReferenceByName("Top"));
-                    //referenceArrayY.Append(newinstance.GetReferenceByName("Bottom"));
+                    referenceArrayY.Append(newinstance.GetReferenceByName("Top"));
+                    referenceArrayY.Append(newinstance.GetReferenceByName("Bottom"));
                     referenceArrayX.Append(newinstance.GetReferenceByName("Left"));
                     referenceArrayX.Append(newinstance.GetReferenceByName("Right"));
                     Line lineY = Line.CreateUnbound(insertPointX,XYZ.BasisY);
                     Line lineX = Line.CreateUnbound(insertPointX,XYZ.BasisX);
                     Dimension dimensionX = doc.Create.NewDimension(doc.ActiveView, lineX, referenceArrayX);
-                    //Dimension dimensionY = doc.Create.NewDimension(doc.ActiveView, lineY, referenceArrayY);
-                    //XYZ translationY = new XYZ(DhhUnitUtils.MmToFeet((bkhung-700)/2 + 100), 0, 0);
-                    //XYZ translationYmm = new XYZ(((bkhung - 700) / 2 + 100), 0, 0);
-                    //ElementTransformUtils.MoveElement(doc, dimensionY.Id, translationY);
-                    XYZ translationX = new XYZ(0, -DhhUnitUtils.MmToFeet(hlist[i]/2 + 150), 0);
-                    XYZ translationXmm = new XYZ(0, -(hlist[i] / 2 + 150), 0);
+                    Dimension dimensionY = doc.Create.NewDimension(doc.ActiveView, lineY, referenceArrayY);
+
+                    XYZ translationX = new XYZ(0, -DhhUnitUtils.MmToFeet(hlist[i]/2+150), 0);
+                    XYZ translationXmm = new XYZ(0, -(hlist[i]/2+150), 0);
                     ElementTransformUtils.MoveElement(doc, dimensionX.Id, translationX);
+
+                    XYZ translationY = new XYZ(DhhUnitUtils.MmToFeet(blist[i]/2+150), 0, 0);
+                    XYZ translationYmm = new XYZ((blist[i]/2+150), 0, 0);
+                    ElementTransformUtils.MoveElement(doc, dimensionY.Id, translationY);
                 }
                 tran.Commit();
             }
