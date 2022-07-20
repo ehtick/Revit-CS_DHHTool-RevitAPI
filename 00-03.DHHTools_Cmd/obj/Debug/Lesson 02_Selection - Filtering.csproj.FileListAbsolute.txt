@@ -1,0 +1,17 @@
+D:\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\bin\Debug\Lesson 02_PICK TEXT to ELEMENT.dll
+D:\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\bin\Debug\Lesson 02_PICK TEXT to ELEMENT.pdb
+D:\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\bin\Debug\QApps_Lib2020.dll
+D:\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\bin\Debug\QApps_Lib2020.pdb
+D:\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\obj\Debug\Lesson 02_Selection - Filtering.csprojAssemblyReference.cache
+D:\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\obj\Debug\Lesson 02_Selection - Filtering.csproj.CoreCompileInputs.cache
+D:\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\obj\Debug\Lesson 02_Selection - Filtering.csproj.CopyComplete
+D:\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\obj\Debug\Lesson 02_PICK TEXT to ELEMENT.dll
+D:\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\obj\Debug\Lesson 02_PICK TEXT to ELEMENT.pdb
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\bin\Debug\Lesson 02_PICK TEXT to ELEMENT.dll
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\bin\Debug\Lesson 02_PICK TEXT to ELEMENT.pdb
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\bin\Debug\QApps_Lib2020.dll
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\bin\Debug\QApps_Lib2020.pdb
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\obj\Debug\Lesson 02_Selection - Filtering.csproj.CoreCompileInputs.cache
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\obj\Debug\Lesson 02_Selection - Filtering.csproj.CopyComplete
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\obj\Debug\Lesson 02_PICK TEXT to ELEMENT.dll
+D:\DRIVE\01.OneDrive\bimtools.vn\OneDrive\01. REVIT API\03.Q'Apps Trainning\02.Solutions\Lesson 02_PICK TEXT to ELEMENT\obj\Debug\Lesson 02_PICK TEXT to ELEMENT.pdb
