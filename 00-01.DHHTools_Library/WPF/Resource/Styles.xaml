@@ -21,7 +21,8 @@
         <Setter Property="Margin" Value="4" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="Time News Roman"/>
     </Style>
 
     <Style TargetType="{x:Type ListBox}">

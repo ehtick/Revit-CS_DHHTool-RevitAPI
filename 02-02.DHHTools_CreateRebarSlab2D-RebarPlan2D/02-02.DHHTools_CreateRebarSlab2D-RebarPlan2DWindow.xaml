@@ -13,7 +13,7 @@
     ShowInTaskbar="True"
     Topmost="False"
     WindowStartupLocation="CenterScreen"
-    mc:Ignorable="d" Background="White" WindowStyle="ThreeDBorderWindow" d:DesignWidth="600" d:DesignHeight="500">
+    mc:Ignorable="d" Background="White" WindowStyle="ThreeDBorderWindow" d:DesignWidth="708.791" d:DesignHeight="500">
 
     <Window.Resources>
         <ResourceDictionary Source="/DHHTools_Library;component/WPF/Resource/Styles.xaml" />
@@ -29,12 +29,73 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="300"/>
             </Grid.ColumnDefinitions>
-            <DataGrid
+            <Grid
                 Grid.Column ="0">
-            </DataGrid>
-            <DataGrid
-                Grid.Column ="1">
-            </DataGrid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Thiết lập:" />
+                <Grid
+                    Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Đường kính:" />
+                    <ComboBox Grid.Row="3" Grid.Column="1" 
+                              IsEditable="True"
+                              ItemsSource="{Binding AllDiamerter}"
+                              SelectedItem="{Binding SelectedDiamerter}"
+                              Style="{DynamicResource ComboBoxStyle}" />
+                </Grid>
+                <Grid
+                    Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Khoảng cách:" />
+                    <TextBox Grid.Row="1" Grid.Column="1" 
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Stretch"
+                         Text="{Binding ValueSpacing}"
+                         Style="{DynamicResource TextBoxStyle}" />
+                </Grid>
+                <TextBlock Grid.Row ="3" Text="Phương thép:" />
+                <Grid
+                    Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <RadioButton Content="Phương X"
+                                 Grid.Column="0"
+                                 GroupName="PhuongThep"
+                                 TextBlock.FontSize="14"
+                                 Style="{StaticResource RadioButtonStyle}"
+                                 IsChecked="{Binding IsDirectionX}" />
+                    <RadioButton Grid.Column="1"
+                                 Content="Phương Y"
+                                 GroupName="PhuongThep"
+                                 TextBlock.FontSize="14"
+                                 Style="{StaticResource RadioButtonStyle}"
+                                 IsChecked="{Binding IsDirectionY}" />
+                    <RadioButton Grid.Column="2"
+                                 Content="Phương xiên"
+                                 TextBlock.FontSize="14"
+                                 GroupName="PhuongThep"
+                                 Style="{StaticResource RadioButtonStyle}"
+                                 IsChecked="{Binding IsCurrentSelection}" />
+                </Grid>
+            </Grid>
         </Grid>
         <Grid 
             Grid.Row="1"
@@ -42,10 +103,21 @@
             VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <DockPanel LastChildFill="True"
             Grid.Column="0"
             HorizontalAlignment="Left">
+                <Button
+                    Content="Chọn sàn"
+                    Height ="32"
+                    DockPanel.Dock="Right"
+                    Click="Btn_ClickOK"
+                    Style="{DynamicResource ButtonStyle}" />
+            </DockPanel>
+            <DockPanel LastChildFill="True"
+            Grid.Column="1"
+            HorizontalAlignment="Right">
                 <Button
                     HorizontalAlignment="Left"
                     Content="Cancel"
@@ -54,7 +126,7 @@
                     Height ="32"
                     Style="{DynamicResource ButtonStyle}" />
                 <Button
-                    Content="OK"
+                    Content="Ok"
                     Height ="32"
                     DockPanel.Dock="Right"
                     Click="Btn_ClickOK"
