@@ -9,7 +9,7 @@
     Title="Thép Sàn"
     ResizeMode="CanResize"
     MinWidth="750"
-    MinHeight="530"
+    MinHeight="580"
     ShowInTaskbar="True"
     Topmost="False"
     WindowStartupLocation="CenterScreen"
@@ -34,7 +34,9 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25"/>
                     <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
                     <RowDefinition Height="25"/>
+                    <RowDefinition Height="40"/>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="25"/>
@@ -43,18 +45,34 @@
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="25"/>
                     <RowDefinition Height="40"/>
-                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="40"/>
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
-                
-                 <TextBlock FontWeight="Bold" Text="Thiết lập:" />  
+                <TextBlock FontWeight="Bold" Text="Thiết lập:" />
                 <Grid
                     Grid.Row="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="90"/>
-                        <ColumnDefinition Width="90"/>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <CheckBox Grid.Column="0" 
+                              Content="Thép thép 2D"
+                              FontSize="14"
+                              IsChecked="{Binding IsThep2D}"
+                              Style="{DynamicResource CheckBoxStyle}" />
+                    <CheckBox Grid.Column="1" 
+                              Content="Thép thép 3D"
+                              FontSize="14"
+                              IsChecked="{Binding IsThep3D}"
+                              Style="{DynamicResource CheckBoxStyle}" />
+                </Grid>
+                <Grid
+                    Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="100"/>
                     </Grid.ColumnDefinitions>
                     <CheckBox Grid.Column="0" 
                               Content="Lớp trên"
@@ -76,7 +94,7 @@
                          Style="{DynamicResource TextBoxStyle}" />
                 </Grid>
                 <Grid
-                    Grid.Row="2">
+                    Grid.Row="3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -93,7 +111,7 @@
                                Text="Lớp dưới:" />
                 </Grid>
                 <Grid
-                    Grid.Row="3">
+                    Grid.Row="4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="*"/>
@@ -104,17 +122,17 @@
                     <ComboBox Grid.Column="1" 
                               IsEditable="True"
                               ItemsSource="{Binding AllDiameter}"
-                              SelectedItem="{Binding SelectedDiameter}"
+                              SelectedItem="{Binding SelectedDiameterTop}"
                               Style="{DynamicResource ComboBoxStyle}" />
                     <TextBlock Grid.Column="2" Text="Đường kính:" />
                     <ComboBox Grid.Column="3" 
                               IsEditable="True"
                               ItemsSource="{Binding AllDiameter}"
-                              SelectedItem="{Binding SelectedDiameter}"
+                              SelectedItem="{Binding SelectedDiameterBot}"
                               Style="{DynamicResource ComboBoxStyle}" />
                 </Grid>
                 <Grid
-                    Grid.Row="4">
+                    Grid.Row="5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="*"/>
@@ -125,18 +143,39 @@
                     <TextBox Grid.Column="1" 
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Stretch"
-                         Text="{Binding ValueSpacing}"
+                         Text="{Binding ValueSpacingTop}"
                          Style="{DynamicResource TextBoxStyle}" />
                     <TextBlock Grid.Column="2" Text="Khoảng cách:" />
                     <TextBox Grid.Column="3" 
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Stretch"
-                         Text="{Binding ValueSpacing}"
+                         Text="{Binding ValueSpacingBot}"
                          Style="{DynamicResource TextBoxStyle}" />
                 </Grid>
-                <TextBlock Grid.Row ="5" FontWeight="Bold" Text="Loại thép:" />
                 <Grid
                     Grid.Row="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Hình dạng:" />
+                    <ComboBox Grid.Column="1" 
+                              IsEditable="True"
+                              ItemsSource="{Binding AllRebarShape}"
+                              SelectedItem="{Binding SelectedRebarShapeTop}"
+                              Style="{DynamicResource ComboBoxStyle}" />
+                    <TextBlock Grid.Column="2" Text="Hình dạng:" />
+                    <ComboBox Grid.Column="3" 
+                              IsEditable="True"
+                              ItemsSource="{Binding AllRebarShape}"
+                              SelectedItem="{Binding SelectedRebarShapeBottom}"
+                              Style="{DynamicResource ComboBoxStyle}" />
+                </Grid>
+                <TextBlock Grid.Row ="7" FontWeight="Bold" Text="Loại thép:" />
+                <Grid
+                    Grid.Row="8">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -152,9 +191,9 @@
                               IsChecked="{Binding IsThepGiaCuong}"
                               Style="{DynamicResource CheckBoxStyle}" />
                 </Grid>
-                <TextBlock Grid.Row ="7" FontWeight="Bold" Text="Phương thép:" />
+                <TextBlock Grid.Row ="9" FontWeight="Bold" Text="Phương thép:" />
                 <Grid
-                    Grid.Row="8">
+                    Grid.Row="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -179,9 +218,22 @@
                                  Style="{StaticResource RadioButtonStyle}"
                                  IsChecked="{Binding IsCurrentSelection}" />
                 </Grid>
-                <TextBlock Grid.Row ="9" FontWeight="Bold" Text="Ghi chú thép:" />
+                <TextBlock Grid.Row ="11" FontWeight="Bold" Text="Vẽ thép 2D:" />
                 <Grid
-                    Grid.Row="10">
+                    Grid.Row="12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock  Text="Thư viện 2D:" />
+                    <ComboBox Grid.Column="1" 
+                              IsEditable="True"
+                              ItemsSource="{Binding AllDetailItemTag}"
+                              SelectedItem="{Binding SelectedDetailItemTag}"
+                              Style="{DynamicResource ComboBoxStyle}" />
+                </Grid>
+                <Grid
+                    Grid.Row="13">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="*"/>
@@ -197,27 +249,61 @@
                               SelectedItem="{Binding SelectedDetailItemTag}"
                               Style="{DynamicResource ComboBoxStyle}" />
                 </Grid>
-                <TextBlock Grid.Row ="11" FontWeight="Bold" Text="Hình dạng:" />
+            </Grid>
+            <Grid
+                Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="145"/>
+                </Grid.RowDefinitions>
                 <Grid
-                    Grid.Row="12">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="70"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="70"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="Lớp trên:" />
-                    <ComboBox Grid.Column="1" 
-                              IsEditable="True"
-                              ItemsSource="{Binding AllRebarShape}"
-                              SelectedItem="{Binding SelectedRebarShapeTop}"
-                              Style="{DynamicResource ComboBoxStyle}" />
-                    <TextBlock Grid.Column="2" Text="Lớp dưới:" />
-                    <ComboBox Grid.Column="3" 
-                              IsEditable="True"
-                              ItemsSource="{Binding AllRebarShape}"
-                              SelectedItem="{Binding SelectedRebarShapeBottom}"
-                              Style="{DynamicResource ComboBoxStyle}" />
+                    Grid.Row ="1" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontWeight="Bold" Text ="Lớp bê tông bảo vệ:"/>
+                    <Grid
+                        Grid.Row ="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock  Text ="Mặt trên:"/>
+                        <TextBox Grid.Column="1" 
+                                 HorizontalAlignment="Stretch"
+                                 VerticalAlignment="Stretch"
+                                 Text="{Binding ValueCoverTop}"
+                                 Style="{DynamicResource TextBoxStyle}" />
+                    </Grid>
+                    <Grid
+                        Grid.Row ="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock  Text ="Mặt dưới:"/>
+                        <TextBox Grid.Column="1" 
+                                 HorizontalAlignment="Stretch"
+                                 VerticalAlignment="Stretch"
+                                 Text="{Binding ValueCoverBottom}"
+                                 Style="{DynamicResource TextBoxStyle}" />
+                    </Grid>
+                    <Grid
+                        Grid.Row ="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock  Text ="Mặt khác:"/>
+                        <TextBox Grid.Column="1" 
+                                 HorizontalAlignment="Stretch"
+                                 VerticalAlignment="Stretch"
+                                 Text="{Binding ValueCoveOther}"
+                                 Style="{DynamicResource TextBoxStyle}" />
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>

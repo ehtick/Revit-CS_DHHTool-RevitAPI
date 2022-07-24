@@ -22,8 +22,8 @@ namespace DHHTools
         private UIDocument uidoc;
         private Application app;
         private Document doc;
-        private string columnInformation_VM;
-        private string RebarTypeNameMain_VM;
+        private string slabInformation_VM;
+        private bool IsThep2D_VM;
         private string RebarTypeNameStirrup_VM;
         private RebarBarType RebarTypeMain_VM;
         private RebarBarType RebarTypeStirrup_VM;
@@ -37,14 +37,11 @@ namespace DHHTools
         private double b_VM;
         private double h_VM;
         private Element selectedElement_VM;
-        private double LChan_VM;
-        private double LGiua_VM;
-        private double LDinh_VM;
         #endregion
         #region 02. Public Property
         public UIDocument UiDoc;
         public Document Doc;
-        public string ColumnInformation
+        public string SlabInformation
         {
             get
             {
@@ -57,23 +54,15 @@ namespace DHHTools
             }
             set
             {
-                columnInformation_VM = value;
+                slabInformation_VM = value;
                 OnPropertyChanged();
             }
         }
         public List<string> allRebarTypeName { get; set; }
-        public string RebarTypeNameMain
+        public bool IsThep2D
         {
-            get => RebarTypeNameMain_VM;
-            set
-            {
-                if (RebarTypeNameMain_VM != value)
-                {
-                    RebarTypeNameMain_VM = value;
-                    OnPropertyChanged("RebarTypeNameMain");
-                    OnPropertyChanged("HamLuongThep");
-                }
-            }
+            get => IsThep2D_VM;
+            set { if (IsThep2D_VM != value) { IsThep2D_VM = value; } }
         }
         public RebarBarType RebarTypeMain
         {
@@ -278,45 +267,9 @@ namespace DHHTools
                 }
             }
         }
-        public double LChan
-        {
-            get => LChan_VM;
-            set
-            {
-                if (LChan_VM != value)
-                {
-                    LChan_VM = value;
-                    OnPropertyChanged("LChan");
-                }
-            }
-        }
-        public double LGiua
-        {
-            get => LGiua_VM;
-            set
-            {
-                if (LGiua_VM != value)
-                {
-                    LGiua_VM = value;
-                    OnPropertyChanged("LGiua");
-                }
-            }
-        }
-        public double LDinh
-        {
-            get => LDinh_VM;
-            set
-            {
-                if (LDinh_VM != value)
-                {
-                    LDinh_VM = value;
-                    OnPropertyChanged("LDinh");
-                }
-            }
-        }
         #endregion
         #region 03. View Model
-        public CreateSectionBeam2DViewModel(ExternalCommandData commandData)
+        public CreateRebarSlab2DViewModel(ExternalCommandData commandData)
         {
             uiapp = commandData.Application;
             uidoc = uiapp.ActiveUIDocument;
@@ -335,13 +288,10 @@ namespace DHHTools
             allRebarTypeName.Sort();
             SoluongH = 2;
             SoluongB = 2;
-            LChan = 1000;
-            LGiua = 2000;
-            LDinh = 1000;
             RebarTypeNameMain = allRebarTypeName[5];
             RebarTypeNameStirrup = allRebarTypeName[0];
-            CreateSectionBeam2DViewModel createSectionBeam2DViewModel = this;
-            CreateSectionBeam2DWindow rebarColumnWindow = new CreateSectionBeam2DWindow(createSectionBeam2DViewModel);
+            CreateRebarSlab2DViewModel createRebarSlab2DViewModel = this;
+            CreateRebarSlab2DWindow rebarColumnWindow = new CreateRebarSlab2DWindow(createRebarSlab2DViewModel);
             rebarColumnWindow.Show();
         }
         #endregion
@@ -472,9 +422,7 @@ namespace DHHTools
             }
         }
         #endregion
-        #region 06.Stirrup Rebar
-
-        #endregion
+        
     }
 }
 

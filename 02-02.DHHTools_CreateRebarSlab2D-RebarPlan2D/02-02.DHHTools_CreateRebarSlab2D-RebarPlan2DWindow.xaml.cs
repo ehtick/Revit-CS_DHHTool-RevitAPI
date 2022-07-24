@@ -11,26 +11,26 @@ using System.Windows;
 
 namespace DHHTools
 {
-    public partial class CreateSectionBeam2DWindow : Window
+    public partial class CreateRebarSlab2DWindow : Window
     {
         // ReSharper disable once FieldCanBeMadeReadOnly.Local
         // ReSharper disable once InconsistentNaming
         // ReSharper disable once FieldCanBeMadeReadOnly.Local
         //private DhhConstraint _dhhConstraint = new DhhConstraint();
-        public CreateSectionBeam2DViewModel _viewModel;
+        public CreateRebarSlab2DViewModel _viewModel;
         public UIDocument UiDoc;
         public Document Doc;
         public Element ColumnElement;
-        public CreateSectionBeam2DHandler eventHandler;
+        public CreateRebarSlab2DHandler eventHandler;
         public ExternalEvent MyExternalEvent;
 
-        public CreateSectionBeam2DWindow(CreateSectionBeam2DViewModel viewModel)
+        public CreateRebarSlab2DWindow(CreateRebarSlab2DViewModel viewModel)
         {
             InitializeComponent();
             _viewModel = viewModel;
             DataContext = _viewModel;
             Doc = _viewModel.Doc;
-            eventHandler = new CreateSectionBeam2DHandler();
+            eventHandler = new CreateRebarSlab2DHandler();
             MyExternalEvent = ExternalEvent.Create(eventHandler);
             //Icon = _dhhConstraint.IconWindow;
         }
