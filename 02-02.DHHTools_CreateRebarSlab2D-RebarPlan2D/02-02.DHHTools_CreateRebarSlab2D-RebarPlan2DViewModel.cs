@@ -23,236 +23,61 @@ namespace DHHTools
         private Application app;
         private Document doc;
         private string slabInformation_VM;
-        private bool IsThep2D_VM;
-        private string RebarTypeNameStirrup_VM;
-        private RebarBarType RebarTypeMain_VM;
-        private RebarBarType RebarTypeStirrup_VM;
-        private string hamLuongThep_VM;
-        private double barDiaMain_VM;
-        private double barDiaStrip_VM;
-        private double SoluongH_VM;
-        private double SoluongB_VM;
-        private Parameter bPara_VM;
-        private Parameter hPara_VM;
-        private double b_VM;
-        private double h_VM;
         private Element selectedElement_VM;
+        private bool IsThep2D_VM;
+        private bool IsThep3D_VM;
+        private bool IsThepLopTren_VM;
+        private bool IsThepLopDuoi_VM;
+        private double ValueDistanceTopBottom_VM;
+
+
+
+        private double ValueSpacingTop_VM;
+        private double ValueSpacingBot_VM;
+
+
+
+        private bool IsThepPhanBo_VM;
+        private bool IsThepGiaCuong_VM;
+        private bool IsDirectionX_VM;
+        private bool IsDirectionY_VM;
+        private bool IsDirectionOther_VM;
+
+        private bool IsGhiChu_VM;
+        //private string RebarTypeNameStirrup_VM;
+        //private RebarBarType RebarTypeMain_VM;
+        //private RebarBarType RebarTypeStirrup_VM;
+        //private string hamLuongThep_VM;
+        //private double barDiaMain_VM;
+        //private double barDiaStrip_VM;
+        //private double SoluongH_VM;
+        //private double SoluongB_VM;
+        //private Parameter bPara_VM;
+        //private Parameter hPara_VM;
+        //private double b_VM;
+        //private double h_VM;
+
         #endregion
         #region 02. Public Property
         public UIDocument UiDoc;
         public Document Doc;
-        public string SlabInformation
-        {
-            get
-            {
-                if (SelectedElement == null)
-                {
-                    return null;
-                }
-                return $"{bPara.AsValueString()}×{hPara.AsValueString()}" + "   " + SelectedElement.Id.ToString();
+        //public string SlabInformation
+        //{
+        //    get
+        //    {
+        //        if (SelectedElement == null)
+        //        {
+        //            return null;
+        //        }
+        //        return $"{bPara.AsValueString()}×{hPara.AsValueString()}" + "   " + SelectedElement.Id.ToString();
 
-            }
-            set
-            {
-                slabInformation_VM = value;
-                OnPropertyChanged();
-            }
-        }
-        public List<string> allRebarTypeName { get; set; }
-        public bool IsThep2D
-        {
-            get => IsThep2D_VM;
-            set { if (IsThep2D_VM != value) { IsThep2D_VM = value; } }
-        }
-        public RebarBarType RebarTypeMain
-        {
-            get => DhhElementUtils.GetBarTypeByName(Doc, RebarTypeNameMain);
-            set
-            {
-                if (RebarTypeMain_VM != value)
-                {
-                    RebarTypeMain_VM = value;
-                    OnPropertyChanged("RebarTypeMain");
-                    OnPropertyChanged("HamLuongThep");
-                }
-            }
-        }
-        public string RebarTypeNameStirrup
-        {
-            get => RebarTypeNameStirrup_VM;
-            set
-            {
-                if (RebarTypeNameStirrup_VM != value)
-                {
-                    RebarTypeNameStirrup_VM = value;
-                    OnPropertyChanged("RebarTypeNameStirrup");
-                }
-            }
-        }
-        public RebarBarType RebarTypeStirup
-        {
-            get => DhhElementUtils.GetBarTypeByName(Doc, RebarTypeNameStirrup);
-            set
-            {
-                if (RebarTypeStirrup_VM != value)
-                {
-                    RebarTypeStirrup_VM = value;
-                    OnPropertyChanged("RebarTypeStirrup");
-                    OnPropertyChanged("HamLuongThep");
-                }
-            }
-        }
-        public string HamLuongThep
-        {
-            get
-            {
-                if (SelectedElement == null)
-                {
-                    return "0.00%";
-                }
-                return (Math.Round((SoluongH - 2 + SoluongB) * 2 * DhhUnitUtils.FeetToMm(RebarTypeMain.BarDiameter) / (b * h) * 100, 2)).ToString() + " %";
-            }
-            set
-            {
-                if (hamLuongThep_VM != value)
-                {
-                    hamLuongThep_VM = value;
-                    OnPropertyChanged("HamLuongThep");
-                }
-            }
-        }
-        public double SoluongH
-        {
-            get => SoluongH_VM;
-            set
-            {
-                if (SoluongH_VM != value)
-                {
-                    SoluongH_VM = value;
-                    OnPropertyChanged("SoluongH");
-                    OnPropertyChanged("HamLuongThep");
-                }
-            }
-        }
-        public double SoluongB
-        {
-            get => SoluongB_VM;
-            set
-            {
-                if (SoluongB_VM != value)
-                {
-                    SoluongB_VM = value;
-                    OnPropertyChanged("SoluongH");
-                    OnPropertyChanged("HamLuongThep");
-                }
-            }
-        }
-        public double barDiaMain
-        {
-            get => Math.Round(DhhUnitUtils.FeetToMm(RebarTypeMain.BarDiameter));
-            set
-            {
-                if (barDiaMain_VM != value)
-                {
-                    barDiaMain_VM = value;
-                    OnPropertyChanged("barDiaMain");
-                    OnPropertyChanged("HamLuongThep");
-                }
-            }
-        }
-        public double barDiaStirrup
-        {
-            get => Math.Round(DhhUnitUtils.FeetToMm(RebarTypeStirup.BarDiameter));
-            set
-            {
-                if (barDiaStrip_VM != value)
-                {
-                    barDiaStrip_VM = value;
-                    OnPropertyChanged("barDiaStirrup");
-                }
-            }
-        }
-        public double b
-        {
-            get
-            {
-                if (SelectedElement == null)
-                {
-                    return 0;
-                }
-                return Math.Round(DhhUnitUtils.FeetToMm(bPara.AsDouble()));
-            }
-            set
-            {
-                if (b_VM != value)
-                {
-                    b_VM = value;
-                    OnPropertyChanged("b");
-                    OnPropertyChanged("HamLuongThep");
-                }
-            }
-        }
-        public double h
-        {
-            get
-            {
-                if (SelectedElement == null)
-                {
-                    return 0;
-                }
-                return Math.Round(DhhUnitUtils.FeetToMm(hPara.AsDouble()));
-            }
-            set
-            {
-                if (h_VM != value)
-                {
-                    h_VM = value;
-                    OnPropertyChanged("h");
-                    OnPropertyChanged("HamLuongThep");
-                }
-            }
-        }
-        public Parameter bPara
-        {
-            get
-            {
-                if (SelectedElement == null)
-                {
-                    return null;
-                }
-                return (doc.GetElement(SelectedElement.GetTypeId()) as FamilySymbol).LookupParameter("b");
-            }
-            set
-            {
-                if (bPara_VM != value)
-                {
-                    bPara_VM = value;
-                    OnPropertyChanged("bPara");
-                    OnPropertyChanged("ColumnInformation");
-                }
-            }
-        }
-        public Parameter hPara
-        {
-            get
-            {
-                if (SelectedElement == null)
-                {
-                    return null;
-                }
-                return (doc.GetElement(SelectedElement.GetTypeId()) as FamilySymbol).LookupParameter("h");
-            }
-            set
-            {
-                if (hPara_VM != value)
-                {
-                    hPara_VM = value;
-                    OnPropertyChanged("hPara");
-                    OnPropertyChanged("ColumnInformation");
-                }
-
-            }
-        }
+        //    }
+        //    set
+        //    {
+        //        slabInformation_VM = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
         public Element SelectedElement
         {
             get => selectedElement_VM;
@@ -267,6 +92,176 @@ namespace DHHTools
                 }
             }
         }
+        public bool IsThep2D
+        {
+            get => IsThep2D_VM;
+            set { if (IsThep2D_VM != value) { IsThep2D_VM = value; } }
+        }
+        public bool IsThep3D
+        {
+            get => IsThep3D_VM;
+            set { if (IsThep3D_VM != value) { IsThep3D_VM = value; } }
+        }
+        public bool IsThepLopTren
+        {
+            get => IsThepLopTren_VM;
+            set { if (IsThepLopTren_VM != value) { IsThepLopTren_VM = value; } }
+        }
+        public bool IsThepLopDuoi
+        {
+            get => IsThepLopDuoi_VM;
+            set { if (IsThepLopDuoi_VM != value) { IsThepLopDuoi_VM = value; } }
+        }
+        public double ValueDistanceTopBottom
+        {
+            get => ValueDistanceTopBottom_VM;
+            set { if (ValueDistanceTopBottom_VM != value) { ValueDistanceTopBottom_VM = value; } }
+        }
+
+
+        public double ValueSpacingTop
+        {
+            get => ValueSpacingTop_VM;
+            set { if (ValueSpacingTop_VM != value) { ValueSpacingTop_VM = value; } }
+        }
+        public double ValueSpacingBot
+        {
+            get => ValueSpacingBot_VM;
+            set { if (ValueSpacingBot_VM != value) { ValueSpacingBot_VM = value; } }
+        }
+
+
+
+        public bool IsThepPhanBo
+        {
+            get => IsThepPhanBo_VM;
+            set { if (IsThepPhanBo_VM != value) { IsThepPhanBo_VM = value; } }
+        }
+        public bool IsThepGiaCuong
+        {
+            get => IsThepGiaCuong_VM;
+            set { if (IsThepGiaCuong_VM != value) { IsThepGiaCuong_VM = value; } }
+        }
+        public bool IsDirectionX
+        {
+            get => IsDirectionX_VM;
+            set { if (IsDirectionX_VM != value) { IsDirectionX_VM = value; } }
+        }
+        public bool IsDirectionY
+        {
+            get => IsDirectionY_VM;
+            set { if (IsDirectionY_VM != value) { IsDirectionY_VM = value; } }
+        }
+        public bool IsDirectionOther
+        {
+            get => IsDirectionOther_VM;
+            set { if (IsDirectionOther_VM != value) { IsDirectionOther_VM = value; } }
+        }
+
+        public bool IsGhiChu
+        {
+            get => IsGhiChu_VM;
+            set { if (IsGhiChu_VM != value) { IsGhiChu_VM = value; } }
+        }
+
+
+        //public string RebarTypeNameStirrup
+        //{
+        //    get => RebarTypeNameStirrup_VM;
+        //    set
+        //    {
+        //        if (RebarTypeNameStirrup_VM != value)
+        //        {
+        //            RebarTypeNameStirrup_VM = value;
+        //            OnPropertyChanged("RebarTypeNameStirrup");
+        //        }
+        //    }
+        //}
+        //public RebarBarType RebarTypeStirup
+        //{
+        //    get => DhhElementUtils.GetBarTypeByName(Doc, RebarTypeNameStirrup);
+        //    set
+        //    {
+        //        if (RebarTypeStirrup_VM != value)
+        //        {
+        //            RebarTypeStirrup_VM = value;
+        //            OnPropertyChanged("RebarTypeStirrup");
+        //            OnPropertyChanged("HamLuongThep");
+        //        }
+        //    }
+        //}
+        //public string HamLuongThep
+        //{
+        //    get
+        //    {
+        //        if (SelectedElement == null)
+        //        {
+        //            return "0.00%";
+        //        }
+        //        return (Math.Round((SoluongH - 2 + SoluongB) * 2 * DhhUnitUtils.FeetToMm(RebarTypeMain.BarDiameter) / (b * h) * 100, 2)).ToString() + " %";
+        //    }
+        //    set
+        //    {
+        //        if (hamLuongThep_VM != value)
+        //        {
+        //            hamLuongThep_VM = value;
+        //            OnPropertyChanged("HamLuongThep");
+        //        }
+        //    }
+        //}
+        //public double SoluongH
+        //{
+        //    get => SoluongH_VM;
+        //    set
+        //    {
+        //        if (SoluongH_VM != value)
+        //        {
+        //            SoluongH_VM = value;
+        //            OnPropertyChanged("SoluongH");
+        //            OnPropertyChanged("HamLuongThep");
+        //        }
+        //    }
+        //}
+        //public double SoluongB
+        //{
+        //    get => SoluongB_VM;
+        //    set
+        //    {
+        //        if (SoluongB_VM != value)
+        //        {
+        //            SoluongB_VM = value;
+        //            OnPropertyChanged("SoluongH");
+        //            OnPropertyChanged("HamLuongThep");
+        //        }
+        //    }
+        //}
+        //public double barDiaMain
+        //{
+        //    get => Math.Round(DhhUnitUtils.FeetToMm(RebarTypeMain.BarDiameter));
+        //    set
+        //    {
+        //        if (barDiaMain_VM != value)
+        //        {
+        //            barDiaMain_VM = value;
+        //            OnPropertyChanged("barDiaMain");
+        //            OnPropertyChanged("HamLuongThep");
+        //        }
+        //    }
+        //}
+        //public double barDiaStirrup
+        //{
+        //    get => Math.Round(DhhUnitUtils.FeetToMm(RebarTypeStirup.BarDiameter));
+        //    set
+        //    {
+        //        if (barDiaStrip_VM != value)
+        //        {
+        //            barDiaStrip_VM = value;
+        //            OnPropertyChanged("barDiaStirrup");
+        //        }
+        //    }
+        //}
+
+
         #endregion
         #region 03. View Model
         public CreateRebarSlab2DViewModel(ExternalCommandData commandData)
@@ -298,7 +293,7 @@ namespace DHHTools
         #region 04. Select Element
         public void SelectElementBtn()
         {
-            Reference pickObject = UiDoc.Selection.PickObject(ObjectType.Element, "Chọn cột");
+            Reference pickObject = UiDoc.Selection.PickObject(ObjectType.Element, "Chọn sàn");
             SelectedElement = Doc.GetElement(pickObject);
         }
         #endregion
