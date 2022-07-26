@@ -29,20 +29,13 @@ namespace DHHTools
         private bool IsThepLopTren_VM;
         private bool IsThepLopDuoi_VM;
         private double ValueDistanceTopBottom_VM;
-
-
-
         private double ValueSpacingTop_VM;
         private double ValueSpacingBot_VM;
-
-
-
         private bool IsThepPhanBo_VM;
         private bool IsThepGiaCuong_VM;
         private bool IsDirectionX_VM;
         private bool IsDirectionY_VM;
         private bool IsDirectionOther_VM;
-
         private bool IsGhiChu_VM;
         //private string RebarTypeNameStirrup_VM;
         //private RebarBarType RebarTypeMain_VM;
