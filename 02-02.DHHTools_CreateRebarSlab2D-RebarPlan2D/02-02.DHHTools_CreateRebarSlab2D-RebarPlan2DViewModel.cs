@@ -22,7 +22,6 @@ namespace DHHTools
         private UIDocument uidoc;
         private Application app;
         private Document doc;
-        private string slabInformation_VM;
         private Element selectedElement_VM;
         private bool IsThep2D_VM;
         private bool IsThep3D_VM;
@@ -37,40 +36,18 @@ namespace DHHTools
         private bool IsDirectionY_VM;
         private bool IsDirectionOther_VM;
         private bool IsGhiChu_VM;
-        //private string RebarTypeNameStirrup_VM;
-        //private RebarBarType RebarTypeMain_VM;
-        //private RebarBarType RebarTypeStirrup_VM;
-        //private string hamLuongThep_VM;
-        //private double barDiaMain_VM;
-        //private double barDiaStrip_VM;
-        //private double SoluongH_VM;
-        //private double SoluongB_VM;
-        //private Parameter bPara_VM;
-        //private Parameter hPara_VM;
-        //private double b_VM;
-        //private double h_VM;
+        private string RebarTypeNameTop_VM;
+        private string RebarTypeNameBot_VM;
+        private RebarBarType RebarTypeTop_VM;
+        private RebarBarType RebarTypeBot_VM;
+        private double barDiaTop_VM;
+        private double barDiaBot_VM;
+
 
         #endregion
         #region 02. Public Property
         public UIDocument UiDoc;
         public Document Doc;
-        //public string SlabInformation
-        //{
-        //    get
-        //    {
-        //        if (SelectedElement == null)
-        //        {
-        //            return null;
-        //        }
-        //        return $"{bPara.AsValueString()}×{hPara.AsValueString()}" + "   " + SelectedElement.Id.ToString();
-
-        //    }
-        //    set
-        //    {
-        //        slabInformation_VM = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
         public Element SelectedElement
         {
             get => selectedElement_VM;
@@ -85,6 +62,7 @@ namespace DHHTools
                 }
             }
         }
+        public List<string> AllRebarType { get; set; }
         public bool IsThep2D
         {
             get => IsThep2D_VM;
@@ -110,8 +88,6 @@ namespace DHHTools
             get => ValueDistanceTopBottom_VM;
             set { if (ValueDistanceTopBottom_VM != value) { ValueDistanceTopBottom_VM = value; } }
         }
-
-
         public double ValueSpacingTop
         {
             get => ValueSpacingTop_VM;
@@ -122,9 +98,6 @@ namespace DHHTools
             get => ValueSpacingBot_VM;
             set { if (ValueSpacingBot_VM != value) { ValueSpacingBot_VM = value; } }
         }
-
-
-
         public bool IsThepPhanBo
         {
             get => IsThepPhanBo_VM;
@@ -150,110 +123,83 @@ namespace DHHTools
             get => IsDirectionOther_VM;
             set { if (IsDirectionOther_VM != value) { IsDirectionOther_VM = value; } }
         }
-
         public bool IsGhiChu
         {
             get => IsGhiChu_VM;
             set { if (IsGhiChu_VM != value) { IsGhiChu_VM = value; } }
         }
-
-
-        //public string RebarTypeNameStirrup
-        //{
-        //    get => RebarTypeNameStirrup_VM;
-        //    set
-        //    {
-        //        if (RebarTypeNameStirrup_VM != value)
-        //        {
-        //            RebarTypeNameStirrup_VM = value;
-        //            OnPropertyChanged("RebarTypeNameStirrup");
-        //        }
-        //    }
-        //}
-        //public RebarBarType RebarTypeStirup
-        //{
-        //    get => DhhElementUtils.GetBarTypeByName(Doc, RebarTypeNameStirrup);
-        //    set
-        //    {
-        //        if (RebarTypeStirrup_VM != value)
-        //        {
-        //            RebarTypeStirrup_VM = value;
-        //            OnPropertyChanged("RebarTypeStirrup");
-        //            OnPropertyChanged("HamLuongThep");
-        //        }
-        //    }
-        //}
-        //public string HamLuongThep
-        //{
-        //    get
-        //    {
-        //        if (SelectedElement == null)
-        //        {
-        //            return "0.00%";
-        //        }
-        //        return (Math.Round((SoluongH - 2 + SoluongB) * 2 * DhhUnitUtils.FeetToMm(RebarTypeMain.BarDiameter) / (b * h) * 100, 2)).ToString() + " %";
-        //    }
-        //    set
-        //    {
-        //        if (hamLuongThep_VM != value)
-        //        {
-        //            hamLuongThep_VM = value;
-        //            OnPropertyChanged("HamLuongThep");
-        //        }
-        //    }
-        //}
-        //public double SoluongH
-        //{
-        //    get => SoluongH_VM;
-        //    set
-        //    {
-        //        if (SoluongH_VM != value)
-        //        {
-        //            SoluongH_VM = value;
-        //            OnPropertyChanged("SoluongH");
-        //            OnPropertyChanged("HamLuongThep");
-        //        }
-        //    }
-        //}
-        //public double SoluongB
-        //{
-        //    get => SoluongB_VM;
-        //    set
-        //    {
-        //        if (SoluongB_VM != value)
-        //        {
-        //            SoluongB_VM = value;
-        //            OnPropertyChanged("SoluongH");
-        //            OnPropertyChanged("HamLuongThep");
-        //        }
-        //    }
-        //}
-        //public double barDiaMain
-        //{
-        //    get => Math.Round(DhhUnitUtils.FeetToMm(RebarTypeMain.BarDiameter));
-        //    set
-        //    {
-        //        if (barDiaMain_VM != value)
-        //        {
-        //            barDiaMain_VM = value;
-        //            OnPropertyChanged("barDiaMain");
-        //            OnPropertyChanged("HamLuongThep");
-        //        }
-        //    }
-        //}
-        //public double barDiaStirrup
-        //{
-        //    get => Math.Round(DhhUnitUtils.FeetToMm(RebarTypeStirup.BarDiameter));
-        //    set
-        //    {
-        //        if (barDiaStrip_VM != value)
-        //        {
-        //            barDiaStrip_VM = value;
-        //            OnPropertyChanged("barDiaStirrup");
-        //        }
-        //    }
-        //}
-
+        public string RebarTypeNameTop
+        {
+            get => RebarTypeNameTop_VM;
+            set
+            {
+                if (RebarTypeNameTop_VM != value)
+                {
+                    RebarTypeNameTop_VM = value;
+                    OnPropertyChanged("RebarTypeNameTop");
+                }
+            }
+        }
+        public RebarBarType RebarTypeTop
+        {
+            get => DhhElementUtils.GetBarTypeByName(Doc, RebarTypeNameTop);
+            set
+            {
+                if (RebarTypeTop_VM != value)
+                {
+                    RebarTypeTop_VM = value;
+                    OnPropertyChanged("RebarTypeTop");
+                }
+            }
+        }
+        public string RebarTypeNameBot
+        {
+            get => RebarTypeNameBot_VM;
+            set
+            {
+                if (RebarTypeNameBot_VM != value)
+                {
+                    RebarTypeNameBot_VM = value;
+                    OnPropertyChanged("RebarTypeNameBot");
+                }
+            }
+        }
+        public RebarBarType RebarTypeBot
+        {
+            get => DhhElementUtils.GetBarTypeByName(Doc, RebarTypeNameBot);
+            set
+            {
+                if (RebarTypeBot_VM != value)
+                {
+                    RebarTypeBot_VM = value;
+                    OnPropertyChanged("RebarTypeBot");
+                }
+            }
+        }
+        public double barDiaTop
+        {
+            get => Math.Round(DhhUnitUtils.FeetToMm(RebarTypeTop.BarDiameter));
+            set
+            {
+                if (barDiaTop_VM != value)
+                {
+                    barDiaTop_VM = value;
+                    OnPropertyChanged("barDiaTop");
+                }
+            }
+        }
+        public double barDiaBot
+        {
+            get => Math.Round(DhhUnitUtils.FeetToMm(RebarTypeBot.BarDiameter));
+            set
+            {
+                if (barDiaBot_VM != value)
+                {
+                    barDiaBot_VM = value;
+                    OnPropertyChanged("barDiaBot");
+                }
+            }
+        }
 
         #endregion
         #region 03. View Model
@@ -265,151 +211,45 @@ namespace DHHTools
             doc = uidoc.Document;
             UiDoc = uidoc;
             Doc = UiDoc.Document;
-            allRebarTypeName = new List<string>();
+            AllRebarType = new List<string>();
             ElementClassFilter rebarClassFilter = new ElementClassFilter(typeof(RebarBarType));
             FilteredElementCollector collector = new FilteredElementCollector(Doc);
             FilteredElementCollector rebarClass = collector.WherePasses(rebarClassFilter);
             foreach (Element rebarType in rebarClass)
             {
-                allRebarTypeName.Add((rebarType as RebarBarType)?.Name);
+                AllRebarType.Add((rebarType as RebarBarType)?.Name);
             }
-            allRebarTypeName.Sort();
-            SoluongH = 2;
-            SoluongB = 2;
-            RebarTypeNameMain = allRebarTypeName[5];
-            RebarTypeNameStirrup = allRebarTypeName[0];
-            CreateRebarSlab2DViewModel createRebarSlab2DViewModel = this;
-            CreateRebarSlab2DWindow rebarColumnWindow = new CreateRebarSlab2DWindow(createRebarSlab2DViewModel);
-            rebarColumnWindow.Show();
+            AllRebarType.Sort();
+            RebarTypeNameTop = AllRebarType[5];
+            RebarTypeNameBot = AllRebarType[0];
+            IsThep2D = true;
+            IsThep3D = true;
+            IsThepLopTren = true;
+            IsThepLopDuoi = true;
+            ValueDistanceTopBottom = 150;
+            ValueSpacingTop = 200;
+            ValueSpacingBot = 200;
+            IsThepPhanBo = true;
+            IsThepGiaCuong = true;
+            IsDirectionX = true;
+            IsGhiChu = true;
+            CreateRebarSlab2DWindow rebarSlab2DWindow = new CreateRebarSlab2DWindow(this);
+            rebarSlab2DWindow.Show();
+        }
+
+        public CreateRebarSlab2DViewModel()
+        {
         }
         #endregion
         #region 04. Select Element
         public void SelectElementBtn()
         {
-            Reference pickObject = UiDoc.Selection.PickObject(ObjectType.Element, "Chọn sàn");
+            Reference pickObject = UiDoc.Selection.PickObject(ObjectType.Element,new FloorSelectionFilter(), "Chọn sàn");
             SelectedElement = Doc.GetElement(pickObject);
         }
         #endregion
-        #region 05. Main Rebar
-        public void CreateMainRebar()
-        {
-            double lengthColumn = Math.Round(DhhUnitUtils.FeetToMm(SelectedElement.LookupParameter("Length").AsDouble()));
-            Solid solidColumn = DhhGeometryUtils.GetSolids(SelectedElement);
-            List<Face> faceSide = DhhGeometryUtils.GetSideFaceFromSolid(solidColumn);
-            List<Face> facesBottom = DhhGeometryUtils.GetBottomFaceFromSolid(solidColumn);
-            List<Face> hFaces = new List<Face>();
-            Face hFace = null;
-            List<Face> bFaces = new List<Face>();
-            Face bFace = null;
-            List<Line> listLines = new List<Line>();
-            if (h == b)
-            {
-                hFace = faceSide[0];
-                foreach (Face eFace in faceSide.GetRange(1, faceSide.Count - 1))
-                {
-                    if (DhhGeometryUtils.IsVectorParallel((hFace as PlanarFace).FaceNormal,
-                            (eFace as PlanarFace).FaceNormal) == false)
-                    {
-                        bFaces.Add(eFace);
-                    }
-                }
 
-                bFace = bFaces[0];
-            }
-            else
-            {
-                List<Face> faces = faceSide.GroupBy(ex => Math.Round(ex.Area)).Select(g => g.First()).ToList();
-                foreach (Face eFace in faces)
-                {
-                    bool equals =
-                        (Math.Round(DhhUnitUtils.SquareFeetToSquareMeter(eFace.Area) * 1000000) / lengthColumn).Equals(b);
-                    if (equals == true)
-                    {
-                        bFaces.Add(eFace);
-                    }
-                    else
-                    {
-                        hFaces.Add(eFace);
-                    }
-                }
-
-                bFace = bFaces[0];
-                hFace = hFaces[0];
-            }
-            #region
-            Face botFace = facesBottom.FirstOrDefault(x => Math.Abs(DhhUnitUtils.SquareFeetToSquareMeter(x.Area) - h * b * 0.000001) < 0.01);
-            Face hFaceOffset = DhhGeometryUtils.FaceOffset(hFace, (hFace as PlanarFace).FaceNormal.Negate(),
-                DhhUnitUtils.MmToFeet(DhhElementUtils.GetElementCover(Doc, SelectedElement) + barDiaMain / 2 + barDiaStirrup));
-            Face bFaceOffset = DhhGeometryUtils.FaceOffset(bFace, (bFace as PlanarFace).FaceNormal.Negate(),
-                DhhUnitUtils.MmToFeet(DhhElementUtils.GetElementCover(Doc, SelectedElement) + barDiaMain / 2 + barDiaStirrup));
-            Face botFaceOffset = DhhGeometryUtils.FaceOffset(botFace, (botFace as PlanarFace).FaceNormal.Negate(),
-                DhhUnitUtils.MmToFeet(DhhElementUtils.GetElementCover(Doc, SelectedElement) + barDiaStirrup / 2));
-            IList<CurveLoop> botFaceCurveLoops = botFaceOffset.GetEdgesAsCurveLoops();
-            FaceIntersectionFaceResult faceIntersectionFaceResult = botFaceOffset.Intersect(bFaceOffset, out Curve mainRebarCurve);
-            RebarHookType hookType = null;
-            RebarShape rebarShapeMain = new FilteredElementCollector(Doc)
-                .OfClass(typeof(RebarShape))
-                .Cast<RebarShape>()
-                .First(x => x.Name == "t");
-            RebarShape rebarShapeStirrup = new FilteredElementCollector(Doc)
-                .OfClass(typeof(RebarShape))
-                .Cast<RebarShape>()
-                .First(x => x.Name == "d");
-            List<Curve> listCurveMain = new List<Curve>();
-            new CurveByPointsArray();
-            double kcgiua2ThanhThep = DhhUnitUtils.MmToFeet(b - 2 * (barDiaMain / 2 + barDiaStirrup + DhhElementUtils.GetElementCover(Doc, SelectedElement)));
-            listCurveMain.Add(mainRebarCurve);
-            if (SoluongB <= 2)
-            {
-                Curve offset = mainRebarCurve.CreateOffset(kcgiua2ThanhThep, (bFaceOffset as PlanarFace).FaceNormal.Negate());
-                listCurveMain.Add(offset);
-            }
-            else
-            {
-                for (int i = 1; i < SoluongB; i++)
-                {
-                    double kcOffset = kcgiua2ThanhThep / (SoluongB - 1) * i;
-                    Curve offset = mainRebarCurve.CreateOffset(kcOffset, (bFaceOffset as PlanarFace).FaceNormal.Negate());
-                    listCurveMain.Add(offset);
-                }
-            }
-            RebarHookOrientation rebarHook = RebarHookOrientation.Left;
-            #endregion
-            using (Transaction trans = new Transaction(Doc, "Create Rebar Column"))
-            {
-                trans.Start();
-                foreach (Curve eCurve in listCurveMain)
-                {
-                    List<Curve> MainCurves = new List<Curve>();
-                    MainCurves.Add(eCurve);
-                    Rebar rebarMain = Rebar.CreateFromCurvesAndShape(Doc, rebarShapeMain, RebarTypeMain,
-                        hookType, hookType, SelectedElement, (bFaceOffset as PlanarFace).FaceNormal.Negate(), MainCurves, rebarHook, rebarHook);
-                    Rebar.CreateFreeForm(Doc, RebarTypeStirup, SelectedElement, botFaceCurveLoops,
-                        out RebarFreeFormValidationResult error);
-                    RebarShapeDrivenAccessor drivenAccessor = rebarMain.GetShapeDrivenAccessor();
-                    bool barsOnNormalSide = false;
-                    bool includeFirstBar = true;
-                    bool includeLastBar = true;
-                    double arrayLength =
-                        DhhUnitUtils.MmToFeet(h - 2 * (barDiaMain / 2 + barDiaStirrup + DhhElementUtils.GetElementCover(Doc, SelectedElement)));
-                    int numberofBar = 0;
-                    if (eCurve == listCurveMain.ElementAt(0) || eCurve == listCurveMain.ElementAt(listCurveMain.Count - 1))
-                    {
-                        numberofBar = Convert.ToInt32(SoluongH);
-                    }
-                    else
-                    {
-                        numberofBar = 2;
-                    }
-                    drivenAccessor.SetLayoutAsFixedNumber(numberofBar, arrayLength, barsOnNormalSide, includeFirstBar,
-                        includeLastBar);
-                    rebarMain.SetSolidInView(Doc.ActiveView as View3D, true);
-                    rebarMain.SetUnobscuredInView(Doc.ActiveView as View3D, true);
-                }
-                trans.Commit();
-            }
-        }
-        #endregion
+        
         
     }
 }

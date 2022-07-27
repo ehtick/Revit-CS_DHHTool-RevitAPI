@@ -1,5 +1,5 @@
 ﻿<Window
-    x:Class="DHHTools.RebarSlabWindow"
+    x:Class="DHHTools.CreateRebarSlab2DWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -121,14 +121,14 @@
                     <TextBlock Text="Đường kính:" />
                     <ComboBox Grid.Column="1" 
                               IsEditable="True"
-                              ItemsSource="{Binding AllDiameter}"
-                              SelectedItem="{Binding SelectedDiameterTop}"
+                              ItemsSource="{Binding AllRebarType}"
+                              SelectedItem="{Binding RebarTypeNameTop}"
                               Style="{DynamicResource ComboBoxStyle}" />
                     <TextBlock Grid.Column="2" Text="Đường kính:" />
                     <ComboBox Grid.Column="3" 
                               IsEditable="True"
-                              ItemsSource="{Binding AllDiameter}"
-                              SelectedItem="{Binding SelectedDiameterBot}"
+                              ItemsSource="{Binding AllRebarType}"
+                              SelectedItem="{Binding RebarTypeNameBot}"
                               Style="{DynamicResource ComboBoxStyle}" />
                 </Grid>
                 <Grid

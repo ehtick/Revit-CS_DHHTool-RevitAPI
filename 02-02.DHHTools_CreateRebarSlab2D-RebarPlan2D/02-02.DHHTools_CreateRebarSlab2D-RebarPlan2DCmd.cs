@@ -24,20 +24,19 @@ namespace DHHTools
             return Result.Cancelled;
             #region Lưu lại Transaction
 
-            //using (TransactionGroup transGr = new TransactionGroup(doc))
-            //{
-            //    transGr.Start("Set Elevation at Top of Beams");
+            using (TransactionGroup transGr = new TransactionGroup(doc))
+            {
+                transGr.Start("Set Elevation at Top of Beams");
 
-            //    RebarColumnViewModel viewModel
-            //        = new RebarColumnViewModel();
-            //    CreateRebarColumnWindow window
-            //        = new CreateRebarColumnWindow(viewModel);
-            //    bool? dialog = window.ShowDialog();
-            //    if (dialog == false) return Result.Cancelled;
+                CreateRebarSlab2DViewModel viewModel = new CreateRebarSlab2DViewModel();
+                CreateRebarSlab2DWindow window
+                    = new CreateRebarSlab2DWindow(viewModel);
+                bool? dialog = window.ShowDialog();
+                if (dialog == false) return Result.Cancelled;
 
-            //    transGr.Assimilate();
-            //}
-            //return Result.Succeeded;
+                transGr.Assimilate();
+            }
+            return Result.Succeeded;
             #endregion
         }
     }

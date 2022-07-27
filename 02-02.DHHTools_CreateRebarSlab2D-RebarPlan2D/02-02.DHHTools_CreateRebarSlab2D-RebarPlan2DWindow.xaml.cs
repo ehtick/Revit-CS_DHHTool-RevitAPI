@@ -1,6 +1,5 @@
 ﻿// ReSharper disable All
 #region import
-
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using System;
@@ -35,25 +34,23 @@ namespace DHHTools
             //Icon = _dhhConstraint.IconWindow;
         }
 
-        private void InitializeComponent()
-        {
-            throw new NotImplementedException();
-        }
+        //public void InitializeComponent()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public void Btn_SelectFilter(object sender, RoutedEventArgs e)
+        public void Btn_ClickSelect(object sender, RoutedEventArgs e)
         {
             Hide();
             _viewModel.SelectElementBtn();
             Show();
         }
-
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        public void Btn_ClickCancel(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
 
         }
-
-        private void btnOk_Click(object sender, RoutedEventArgs e)
+        public void Btn_ClickOK(object sender, RoutedEventArgs e)
         {
             Close();
             eventHandler.ViewModel = _viewModel;

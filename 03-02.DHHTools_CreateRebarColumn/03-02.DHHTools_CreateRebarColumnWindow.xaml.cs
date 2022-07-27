@@ -1,6 +1,5 @@
 ﻿// ReSharper disable All
 #region import
-
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using System;
@@ -45,7 +44,6 @@ namespace DHHTools
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
-
         }
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
