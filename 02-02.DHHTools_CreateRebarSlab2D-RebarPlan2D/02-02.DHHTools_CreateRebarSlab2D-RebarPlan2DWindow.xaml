@@ -245,8 +245,8 @@
                               Style="{DynamicResource CheckBoxStyle}" />
                     <ComboBox Grid.Column="1" 
                               IsEditable="True"
-                              ItemsSource="{Binding AllDetailItemTag}"
-                              SelectedItem="{Binding SelectedDetailItemTag}"
+                              ItemsSource="{Binding AllDetailItemTagName}"
+                              SelectedItem="{Binding SelectedDetailItemTagName}"
                               Style="{DynamicResource ComboBoxStyle}" />
                 </Grid>
             </Grid>

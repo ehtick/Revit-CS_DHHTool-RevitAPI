@@ -6,6 +6,7 @@ using Autodesk.Revit.UI.Selection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms.VisualStyles;
 using Application = Autodesk.Revit.ApplicationServices.Application;
 using Curve = Autodesk.Revit.DB.Curve;
 using PlanarFace = Autodesk.Revit.DB.PlanarFace;
@@ -41,6 +42,7 @@ namespace DHHTools
         private bool IsDirectionOther_VM;
         private bool IsGhiChu_VM;
         private string SelectedDetailItemName_VM;
+        private string SelectedDetailItemTagName_VM;
         private FamilySymbol SelectedDetailItem_VM;
         private string RebarTypeNameTop_VM;
         private string RebarTypeNameBot_VM;
@@ -73,6 +75,8 @@ namespace DHHTools
         public List<RebarShape> AllRebarShape { get; set; }
         public List<string> AllDetailItemName { get; set; }
         public List<FamilySymbol> AllDetailItem { get; set; }
+        public List<string> AllDetailItemTagName { get; set; }
+        public List<Element> AllDetailItemTag { get; set; }
         public bool IsThep2D
         {
             get => IsThep2D_VM;
@@ -210,6 +214,18 @@ namespace DHHTools
                 }
             }
         }
+        public string SelectedDetailItemTagName
+        {
+            get => SelectedDetailItemTagName_VM;
+            set
+            {
+                if (SelectedDetailItemTagName_VM != value)
+                {
+                    SelectedDetailItemTagName_VM = value;
+                    OnPropertyChanged("SelectedDetailItemTagName");
+                }
+            }
+        }
         public string RebarTypeNameTop
         {
             get => RebarTypeNameTop_VM;
@@ -296,6 +312,7 @@ namespace DHHTools
             AllRebarShapeName = new List<string>();
             AllRebarShape = new List<RebarShape>();
             AllDetailItemName = new List<string>();
+            AllDetailItemTagName = new List<string>();
             ElementClassFilter rebarClassFilter = new ElementClassFilter(typeof(RebarBarType));
             FilteredElementCollector collectorRebarType = new FilteredElementCollector(Doc);
             FilteredElementCollector rebarClass = collectorRebarType.WherePasses(rebarClassFilter);
@@ -316,6 +333,20 @@ namespace DHHTools
             }
             //AllRebarShape.Sort();
             AllRebarShapeName.Sort();
+            SelectedRebarShapeTopName = AllRebarShape[0].Name;
+            SelectedRebarShapeBotName = AllRebarShape[0].Name;
+
+            IsThep2D = true;
+            IsThep3D = true;
+            IsThepLopTren = true;
+            IsThepLopDuoi = true;
+            ValueDistanceTopBottom = 150;
+            ValueSpacingTop = 200;
+            ValueSpacingBot = 200;
+            IsThepPhanBo = true;
+            IsThepGiaCuong = true;
+            IsDirectionX = true;
+            
             ElementCategoryFilter detailItemFilter = new ElementCategoryFilter(BuiltInCategory.OST_DetailComponents);
             FilteredElementCollector collectordetailItem = new FilteredElementCollector(Doc);
             List<Element> AllDetailItem = collectordetailItem
@@ -323,7 +354,7 @@ namespace DHHTools
                 .WhereElementIsElementType()
                 .OfClass(typeof(FamilySymbol))
                 .ToList();
-            foreach (Element element in AllDetailItem) 
+            foreach (Element element in AllDetailItem)
             {
                 FamilySymbol familySymbol = element as FamilySymbol;
                 AllDetailItemName.Add(familySymbol.Name);
@@ -338,19 +369,27 @@ namespace DHHTools
                 }
                 i++;
             }
-            SelectedRebarShapeTopName = AllRebarShape[0].Name;
-            SelectedRebarShapeBotName = AllRebarShape[0].Name;
-            IsThep2D = true;
-            IsThep3D = true;
-            IsThepLopTren = true;
-            IsThepLopDuoi = true;
-            ValueDistanceTopBottom = 150;
-            ValueSpacingTop = 200;
-            ValueSpacingBot = 200;
-            IsThepPhanBo = true;
-            IsThepGiaCuong = true;
-            IsDirectionX = true;
+            
             IsGhiChu = true;
+            
+            ElementCategoryFilter detailItemTagFilter = new ElementCategoryFilter(BuiltInCategory.OST_DetailComponentTags);
+            FilteredElementCollector collectordetailItemTag = new FilteredElementCollector(Doc);
+            List<Element> AllDetailItemTag = collectordetailItemTag
+                .WherePasses(detailItemTagFilter)
+                .WhereElementIsElementType()
+                .OfClass(typeof(FamilySymbol))
+                .ToList();
+            foreach (Element eDeItemTag in AllDetailItemTag) { AllDetailItemTagName.Add(eDeItemTag.Name); }
+            AllDetailItemTagName.Sort();
+            for (int i = 0; i < AllDetailItemTagName.Count(); i++)
+            {
+                if (AllDetailItemTagName[i].Contains("ThepSan") == true)
+                {
+                    SelectedDetailItemTagName = AllDetailItemTagName[i];
+                    break;
+                }
+                i++;
+            }
             CreateRebarSlab2DWindow rebarSlab2DWindow = new CreateRebarSlab2DWindow(this);
             rebarSlab2DWindow.Show();
         }
