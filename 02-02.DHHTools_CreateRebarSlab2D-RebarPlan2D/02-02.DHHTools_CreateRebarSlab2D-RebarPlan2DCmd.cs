@@ -20,20 +20,14 @@ namespace DHHTools
             UIDocument uidoc = uiapp.ActiveUIDocument;
             //Application app = uiapp.Application;
             Document doc = uidoc.Document;
-            CreateRebarSlab2DViewModel columnViewModel = new CreateRebarSlab2DViewModel(commandData);
-            return Result.Cancelled;
             #region Lưu lại Transaction
-
             using (TransactionGroup transGr = new TransactionGroup(doc))
             {
-                transGr.Start("Set Elevation at Top of Beams");
-
-                CreateRebarSlab2DViewModel viewModel = new CreateRebarSlab2DViewModel();
-                CreateRebarSlab2DWindow window
-                    = new CreateRebarSlab2DWindow(viewModel);
+                transGr.Start("Create Slab Rebar");
+                CreateRebarSlab2DViewModel viewModel = new CreateRebarSlab2DViewModel(commandData);
+                CreateRebarSlab2DWindow window = new CreateRebarSlab2DWindow(viewModel);
                 bool? dialog = window.ShowDialog();
                 if (dialog == false) return Result.Cancelled;
-
                 transGr.Assimilate();
             }
             return Result.Succeeded;

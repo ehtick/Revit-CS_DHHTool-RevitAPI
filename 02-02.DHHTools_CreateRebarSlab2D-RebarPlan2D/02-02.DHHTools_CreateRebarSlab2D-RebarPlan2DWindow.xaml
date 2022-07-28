@@ -7,9 +7,9 @@
     xmlns:dhhTools="clr-namespace:DHHTools;assembly=DHHTools_Library"
     x:Name="MainWindow"
     Title="Thép Sàn"
-    ResizeMode="CanResize"
-    MinWidth="750"
-    MinHeight="580"
+    ResizeMode="NoResize"
+    Width="750"
+    Height="580"
     ShowInTaskbar="True"
     Topmost="False"
     WindowStartupLocation="CenterScreen"
@@ -86,7 +86,7 @@
                               Style="{DynamicResource CheckBoxStyle}" />
                     <TextBlock Grid.Column ="2" 
                                HorizontalAlignment="Right"
-                               Text="K/c 2 lớp trên bản vẽ:" />
+                               Text="K/c 2 lớp trên BV:" />
                     <TextBox Grid.Column="3" 
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Stretch"
@@ -163,14 +163,14 @@
                     <TextBlock Text="Hình dạng:" />
                     <ComboBox Grid.Column="1" 
                               IsEditable="True"
-                              ItemsSource="{Binding AllRebarShape}"
-                              SelectedItem="{Binding SelectedRebarShapeTop}"
+                              ItemsSource="{Binding AllRebarShapeName}"
+                              SelectedItem="{Binding SelectedRebarShapeTopName}"
                               Style="{DynamicResource ComboBoxStyle}" />
                     <TextBlock Grid.Column="2" Text="Hình dạng:" />
                     <ComboBox Grid.Column="3" 
                               IsEditable="True"
-                              ItemsSource="{Binding AllRebarShape}"
-                              SelectedItem="{Binding SelectedRebarShapeBottom}"
+                              ItemsSource="{Binding AllRebarShapeName}"
+                              SelectedItem="{Binding SelectedRebarShapeBotName}"
                               Style="{DynamicResource ComboBoxStyle}" />
                 </Grid>
                 <TextBlock Grid.Row ="7" FontWeight="Bold" Text="Loại thép:" />
@@ -228,8 +228,8 @@
                     <TextBlock  Text="Thư viện 2D:" />
                     <ComboBox Grid.Column="1" 
                               IsEditable="True"
-                              ItemsSource="{Binding AllDetailItem}"
-                              SelectedItem="{Binding SelectedDetailItem}"
+                              ItemsSource="{Binding AllDetailItemName}"
+                              SelectedItem="{Binding SelectedDetailItemName}"
                               Style="{DynamicResource ComboBoxStyle}" />
                 </Grid>
                 <Grid

@@ -15,7 +15,7 @@ namespace DHHTools
         // ReSharper disable once FieldCanBeMadeReadOnly.Local
         // ReSharper disable once InconsistentNaming
         // ReSharper disable once FieldCanBeMadeReadOnly.Local
-        //private DhhConstraint _dhhConstraint = new DhhConstraint();
+        // private DhhConstraint _dhhConstraint = new DhhConstraint();
         public CreateRebarSlab2DViewModel _viewModel;
         public UIDocument UiDoc;
         public Document Doc;
@@ -33,12 +33,6 @@ namespace DHHTools
             MyExternalEvent = ExternalEvent.Create(eventHandler);
             //Icon = _dhhConstraint.IconWindow;
         }
-
-        //public void InitializeComponent()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
         public void Btn_ClickSelect(object sender, RoutedEventArgs e)
         {
             Hide();
@@ -48,7 +42,6 @@ namespace DHHTools
         public void Btn_ClickCancel(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
-
         }
         public void Btn_ClickOK(object sender, RoutedEventArgs e)
         {
