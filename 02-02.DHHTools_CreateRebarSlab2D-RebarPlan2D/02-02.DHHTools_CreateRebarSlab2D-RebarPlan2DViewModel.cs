@@ -1,4 +1,5 @@
 ﻿#region Namespaces
+// ReSharper disable All
 using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Structure;
 using Autodesk.Revit.UI;
@@ -38,7 +39,7 @@ namespace DHHTools
         private bool IsThepPhanBo_VM;
         private bool IsThepGiaCuong_VM;
         private bool IsDirectionX_VM;
-        private bool IsDirectionY_VM;
+        private bool IsDirectionY_VM; 
         private bool IsDirectionOther_VM;
         private bool IsGhiChu_VM;
         private string SelectedDetailItemName_VM;
@@ -48,10 +49,10 @@ namespace DHHTools
         private string RebarTypeNameBot_VM;
         private RebarBarType RebarTypeTop_VM;
         private RebarBarType RebarTypeBot_VM;
+        private double coverSlabTop_VM;
+        private string stringcoverTop_VM;
         private double barDiaTop_VM;
         private double barDiaBot_VM;
-
-
         #endregion
         #region 02. Public Property
         public UIDocument UiDoc;
@@ -65,8 +66,6 @@ namespace DHHTools
                 {
                     selectedElement_VM = value;
                     OnPropertyChanged("SelectedElement");
-                    OnPropertyChanged("HamLuongThep");
-                    OnPropertyChanged("ColumnInformation");
                 }
             }
         }
@@ -226,6 +225,30 @@ namespace DHHTools
                 }
             }
         }
+        public double coverSlabTop
+        {
+            get => coverSlabTop_VM;
+            set
+            {
+                if (coverSlabTop_VM != value)
+                {
+                    coverSlabTop = value;
+                    OnPropertyChanged("coverSlabTop");
+                }
+            }
+        }
+        public string stringCoverTop
+        {
+            get => stringcoverTop_VM;
+            set
+            {
+                if (stringcoverTop_VM != value)
+                {
+                    stringcoverTop_VM = value;
+                    OnPropertyChanged("stringcoverTop");
+                }
+            }
+        }
         public string RebarTypeNameTop
         {
             get => RebarTypeNameTop_VM;
@@ -335,7 +358,6 @@ namespace DHHTools
             AllRebarShapeName.Sort();
             SelectedRebarShapeTopName = AllRebarShape[0].Name;
             SelectedRebarShapeBotName = AllRebarShape[0].Name;
-
             IsThep2D = true;
             IsThep3D = true;
             IsThepLopTren = true;
@@ -369,9 +391,7 @@ namespace DHHTools
                 }
                 i++;
             }
-            
             IsGhiChu = true;
-            
             ElementCategoryFilter detailItemTagFilter = new ElementCategoryFilter(BuiltInCategory.OST_DetailComponentTags);
             FilteredElementCollector collectordetailItemTag = new FilteredElementCollector(Doc);
             List<Element> AllDetailItemTag = collectordetailItemTag
@@ -390,6 +410,22 @@ namespace DHHTools
                 }
                 i++;
             }
+            coverSlabTop = 20;
+            stringCoverTop = coverSlabTop.ToString();
+            //if (SelectedElement != null )
+
+            //{
+            //    CoverTop = 200.ToString();
+            //    CoverBot = 20.ToString();
+            //    CoverOther = 20.ToString();
+            //}
+            //else
+            //{
+            //    CoverTop = "";
+            //    CoverBot = "";
+            //    CoverOther = "";
+            //}    
+
             CreateRebarSlab2DWindow rebarSlab2DWindow = new CreateRebarSlab2DWindow(this);
             rebarSlab2DWindow.Show();
         }
