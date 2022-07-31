@@ -47,6 +47,7 @@ namespace DHHTools
         {
             Close();
             eventHandler.ViewModel = _viewModel;
+            _viewModel.DrawRebar2D();
             MyExternalEvent.Raise();
         }
     }

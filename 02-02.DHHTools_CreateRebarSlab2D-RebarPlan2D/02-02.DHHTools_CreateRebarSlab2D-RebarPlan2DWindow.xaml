@@ -275,7 +275,7 @@
                         <TextBox Grid.Column="1" 
                                  HorizontalAlignment="Stretch"
                                  VerticalAlignment="Stretch"
-                                 Text="{Binding stringCoverTop}"
+                                 Text="{Binding SlabCoverTop}"
                                  Style="{DynamicResource TextBoxStyle}" />
                     </Grid>
                     <Grid
@@ -288,7 +288,7 @@
                         <TextBox Grid.Column="1" 
                                  HorizontalAlignment="Stretch"
                                  VerticalAlignment="Stretch"
-                                 Text="{Binding CoverBot}"
+                                 Text="{Binding SlabCoverBot}"
                                  Style="{DynamicResource TextBoxStyle}" />
                     </Grid>
                     <Grid
@@ -301,7 +301,7 @@
                         <TextBox Grid.Column="1" 
                                  HorizontalAlignment="Stretch"
                                  VerticalAlignment="Stretch"
-                                 Text="{Binding CoverOther}"
+                                 Text="{Binding SlabCoverOther}"
                                  Style="{DynamicResource TextBoxStyle}" />
                     </Grid>
                 </Grid>

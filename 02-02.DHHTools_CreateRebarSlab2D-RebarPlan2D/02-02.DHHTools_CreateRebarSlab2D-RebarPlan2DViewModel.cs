@@ -1,4 +1,5 @@
 ﻿#region Namespaces
+
 // ReSharper disable All
 using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Structure;
@@ -11,7 +12,9 @@ using System.Windows.Forms.VisualStyles;
 using Application = Autodesk.Revit.ApplicationServices.Application;
 using Curve = Autodesk.Revit.DB.Curve;
 using PlanarFace = Autodesk.Revit.DB.PlanarFace;
+
 // ReSharper disable All
+
 #endregion
 
 namespace DHHTools
@@ -19,6 +22,7 @@ namespace DHHTools
     public class CreateRebarSlab2DViewModel : ViewModelBase
     {
         #region 01. Private Property
+
         protected internal ExternalEvent ExEvent;
         private UIApplication uiapp;
         private UIDocument uidoc;
@@ -39,7 +43,7 @@ namespace DHHTools
         private bool IsThepPhanBo_VM;
         private bool IsThepGiaCuong_VM;
         private bool IsDirectionX_VM;
-        private bool IsDirectionY_VM; 
+        private bool IsDirectionY_VM;
         private bool IsDirectionOther_VM;
         private bool IsGhiChu_VM;
         private string SelectedDetailItemName_VM;
@@ -49,12 +53,16 @@ namespace DHHTools
         private string RebarTypeNameBot_VM;
         private RebarBarType RebarTypeTop_VM;
         private RebarBarType RebarTypeBot_VM;
-        private double coverSlabTop_VM;
-        private string stringcoverTop_VM;
+        private double SlabCoverTop_VM;
+        private double SlabCoverBot_VM;
+        private double SlabCoverOther_VM;
         private double barDiaTop_VM;
         private double barDiaBot_VM;
+
         #endregion
+
         #region 02. Public Property
+
         public UIDocument UiDoc;
         public Document Doc;
         public Element SelectedElement
@@ -79,37 +87,79 @@ namespace DHHTools
         public bool IsThep2D
         {
             get => IsThep2D_VM;
-            set { if (IsThep2D_VM != value) { IsThep2D_VM = value; } }
+            set
+            {
+                if (IsThep2D_VM != value)
+                {
+                    IsThep2D_VM = value;
+                }
+            }
         }
         public bool IsThep3D
         {
             get => IsThep3D_VM;
-            set { if (IsThep3D_VM != value) { IsThep3D_VM = value; } }
+            set
+            {
+                if (IsThep3D_VM != value)
+                {
+                    IsThep3D_VM = value;
+                }
+            }
         }
         public bool IsThepLopTren
         {
             get => IsThepLopTren_VM;
-            set { if (IsThepLopTren_VM != value) { IsThepLopTren_VM = value; } }
+            set
+            {
+                if (IsThepLopTren_VM != value)
+                {
+                    IsThepLopTren_VM = value;
+                }
+            }
         }
         public bool IsThepLopDuoi
         {
             get => IsThepLopDuoi_VM;
-            set { if (IsThepLopDuoi_VM != value) { IsThepLopDuoi_VM = value; } }
+            set
+            {
+                if (IsThepLopDuoi_VM != value)
+                {
+                    IsThepLopDuoi_VM = value;
+                }
+            }
         }
         public double ValueDistanceTopBottom
         {
             get => ValueDistanceTopBottom_VM;
-            set { if (ValueDistanceTopBottom_VM != value) { ValueDistanceTopBottom_VM = value; } }
+            set
+            {
+                if (ValueDistanceTopBottom_VM != value)
+                {
+                    ValueDistanceTopBottom_VM = value;
+                }
+            }
         }
         public double ValueSpacingTop
         {
             get => ValueSpacingTop_VM;
-            set { if (ValueSpacingTop_VM != value) { ValueSpacingTop_VM = value; } }
+            set
+            {
+                if (ValueSpacingTop_VM != value)
+                {
+                    ValueSpacingTop_VM = value;
+                }
+            }
         }
         public double ValueSpacingBot
         {
             get => ValueSpacingBot_VM;
-            set { if (ValueSpacingBot_VM != value) { ValueSpacingBot_VM = value; } }
+            set
+            {
+                if (ValueSpacingBot_VM != value)
+                {
+                    ValueSpacingBot_VM = value;
+                }
+            }
         }
         public string SelectedRebarShapeTopName
         {
@@ -162,32 +212,68 @@ namespace DHHTools
         public bool IsThepPhanBo
         {
             get => IsThepPhanBo_VM;
-            set { if (IsThepPhanBo_VM != value) { IsThepPhanBo_VM = value; } }
+            set
+            {
+                if (IsThepPhanBo_VM != value)
+                {
+                    IsThepPhanBo_VM = value;
+                }
+            }
         }
         public bool IsThepGiaCuong
         {
             get => IsThepGiaCuong_VM;
-            set { if (IsThepGiaCuong_VM != value) { IsThepGiaCuong_VM = value; } }
+            set
+            {
+                if (IsThepGiaCuong_VM != value)
+                {
+                    IsThepGiaCuong_VM = value;
+                }
+            }
         }
         public bool IsDirectionX
         {
             get => IsDirectionX_VM;
-            set { if (IsDirectionX_VM != value) { IsDirectionX_VM = value; } }
+            set
+            {
+                if (IsDirectionX_VM != value)
+                {
+                    IsDirectionX_VM = value;
+                }
+            }
         }
         public bool IsDirectionY
         {
             get => IsDirectionY_VM;
-            set { if (IsDirectionY_VM != value) { IsDirectionY_VM = value; } }
+            set
+            {
+                if (IsDirectionY_VM != value)
+                {
+                    IsDirectionY_VM = value;
+                }
+            }
         }
         public bool IsDirectionOther
         {
             get => IsDirectionOther_VM;
-            set { if (IsDirectionOther_VM != value) { IsDirectionOther_VM = value; } }
+            set
+            {
+                if (IsDirectionOther_VM != value)
+                {
+                    IsDirectionOther_VM = value;
+                }
+            }
         }
         public bool IsGhiChu
         {
             get => IsGhiChu_VM;
-            set { if (IsGhiChu_VM != value) { IsGhiChu_VM = value; } }
+            set
+            {
+                if (IsGhiChu_VM != value)
+                {
+                    IsGhiChu_VM = value;
+                }
+            }
         }
         public string SelectedDetailItemName
         {
@@ -225,27 +311,39 @@ namespace DHHTools
                 }
             }
         }
-        public double coverSlabTop
+        public double SlabCoverTop
         {
-            get => coverSlabTop_VM;
+            get => SlabCoverTop_VM;
             set
             {
-                if (coverSlabTop_VM != value)
+                if (SlabCoverTop_VM != value)
                 {
-                    coverSlabTop = value;
-                    OnPropertyChanged("coverSlabTop");
+                    SlabCoverTop_VM = value;
+                    OnPropertyChanged("SlabCoverTop");
                 }
             }
         }
-        public string stringCoverTop
+        public double SlabCoverBot
         {
-            get => stringcoverTop_VM;
+            get => SlabCoverBot_VM;
             set
             {
-                if (stringcoverTop_VM != value)
+                if (SlabCoverBot_VM != value)
                 {
-                    stringcoverTop_VM = value;
-                    OnPropertyChanged("stringcoverTop");
+                    SlabCoverBot_VM = value;
+                    OnPropertyChanged("SlabCoverBot");
+                }
+            }
+        }
+        public double SlabCoverOther
+        {
+            get => SlabCoverOther_VM;
+            set
+            {
+                if (SlabCoverOther_VM != value)
+                {
+                    SlabCoverOther_VM = value;
+                    OnPropertyChanged("SlabCoverOther");
                 }
             }
         }
@@ -321,8 +419,11 @@ namespace DHHTools
                 }
             }
         }
+
         #endregion
+
         #region 03. View Model
+
         public CreateRebarSlab2DViewModel(ExternalCommandData commandData)
         {
             uiapp = commandData.Application;
@@ -343,6 +444,7 @@ namespace DHHTools
             {
                 AllRebarType.Add((rebarType as RebarBarType)?.Name);
             }
+
             AllRebarType.Sort();
             RebarTypeNameTop = AllRebarType[3];
             RebarTypeNameBot = AllRebarType[3];
@@ -354,6 +456,7 @@ namespace DHHTools
                 AllRebarShapeName.Add((rebarShape as RebarShape)?.Name);
                 AllRebarShape.Add((rebarShape as RebarShape));
             }
+
             //AllRebarShape.Sort();
             AllRebarShapeName.Sort();
             SelectedRebarShapeTopName = AllRebarShape[0].Name;
@@ -369,6 +472,7 @@ namespace DHHTools
             IsThepGiaCuong = true;
             IsDirectionX = true;
             
+
             ElementCategoryFilter detailItemFilter = new ElementCategoryFilter(BuiltInCategory.OST_DetailComponents);
             FilteredElementCollector collectordetailItem = new FilteredElementCollector(Doc);
             List<Element> AllDetailItem = collectordetailItem
@@ -381,6 +485,7 @@ namespace DHHTools
                 FamilySymbol familySymbol = element as FamilySymbol;
                 AllDetailItemName.Add(familySymbol.Name);
             }
+
             AllDetailItemName.Sort();
             for (int i = 0; i < AllDetailItemName.Count(); i++)
             {
@@ -389,17 +494,24 @@ namespace DHHTools
                     SelectedDetailItemName = AllDetailItemName[i];
                     break;
                 }
+
                 i++;
             }
+
             IsGhiChu = true;
-            ElementCategoryFilter detailItemTagFilter = new ElementCategoryFilter(BuiltInCategory.OST_DetailComponentTags);
+            ElementCategoryFilter detailItemTagFilter =
+                new ElementCategoryFilter(BuiltInCategory.OST_DetailComponentTags);
             FilteredElementCollector collectordetailItemTag = new FilteredElementCollector(Doc);
             List<Element> AllDetailItemTag = collectordetailItemTag
                 .WherePasses(detailItemTagFilter)
                 .WhereElementIsElementType()
                 .OfClass(typeof(FamilySymbol))
                 .ToList();
-            foreach (Element eDeItemTag in AllDetailItemTag) { AllDetailItemTagName.Add(eDeItemTag.Name); }
+            foreach (Element eDeItemTag in AllDetailItemTag)
+            {
+                AllDetailItemTagName.Add(eDeItemTag.Name);
+            }
+
             AllDetailItemTagName.Sort();
             for (int i = 0; i < AllDetailItemTagName.Count(); i++)
             {
@@ -408,40 +520,107 @@ namespace DHHTools
                     SelectedDetailItemTagName = AllDetailItemTagName[i];
                     break;
                 }
+
                 i++;
             }
-            coverSlabTop = 20;
-            stringCoverTop = coverSlabTop.ToString();
-            //if (SelectedElement != null )
 
-            //{
-            //    CoverTop = 200.ToString();
-            //    CoverBot = 20.ToString();
-            //    CoverOther = 20.ToString();
-            //}
-            //else
-            //{
-            //    CoverTop = "";
-            //    CoverBot = "";
-            //    CoverOther = "";
-            //}    
-
-            CreateRebarSlab2DWindow rebarSlab2DWindow = new CreateRebarSlab2DWindow(this);
-            rebarSlab2DWindow.Show();
+            if (SelectedElement != null)
+            {
+                SlabCoverTop = 20;
+                SlabCoverBot = 20;
+                SlabCoverOther = 20;
+            }
+            
         }
+
         #endregion
+
         #region 04. Select Element
+
         public void SelectElementBtn()
         {
-            Reference pickObject = UiDoc.Selection.PickObject(ObjectType.Element,new FloorSelectionFilter(), "Chọn sàn");
+            Reference pickObject =
+                UiDoc.Selection.PickObject(ObjectType.Element, new FloorSelectionFilter(), "Chọn sàn");
             SelectedElement = Doc.GetElement(pickObject);
         }
+
         #endregion
 
-        
-        
+        public void DrawRebar2D()
+        {
+            string phuongThep = "DirX";
+            FamilySymbol fselement = (FamilySymbol)new FilteredElementCollector(doc)
+               .WhereElementIsElementType()
+               .OfCategory(BuiltInCategory.OST_DetailComponents)
+               .OfClass(typeof(FamilySymbol))
+               .Cast<FamilySymbol>()
+               .FirstOrDefault(s => s.Name.Equals("DHH_KC_ThepSan_1/100"));
+            XYZ p1 = uidoc.Selection.PickPoint("Point 1");
+            XYZ p2 = uidoc.Selection.PickPoint("Point 2");
+            XYZ p3 = uidoc.Selection.PickPoint("Point 3");
+            XYZ p4 = uidoc.Selection.PickPoint("Point 4");
+            Line lineX = Line.CreateUnbound(p1, XYZ.BasisX);
+            Line lineY = Line.CreateUnbound(p1, XYZ.BasisY);
+            double xp2 = p2.X;
+            double yp2 = p2.Y;
+
+            XYZ p2linethep = XYZ.Zero;
+            XYZ pX2 = new XYZ(xp2, p1.Y, p1.Z);
+            XYZ pY2 = new XYZ(p1.X, yp2, p1.Z);
+            if (phuongThep == "DirX") { p2linethep = pX2; } else { p2linethep = pY2; }
+            Line linethep = Line.CreateBound(p1, p2linethep);
+            Line line2x = Line.CreateUnbound(p3, XYZ.BasisY);
+            Line line3x = Line.CreateUnbound(p4, XYZ.BasisY);
+            Line line2y = Line.CreateUnbound(p3, XYZ.BasisX);
+            Line line3y = Line.CreateUnbound(p4, XYZ.BasisX);
+            double phai = 0;
+            double trai = 0;
+            double distance = 0;
+            if (phuongThep == "DirX")
+            {
+                if (p3.Y >= p4.Y)
+                {
+                    phai = linethep.Distance(p3);
+                    trai = linethep.Distance(p4);
+                    distance = line2x.Distance(p1);
+                }
+                else
+                {
+                    phai = linethep.Distance(p4);
+                    trai = linethep.Distance(p3);
+                    distance = line3x.Distance(p1);
+                }
+            }
+            else
+            {
+                if (p3.X <= p4.X)
+                {
+                    phai = linethep.Distance(p3);
+                    trai = linethep.Distance(p4);
+                    distance = line2y.Distance(p1);
+                }
+                else
+                {
+                    phai = linethep.Distance(p4);
+                    trai = linethep.Distance(p3);
+                    distance = line3y.Distance(p1);
+                }
+            }
+
+            using (Transaction tran = new Transaction(doc))
+            {
+                tran.Start("Create Detail Rebar 2D");
+                FamilyInstance newinstance = doc.Create.NewFamilyInstance(linethep, fselement, doc.ActiveView);
+                Parameter phaiParameter = newinstance.LookupParameter("CR_RaiThep_Phai");
+                Parameter traiParameter = newinstance.LookupParameter("CR_RaiThep_Trai");
+                Parameter distanceParameter = newinstance.LookupParameter("KC_MuiTen.No1");
+                phaiParameter.Set(phai);
+                traiParameter.Set(trai);
+                distanceParameter.Set(distance);
+                tran.Commit();
+            }
+            //MessageBox.Show(fselement.Name.ToString());
+            return;
+        }
     }
 }
-
-
-
