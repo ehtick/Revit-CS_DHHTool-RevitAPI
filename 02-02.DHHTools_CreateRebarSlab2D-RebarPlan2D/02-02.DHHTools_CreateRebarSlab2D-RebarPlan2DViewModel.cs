@@ -485,18 +485,19 @@ namespace DHHTools
                 FamilySymbol familySymbol = element as FamilySymbol;
                 AllDetailItemName.Add(familySymbol.Name);
             }
-
             AllDetailItemName.Sort();
-            for (int i = 0; i < AllDetailItemName.Count(); i++)
+            for (int i = 0; i < AllDetailItem.Count(); i++)
             {
-                if (AllDetailItemName[i].Contains("ThepSan") == true)
+                if (AllDetailItem[i].Name.Contains("ThepSan") == true)
                 {
-                    SelectedDetailItemName = AllDetailItemName[i];
+                    SelectedDetailItemName = AllDetailItem[i].Name;
+                    SelectedDetailItem = AllDetailItem[i] as FamilySymbol;
                     break;
                 }
 
                 i++;
             }
+
 
             IsGhiChu = true;
             ElementCategoryFilter detailItemTagFilter =
@@ -540,7 +541,7 @@ namespace DHHTools
         public void SelectElementBtn()
         {
             Reference pickObject =
-                UiDoc.Selection.PickObject(ObjectType.Element, new FloorSelectionFilter(), "Chọn sàn");
+                UiDoc.Selection.PickObject(ObjectType.Element, "Chọn sàn");
             SelectedElement = Doc.GetElement(pickObject);
         }
 
@@ -548,13 +549,6 @@ namespace DHHTools
 
         public void DrawRebar2D()
         {
-            string phuongThep = "DirX";
-            FamilySymbol fselement = (FamilySymbol)new FilteredElementCollector(doc)
-               .WhereElementIsElementType()
-               .OfCategory(BuiltInCategory.OST_DetailComponents)
-               .OfClass(typeof(FamilySymbol))
-               .Cast<FamilySymbol>()
-               .FirstOrDefault(s => s.Name.Equals("DHH_KC_ThepSan_1/100"));
             XYZ p1 = uidoc.Selection.PickPoint("Point 1");
             XYZ p2 = uidoc.Selection.PickPoint("Point 2");
             XYZ p3 = uidoc.Selection.PickPoint("Point 3");
@@ -567,7 +561,7 @@ namespace DHHTools
             XYZ p2linethep = XYZ.Zero;
             XYZ pX2 = new XYZ(xp2, p1.Y, p1.Z);
             XYZ pY2 = new XYZ(p1.X, yp2, p1.Z);
-            if (phuongThep == "DirX") { p2linethep = pX2; } else { p2linethep = pY2; }
+            if (IsDirectionX == true) { p2linethep = pX2; } else { p2linethep = pY2; }
             Line linethep = Line.CreateBound(p1, p2linethep);
             Line line2x = Line.CreateUnbound(p3, XYZ.BasisY);
             Line line3x = Line.CreateUnbound(p4, XYZ.BasisY);
@@ -576,7 +570,7 @@ namespace DHHTools
             double phai = 0;
             double trai = 0;
             double distance = 0;
-            if (phuongThep == "DirX")
+            if (IsDirectionX == true)
             {
                 if (p3.Y >= p4.Y)
                 {
@@ -610,7 +604,7 @@ namespace DHHTools
             using (Transaction tran = new Transaction(doc))
             {
                 tran.Start("Create Detail Rebar 2D");
-                FamilyInstance newinstance = doc.Create.NewFamilyInstance(linethep, fselement, doc.ActiveView);
+                FamilyInstance newinstance = doc.Create.NewFamilyInstance(linethep, SelectedDetailItem, doc.ActiveView);
                 Parameter phaiParameter = newinstance.LookupParameter("CR_RaiThep_Phai");
                 Parameter traiParameter = newinstance.LookupParameter("CR_RaiThep_Trai");
                 Parameter distanceParameter = newinstance.LookupParameter("KC_MuiTen.No1");

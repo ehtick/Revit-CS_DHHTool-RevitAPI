@@ -17,7 +17,7 @@ namespace DHHTools
         {
             try
             {
-                ViewModel.SelectElementBtn();
+                ViewModel.DrawRebar2D();
             }
             catch (Exception e)
             {
