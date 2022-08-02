@@ -47,13 +47,17 @@ namespace DHHTools
         public void Btn_ClickOK(object sender, RoutedEventArgs e)
         {
             Hide();
-            do
+            //do
+            //{
+               // _viewModel.DrawRebar2D();
+            //} 
+            while (ConsoleKey.Escape != (ConsoleKey) 0)
             {
                 _viewModel.DrawRebar2D();
             }
-            while (Console.ReadKey().Key != ConsoleKey.Escape);
+            //while (ConsoleKey.Enter != (ConsoleKey) 0) ;
 
-            MyExternalEvent.Raise();
+            //MyExternalEvent.Raise();
         }
     }
 }
