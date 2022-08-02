@@ -21,7 +21,6 @@ namespace DHHTools
     [Transaction(TransactionMode.Manual)]
     public class ViewPlanCreateRebarSlab2D : IExternalCommand
     {
-
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             UIApplication uiapp = commandData.Application;
@@ -100,7 +99,6 @@ namespace DHHTools
                 distanceParameter.Set(distance);
                 tran.Commit();
             }
-            //MessageBox.Show(fselement.Name.ToString());
             return Result.Succeeded;
         }
     }

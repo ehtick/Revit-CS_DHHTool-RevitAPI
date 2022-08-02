@@ -22,7 +22,6 @@ namespace DHHTools
     public class CreateRebarSlab2DViewModel : ViewModelBase
     {
         #region 01. Private Property
-
         protected internal ExternalEvent ExEvent;
         private UIApplication uiapp;
         private UIDocument uidoc;
@@ -58,11 +57,9 @@ namespace DHHTools
         private double SlabCoverOther_VM;
         private double barDiaTop_VM;
         private double barDiaBot_VM;
-
         #endregion
 
         #region 02. Public Property
-
         public UIDocument UiDoc;
         public Document Doc;
         public Element SelectedElement
@@ -320,6 +317,7 @@ namespace DHHTools
                 {
                     SlabCoverTop_VM = value;
                     OnPropertyChanged("SlabCoverTop");
+                    OnPropertyChanged("SelectedElement");
                 }
             }
         }
@@ -332,6 +330,7 @@ namespace DHHTools
                 {
                     SlabCoverBot_VM = value;
                     OnPropertyChanged("SlabCoverBot");
+                    OnPropertyChanged("SelectedElement");
                 }
             }
         }
@@ -344,6 +343,7 @@ namespace DHHTools
                 {
                     SlabCoverOther_VM = value;
                     OnPropertyChanged("SlabCoverOther");
+                    OnPropertyChanged("SelectedElement");
                 }
             }
         }
@@ -419,11 +419,9 @@ namespace DHHTools
                 }
             }
         }
-
         #endregion
 
         #region 03. View Model
-
         public CreateRebarSlab2DViewModel(ExternalCommandData commandData)
         {
             uiapp = commandData.Application;
@@ -436,6 +434,7 @@ namespace DHHTools
             AllRebarShapeName = new List<string>();
             AllRebarShape = new List<RebarShape>();
             AllDetailItemName = new List<string>();
+            AllDetailItem = new List<FamilySymbol>();
             AllDetailItemTagName = new List<string>();
             ElementClassFilter rebarClassFilter = new ElementClassFilter(typeof(RebarBarType));
             FilteredElementCollector collectorRebarType = new FilteredElementCollector(Doc);
@@ -454,10 +453,8 @@ namespace DHHTools
             foreach (Element rebarShape in rebarShapeClass)
             {
                 AllRebarShapeName.Add((rebarShape as RebarShape)?.Name);
-                AllRebarShape.Add((rebarShape as RebarShape));
+                 AllRebarShape.Add((rebarShape as RebarShape));
             }
-
-            //AllRebarShape.Sort();
             AllRebarShapeName.Sort();
             SelectedRebarShapeTopName = AllRebarShape[0].Name;
             SelectedRebarShapeBotName = AllRebarShape[0].Name;
@@ -471,34 +468,30 @@ namespace DHHTools
             IsThepPhanBo = true;
             IsThepGiaCuong = true;
             IsDirectionX = true;
-            
-
             ElementCategoryFilter detailItemFilter = new ElementCategoryFilter(BuiltInCategory.OST_DetailComponents);
             FilteredElementCollector collectordetailItem = new FilteredElementCollector(Doc);
-            List<Element> AllDetailItem = collectordetailItem
+            List<Element> AllDetailItemlist = collectordetailItem
                 .WherePasses(detailItemFilter)
                 .WhereElementIsElementType()
                 .OfClass(typeof(FamilySymbol))
                 .ToList();
-            foreach (Element element in AllDetailItem)
+            foreach (Element element in AllDetailItemlist)
             {
                 FamilySymbol familySymbol = element as FamilySymbol;
+                AllDetailItem.Add(familySymbol);
                 AllDetailItemName.Add(familySymbol.Name);
             }
-            AllDetailItemName.Sort();
             for (int i = 0; i < AllDetailItem.Count(); i++)
             {
                 if (AllDetailItem[i].Name.Contains("ThepSan") == true)
                 {
                     SelectedDetailItemName = AllDetailItem[i].Name;
-                    SelectedDetailItem = AllDetailItem[i] as FamilySymbol;
+                    SelectedDetailItem = AllDetailItem[i];
                     break;
                 }
 
                 i++;
             }
-
-
             IsGhiChu = true;
             ElementCategoryFilter detailItemTagFilter =
                 new ElementCategoryFilter(BuiltInCategory.OST_DetailComponentTags);
@@ -512,7 +505,6 @@ namespace DHHTools
             {
                 AllDetailItemTagName.Add(eDeItemTag.Name);
             }
-
             AllDetailItemTagName.Sort();
             for (int i = 0; i < AllDetailItemTagName.Count(); i++)
             {
@@ -524,29 +516,32 @@ namespace DHHTools
 
                 i++;
             }
-
-            if (SelectedElement != null)
+            if (SelectedElement == null)
             {
                 SlabCoverTop = 20;
                 SlabCoverBot = 20;
                 SlabCoverOther = 20;
             }
+            else
+            {
+                SlabCoverTop = 30;
+                SlabCoverBot = 30;
+                SlabCoverOther = 30;
+            }
             
         }
-
         #endregion
 
         #region 04. Select Element
-
         public void SelectElementBtn()
         {
             Reference pickObject =
                 UiDoc.Selection.PickObject(ObjectType.Element, "Chọn sàn");
             SelectedElement = Doc.GetElement(pickObject);
         }
-
         #endregion
 
+        #region 05. Draw Rebar2D
         public void DrawRebar2D()
         {
             XYZ p1 = uidoc.Selection.PickPoint("Point 1");
@@ -616,5 +611,6 @@ namespace DHHTools
             //MessageBox.Show(fselement.Name.ToString());
             return;
         }
+        #endregion
     }
 }

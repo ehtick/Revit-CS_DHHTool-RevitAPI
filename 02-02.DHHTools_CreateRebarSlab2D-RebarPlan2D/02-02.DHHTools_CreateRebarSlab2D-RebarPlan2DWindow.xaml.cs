@@ -31,6 +31,7 @@ namespace DHHTools
             Doc = _viewModel.Doc;
             eventHandler = new CreateRebarSlab2DHandler();
             MyExternalEvent = ExternalEvent.Create(eventHandler);
+            eventHandler.ViewModel = _viewModel;
             //Icon = _dhhConstraint.IconWindow;
         }
         public void Btn_ClickSelect(object sender, RoutedEventArgs e)
@@ -41,14 +42,18 @@ namespace DHHTools
         }
         public void Btn_ClickCancel(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            Close();
         }
         public void Btn_ClickOK(object sender, RoutedEventArgs e)
         {
-            Close();
-            eventHandler.ViewModel = _viewModel;
-            _viewModel.DrawRebar2D();
-            //MyExternalEvent.Raise();
+            Hide();
+            do
+            {
+                _viewModel.DrawRebar2D();
+            }
+            while (Console.ReadKey().Key != ConsoleKey.Escape);
+
+            MyExternalEvent.Raise();
         }
     }
 }

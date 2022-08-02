@@ -22,16 +22,16 @@ namespace DHHTools
             // ReSharper disable once UnusedVariable
             Application app = uiapp.Application;
             Document doc = uidoc.Document;
-            
+            CreateRebarSlab2DViewModel viewModel = new CreateRebarSlab2DViewModel(commandData);
+
             #region Lưu lại Transaction
             using (TransactionGroup transGr = new TransactionGroup(doc))
             {
                 transGr.Start("Create Slab Rebar");
-                CreateRebarSlab2DViewModel viewModel = new CreateRebarSlab2DViewModel(commandData);
                 CreateRebarSlab2DWindow window = new CreateRebarSlab2DWindow(viewModel);
                 bool? dialog = window.ShowDialog();
-                if (dialog == false) return Result.Cancelled;
-                transGr.Assimilate();
+                if (dialog == true) return Result.Succeeded;
+                transGr.Commit();
             }
             return Result.Succeeded;
             #endregion
