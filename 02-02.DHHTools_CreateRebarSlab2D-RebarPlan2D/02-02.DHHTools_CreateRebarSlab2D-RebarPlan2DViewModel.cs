@@ -46,8 +46,9 @@ namespace DHHTools
         private bool IsDirectionOther_VM;
         private bool IsGhiChu_VM;
         private string SelectedDetailItemName_VM;
-        private string SelectedDetailItemTagName_VM;
         private FamilySymbol SelectedDetailItem_VM;
+        private string SelectedDetailItemTagName_VM;
+        private Element SelectedDetailItemTag_VM;
         private string RebarTypeNameTop_VM;
         private string RebarTypeNameBot_VM;
         private RebarBarType RebarTypeTop_VM;
@@ -281,6 +282,7 @@ namespace DHHTools
                 {
                     SelectedDetailItemName_VM = value;
                     OnPropertyChanged("SelectedDetailItemName");
+                    OnPropertyChanged("SelectedDetailItem");
                 }
             }
         }
@@ -293,6 +295,7 @@ namespace DHHTools
                 {
                     SelectedDetailItem_VM = value;
                     OnPropertyChanged("SelectedDetailItem");
+                    OnPropertyChanged("SelectedDetailItemName");
                 }
             }
         }
@@ -304,6 +307,20 @@ namespace DHHTools
                 if (SelectedDetailItemTagName_VM != value)
                 {
                     SelectedDetailItemTagName_VM = value;
+                    OnPropertyChanged("SelectedDetailItemTagName");
+                    OnPropertyChanged("SelectedDetailItemTag");
+                }
+            }
+        }
+        public Element SelectedDetailItemTag
+        {
+            get => SelectedDetailItemTag_VM;
+            set
+            {
+                if (SelectedDetailItemTag_VM != value)
+                {
+                    SelectedDetailItemTag_VM = value;
+                    OnPropertyChanged("SelectedDetailItemTag");
                     OnPropertyChanged("SelectedDetailItemTagName");
                 }
             }
@@ -419,6 +436,12 @@ namespace DHHTools
                 }
             }
         }
+        public XYZ p1 { get; set; }
+        public XYZ p2 { get; set; }
+        public XYZ p3 { get; set; }
+        public XYZ p4 { get; set; }
+        public FamilyInstance detailRebarTop { get; set; }
+        public FamilyInstance detailRebarBot { get; set; }
         #endregion
 
         #region 03. View Model
@@ -435,6 +458,7 @@ namespace DHHTools
             AllRebarShape = new List<RebarShape>();
             AllDetailItemName = new List<string>();
             AllDetailItem = new List<FamilySymbol>();
+            AllDetailItemTag = new List<Element>();
             AllDetailItemTagName = new List<string>();
             ElementClassFilter rebarClassFilter = new ElementClassFilter(typeof(RebarBarType));
             FilteredElementCollector collectorRebarType = new FilteredElementCollector(Doc);
@@ -443,7 +467,6 @@ namespace DHHTools
             {
                 AllRebarType.Add((rebarType as RebarBarType)?.Name);
             }
-
             AllRebarType.Sort();
             RebarTypeNameTop = AllRebarType[3];
             RebarTypeNameBot = AllRebarType[3];
@@ -453,7 +476,7 @@ namespace DHHTools
             foreach (Element rebarShape in rebarShapeClass)
             {
                 AllRebarShapeName.Add((rebarShape as RebarShape)?.Name);
-                 AllRebarShape.Add((rebarShape as RebarShape));
+                AllRebarShape.Add((rebarShape as RebarShape));
             }
             AllRebarShapeName.Sort();
             SelectedRebarShapeTopName = AllRebarShape[0].Name;
@@ -462,7 +485,7 @@ namespace DHHTools
             IsThep3D = true;
             IsThepLopTren = true;
             IsThepLopDuoi = true;
-            ValueDistanceTopBottom = 150;
+            ValueDistanceTopBottom = 2000;
             ValueSpacingTop = 200;
             ValueSpacingBot = 200;
             IsThepPhanBo = true;
@@ -485,37 +508,37 @@ namespace DHHTools
             {
                 if (AllDetailItem[i].Name.Contains("ThepSan") == true)
                 {
-                    SelectedDetailItemName = AllDetailItem[i].Name;
                     SelectedDetailItem = AllDetailItem[i];
                     break;
                 }
 
                 i++;
             }
+            SelectedDetailItemName = SelectedDetailItem.Name;
             IsGhiChu = true;
-            ElementCategoryFilter detailItemTagFilter =
-                new ElementCategoryFilter(BuiltInCategory.OST_DetailComponentTags);
+            ElementCategoryFilter detailItemTagFilter = new ElementCategoryFilter(BuiltInCategory.OST_DetailComponentTags);
             FilteredElementCollector collectordetailItemTag = new FilteredElementCollector(Doc);
-            List<Element> AllDetailItemTag = collectordetailItemTag
+            List<Element> AllDetailItemTaglist = collectordetailItemTag
                 .WherePasses(detailItemTagFilter)
                 .WhereElementIsElementType()
                 .OfClass(typeof(FamilySymbol))
                 .ToList();
-            foreach (Element eDeItemTag in AllDetailItemTag)
+            foreach (Element eDeItemTag in AllDetailItemTaglist)
             {
+                AllDetailItemTag.Add(eDeItemTag);
                 AllDetailItemTagName.Add(eDeItemTag.Name);
             }
-            AllDetailItemTagName.Sort();
-            for (int i = 0; i < AllDetailItemTagName.Count(); i++)
+            for (int i = 0; i < AllDetailItemTag.Count(); i++)
             {
-                if (AllDetailItemTagName[i].Contains("ThepSan") == true)
+                if (AllDetailItemTag[i].Name.Contains("ThepSan") == true)
                 {
-                    SelectedDetailItemTagName = AllDetailItemTagName[i];
+                    SelectedDetailItemTag = AllDetailItemTag[i];
                     break;
                 }
 
                 i++;
             }
+            SelectedDetailItemTagName = SelectedDetailItemTag.Name;
             if (SelectedElement == null)
             {
                 SlabCoverTop = 20;
@@ -528,7 +551,6 @@ namespace DHHTools
                 SlabCoverBot = 30;
                 SlabCoverOther = 30;
             }
-            
         }
         #endregion
 
@@ -541,29 +563,39 @@ namespace DHHTools
         }
         #endregion
 
-        #region 05. Draw Rebar2D
+        #region 05. Pick Point On Plan
+        public void PickPointOnPlan()
+        {
+            p1 = uidoc.Selection.PickPoint("Point 1");
+            p2 = uidoc.Selection.PickPoint("Point 2");
+            p3 = uidoc.Selection.PickPoint("Point 3");
+            p4 = uidoc.Selection.PickPoint("Point 4");
+        }
+        #endregion
+
+        #region 06. Draw Rebar2D
         public void DrawRebar2D()
         {
-            XYZ p1 = uidoc.Selection.PickPoint("Point 1");
-            XYZ p2 = uidoc.Selection.PickPoint("Point 2");
-            XYZ p3 = uidoc.Selection.PickPoint("Point 3");
-            XYZ p4 = uidoc.Selection.PickPoint("Point 4");
             Line lineX = Line.CreateUnbound(p1, XYZ.BasisX);
             Line lineY = Line.CreateUnbound(p1, XYZ.BasisY);
             double xp2 = p2.X;
             double yp2 = p2.Y;
-
             XYZ p2linethep = XYZ.Zero;
             XYZ pX2 = new XYZ(xp2, p1.Y, p1.Z);
             XYZ pY2 = new XYZ(p1.X, yp2, p1.Z);
+            XYZ myVector = new XYZ(0, -DhhUnitUtils.MmToFeet(ValueDistanceTopBottom), 0);
+            Transform tf = Transform.CreateTranslation(myVector);
             if (IsDirectionX == true) { p2linethep = pX2; } else { p2linethep = pY2; }
-            Line linethep = Line.CreateBound(p1, p2linethep);
+            Line linethep = Line.CreateBound(p1, p2linethep); 
+            Line linethepBot = ((linethep as Curve).CreateTransformed(tf)) as Line;
             Line line2x = Line.CreateUnbound(p3, XYZ.BasisY);
             Line line3x = Line.CreateUnbound(p4, XYZ.BasisY);
             Line line2y = Line.CreateUnbound(p3, XYZ.BasisX);
             Line line3y = Line.CreateUnbound(p4, XYZ.BasisX);
             double phai = 0;
             double trai = 0;
+            double phaiBot = 0;
+            double traiBot = 0;
             double distance = 0;
             if (IsDirectionX == true)
             {
@@ -571,12 +603,16 @@ namespace DHHTools
                 {
                     phai = linethep.Distance(p3);
                     trai = linethep.Distance(p4);
+                    phaiBot = linethepBot.Distance(p3);
+                    traiBot = linethepBot.Distance(p4);
                     distance = line2x.Distance(p1);
                 }
                 else
                 {
                     phai = linethep.Distance(p4);
                     trai = linethep.Distance(p3);
+                    phaiBot = linethepBot.Distance(p4);
+                    traiBot = linethepBot.Distance(p3);
                     distance = line3x.Distance(p1);
                 }
             }
@@ -586,12 +622,16 @@ namespace DHHTools
                 {
                     phai = linethep.Distance(p3);
                     trai = linethep.Distance(p4);
+                    phaiBot = linethepBot.Distance(p3);
+                    traiBot = linethepBot.Distance(p4);
                     distance = line2y.Distance(p1);
                 }
                 else
                 {
                     phai = linethep.Distance(p4);
                     trai = linethep.Distance(p3);
+                    phaiBot = linethepBot.Distance(p4);
+                    traiBot = linethepBot.Distance(p3);
                     distance = line3y.Distance(p1);
                 }
             }
@@ -599,17 +639,30 @@ namespace DHHTools
             using (Transaction tran = new Transaction(doc))
             {
                 tran.Start("Create Detail Rebar 2D");
-                FamilyInstance newinstance = doc.Create.NewFamilyInstance(linethep, SelectedDetailItem, doc.ActiveView);
-                Parameter phaiParameter = newinstance.LookupParameter("CR_RaiThep_Phai");
-                Parameter traiParameter = newinstance.LookupParameter("CR_RaiThep_Trai");
-                Parameter distanceParameter = newinstance.LookupParameter("KC_MuiTen.No1");
-                phaiParameter.Set(phai);
-                traiParameter.Set(trai);
-                distanceParameter.Set(distance);
+                detailRebarTop = doc.Create.NewFamilyInstance(linethep, SelectedDetailItem, doc.ActiveView);
+                detailRebarBot = doc.Create.NewFamilyInstance(linethepBot, SelectedDetailItem, doc.ActiveView);
+                Parameter TopphaiPara = detailRebarTop.LookupParameter("CR_RaiThep_Phai");
+                Parameter ToptraiPara = detailRebarTop.LookupParameter("CR_RaiThep_Trai");
+                Parameter TopdistancePara = detailRebarTop.LookupParameter("KC_MuiTen.No1");
+                TopphaiPara.Set(phai);
+                ToptraiPara.Set(trai);
+                TopdistancePara.Set(distance);
+                Parameter BotphaiPara = detailRebarBot.LookupParameter("CR_RaiThep_Phai");
+                Parameter BottraiPara = detailRebarBot.LookupParameter("CR_RaiThep_Trai");
+                Parameter BotdistancePara = detailRebarBot.LookupParameter("KC_MuiTen.No1");
+                BotphaiPara.Set(phaiBot);
+                BottraiPara.Set(traiBot);
+                BotdistancePara.Set(distance);
                 tran.Commit();
             }
-            //MessageBox.Show(fselement.Name.ToString());
             return;
+        }
+        #endregion
+
+        #region 07. Tag Rebar2D
+        public void TagRebar2D()
+        {
+           
         }
         #endregion
     }
