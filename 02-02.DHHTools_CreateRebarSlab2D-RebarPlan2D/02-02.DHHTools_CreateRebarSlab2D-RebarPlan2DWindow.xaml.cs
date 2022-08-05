@@ -50,6 +50,7 @@ namespace DHHTools
             Hide();
             _viewModel.PickPointOnPlan();
             _viewModel.DrawRebar2D();
+            _viewModel.TagRebar2D();
             //do
             //{
             //    _viewModel.PickPointOnPlan();

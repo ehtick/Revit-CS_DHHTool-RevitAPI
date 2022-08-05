@@ -440,8 +440,8 @@ namespace DHHTools
         public XYZ p2 { get; set; }
         public XYZ p3 { get; set; }
         public XYZ p4 { get; set; }
-        public FamilyInstance detailRebarTop { get; set; }
-        public FamilyInstance detailRebarBot { get; set; }
+        public FamilyInstance DetailRebarTop { get; set; }
+        public FamilyInstance DetailRebarBot { get; set; }
         #endregion
 
         #region 03. View Model
@@ -639,20 +639,21 @@ namespace DHHTools
             using (Transaction tran = new Transaction(doc))
             {
                 tran.Start("Create Detail Rebar 2D");
-                detailRebarTop = doc.Create.NewFamilyInstance(linethep, SelectedDetailItem, doc.ActiveView);
-                detailRebarBot = doc.Create.NewFamilyInstance(linethepBot, SelectedDetailItem, doc.ActiveView);
-                Parameter TopphaiPara = detailRebarTop.LookupParameter("CR_RaiThep_Phai");
-                Parameter ToptraiPara = detailRebarTop.LookupParameter("CR_RaiThep_Trai");
-                Parameter TopdistancePara = detailRebarTop.LookupParameter("KC_MuiTen.No1");
+                DetailRebarTop = doc.Create.NewFamilyInstance(linethep, SelectedDetailItem, doc.ActiveView);
+                DetailRebarBot = doc.Create.NewFamilyInstance(linethepBot, SelectedDetailItem, doc.ActiveView);
+                Parameter TopphaiPara = DetailRebarTop.LookupParameter("CR_RaiThep_Phai");
+                Parameter ToptraiPara = DetailRebarTop.LookupParameter("CR_RaiThep_Trai");
+                Parameter TopdistancePara = DetailRebarTop.LookupParameter("KC_MuiTen.No1");
                 TopphaiPara.Set(phai);
                 ToptraiPara.Set(trai);
                 TopdistancePara.Set(distance);
-                Parameter BotphaiPara = detailRebarBot.LookupParameter("CR_RaiThep_Phai");
-                Parameter BottraiPara = detailRebarBot.LookupParameter("CR_RaiThep_Trai");
-                Parameter BotdistancePara = detailRebarBot.LookupParameter("KC_MuiTen.No1");
+                Parameter BotphaiPara = DetailRebarBot.LookupParameter("CR_RaiThep_Phai");
+                Parameter BottraiPara = DetailRebarBot.LookupParameter("CR_RaiThep_Trai");
+                Parameter BotdistancePara = DetailRebarBot.LookupParameter("KC_MuiTen.No1");
                 BotphaiPara.Set(phaiBot);
                 BottraiPara.Set(traiBot);
                 BotdistancePara.Set(distance);
+                
                 tran.Commit();
             }
             return;
@@ -662,7 +663,12 @@ namespace DHHTools
         #region 07. Tag Rebar2D
         public void TagRebar2D()
         {
-           
+            using (Transaction tran = new Transaction(doc))
+            {
+                IList<Reference> r =DetailRebarBot.GetReferences(FamilyInstanceReferenceType.StrongReference);
+                IndependentTag deRebar2DTagTop = IndependentTag.Create(doc, SelectedDetailItemTag.Id, doc.ActiveView.Id,r[0],false, TagOrientation.Horizontal, XYZ.Zero);
+                tran.Commit();
+            }
         }
         #endregion
     }
