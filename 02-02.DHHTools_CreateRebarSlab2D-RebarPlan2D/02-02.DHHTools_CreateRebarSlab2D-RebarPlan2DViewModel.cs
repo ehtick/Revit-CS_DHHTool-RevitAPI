@@ -635,7 +635,6 @@ namespace DHHTools
                     distance = line3y.Distance(p1);
                 }
             }
-
             using (Transaction tran = new Transaction(doc))
             {
                 tran.Start("Create Detail Rebar 2D");
@@ -653,7 +652,6 @@ namespace DHHTools
                 BotphaiPara.Set(phaiBot);
                 BottraiPara.Set(traiBot);
                 BotdistancePara.Set(distance);
-                
                 tran.Commit();
             }
             return;
@@ -665,10 +663,12 @@ namespace DHHTools
         {
             using (Transaction tran = new Transaction(doc))
             {
+                tran.Start("Create Detail Rebar Tag 2D");
                 IList<Reference> r =DetailRebarBot.GetReferences(FamilyInstanceReferenceType.StrongReference);
                 IndependentTag deRebar2DTagTop = IndependentTag.Create(doc, SelectedDetailItemTag.Id, doc.ActiveView.Id,r[0],false, TagOrientation.Horizontal, XYZ.Zero);
                 tran.Commit();
             }
+            return;
         }
         #endregion
     }

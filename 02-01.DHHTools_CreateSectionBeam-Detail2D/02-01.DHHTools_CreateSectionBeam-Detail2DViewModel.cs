@@ -3,11 +3,16 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Structure;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
+using Excel = Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 using Application = Autodesk.Revit.ApplicationServices.Application;
 using Curve = Autodesk.Revit.DB.Curve;
+using DataTable = System.Data.DataTable;
 using PlanarFace = Autodesk.Revit.DB.PlanarFace;
 // ReSharper disable All
 #endregion
@@ -44,6 +49,7 @@ namespace DHHTools
         #region 02. Public Property
         public UIDocument UiDoc;
         public Document Doc;
+        
         public string ColumnInformation
         {
             get
@@ -345,135 +351,29 @@ namespace DHHTools
             rebarColumnWindow.Show();
         }
         #endregion
-        #region 04. Select Element
-        public void SelectElementBtn()
+        #region 04. Select Excel File
+        public void SelectExcelFile()
         {
-            Reference pickObject = UiDoc.Selection.PickObject(ObjectType.Element, "Chọn cột");
-            SelectedElement = Doc.GetElement(pickObject);
-        }
-        #endregion
-        #region 05. Main Rebar
-        public void CreateMainRebar()
-        {
-            double lengthColumn = Math.Round(DhhUnitUtils.FeetToMm(SelectedElement.LookupParameter("Length").AsDouble()));
-            Solid solidColumn = DhhGeometryUtils.GetSolids(SelectedElement);
-            List<Face> faceSide = DhhGeometryUtils.GetSideFaceFromSolid(solidColumn);
-            List<Face> facesBottom = DhhGeometryUtils.GetBottomFaceFromSolid(solidColumn);
-            List<Face> hFaces = new List<Face>();
-            Face hFace = null;
-            List<Face> bFaces = new List<Face>();
-            Face bFace = null;
-            List<Line> listLines = new List<Line>();
-            if (h == b)
+            OpenFileDialog file = new OpenFileDialog();
             {
-                hFace = faceSide[0];
-                foreach (Face eFace in faceSide.GetRange(1, faceSide.Count - 1))
-                {
-                    if (DhhGeometryUtils.IsVectorParallel((hFace as PlanarFace).FaceNormal,
-                            (eFace as PlanarFace).FaceNormal) == false)
-                    {
-                        bFaces.Add(eFace);
-                    }
-                }
+                file.InitialDirectory = "C:\\";
+                file.Filter = "xls (*.xls)|*.xlsx|All files (*.*)|*.*";
+                file.FilterIndex = 2;
+                file.RestoreDirectory = true;
+            }
+            if (file.ShowDialog() == DialogResult.OK) //if there is a file chosen by the user
+            {
+                Excel.Worksheet workSheet = (Excel.Worksheet)workBook.Worksheets[0];
+                //// Work with a single WorkSheet.
+                ////you can pass static sheet name like Sheet1 to get that sheet
+                ////WorkSheet sheet = workbook.GetWorkSheet("Sheet1");
+                //You can also use workbook.DefaultWorkSheet to get default in case you want to get first sheet only
 
-                bFace = bFaces[0];
-            }
-            else
-            {
-                List<Face> faces = faceSide.GroupBy(ex => Math.Round(ex.Area)).Select(g => g.First()).ToList();
-                foreach (Face eFace in faces)
-                {
-                    bool equals =
-                        (Math.Round(DhhUnitUtils.SquareFeetToSquareMeter(eFace.Area) * 1000000) / lengthColumn).Equals(b);
-                    if (equals == true)
-                    {
-                        bFaces.Add(eFace);
-                    }
-                    else
-                    {
-                        hFaces.Add(eFace);
-                    }
-                }
-
-                bFace = bFaces[0];
-                hFace = hFaces[0];
-            }
-            #region
-            Face botFace = facesBottom.FirstOrDefault(x => Math.Abs(DhhUnitUtils.SquareFeetToSquareMeter(x.Area) - h * b * 0.000001) < 0.01);
-            Face hFaceOffset = DhhGeometryUtils.FaceOffset(hFace, (hFace as PlanarFace).FaceNormal.Negate(),
-                DhhUnitUtils.MmToFeet(DhhElementUtils.GetElementCover(Doc, SelectedElement) + barDiaMain / 2 + barDiaStirrup));
-            Face bFaceOffset = DhhGeometryUtils.FaceOffset(bFace, (bFace as PlanarFace).FaceNormal.Negate(),
-                DhhUnitUtils.MmToFeet(DhhElementUtils.GetElementCover(Doc, SelectedElement) + barDiaMain / 2 + barDiaStirrup));
-            Face botFaceOffset = DhhGeometryUtils.FaceOffset(botFace, (botFace as PlanarFace).FaceNormal.Negate(),
-                DhhUnitUtils.MmToFeet(DhhElementUtils.GetElementCover(Doc, SelectedElement) + barDiaStirrup / 2));
-            IList<CurveLoop> botFaceCurveLoops = botFaceOffset.GetEdgesAsCurveLoops();
-            FaceIntersectionFaceResult faceIntersectionFaceResult = botFaceOffset.Intersect(bFaceOffset, out Curve mainRebarCurve);
-            RebarHookType hookType = null;
-            RebarShape rebarShapeMain = new FilteredElementCollector(Doc)
-                .OfClass(typeof(RebarShape))
-                .Cast<RebarShape>()
-                .First(x => x.Name == "t");
-            RebarShape rebarShapeStirrup = new FilteredElementCollector(Doc)
-                .OfClass(typeof(RebarShape))
-                .Cast<RebarShape>()
-                .First(x => x.Name == "d");
-            List<Curve> listCurveMain = new List<Curve>();
-            new CurveByPointsArray();
-            double kcgiua2ThanhThep = DhhUnitUtils.MmToFeet(b - 2 * (barDiaMain / 2 + barDiaStirrup + DhhElementUtils.GetElementCover(Doc, SelectedElement)));
-            listCurveMain.Add(mainRebarCurve);
-            if (SoluongB <= 2)
-            {
-                Curve offset = mainRebarCurve.CreateOffset(kcgiua2ThanhThep, (bFaceOffset as PlanarFace).FaceNormal.Negate());
-                listCurveMain.Add(offset);
-            }
-            else
-            {
-                for (int i = 1; i < SoluongB; i++)
-                {
-                    double kcOffset = kcgiua2ThanhThep / (SoluongB - 1) * i;
-                    Curve offset = mainRebarCurve.CreateOffset(kcOffset, (bFaceOffset as PlanarFace).FaceNormal.Negate());
-                    listCurveMain.Add(offset);
-                }
-            }
-            RebarHookOrientation rebarHook = RebarHookOrientation.Left;
-            #endregion
-            using (Transaction trans = new Transaction(Doc, "Create Rebar Column"))
-            {
-                trans.Start();
-                foreach (Curve eCurve in listCurveMain)
-                {
-                    List<Curve> MainCurves = new List<Curve>();
-                    MainCurves.Add(eCurve);
-                    Rebar rebarMain = Rebar.CreateFromCurvesAndShape(Doc, rebarShapeMain, RebarTypeMain,
-                        hookType, hookType, SelectedElement, (bFaceOffset as PlanarFace).FaceNormal.Negate(), MainCurves, rebarHook, rebarHook);
-                    Rebar.CreateFreeForm(Doc, RebarTypeStirup, SelectedElement, botFaceCurveLoops,
-                        out RebarFreeFormValidationResult error);
-                    RebarShapeDrivenAccessor drivenAccessor = rebarMain.GetShapeDrivenAccessor();
-                    bool barsOnNormalSide = false;
-                    bool includeFirstBar = true;
-                    bool includeLastBar = true;
-                    double arrayLength =
-                        DhhUnitUtils.MmToFeet(h - 2 * (barDiaMain / 2 + barDiaStirrup + DhhElementUtils.GetElementCover(Doc, SelectedElement)));
-                    int numberofBar = 0;
-                    if (eCurve == listCurveMain.ElementAt(0) || eCurve == listCurveMain.ElementAt(listCurveMain.Count - 1))
-                    {
-                        numberofBar = Convert.ToInt32(SoluongH);
-                    }
-                    else
-                    {
-                        numberofBar = 2;
-                    }
-                    drivenAccessor.SetLayoutAsFixedNumber(numberofBar, arrayLength, barsOnNormalSide, includeFirstBar,
-                        includeLastBar);
-                    rebarMain.SetSolidInView(Doc.ActiveView as View3D, true);
-                    rebarMain.SetUnobscuredInView(Doc.ActiveView as View3D, true);
-                }
-                trans.Commit();
+                //Convert the worksheet to System.Data.DataTable
+                //Boolean parameter sets the first row as column names of your table.
+                return workSheet.ToDataTable(true);
             }
         }
-        #endregion
-        #region 06.Stirrup Rebar
-
         #endregion
     }
 }
