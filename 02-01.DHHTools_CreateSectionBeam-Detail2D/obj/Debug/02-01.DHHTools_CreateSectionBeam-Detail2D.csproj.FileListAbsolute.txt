@@ -5,3 +5,14 @@ D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02-01.DHHTools_Cre
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\CreateSectionBeam-Detail2D_MarkupCompile.cache
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\CreateSectionBeam-Detail2D.g.resources
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\02-01.DHHTools_CreateSectionBeam-Detail2D.csproj.CoreCompileInputs.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\02-01.DHHTools_CreateSectionBeam-Detail2D.csproj.AssemblyReference.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\02-01.DHHTools_CreateSectionBeam-Detail2D.csproj.ResolveComReference.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\02-01.DHHTools_CreateSectionBeam-Detail2DWindow.baml
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\02-01.DHHTools_CreateSectionBeam-Detail2DWindow.g.cs
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\CreateSectionBeam-Detail2D_MarkupCompile.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\CreateSectionBeam-Detail2D.g.resources
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\02-01.DHHTools_CreateSectionBeam-Detail2D.csproj.CoreCompileInputs.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-01.DHHTools_CreateSectionBeam-Detail2D\bin\Debug\CreateSectionBeam-Detail2D.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-01.DHHTools_CreateSectionBeam-Detail2D\bin\Debug\CreateSectionBeam-Detail2D.pdb
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\CreateSectionBeam-Detail2D.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\CreateSectionBeam-Detail2D.pdb

@@ -26,7 +26,6 @@ namespace DHHTools
 
         public CreateSectionBeam2DWindow(CreateSectionBeam2DViewModel viewModel)
         {
-            InitializeComponent();
             _viewModel = viewModel;
             DataContext = _viewModel;
             Doc = _viewModel.Doc;
@@ -35,25 +34,20 @@ namespace DHHTools
             //Icon = _dhhConstraint.IconWindow;
         }
 
-        private void InitializeComponent()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Btn_SelectFilter(object sender, RoutedEventArgs e)
+        public void Btn_ClickImportExcel(object sender, RoutedEventArgs e)
         {
             Hide();
-            _viewModel.SelectElementBtn();
+            _viewModel.SelectExcelFile();
             Show();
         }
 
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        private void Btn_ClickCancel(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
 
         }
 
-        private void btnOk_Click(object sender, RoutedEventArgs e)
+        private void Btn_ClickOK(object sender, RoutedEventArgs e)
         {
             Close();
             eventHandler.ViewModel = _viewModel;

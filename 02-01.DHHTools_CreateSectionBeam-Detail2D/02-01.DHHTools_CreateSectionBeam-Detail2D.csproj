@@ -72,27 +72,34 @@
   <ItemGroup>
     <Reference Include="EPPlus, Version=6.0.6.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.6.0.6\lib\net462\EPPlus.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="EPPlus.Interfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.Interfaces.6.0.0\lib\net452\EPPlus.Interfaces.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="EPPlus.System.Drawing, Version=6.0.0.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.System.Drawing.6.0.0\lib\net452\EPPlus.System.Drawing.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="IronXL, Version=2022.6.0.7362, Culture=neutral, PublicKeyToken=0f5804b6690bad1e, processorArchitecture=MSIL">
       <HintPath>..\packages\IronXL.Excel.2022.7.7362\lib\net45\IronXL.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="RevitAPI">
-      <HintPath>..\00.DHHTools_Library\bin\Debug\RevitAPI.dll</HintPath>
+      <HintPath>C:\Program Files\Autodesk\Revit 2020\RevitAPI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="RevitAPIUI">
-      <HintPath>..\00.DHHTools_Library\bin\Debug\RevitAPIUI.dll</HintPath>
+      <HintPath>C:\Program Files\Autodesk\Revit 2020\RevitAPIUI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -123,6 +130,7 @@
     <ProjectReference Include="..\00-01.DHHTools_Library\00-01.DHHTools_Library.csproj">
       <Project>{c1343206-2654-4111-b0fa-b296cbba6b66}</Project>
       <Name>00-01.DHHTools_Library</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

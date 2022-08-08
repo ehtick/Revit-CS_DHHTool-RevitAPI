@@ -74,9 +74,11 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="RevitAPI">
       <HintPath>..\00.DHHTools_Library\bin\Debug\RevitAPI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="RevitAPIUI">
       <HintPath>..\00.DHHTools_Library\bin\Debug\RevitAPIUI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

@@ -17,7 +17,7 @@ namespace DHHTools
         {
             try
             {
-                ViewModel.CreateMainRebar();
+                ViewModel.SelectExcelFile();
             }
             catch (Exception e)
             {
