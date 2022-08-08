@@ -1,0 +1,7 @@
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\02-01.DHHTools_CreateSectionBeam-Detail2D.csproj.AssemblyReference.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\02-01.DHHTools_CreateSectionBeam-Detail2D.csproj.ResolveComReference.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\02-01.DHHTools_CreateSectionBeam-Detail2DWindow.baml
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\02-01.DHHTools_CreateSectionBeam-Detail2DWindow.g.cs
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\CreateSectionBeam-Detail2D_MarkupCompile.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\CreateSectionBeam-Detail2D.g.resources
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\02-01.DHHTools_CreateSectionBeam-Detail2D.csproj.CoreCompileInputs.cache

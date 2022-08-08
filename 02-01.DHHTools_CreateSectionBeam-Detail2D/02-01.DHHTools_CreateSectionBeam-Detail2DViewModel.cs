@@ -49,7 +49,6 @@ namespace DHHTools
         #region 02. Public Property
         public UIDocument UiDoc;
         public Document Doc;
-        
         public string ColumnInformation
         {
             get
@@ -363,17 +362,20 @@ namespace DHHTools
             }
             if (file.ShowDialog() == DialogResult.OK) //if there is a file chosen by the user
             {
-                Excel.Worksheet workSheet = (Excel.Worksheet)workBook.Worksheets[0];
-                //// Work with a single WorkSheet.
-                ////you can pass static sheet name like Sheet1 to get that sheet
-                ////WorkSheet sheet = workbook.GetWorkSheet("Sheet1");
-                //You can also use workbook.DefaultWorkSheet to get default in case you want to get first sheet only
+                Excel.Application xlsApp = new Excel.Application();
+                Excel.Workbook xlsworkbook = xlsApp.Workbooks.Open(file.FileName);
+                Excel.Worksheet xlsworksheet = xlsworkbook.Worksheets["Sheet1"];
+                Excel.Range xlRange = xlsworksheet.UsedRange;
+                int xlRow;
+                for (xlRow = 37, xlRow <= xlRange.Rows.Count, xlRow++)
+                {
 
-                //Convert the worksheet to System.Data.DataTable
-                //Boolean parameter sets the first row as column names of your table.
-                return workSheet.ToDataTable(true);
+                }
+                xlsworkbook.Close();
+                xlsApp.Quit();
             }
-        }
+        } 
+
         #endregion
     }
 }
