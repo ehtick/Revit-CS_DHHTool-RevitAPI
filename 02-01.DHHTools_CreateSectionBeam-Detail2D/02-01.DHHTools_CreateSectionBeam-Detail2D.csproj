@@ -82,6 +82,7 @@
     <Reference Include="IronXL, Version=2022.6.0.7362, Culture=neutral, PublicKeyToken=0f5804b6690bad1e, processorArchitecture=MSIL">
       <HintPath>..\packages\IronXL.Excel.2022.7.7362\lib\net45\IronXL.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
     </Reference>

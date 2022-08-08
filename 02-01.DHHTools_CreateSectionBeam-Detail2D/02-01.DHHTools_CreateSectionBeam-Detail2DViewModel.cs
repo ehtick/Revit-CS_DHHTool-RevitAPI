@@ -364,10 +364,9 @@ namespace DHHTools
             {
                 Excel.Application xlsApp = new Excel.Application();
                 Excel.Workbook xlsworkbook = xlsApp.Workbooks.Open(file.FileName);
-                Excel.Worksheet xlsworksheet = xlsworkbook.Worksheets["Sheet1"];
-                Excel.Range xlRange = xlsworksheet.UsedRange;
+                Excel.Range xlRange = xlsworkbook.Worksheets["Sheet1"].UsedRange;
                 int xlRow;
-                for (xlRow = 37, xlRow <= xlRange.Rows.Count, xlRow++)
+                for (xlRow = 37; xlRow <= xlRange.Rows.Count; xlRow++)
                 {
 
                 }
