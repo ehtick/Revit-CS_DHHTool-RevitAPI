@@ -127,7 +127,6 @@
                             </ObjectAnimationUsingKeyFrames>
                         </Storyboard>
                     </ControlTemplate.Resources>
-
                     <Grid>
                         <Border
                             x:Name="BorderBase"
@@ -193,7 +192,6 @@
                             Background="#66FFFFFF"
                             Visibility="Collapsed" />
                     </Grid>
-
                     <ControlTemplate.Triggers>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
