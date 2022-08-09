@@ -74,52 +74,258 @@
                                             FontSize="12"/>
                             </Grid>
                         </Border>
-                        <TextBox >
-                            
-                        </TextBox>
+
                     </Grid>
                 </Border>
-                <DataGrid   Grid.Row="1"
-                            Style="{DynamicResource DataGridStyle}"
-                            ItemsSource="{Binding AllViewsExtension}"
-                            SelectedItem ="{Binding SelectedViewsExtension}"
-                            HorizontalContentAlignment="Center" 
-                            VerticalContentAlignment="Center" >
+                <DataGrid Grid.Row="1" 
+                          x:Name="AssetListGrid"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Top"
+                          BorderThickness="1"
+                          VerticalScrollBarVisibility="Auto"
+                          AutoGenerateColumns="False"
+                          ItemsSource="{Binding AssetList, Mode=TwoWay}" Height="446" 
+                >
+
+                    <DataGrid.Resources>
+                        <Style x:Key="DataGridColumnHeader" TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="VerticalContentAlignment" Value="Center" />
+                            <!--<Setter Property="Background" Value="{StaticResource WordRedBrush}" />-->
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                                        <Grid Background="{StaticResource WordBlueBrush}" >
+                                            <ContentPresenter  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+
+                        <Style x:Key="DatagridColumnHeader2" TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="VerticalContentAlignment" Value="Center" />
+                            <Setter Property="BorderBrush" Value="{StaticResource ForegroundLightBrush}"/>
+                            <Setter Property="BorderThickness" Value="0 0 1 0" />
+                            <Setter Property="Background" Value="{StaticResource WordOrangeBrush}" />
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="Height" Value="30" />
+                            <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
+                            <Setter Property="Foreground" Value="{StaticResource ForegroundLightBrush}" />
+                        </Style>
+                    </DataGrid.Resources>
+
+                    <!-- Columns -->
                     <DataGrid.Columns>
-                        <DataGridTemplateColumn Header="S.Lượng"
-                                                Width="50">
+                        <!-- Asset Properties -->
 
+                        <!-- Asset Number-->
+                        <DataGridTemplateColumn  Header="Asset" 
+                                            HeaderStyle="{StaticResource DataGridColumnHeader}">
+                            <DataGridTemplateColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock  HorizontalAlignment="Center" Height="40"/>
+                                        <DataGridColumnHeader HorizontalContentAlignment="Center" 
+                                                              Width="250" Content="Asset Number"/>
+
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.HeaderTemplate>
+
+
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" >
+                                        <TextBox Width="90" IsReadOnly="True"
+                                         Text="{Binding Name}"
+                                         Background="{StaticResource ForegroundLightBrush}"
+                                         Style="{StaticResource DataGridTextBox}"/>
+                                        <Button Margin="5 0 0 13" HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        Content="Right Click"
+                                        Style="{StaticResource ListViewButton}" >
+                                            <Button.ContextMenu>
+                                                <ContextMenu>
+                                                    <MenuItem Header="Add Critical Point" />
+                                                </ContextMenu>
+                                            </Button.ContextMenu>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="K.cách"
-                                                Width="50">
 
+                        <!-- Name -->
+                        <DataGridTemplateColumn Header="Name" 
+                                             HeaderStyle="{StaticResource DataGridColumnHeader}">
+                            <DataGridTemplateColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock  
+                                            Height="40"
+                                            MinWidth="60"
+                                            Width="auto"
+                                            x:Name="nameHeader"
+                                            Text="Asset"/>
+
+                                        <DataGridColumnHeader  Width="{Binding ActualWidth, ElementName=nameHeader}" HorizontalContentAlignment="Center"
+                                                      Content="Name" MaxWidth="150"  />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.HeaderTemplate>
+
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox MaxWidth="150" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="S.Lượng"
-                                                Width="50">
 
+                        <!-- Role -->
+                        <DataGridTemplateColumn 
+                                             HeaderStyle="{StaticResource DataGridColumnHeader}">
+                            <DataGridTemplateColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock  FontSize="{StaticResource FontSizeLarge}"
+                                            FontFamily="{StaticResource LatoBold}"
+                                            Height="40"
+                                            Width="auto"
+                                            MinWidth="45"
+                                            MaxWidth="150"
+                                            x:Name="roleHeader"
+                                           />
+                                        <DataGridColumnHeader HorizontalContentAlignment="Center" Width="{Binding Path=ActualWidth, ElementName=roleHeader}"
+                                                      MaxWidth="150" Content="Role"  />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.HeaderTemplate>
+
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox MaxWidth="150" 
+                                         Style="{StaticResource DataGridTextBox}"
+                                         />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="K.cách"
-                                                Width="50">
 
+
+                        <!-- Critical Point-->
+
+                        <!-- CP Number-->
+                        <DataGridTemplateColumn  Header="Critical Point" 
+                                            HeaderStyle="{StaticResource DataGridColumnHeader}">
+                            <DataGridTemplateColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock  HorizontalAlignment="Center"
+                                                    Height="40"
+                                                    Text="Critical Point"/>
+                                        <DataGridColumnHeader Style="{StaticResource DatagridColumnHeader2}"
+                                                              Width="250" Content="CP Number"/>
+
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.HeaderTemplate>
+
+
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Width="100" IsReadOnly="True"
+                                         Text="{Binding CriticalPoint.CPNumber}"
+                                         Background="{StaticResource ForegroundLightBrush}"
+                                         Style="{StaticResource DataGridTextBox}"/>
+                                        <Button Margin="5 0 0 13" HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Content="Right Click"
+                                        Style="{StaticResource ListViewButton}" >
+                                            <Button.ContextMenu>
+                                                <ContextMenu>
+                                                    <MenuItem Header="Delete Critical Point" />
+                                                </ContextMenu>
+                                            </Button.ContextMenu>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="S.Lượng"
-                                                Width="50">
 
+                        <!--Name-->
+                        <DataGridTemplateColumn 
+                                             HeaderStyle="{StaticResource DataGridColumnHeader}">
+                            <DataGridTemplateColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock  FontSize="{StaticResource FontSizeLarge}"
+                                            FontFamily="{StaticResource LatoBold}"
+                                            Height="40"
+                                            Width="auto"
+                                            MinWidth="60"
+                                            MaxWidth="150"
+                                            x:Name="commentHeader"
+                                           />
+                                        <DataGridColumnHeader Style="{StaticResource DatagridColumnHeader2}" Width="{Binding Path=ActualWidth, ElementName=commentHeader}"
+                                                      MaxWidth="150" Content="Name"  />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.HeaderTemplate>
+
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox MaxWidth="150" 
+                                         Background="{StaticResource ForegroundLightBrush}"
+                                         Style="{StaticResource DataGridTextBox}"
+                                         />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="K.cách"
-                                                Width="50">
 
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="S.Lượng"
-                                                Width="50">
+                        <!--Role-->
+                        <DataGridTemplateColumn 
+                                             HeaderStyle="{StaticResource DataGridColumnHeader}">
+                            <DataGridTemplateColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock  FontSize="{StaticResource FontSizeLarge}"
+                                            FontFamily="{StaticResource LatoBold}"
+                                            Height="40"
+                                            Width="auto"
+                                            MinWidth="60"
+                                            MaxWidth="150"
+                                            x:Name="commentHeader"
+                                           />
+                                        <DataGridColumnHeader Style="{StaticResource DatagridColumnHeader2}" Width="{Binding Path=ActualWidth, ElementName=commentHeader}"
+                                                      MaxWidth="150" Content="Role"  />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.HeaderTemplate>
 
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="K.cách"
-                                                Width="50">
-
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox MaxWidth="150" 
+                                         Background="{StaticResource ForegroundLightBrush}"
+                                         Style="{StaticResource DataGridTextBox}"
+                                         />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
                     </DataGrid.Columns>
+
+
+
                 </DataGrid>
             </Grid>
         </Grid>
