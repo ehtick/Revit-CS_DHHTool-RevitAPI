@@ -22,42 +22,42 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="190"/>
             </Grid.ColumnDefinitions>
-            <DockPanel LastChildFill="True">
-                <DataGrid GridLinesVisibility="None"
-                            Grid.Row="0" 
-                          ItemsSource="{Binding AssetList}">
-                    <DataGrid.Columns>
-                        <DataGridTemplateColumn Width="50">
-                            <DataGridTemplateColumn.HeaderTemplate>
-                                <DataTemplate>
-                                    <Grid Height="75">
-                                        <TextBlock  TextBlock.FontStyle="Italic"
-                                                    TextBlock.FontFamily="Arial"
+            <Grid>
+                <DockPanel LastChildFill="True">
+                    <DataGrid GridLinesVisibility="None"
+                              ItemsSource="{Binding AssetList}">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="50">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75">
+                                            <TextBlock  FontStyle="Italic"
+                                                    FontFamily="Arial"
                                                     Width="35" 
                                                     TextAlignment="Center" 
                                                     HorizontalAlignment="Center"
                                                     VerticalAlignment="Center" 
                                                     Text="Tên dầm"
                                                     TextWrapping="Wrap" FontWeight="Bold"/>
-                                    </Grid>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.HeaderTemplate>
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBox Text="{Binding Name}" VerticalAlignment="Center" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Width="50">
-                            <DataGridTemplateColumn.HeaderTemplate>
-                                <DataTemplate>
-                                    <Grid Height="75">
-                                        <TextBlock  TextBlock.FontStyle="Italic"
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding Name}" VerticalAlignment="Center" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="50">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75">
+                                            <TextBlock  TextBlock.FontStyle="Italic"
                                                     TextBlock.FontFamily="Arial"
                                                     Width="35" 
                                                     TextAlignment="Center" 
@@ -65,136 +65,163 @@
                                                     VerticalAlignment="Center" 
                                                     Text="Vị trí"
                                                     TextWrapping="Wrap" FontWeight="Bold"/>
-                                    </Grid>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.HeaderTemplate>
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBox Text="{Binding Location}" VerticalAlignment="Center" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Width="100">
-                            <DataGridTemplateColumn.HeaderTemplate>
-                                <DataTemplate>
-                                    <Grid Width="100"
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding Location}" VerticalAlignment="Center" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="100">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Grid Width="100"
                                           Height="75"
                                           Margin="-5,0,5,0">
-                                        <TextBlock  TextBlock.FontStyle="Italic"
+                                            <TextBlock  TextBlock.FontStyle="Italic"
                                                     TextBlock.FontFamily="Arial"
                                                     TextAlignment="Center" 
                                                     HorizontalAlignment="Center"
                                                     VerticalAlignment="Center" 
                                                     Text="Tiết diện"
                                                     FontWeight="Bold"/>
-                                    </Grid>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.HeaderTemplate>
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBox Text="{Binding Section}" VerticalAlignment="Center" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Width="82.5">
-                            <DataGridTemplateColumn.HeaderTemplate>
-                                <DataTemplate>
-                                    <StackPanel>
-                                        <TextBlock Height="25"
-                                                    TextBlock.FontStyle="Italic"
-                                                    TextBlock.FontFamily="Arial" 
-                                                    TextAlignment="Center" 
-                                                    HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center" 
-                                                    Text="Thép chủ"
-                                                    FontWeight="Bold"/>
-                                        <TextBlock  Grid.Row="1"
-                                                    Height="25"
-                                                    TextBlock.FontStyle="Italic"
-                                                    TextBlock.FontFamily="Arial" 
-                                                    TextAlignment="Center" 
-                                                    HorizontalAlignment="Left"
-                                                    VerticalAlignment="Center" 
-                                                    Text="Thép lớp trên"
-                                                    FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Padding="50,0,0,0"/>
-                                        <DataGridColumnHeader
-                                                    HorizontalContentAlignment="Center"
-                                                    Width="87.5"
-                                                    Height="25"
-                                                    Grid.Row="2"
-                                                    TextBlock.FontStyle="Italic"
-                                                    TextBlock.FontFamily="Arial" 
-                                                    HorizontalAlignment="Center"
-                                                    Content="Số lượng"
-                                                    VerticalAlignment="Center" 
-                                                    FontWeight="Bold"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.HeaderTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Width="82.5">
-                            <DataGridTemplateColumn.HeaderTemplate>
-                                <DataTemplate>
-                                    <StackPanel>
-                                        <TextBlock Height="25"
-                                                    TextBlock.FontStyle="Italic"
-                                                    TextBlock.FontFamily="Arial" 
-                                                    TextAlignment="Center" 
-                                                    HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center" 
-                                                    FontWeight="Bold"/>
-                                        <TextBlock  Grid.Row="1"
-                                                    Height="25"
-                                                    TextBlock.FontStyle="Italic"
-                                                    TextBlock.FontFamily="Arial" 
-                                                    TextAlignment="Center" 
-                                                    HorizontalAlignment="Left"
-                                                    VerticalAlignment="Center" />
-
-                                        <DataGridColumnHeader
-                                                    Width="82.5"
-                                                    Height="25"
-                                                    HorizontalContentAlignment="Center"
-                                                    TextBlock.FontStyle="Italic"
-                                                    TextBlock.FontFamily="Arial" 
-                                                    HorizontalAlignment="Center"
-                                                    Content="Đ/K"
-                                                    VerticalAlignment="Center" 
-                                                    FontWeight="Bold"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.HeaderTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Width="150">
-                            <DataGridTemplateColumn.HeaderTemplate>
-                                <DataTemplate>
-                                    <Grid Height="75" Width="150"
-                                          Margin="-5,0,5,0">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="2*"/>
-                                            <RowDefinition Height="*"/>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock TextBlock.FontStyle="Italic"
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding Section}" VerticalAlignment="Center" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="350">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Width="350"
+                                                       FontStyle="Italic"
+                                                       FontFamily="Arial" 
+                                                       TextAlignment="Center" 
+                                                       HorizontalAlignment="Center"
+                                                       VerticalAlignment="Center" 
+                                                       Text="Thép chủ"
+                                                       FontWeight="Bold"/>
+                                            <Grid Grid.Row="1">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock  FontStyle="Italic"
+                                                            FontFamily="Arial" 
+                                                            TextAlignment="Center" 
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center" 
+                                                            Text="Thép lớp trên"
+                                                            FontWeight="Bold"/>
+                                                <TextBlock  Grid.Column="1"
+                                                            FontStyle="Italic"
+                                                            FontFamily="Arial" 
+                                                            TextAlignment="Center" 
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center" 
+                                                            Text="Thép lớp dưới"
+                                                            FontWeight="Bold"/>
+                                            </Grid>
+                                            <Grid Grid.Row="2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock  FontStyle="Italic"
+                                                            FontFamily="Arial" 
+                                                            TextAlignment="Center" 
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center" 
+                                                            Text="Đ/Kính"
+                                                            FontWeight="Bold"/>
+                                                <TextBlock  Grid.Column="1"
+                                                            FontStyle="Italic"
+                                                            FontFamily="Arial" 
+                                                            TextAlignment="Center" 
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center" 
+                                                            Text="S/Lượng"
+                                                            FontWeight="Bold"/>
+                                                <TextBlock  Grid.Column="2"
+                                                            FontStyle="Italic"
+                                                            FontFamily="Arial" 
+                                                            TextAlignment="Center" 
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center" 
+                                                            Text="Đ/Kính"
+                                                            FontWeight="Bold"/>
+                                                <TextBlock  Grid.Column="3"
+                                                            FontStyle="Italic"
+                                                            FontFamily="Arial" 
+                                                            TextAlignment="Center" 
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center" 
+                                                            Text="S/Lượng"
+                                                            FontWeight="Bold"/>
+                                            </Grid>
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <Grid Width="300" Margin="-5,0,5,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBox Text="{Binding DkThepTren}"/>
+                                            <TextBox Text="{Binding SLThepTren}" Grid.Column="1" />
+                                            <TextBox Text="{Binding DkThepDuoi}" Grid.Column="2" />
+                                            <TextBox Text="{Binding SLThepDuoi}" Grid.Column="3" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="150">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75" Width="150" Margin="-5,0,5,0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="2*"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock TextBlock.FontStyle="Italic"
                                                     TextBlock.FontFamily="Arial" 
                                                     TextAlignment="Center" 
                                                     HorizontalAlignment="Center"
                                                     VerticalAlignment="Center" 
                                                     Text="Thép đai"
                                                     FontWeight="Bold"/>
-                                        <Grid Grid.Row="1">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="*"/>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBlock  TextBlock.FontStyle="Italic"
+                                            <Grid Grid.Row="1">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock  TextBlock.FontStyle="Italic"
                                                         TextBlock.FontFamily="Arial" 
                                                         TextAlignment="Center" 
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center" 
                                                         Text="Đ/K"
                                                         FontWeight="Bold"/>
-                                            <TextBlock Grid.Column="1"
+                                                <TextBlock Grid.Column="1"
                                                         TextBlock.FontStyle="Italic"
                                                         TextBlock.FontFamily="Arial" 
                                                         TextAlignment="Center" 
@@ -202,7 +229,7 @@
                                                         VerticalAlignment="Center" 
                                                         Text="Nhánh"
                                                         FontWeight="Bold"/>
-                                            <TextBlock Grid.Column="2"
+                                                <TextBlock Grid.Column="2"
                                                         TextBlock.FontStyle="Italic"
                                                         TextBlock.FontFamily="Arial" 
                                                         TextAlignment="Center" 
@@ -210,55 +237,81 @@
                                                         VerticalAlignment="Center" 
                                                         Text="K/C"
                                                         FontWeight="Bold"/>
+                                            </Grid>
                                         </Grid>
-                                    </Grid>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.HeaderTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Width="100">
-                            <DataGridTemplateColumn.HeaderTemplate>
-                                <DataTemplate>
-                                    <Grid Height="75" Width="100"
-                                          Margin="-5,0,5,0">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="2*"/>
-                                            <RowDefinition Height="*"/>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock TextBlock.FontStyle="Italic"
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75" Width="150" Margin="-5,0,5,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBox Text="{Binding DkThepDai}"/>
+                                            <TextBox Text="{Binding SLThepDai}" Grid.Column="1" />
+                                            <TextBox Text="{Binding KCThepDai}" Grid.Column="2" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="100">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75" Width="100" Margin="-5,0,5,0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="2*"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock TextBlock.FontStyle="Italic"
                                                     TextBlock.FontFamily="Arial" 
                                                     TextAlignment="Center" 
                                                     HorizontalAlignment="Center"
                                                     VerticalAlignment="Center" 
                                                     Text="Thép giá"
                                                     FontWeight="Bold"/>
-                                        <Grid Grid.Row="1">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="*"/>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBlock  TextBlock.FontStyle="Italic"
-                                                        TextBlock.FontFamily="Arial" 
+                                            <Grid Grid.Row="1">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock  FontStyle="Italic"
+                                                        FontFamily="Arial" 
                                                         TextAlignment="Center" 
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center" 
                                                         Text="Đ/K"
                                                         FontWeight="Bold"/>
-                                            <TextBlock Grid.Column="1"
-                                                        TextBlock.FontStyle="Italic"
-                                                        TextBlock.FontFamily="Arial" 
+                                                <TextBlock Grid.Column="1"
+                                                        FontStyle="Italic"
+                                                        FontFamily="Arial" 
                                                         TextAlignment="Center" 
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center" 
                                                         Text="S/L"
                                                         FontWeight="Bold"/>
+                                            </Grid>
                                         </Grid>
-                                    </Grid>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.HeaderTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </DockPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="75" Width="100" Margin="-5,0,5,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBox Text="{Binding DkThepGia}"/>
+                                            <TextBox Text="{Binding SLThepGia}" Grid.Column="1" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </Grid>
         </Grid>
         <Grid 
             Grid.Row="1"

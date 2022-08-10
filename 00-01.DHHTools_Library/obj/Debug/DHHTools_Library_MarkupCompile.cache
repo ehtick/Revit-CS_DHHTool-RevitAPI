@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\00-01.DHHTools_Library\obj\Debug\
 DHHTools
 none
 false
@@ -12,8 +12,8 @@ DEBUG;TRACE
 
 10-25002833
 
-14-615293551
-12-684696709
+13227065816
+12-1937187198
 WPF\Resource\ButtonStyle.xaml;WPF\Resource\CheckBoxStyle.xaml;WPF\Resource\ComboBoxStyle.xaml;WPF\Resource\DataGridStyle.xaml;WPF\Resource\GroupBoxStyle.xaml;WPF\Resource\ProgressBarStyle.xaml;WPF\Resource\RadiobuttonStyle.xaml;WPF\Resource\Styles.xaml;WPF\Resource\TextBoxStyle.xaml;WPF\Resource\TreeViewStyle.xaml;
 
 True
