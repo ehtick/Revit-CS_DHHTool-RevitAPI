@@ -113,6 +113,10 @@
     <Compile Include="WPF\ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="WPF\Resource\BorderGridStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="WPF\Resource\ButtonStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

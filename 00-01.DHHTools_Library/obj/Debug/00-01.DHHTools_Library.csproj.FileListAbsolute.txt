@@ -78,3 +78,4 @@ D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\00-01.DHHTools_Lib
 D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\00-01.DHHTools_Library\obj\Debug\00-01.DHHTools_Library.csproj.CoreCompileInputs.cache
 D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\00-01.DHHTools_Library\obj\Debug\DHHTools_Library.dll
 D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\00-01.DHHTools_Library\obj\Debug\DHHTools_Library.pdb
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\WPF\Resource\BorderGridStyle.baml
