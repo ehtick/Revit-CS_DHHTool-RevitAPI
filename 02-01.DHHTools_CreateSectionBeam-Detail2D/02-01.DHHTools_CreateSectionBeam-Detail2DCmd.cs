@@ -20,7 +20,7 @@ namespace DHHTools
             UIDocument uidoc = uiapp.ActiveUIDocument;
             //Application app = uiapp.Application;
             Document doc = uidoc.Document;
-            CreateSectionBeam2DViewModel columnViewModel = new CreateSectionBeam2DViewModel(commandData);
+            CreateSectionBeam2DViewModel createSectionBeam2DViewModel = new CreateSectionBeam2DViewModel(commandData);
             return Result.Cancelled;
             #region Lưu lại Transaction
 

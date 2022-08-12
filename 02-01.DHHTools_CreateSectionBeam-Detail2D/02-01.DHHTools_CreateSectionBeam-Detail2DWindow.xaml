@@ -30,12 +30,12 @@
                 </Grid.ColumnDefinitions>
                 <Grid>
                     <DockPanel LastChildFill="True">
-                        <DataGrid BorderThickness="1"
+                        <DataGrid Name="dtGrid"
+                                  BorderThickness="1"
                                   BorderBrush="Black"
                                   Margin="-2,0,0,-2"
                                   Style="{DynamicResource DataGridStyle}"
-                                  GridLinesVisibility="None"
-                                  ItemsSource="{Binding AssetList}">
+                                  GridLinesVisibility="None">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Width="50">
                                     <DataGridTemplateColumn.HeaderTemplate>
