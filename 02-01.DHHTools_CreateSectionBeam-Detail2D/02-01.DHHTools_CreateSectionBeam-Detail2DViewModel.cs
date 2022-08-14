@@ -27,10 +27,23 @@ namespace DHHTools
         private UIDocument uidoc;
         private Application app;
         private Document doc;
+        private string BeamName_VM;
+
         #endregion
         #region 02. Public Property
         public UIDocument UiDoc;
         public Document Doc;
+        public string BeamName
+        {
+            get => BeamName_VM;
+            set
+            {
+                if (BeamName_VM != value)
+                {
+                    BeamName_VM = value;
+                }
+            }
+        }
         #endregion
         #region 03. View Model
         public CreateSectionBeam2DViewModel(ExternalCommandData commandData)
@@ -41,10 +54,8 @@ namespace DHHTools
             doc = uidoc.Document;
             UiDoc = uidoc;
             Doc = UiDoc.Document;
+            BeamName = "2G1";
             
-            CreateSectionBeam2DViewModel createSectionBeam2DViewModel = this;
-            CreateSectionBeam2DWindow createSectionBeam2DWindow = new CreateSectionBeam2DWindow(createSectionBeam2DViewModel);
-            createSectionBeam2DWindow.Show();
         }
         #endregion
         #region 04. Select Excel File

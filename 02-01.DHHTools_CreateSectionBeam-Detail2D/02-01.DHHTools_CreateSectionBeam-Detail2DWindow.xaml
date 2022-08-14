@@ -15,7 +15,12 @@
     mc:Ignorable="d" Background="White" WindowStyle="ThreeDBorderWindow" d:DesignWidth="600" d:DesignHeight="500">
 
     <Window.Resources>
-        <ResourceDictionary Source="/DHHTools_Library;component/WPF/Resource/Styles.xaml" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/DHHTools_Library;component/WPF/Resource/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
     </Window.Resources>
     <Grid>
         <Grid>
@@ -26,7 +31,7 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="240"/>
+                    <ColumnDefinition Width="230"/>
                 </Grid.ColumnDefinitions>
                 <Grid>
                     <DockPanel LastChildFill="True">
@@ -34,11 +39,10 @@
                                   BorderThickness="1"
                                   BorderBrush="Black"
                                   Margin="-2,0,0,-2"
-                                  Style="{DynamicResource DataGridStyle}"
-                                  GridLinesVisibility="None">
+                                  Style="{DynamicResource DataGridStyle}">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Width="50">
-                                    <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataGridTemplateColumn.HeaderTemplate >
                                         <DataTemplate>
                                             <Grid Height="75">
                                                 <TextBlock  FontStyle="Italic"
@@ -54,7 +58,7 @@
                                     </DataGridTemplateColumn.HeaderTemplate>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBox Text="{Binding Name}" VerticalAlignment="Center" />
+                                            <TextBox Text="{Binding BeamName}" VerticalAlignment="Center" />
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
@@ -107,13 +111,14 @@
                                                     <RowDefinition Height="*"/>
                                                     <RowDefinition Height="2*"/>
                                                 </Grid.RowDefinitions>
-                                                <Border BorderBrush="Black" 
+                                                <Border 
+                                                     BorderBrush="Black" 
                                                         BorderThickness="0,0,0,1" 
-                                                        Width="400" Height="25" 
+                                                        Width="Auto" Height="25" 
                                                         VerticalAlignment="Stretch" 
+                                                        HorizontalAlignment="Stretch"
                                                         Margin="-1,0">
-                                                    <TextBlock  Width="350"
-                                                                FontStyle="Italic"
+                                                    <TextBlock  FontStyle="Italic"
                                                                 FontFamily="Arial" 
                                                                 TextAlignment="Center" 
                                                                 HorizontalAlignment="Center"

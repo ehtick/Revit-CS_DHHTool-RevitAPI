@@ -16,13 +16,14 @@
         <Setter Property="RowDetailsVisibilityMode" Value="Visible" />
         <Setter Property="GridLinesVisibility" Value="All" />
 
+
     </Style>
 
     <Style x:Key="ColumnHeaderStyle" TargetType="DataGridColumnHeader">
         <Setter Property="Background" Value="#00CCFF" />
         <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Height" Value="75"/>
         <Setter Property="BorderBrush" Value="{StaticResource EmBrushBorder}" />
-        <Setter Property="Foreground" Value="#0C336C" />
         <Setter Property="FontSize" Value="12" />
         <Setter Property="FontStyle" Value="Italic" />
         <Setter Property="FontWeight" Value="SemiBold" />
@@ -40,7 +41,7 @@
         <Setter Property="BorderThickness" Value="0.5" />
         <Setter Property="BorderBrush" Value="{StaticResource EmBrushBorder}" />
         <Setter Property="Background" Value="Azure" />
-        <Setter Property="Height" Value="30" />
+        <Setter Property="Height" Value="75" />
 
     </Style>
 

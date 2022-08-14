@@ -26,11 +26,13 @@ namespace DHHTools
 
         public CreateSectionBeam2DWindow(CreateSectionBeam2DViewModel viewModel)
         {
+            InitializeComponent();
             _viewModel = viewModel;
             DataContext = _viewModel;
             Doc = _viewModel.Doc;
             eventHandler = new CreateSectionBeam2DHandler();
             MyExternalEvent = ExternalEvent.Create(eventHandler);
+            eventHandler.ViewModel = _viewModel;
             //Icon = _dhhConstraint.IconWindow;
         }
 
@@ -43,7 +45,7 @@ namespace DHHTools
 
         private void Btn_ClickCancel(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            Close();
 
         }
 

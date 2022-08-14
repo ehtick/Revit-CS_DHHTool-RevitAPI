@@ -60,8 +60,8 @@ namespace DHHTools {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CreateSectionBeam-Detail2D;component/02-02.dhhtools_createrebarslab2d-rebarplan2" +
-                    "dwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CreateRebarSlab2D-RebarPlan2D;component/02-02.dhhtools_createrebarslab2d-rebarpl" +
+                    "an2dwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\02-02.DHHTools_CreateRebarSlab2D-RebarPlan2DWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
