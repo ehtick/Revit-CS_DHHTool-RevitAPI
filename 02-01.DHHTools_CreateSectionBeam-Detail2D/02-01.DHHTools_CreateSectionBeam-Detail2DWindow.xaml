@@ -31,14 +31,16 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="230"/>
+                    <ColumnDefinition Width="225"/>
                 </Grid.ColumnDefinitions>
                 <Grid>
                     <DockPanel LastChildFill="True">
-                        <DataGrid Name="dtGrid"
+                        <DataGrid x:Name="dtDataGrid"
                                   BorderThickness="1"
                                   BorderBrush="Black"
                                   Margin="-2,0,0,-2"
+                                  AutoGenerateColumns="False"
+                                  ItemsSource="{Binding AllDataExcel}"
                                   Style="{DynamicResource DataGridStyle}">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Width="50">
@@ -300,14 +302,14 @@
                                                     <ColumnDefinition Width="*"/>
                                                     <ColumnDefinition Width="*"/>
                                                 </Grid.ColumnDefinitions>
-                                                <TextBox Text="{Binding DkThepTrenL1}"/>
-                                                <TextBox Text="{Binding SLThepTrenL1}" Grid.Column="1" />
-                                                <TextBox Text="{Binding DkThepTrenL2}" Grid.Column="2" />
-                                                <TextBox Text="{Binding SLThepTrenL2}" Grid.Column="3" />
+                                                <TextBox Text="{Binding SLThepTrenL1}"/>
+                                                <TextBox Text="{Binding DkThepTrenL1}" Grid.Column="1" />
+                                                <TextBox Text="{Binding SLThepTrenL2}" Grid.Column="2" />
+                                                <TextBox Text="{Binding DkThepTrenL2}" Grid.Column="3" />
                                                 <TextBox Text="{Binding SLThepDuoiL1}" Grid.Column="4" />
-                                                <TextBox Text="{Binding SLThepDuoiL1}" Grid.Column="5" />
+                                                <TextBox Text="{Binding DkThepDuoiL1}" Grid.Column="5" />
                                                 <TextBox Text="{Binding SLThepDuoiL2}" Grid.Column="6" />
-                                                <TextBox Text="{Binding SLThepDuoiL2}" Grid.Column="7" />
+                                                <TextBox Text="{Binding DkThepDuoiL2}" Grid.Column="7" />
                                             </Grid>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellEditingTemplate>

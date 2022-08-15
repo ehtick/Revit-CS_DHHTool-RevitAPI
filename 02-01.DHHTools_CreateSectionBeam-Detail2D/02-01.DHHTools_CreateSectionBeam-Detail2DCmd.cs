@@ -23,17 +23,15 @@ namespace DHHTools
             Document doc = uidoc.Document;
             CreateSectionBeam2DViewModel viewModel = new CreateSectionBeam2DViewModel(commandData);
             
-            #region Lưu lại Transaction
             using (TransactionGroup transGr = new TransactionGroup(doc))
             {
-                transGr.Start("Set Elevation at Top of Beams");
+                transGr.Start("Detail Beam 2D");
                 CreateSectionBeam2DWindow window = new CreateSectionBeam2DWindow(viewModel);
                 bool? dialog = window.ShowDialog();
                 if (dialog == false) return Result.Succeeded;
                 transGr.Commit();
             }
             return Result.Succeeded;
-            #endregion
         }
     }
 }
