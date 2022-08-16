@@ -35,12 +35,13 @@
                 </Grid.ColumnDefinitions>
                 <Grid>
                     <DockPanel LastChildFill="True">
-                        <DataGrid x:Name="dtDataGrid"
+                        <DataGrid 
+                                  x:Name="dtDataGrid"
                                   BorderThickness="1"
                                   BorderBrush="Black"
                                   Margin="-2,0,0,-2"
                                   AutoGenerateColumns="False"
-                                  ItemsSource="{Binding AllDataExcel}"
+                                  ItemsSource="{Binding AllExcelData}"
                                   Style="{DynamicResource DataGridStyle}">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Width="50">

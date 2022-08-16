@@ -131,6 +131,7 @@
     <Compile Include="02-01.DHHTools_CreateSectionBeam-Detail2DWindow.xaml.cs">
       <DependentUpon>02-01.DHHTools_CreateSectionBeam-Detail2DWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lib\ExcelDataExtension.cs" />
     <Compile Include="Lib\FamilySymbolUtils.cs" />
     <Compile Include="Lib\GeneralUtils.cs" />
     <Compile Include="Lib\LineSelectionFilter.cs" />
