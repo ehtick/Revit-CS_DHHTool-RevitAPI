@@ -222,6 +222,7 @@ namespace DHHTools
                 if (Section_VM != value)
                 {
                     Section_VM = value;
+                    OnPropertyChanged("Section");
                 }
             }
         }

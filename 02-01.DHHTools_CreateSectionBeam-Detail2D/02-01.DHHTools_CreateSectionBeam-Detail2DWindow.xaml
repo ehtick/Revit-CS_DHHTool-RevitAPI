@@ -4,6 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dhhTools="clr-namespace:DHHTools;assembly=DHHTools_Library"
+    xmlns:dhhTools1="clr-namespace:DHHTools"
     x:Name="MainWindow"
     Title="Beam Section 2D"
     ResizeMode="NoResize"
@@ -43,7 +45,7 @@
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn MinWidth="50">
                                     <DataGridTemplateColumn.HeaderTemplate >
-                                        <DataTemplate>
+                                        <DataTemplate >
                                             <Grid Height="75">
                                                 <TextBlock  FontStyle="Italic"
                                                     FontFamily="Arial"
@@ -59,15 +61,17 @@
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Grid Margin="0,0,-1.5,0" >
-                                                <TextBox VerticalAlignment="Stretch"
-                                                 Text="{Binding BeamName}" />
+                                                <TextBox 
+                                                    VerticalContentAlignment="Center"
+                                                    HorizontalContentAlignment="Center"
+                                                    Text="{Binding BeamName}"/>
                                             </Grid>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
                                 <DataGridTemplateColumn MinWidth="50">
                                     <DataGridTemplateColumn.HeaderTemplate>
-                                        <DataTemplate>
+                                        <DataTemplate DataType="dhhTools:ExcelDataExtension">
                                             <Grid Height="75">
                                                 <TextBlock  TextBlock.FontStyle="Italic"
                                                     TextBlock.FontFamily="Arial"
@@ -83,7 +87,10 @@
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Grid Margin="0,0,-1.5,0">
-                                                <TextBox Text="{Binding Location}" VerticalAlignment="Stretch" />
+                                                <TextBox 
+                                                    VerticalContentAlignment="Center"
+                                                    HorizontalContentAlignment="Center"
+                                                    Text="{Binding Location}"/>
                                             </Grid>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
@@ -92,8 +99,8 @@
                                     <DataGridTemplateColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Grid Width="100" Height="75">
-                                                <TextBlock  TextBlock.FontStyle="Italic"
-                                                    TextBlock.FontFamily="Arial"
+                                                <TextBlock  FontStyle="Italic"
+                                                    FontFamily="Arial"
                                                     TextAlignment="Center" 
                                                     HorizontalAlignment="Center"
                                                     VerticalAlignment="Center" 
@@ -105,7 +112,10 @@
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Grid Margin="0,0,-1.5,0">
-                                                <TextBox Text="{Binding Section}" VerticalAlignment="Stretch" />
+                                                <TextBox 
+                                                    VerticalContentAlignment="Center"
+                                                    HorizontalContentAlignment="Center"
+                                                    Text="{Binding Section}"/>
                                             </Grid>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
@@ -307,14 +317,38 @@
                                                     <ColumnDefinition Width="*"/>
                                                     <ColumnDefinition Width="*"/>
                                                 </Grid.ColumnDefinitions>
-                                                <TextBox Text="{Binding SLThepTrenL1}"/>
-                                                <TextBox Text="{Binding DkThepTrenL1}" Grid.Column="1" />
-                                                <TextBox Text="{Binding SLThepTrenL2}" Grid.Column="2" />
-                                                <TextBox Text="{Binding DkThepTrenL2}" Grid.Column="3" />
-                                                <TextBox Text="{Binding SLThepDuoiL1}" Grid.Column="4" />
-                                                <TextBox Text="{Binding DkThepDuoiL1}" Grid.Column="5" />
-                                                <TextBox Text="{Binding SLThepDuoiL2}" Grid.Column="6" />
-                                                <TextBox Text="{Binding DkThepDuoiL2}" Grid.Column="7" />
+                                                <TextBox 
+                                                    VerticalContentAlignment="Center"
+                                                    HorizontalContentAlignment="Center"
+                                                    Text="{Binding SLThepTrenL1}"/>
+                                                <TextBox 
+                                                    VerticalContentAlignment="Center"
+                                                    HorizontalContentAlignment="Center"
+                                                    Text="{Binding DkThepTrenL1}" Grid.Column="1" />
+                                                <TextBox 
+                                                    VerticalContentAlignment="Center"
+                                                    HorizontalContentAlignment="Center"
+                                                    Text="{Binding SLThepTrenL2}" Grid.Column="2" />
+                                                <TextBox 
+                                                    VerticalContentAlignment="Center"
+                                                    HorizontalContentAlignment="Center"
+                                                    Text="{Binding DkThepTrenL2}" Grid.Column="3" />
+                                                <TextBox 
+                                                    VerticalContentAlignment="Center"
+                                                    HorizontalContentAlignment="Center"
+                                                    Text="{Binding SLThepDuoiL1}" Grid.Column="4" />
+                                                <TextBox 
+                                                    VerticalContentAlignment="Center"
+                                                    HorizontalContentAlignment="Center"
+                                                    Text="{Binding DkThepDuoiL1}" Grid.Column="5" />
+                                                <TextBox 
+                                                    VerticalContentAlignment="Center"
+                                                    HorizontalContentAlignment="Center"
+                                                    Text="{Binding SLThepDuoiL2}" Grid.Column="6" />
+                                                <TextBox 
+                                                    VerticalContentAlignment="Center"
+                                                    HorizontalContentAlignment="Center"
+                                                    Text="{Binding DkThepDuoiL2}" Grid.Column="7" />
                                             </Grid>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
@@ -403,9 +437,18 @@
                                                     <ColumnDefinition Width="*"/>
                                                     <ColumnDefinition Width="*"/>
                                                 </Grid.ColumnDefinitions>
-                                                <TextBox Text="{Binding DkThepDai}"/>
-                                                <TextBox Text="{Binding SLThepDai}" Grid.Column="1" />
-                                                <TextBox Text="{Binding KCThepDai}" Grid.Column="2" />
+                                                <TextBox 
+                                                    VerticalContentAlignment="Center"
+                                                    HorizontalContentAlignment="Center"
+                                                    Text="{Binding DkThepDai}"/>
+                                                <TextBox 
+                                                    VerticalContentAlignment="Center"
+                                                    HorizontalContentAlignment="Center"
+                                                    Text="{Binding SLThepDai}" Grid.Column="1" />
+                                                <TextBox 
+                                                    VerticalContentAlignment="Center"
+                                                    HorizontalContentAlignment="Center"
+                                                    Text="{Binding KCThepDai}" Grid.Column="2" />
                                             </Grid>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
@@ -475,8 +518,14 @@
                                                     <ColumnDefinition Width="*"/>
                                                     <ColumnDefinition Width="*"/>
                                                 </Grid.ColumnDefinitions>
-                                                <TextBox Text="{Binding DkThepGia}"/>
-                                                <TextBox Text="{Binding SLThepGia}" Grid.Column="1" />
+                                                <TextBox 
+                                                    VerticalContentAlignment="Center"
+                                                    HorizontalContentAlignment="Center"
+                                                    Text="{Binding DkThepGia}"/>
+                                                <TextBox 
+                                                    VerticalContentAlignment="Center"
+                                                    HorizontalContentAlignment="Center"
+                                                    Text="{Binding SLThepGia}" Grid.Column="1" />
                                             </Grid>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>

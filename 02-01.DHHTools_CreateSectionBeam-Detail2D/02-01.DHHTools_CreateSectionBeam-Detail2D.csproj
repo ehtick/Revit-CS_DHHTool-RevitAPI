@@ -25,6 +25,7 @@
     <WarningLevel>4</WarningLevel>
     <StartAction>Program</StartAction>
     <StartProgram>$(ProgramW6432)\Autodesk\Revit 2020\Revit.exe</StartProgram>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -73,7 +74,8 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DHHTools_Library">
+    <Reference Include="DHHTools_Library, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\00-01.DHHTools_Library\bin\Debug\DHHTools_Library.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />

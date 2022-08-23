@@ -82,12 +82,13 @@
         <Setter Property="Margin" Value="0" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="FontFamily" Value="Trebuchet MS" />
-        <Setter Property="FontSize" Value="12" />
+        <!--<Setter Property="FontSize" Value="12" /> -->
         <!--<Setter Property="FontWeight" Value="Bold" />-->
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Foreground" Value="Black" />
         <Setter Property="BorderBrush" Value="LightGray" />
+        <Setter Property="TextAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="Template">

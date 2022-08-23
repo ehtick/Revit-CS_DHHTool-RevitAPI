@@ -34,7 +34,7 @@ namespace DHHTools
                     {
                         return p.AsElementId().IntegerValue.ToString();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         //MessageBox.Show(e.ToString());
                         return string.Empty;
