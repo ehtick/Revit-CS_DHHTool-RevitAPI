@@ -305,7 +305,7 @@ namespace DHHTools
                 Excel.Application xlsApp = new Excel.Application();
                 Excel.Workbook xlsworkbook = xlsApp.Workbooks.Open(file.FileName);
                 Excel.Range xlRange = xlsworkbook.Worksheets["Beam"].UsedRange;
-                int rowCnt = 0;
+                int rowCnt = 36;
                 DataTable dtTable = new DataTable();
                 for (int i=1; i<=15; i++)
                     {
@@ -316,18 +316,12 @@ namespace DHHTools
                 for (rowCnt = 36; rowCnt <= xlRange.Rows.Count; rowCnt++)
                 {
                     string beamName = (xlRange.Cells[rowCnt, 2] as Microsoft.Office.Interop.Excel.Range).Value;
-                    
                     string Location = (xlRange.Cells[rowCnt, 3] as Microsoft.Office.Interop.Excel.Range).Value;
-                    
                     double b = (xlRange.Cells[rowCnt, 6] as Microsoft.Office.Interop.Excel.Range).Value;
                     double h = (xlRange.Cells[rowCnt, 7] as Microsoft.Office.Interop.Excel.Range).Value;
                     string section = b.ToString() + "x" + h.ToString();
-
                     double sLThepTrenL1 = (xlRange.Cells[rowCnt, 18] as Microsoft.Office.Interop.Excel.Range).Value;
-                    
-
                     double dkThepTrenL1 = (xlRange.Cells[rowCnt, 19] as Microsoft.Office.Interop.Excel.Range).Value;
-
                     double sLThepTrenL2 = 0;
                     if ((xlRange.Cells[rowCnt, 20] as Microsoft.Office.Interop.Excel.Range).Value == null)
                     {
@@ -337,7 +331,6 @@ namespace DHHTools
                     {
                         sLThepTrenL2 = (xlRange.Cells[rowCnt, 20] as Microsoft.Office.Interop.Excel.Range).Value;
                     }
-
                     double dkThepTrenL2 = 0;
                     if ((xlRange.Cells[rowCnt, 21] as Microsoft.Office.Interop.Excel.Range).Value == null)
                     {
@@ -347,7 +340,6 @@ namespace DHHTools
                     {
                         dkThepTrenL2 = (xlRange.Cells[rowCnt, 21] as Microsoft.Office.Interop.Excel.Range).Value;
                     }
-
                     double sLThepDuoiL1 = 0;
                     if ((xlRange.Cells[rowCnt, 22] as Microsoft.Office.Interop.Excel.Range).Value == null)
                     {
@@ -357,7 +349,6 @@ namespace DHHTools
                     {
                         sLThepDuoiL1 = (xlRange.Cells[rowCnt, 22] as Microsoft.Office.Interop.Excel.Range).Value;
                     }
-                    
                     double dkThepDuoiL1 = 0;
                     if ((xlRange.Cells[rowCnt, 23] as Microsoft.Office.Interop.Excel.Range).Value == null)
                     {
@@ -367,7 +358,6 @@ namespace DHHTools
                     {
                         dkThepDuoiL1 = (xlRange.Cells[rowCnt, 23] as Microsoft.Office.Interop.Excel.Range).Value;
                     }
-
                     double sLThepDuoiL2 = 0;
                     if ((xlRange.Cells[rowCnt, 24] as Microsoft.Office.Interop.Excel.Range).Value == null)
                     {
@@ -377,7 +367,6 @@ namespace DHHTools
                     {
                         sLThepDuoiL2 = (xlRange.Cells[rowCnt, 24] as Microsoft.Office.Interop.Excel.Range).Value;
                     }
-                    
                     double dkThepDuoiL2 = 0;
                     if ((xlRange.Cells[rowCnt, 25] as Microsoft.Office.Interop.Excel.Range).Value == null)
                     {
@@ -387,16 +376,31 @@ namespace DHHTools
                     {
                         dkThepDuoiL2 = (xlRange.Cells[rowCnt, 25] as Microsoft.Office.Interop.Excel.Range).Value;
                     }
-                    
-
                     double dkThepDai = (xlRange.Cells[rowCnt, 8] as Microsoft.Office.Interop.Excel.Range).Value;
-                    double dLThepDai = (xlRange.Cells[rowCnt, 9] as Microsoft.Office.Interop.Excel.Range).Value;
+                    double sLThepDai = (xlRange.Cells[rowCnt, 9] as Microsoft.Office.Interop.Excel.Range).Value;
                     double kcThepDai = (xlRange.Cells[rowCnt, 10] as Microsoft.Office.Interop.Excel.Range).Value;
 
+                    ExcelDataExtension excelDataExtension = new ExcelDataExtension()
+                    {
+                        BeamName = beamName,
+                        Location = Location,
+                        Section = section,
+                        SLThepTrenL1 = sLThepTrenL1,
+                        DkThepTrenL1 = dkThepTrenL1,
+                        SLThepTrenL2 = sLThepTrenL2,
+                        DkThepTrenL2 = dkThepTrenL2,
+                        SLThepDuoiL1 = sLThepDuoiL1,
+                        DkThepDuoiL1 = dkThepDuoiL1,
+                        SLThepDuoiL2 = sLThepDuoiL2,
+                        DkThepDuoiL2 = dkThepDuoiL2,
+                        DkThepDai = dkThepDai,
+                        SLThepDai = sLThepDai,
+                        KCThepDai = kcThepDai, 
+                    };
+                    AllExcelData.Add(excelDataExtension);
+                    
+
                 }
-
-
-                
                 xlsworkbook.Close(true, null, null);
                 xlsApp.Quit();
             }

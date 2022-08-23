@@ -1,0 +1,11 @@
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-01.DHHTools_SelectionFilter\bin\Debug\SelectionFilter.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-01.DHHTools_SelectionFilter\bin\Debug\SelectionFilter.pdb
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-01.DHHTools_SelectionFilter\obj\Debug\01-01.DHHTools_SelectionFilter.csproj.AssemblyReference.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-01.DHHTools_SelectionFilter\obj\Debug\03.DHHTools_SelectionFilterWindow.baml
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-01.DHHTools_SelectionFilter\obj\Debug\03.DHHTools_SelectionFilterWindow.g.cs
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-01.DHHTools_SelectionFilter\obj\Debug\SelectionFilter_MarkupCompile.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-01.DHHTools_SelectionFilter\obj\Debug\SelectionFilter.g.resources
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-01.DHHTools_SelectionFilter\obj\Debug\01-01.DHHTools_SelectionFilter.csproj.CoreCompileInputs.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-01.DHHTools_SelectionFilter\obj\Debug\01-01.DHHTools_SelectionFilter.csproj.CopyComplete
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-01.DHHTools_SelectionFilter\obj\Debug\SelectionFilter.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-01.DHHTools_SelectionFilter\obj\Debug\SelectionFilter.pdb
