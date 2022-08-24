@@ -29,3 +29,4 @@ D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-01.DHHTools_Cre
 D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-01.DHHTools_CreateSectionBeam-Detail2D\bin\Debug\DHHTools_Library.pdb
 D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\02-01.DHHTools_CreateSectionBeam-Detail2D.csproj.CopyComplete
 D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\CreateSectionBeam-Detail2D_MarkupCompile.lref
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\CreateSectionBeam-Detail2D_MarkupCompile.lref

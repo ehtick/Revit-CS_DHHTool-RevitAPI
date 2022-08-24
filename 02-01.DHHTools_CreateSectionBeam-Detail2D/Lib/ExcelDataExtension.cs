@@ -28,6 +28,8 @@ namespace DHHTools
         private double DkThepDai_VM;
         private double SLThepDai_VM;
         private double KCThepDai_VM;
+        private double DkThepGia_VM;
+        private double SLThepGia_VM;
         #endregion
 
         #region 02. Public Property
@@ -223,6 +225,30 @@ namespace DHHTools
                 {
                     Section_VM = value;
                     OnPropertyChanged("Section");
+                }
+            }
+        }
+        public double DkThepGia
+        {
+            get => DkThepGia_VM;
+            set
+            {
+                if (DkThepGia_VM != value)
+                {
+                    DkThepGia_VM = value;
+                    OnPropertyChanged("DkThepGia");
+                }
+            }
+        }
+        public double SLThepGia
+        {
+            get => SLThepGia_VM;
+            set
+            {
+                if (SLThepGia_VM != value)
+                {
+                    SLThepGia_VM = value;
+                    OnPropertyChanged("SLThepGia");
                 }
             }
         }

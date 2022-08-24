@@ -47,8 +47,8 @@
                         </Trigger>
 
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" Value="#8cc63e" />
-                            <Setter Property="Foreground" Value="DarkRed" />
+                            <Setter Property="Background" Value="LightPink" />
+                            <Setter Property="Foreground" Value="DarkBlue" />
                             <Setter Property="FontWeight" Value="Bold" />
                         </Trigger>
                     </ControlTemplate.Triggers>

@@ -111,7 +111,8 @@
                                     </DataGridTemplateColumn.HeaderTemplate>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Grid Margin="0,0,-1.5,0">
+                                            <Grid 
+                                                Margin="0,0,-1.5,0">
                                                 <TextBox 
                                                     VerticalContentAlignment="Center"
                                                     HorizontalContentAlignment="Center"

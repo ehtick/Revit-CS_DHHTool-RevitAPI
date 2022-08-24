@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Application = Autodesk.Revit.ApplicationServices.Application;
 using System.Collections.ObjectModel;
+using System;
 // ReSharper disable All
 #endregion
 
@@ -60,6 +61,7 @@ namespace DHHTools
                 int rowCnt = 0;
                 for (rowCnt = 36; rowCnt <= xlRange.Rows.Count; rowCnt++)
                 {
+                    #region Thông tin dầm
                     string beamName = "";
                     if ((xlRange.Cells[rowCnt, 2] as Microsoft.Office.Interop.Excel.Range).Value == null)
                     {
@@ -74,66 +76,94 @@ namespace DHHTools
                     double b = (xlRange.Cells[rowCnt, 6] as Microsoft.Office.Interop.Excel.Range).Value;
                     double h = (xlRange.Cells[rowCnt, 7] as Microsoft.Office.Interop.Excel.Range).Value;
                     string section = b.ToString() + "x" + h.ToString();
-                    double sLThepTrenL1 = (xlRange.Cells[rowCnt, 18] as Microsoft.Office.Interop.Excel.Range).Value;
-                    double dkThepTrenL1 = (xlRange.Cells[rowCnt, 19] as Microsoft.Office.Interop.Excel.Range).Value;
+                    #endregion
+
+                    #region Thép chủ
+                    double sLThepTrenL1 = 0;
+                    double dkThepTrenL1 = 0;
                     double sLThepTrenL2 = 0;
-                    if ((xlRange.Cells[rowCnt, 20] as Microsoft.Office.Interop.Excel.Range).Value == null)
-                    {
-                        sLThepTrenL2 = 0;
-                    }
-                    else
-                    {
-                        sLThepTrenL2 = (xlRange.Cells[rowCnt, 20] as Microsoft.Office.Interop.Excel.Range).Value;
-                    }
                     double dkThepTrenL2 = 0;
-                    if ((xlRange.Cells[rowCnt, 21] as Microsoft.Office.Interop.Excel.Range).Value == null)
-                    {
-                        dkThepTrenL2 = 0;
-                    }
-                    else
-                    {
-                        dkThepTrenL2 = (xlRange.Cells[rowCnt, 21] as Microsoft.Office.Interop.Excel.Range).Value;
-                    }
                     double sLThepDuoiL1 = 0;
-                    if ((xlRange.Cells[rowCnt, 22] as Microsoft.Office.Interop.Excel.Range).Value == null)
-                    {
-                        sLThepDuoiL1 = 0;
-                    }
-                    else
-                    {
-                        sLThepDuoiL1 = (xlRange.Cells[rowCnt, 22] as Microsoft.Office.Interop.Excel.Range).Value;
-                    }
                     double dkThepDuoiL1 = 0;
-                    if ((xlRange.Cells[rowCnt, 23] as Microsoft.Office.Interop.Excel.Range).Value == null)
-                    {
-                        dkThepDuoiL1 = 0;
-                    }
-                    else
-                    {
-                        dkThepDuoiL1 = (xlRange.Cells[rowCnt, 23] as Microsoft.Office.Interop.Excel.Range).Value;
-                    }
                     double sLThepDuoiL2 = 0;
-                    if ((xlRange.Cells[rowCnt, 24] as Microsoft.Office.Interop.Excel.Range).Value == null)
-                    {
-                        sLThepDuoiL2 = 0;
-                    }
-                    else
-                    {
-                        sLThepDuoiL2 = (xlRange.Cells[rowCnt, 24] as Microsoft.Office.Interop.Excel.Range).Value;
-                    }
                     double dkThepDuoiL2 = 0;
-                    if ((xlRange.Cells[rowCnt, 25] as Microsoft.Office.Interop.Excel.Range).Value == null)
+                    
+                    
+                    if (Location.Contains("END") | Location.Contains("GỐI"))
                     {
-                        dkThepDuoiL2 = 0;
+                        sLThepTrenL1 = (xlRange.Cells[rowCnt, 18] as Microsoft.Office.Interop.Excel.Range).Value;
+                        dkThepTrenL1 = (xlRange.Cells[rowCnt, 19] as Microsoft.Office.Interop.Excel.Range).Value;
+                        if ((xlRange.Cells[rowCnt, 20] as Microsoft.Office.Interop.Excel.Range).Value == null)
+                        {
+                            sLThepTrenL2 = 0;
+                        }
+                        else
+                        {
+                            sLThepTrenL2 = (xlRange.Cells[rowCnt, 20] as Microsoft.Office.Interop.Excel.Range).Value;
+                        }
+                        if ((xlRange.Cells[rowCnt, 21] as Microsoft.Office.Interop.Excel.Range).Value == null)
+                        {
+                            dkThepTrenL2 = 0;
+                        }
+                        else
+                        {
+                            dkThepTrenL2 = (xlRange.Cells[rowCnt, 21] as Microsoft.Office.Interop.Excel.Range).Value;
+                        }
+        
+                        sLThepDuoiL1 = (xlRange.Cells[rowCnt + 1, 18] as Microsoft.Office.Interop.Excel.Range).Value;
+                        dkThepDuoiL1 = (xlRange.Cells[rowCnt + 1, 19] as Microsoft.Office.Interop.Excel.Range).Value;
                     }
-                    else
+                    else if (Location.Contains("CEN") | Location.Contains("NHỊP"))
                     {
-                        dkThepDuoiL2 = (xlRange.Cells[rowCnt, 25] as Microsoft.Office.Interop.Excel.Range).Value;
+                        sLThepTrenL1 = (xlRange.Cells[rowCnt - 1, 18] as Microsoft.Office.Interop.Excel.Range).Value;
+                        dkThepTrenL1 = (xlRange.Cells[rowCnt - 1, 19] as Microsoft.Office.Interop.Excel.Range).Value;
+                        sLThepDuoiL1 = (xlRange.Cells[rowCnt, 18] as Microsoft.Office.Interop.Excel.Range).Value;
+                        dkThepDuoiL1 = (xlRange.Cells[rowCnt, 19] as Microsoft.Office.Interop.Excel.Range).Value;
+
+                        if ((xlRange.Cells[rowCnt, 20] as Microsoft.Office.Interop.Excel.Range).Value == null)
+                        {
+                            sLThepDuoiL2 = 0;
+                        }
+                        else
+                        {
+                            sLThepDuoiL2 = (xlRange.Cells[rowCnt, 20] as Microsoft.Office.Interop.Excel.Range).Value;
+                        }
+                        if ((xlRange.Cells[rowCnt, 21] as Microsoft.Office.Interop.Excel.Range).Value == null)
+                        {
+                            dkThepDuoiL2 = 0;
+                        }
+                        else
+                        {
+                            dkThepDuoiL2 = (xlRange.Cells[rowCnt, 21] as Microsoft.Office.Interop.Excel.Range).Value;
+                        }
                     }
+                    #endregion
+
+                    #region Thép giá
                     double dkThepDai = (xlRange.Cells[rowCnt, 8] as Microsoft.Office.Interop.Excel.Range).Value;
                     double sLThepDai = (xlRange.Cells[rowCnt, 9] as Microsoft.Office.Interop.Excel.Range).Value;
                     double kcThepDai = (xlRange.Cells[rowCnt, 10] as Microsoft.Office.Interop.Excel.Range).Value;
+                    #endregion
 
+                    #region Thép giá
+                    double sLThepGia = 0;
+                    double dkThepGia = 0;
+                    if (h <= 700)
+                    {
+                        sLThepGia = 0;
+                        dkThepGia = 0;
+                    }
+                    else if (h < 1000)
+                    {
+                        sLThepGia = 2;
+                        dkThepGia = 12;
+                    }
+                    else
+                    {
+                        sLThepGia = Math.Ceiling((h - 1000) / 400) * 2 + 2;
+                        dkThepGia = 12;
+                    }
+                    #endregion
 
                     ExcelDataExtension excelDataExtension = new ExcelDataExtension()
                     {
@@ -153,6 +183,8 @@ namespace DHHTools
                         DkThepDai = dkThepDai,
                         SLThepDai = sLThepDai,
                         KCThepDai = kcThepDai, 
+                        DkThepGia = dkThepGia,
+                        SLThepGia = sLThepGia,
                     };
                     AllExcelData.Add(excelDataExtension);
                 }
