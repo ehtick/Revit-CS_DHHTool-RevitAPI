@@ -79,64 +79,103 @@ namespace DHHTools
                     #endregion
 
                     #region Thép chủ
-                    double sLThepTrenL1 = 0;
+                    #region Biến phụ
+                    double slThepTrenL1_P1 = 0;
+                    double slThepTrenL1_P2 = 0;
+                    double dkThepTrenL1_P1 = 0;
+                    double dkThepTrenL1_P2 = 0;
+
+                    double slThepTrenL2_P1 = 0;
+                    double slThepTrenL2_P2 = 0;
+                    double dkThepTrenL2_P1 = 0;
+                    double dkThepTrenL2_P2 = 0;
+
+                    double slThepDuoiL1_P1 = 0;
+                    double slThepDuoiL1_P2 = 0;
+                    double dkThepDuoiL1_P1 = 0;
+                    double dkThepDuoiL1_P2 = 0;
+
+                    double slThepDuoiL2_P1 = 0;
+                    double slThepDuoiL2_P2 = 0;
+                    double dkThepDuoiL2_P1 = 0;
+                    double dkThepDuoiL2_P2 = 0;
+                    #endregion
+                    #region Biến chính
+                    double slThepTrenL1 = 0;
                     double dkThepTrenL1 = 0;
-                    double sLThepTrenL2 = 0;
+                    double slThepTrenL2 = 0;
                     double dkThepTrenL2 = 0;
-                    double sLThepDuoiL1 = 0;
+                    double slThepDuoiL1 = 0;
                     double dkThepDuoiL1 = 0;
-                    double sLThepDuoiL2 = 0;
+                    double slThepDuoiL2 = 0;
                     double dkThepDuoiL2 = 0;
-                    
-                    
+                    #endregion
+                    #region Gán biến
                     if (Location.Contains("END") | Location.Contains("GỐI"))
                     {
-                        sLThepTrenL1 = (xlRange.Cells[rowCnt, 18] as Microsoft.Office.Interop.Excel.Range).Value;
-                        dkThepTrenL1 = (xlRange.Cells[rowCnt, 19] as Microsoft.Office.Interop.Excel.Range).Value;
+                        slThepTrenL1_P1 = (xlRange.Cells[rowCnt, 18] as Microsoft.Office.Interop.Excel.Range).Value;
+                        dkThepTrenL1_P1 = (xlRange.Cells[rowCnt, 19] as Microsoft.Office.Interop.Excel.Range).Value;
+                        
                         if ((xlRange.Cells[rowCnt, 20] as Microsoft.Office.Interop.Excel.Range).Value == null)
-                        {
-                            sLThepTrenL2 = 0;
-                        }
-                        else
-                        {
-                            sLThepTrenL2 = (xlRange.Cells[rowCnt, 20] as Microsoft.Office.Interop.Excel.Range).Value;
-                        }
+                        { slThepTrenL1_P2 = 0; }
+                        else { slThepTrenL1_P2 = (xlRange.Cells[rowCnt, 20] as Microsoft.Office.Interop.Excel.Range).Value; }
+                        
                         if ((xlRange.Cells[rowCnt, 21] as Microsoft.Office.Interop.Excel.Range).Value == null)
-                        {
-                            dkThepTrenL2 = 0;
-                        }
-                        else
-                        {
-                            dkThepTrenL2 = (xlRange.Cells[rowCnt, 21] as Microsoft.Office.Interop.Excel.Range).Value;
-                        }
-        
-                        sLThepDuoiL1 = (xlRange.Cells[rowCnt + 1, 18] as Microsoft.Office.Interop.Excel.Range).Value;
+                        { dkThepTrenL1_P2 = 0; }
+                        else { dkThepTrenL1_P2 = (xlRange.Cells[rowCnt, 21] as Microsoft.Office.Interop.Excel.Range).Value; }
+
+                        if ((xlRange.Cells[rowCnt, 22] as Microsoft.Office.Interop.Excel.Range).Value == null)
+                        { slThepTrenL2_P1 = 0; }
+                        else { slThepTrenL2_P1 = (xlRange.Cells[rowCnt, 22] as Microsoft.Office.Interop.Excel.Range).Value; }
+
+                        if ((xlRange.Cells[rowCnt, 23] as Microsoft.Office.Interop.Excel.Range).Value == null)
+                        { dkThepTrenL2_P1 = 0; }
+                        else { dkThepTrenL2_P1 = (xlRange.Cells[rowCnt, 23] as Microsoft.Office.Interop.Excel.Range).Value; }
+
+                        if ((xlRange.Cells[rowCnt, 24] as Microsoft.Office.Interop.Excel.Range).Value == null)
+                        { slThepTrenL2_P2 = 0; }
+                        else { slThepTrenL2_P2 = (xlRange.Cells[rowCnt, 24] as Microsoft.Office.Interop.Excel.Range).Value; }
+
+                        if ((xlRange.Cells[rowCnt, 25] as Microsoft.Office.Interop.Excel.Range).Value == null)
+                        { dkThepTrenL2_P2 = 0; }
+                        else { dkThepTrenL2_P2 = (xlRange.Cells[rowCnt, 25] as Microsoft.Office.Interop.Excel.Range).Value; }
+
+                        slThepDuoiL1 = (xlRange.Cells[rowCnt + 1, 18] as Microsoft.Office.Interop.Excel.Range).Value;
                         dkThepDuoiL1 = (xlRange.Cells[rowCnt + 1, 19] as Microsoft.Office.Interop.Excel.Range).Value;
                     }
                     else if (Location.Contains("CEN") | Location.Contains("NHỊP"))
                     {
-                        sLThepTrenL1 = (xlRange.Cells[rowCnt - 1, 18] as Microsoft.Office.Interop.Excel.Range).Value;
+                        slThepTrenL1 = (xlRange.Cells[rowCnt - 1, 18] as Microsoft.Office.Interop.Excel.Range).Value;
                         dkThepTrenL1 = (xlRange.Cells[rowCnt - 1, 19] as Microsoft.Office.Interop.Excel.Range).Value;
-                        sLThepDuoiL1 = (xlRange.Cells[rowCnt, 18] as Microsoft.Office.Interop.Excel.Range).Value;
-                        dkThepDuoiL1 = (xlRange.Cells[rowCnt, 19] as Microsoft.Office.Interop.Excel.Range).Value;
+                        
+                        slThepDuoiL1_P1 = (xlRange.Cells[rowCnt, 18] as Microsoft.Office.Interop.Excel.Range).Value;
+                        dkThepDuoiL1_P1 = (xlRange.Cells[rowCnt, 19] as Microsoft.Office.Interop.Excel.Range).Value;
 
                         if ((xlRange.Cells[rowCnt, 20] as Microsoft.Office.Interop.Excel.Range).Value == null)
-                        {
-                            sLThepDuoiL2 = 0;
-                        }
-                        else
-                        {
-                            sLThepDuoiL2 = (xlRange.Cells[rowCnt, 20] as Microsoft.Office.Interop.Excel.Range).Value;
-                        }
+                        { slThepDuoiL1_P2 = 0; }
+                        else { slThepDuoiL1_P2 = (xlRange.Cells[rowCnt, 20] as Microsoft.Office.Interop.Excel.Range).Value; }
+
                         if ((xlRange.Cells[rowCnt, 21] as Microsoft.Office.Interop.Excel.Range).Value == null)
-                        {
-                            dkThepDuoiL2 = 0;
-                        }
-                        else
-                        {
-                            dkThepDuoiL2 = (xlRange.Cells[rowCnt, 21] as Microsoft.Office.Interop.Excel.Range).Value;
-                        }
+                        { dkThepDuoiL1_P2 = 0; }
+                        else { dkThepDuoiL1_P2 = (xlRange.Cells[rowCnt, 21] as Microsoft.Office.Interop.Excel.Range).Value; }
+
+                        if ((xlRange.Cells[rowCnt, 22] as Microsoft.Office.Interop.Excel.Range).Value == null)
+                        { dkThepDuoiL2_P1 = 0; }
+                        else { slThepDuoiL2_P1 = (xlRange.Cells[rowCnt, 22] as Microsoft.Office.Interop.Excel.Range).Value; }
+
+                        if ((xlRange.Cells[rowCnt, 23] as Microsoft.Office.Interop.Excel.Range).Value == null)
+                        { dkThepDuoiL2_P1 = 0; }
+                        else { dkThepDuoiL2_P1 = (xlRange.Cells[rowCnt, 23] as Microsoft.Office.Interop.Excel.Range).Value; }
+
+                        if ((xlRange.Cells[rowCnt, 24] as Microsoft.Office.Interop.Excel.Range).Value == null)
+                        { dkThepDuoiL2_P2 = 0; }
+                        else { slThepDuoiL2_P2 = (xlRange.Cells[rowCnt, 24] as Microsoft.Office.Interop.Excel.Range).Value; }
+
+                        if ((xlRange.Cells[rowCnt, 25] as Microsoft.Office.Interop.Excel.Range).Value == null)
+                        { dkThepDuoiL2_P2 = 0; }
+                        else { dkThepDuoiL2_P2 = (xlRange.Cells[rowCnt, 25] as Microsoft.Office.Interop.Excel.Range).Value; }
                     }
+                    #endregion
                     #endregion
 
                     #region Thép giá
@@ -172,13 +211,13 @@ namespace DHHTools
                         b = b,
                         h = h,
                         Section = section,
-                        SLThepTrenL1 = sLThepTrenL1,
+                        SLThepTrenL1 = slThepTrenL1,
                         DkThepTrenL1 = dkThepTrenL1,
-                        SLThepTrenL2 = sLThepTrenL2,
+                        SLThepTrenL2 = slThepTrenL2,
                         DkThepTrenL2 = dkThepTrenL2,
-                        SLThepDuoiL1 = sLThepDuoiL1,
+                        SLThepDuoiL1 = slThepDuoiL1,
                         DkThepDuoiL1 = dkThepDuoiL1,
-                        SLThepDuoiL2 = sLThepDuoiL2,
+                        SLThepDuoiL2 = slThepDuoiL2,
                         DkThepDuoiL2 = dkThepDuoiL2,
                         DkThepDai = dkThepDai,
                         SLThepDai = sLThepDai,
@@ -188,7 +227,6 @@ namespace DHHTools
                     };
                     AllExcelData.Add(excelDataExtension);
                 }
-
                 AllExcelData.Distinct();
                 xlsworkbook.Close(true, null, null);
                 xlsApp.Quit();
