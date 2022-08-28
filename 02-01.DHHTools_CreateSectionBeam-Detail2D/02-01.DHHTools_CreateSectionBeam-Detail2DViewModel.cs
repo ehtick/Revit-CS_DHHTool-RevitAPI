@@ -255,7 +255,7 @@ namespace DHHTools
             List<int> slnhanhdaiList = new List<int>();
             for (int i=0; i<AllExcelData.Count;i++)
             {
-
+                int count = AllExcelData.Count;
             }
 
             double bkhung = blist[0];
