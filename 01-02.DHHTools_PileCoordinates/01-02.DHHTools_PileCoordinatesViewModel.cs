@@ -10,6 +10,8 @@ using System.Windows;
 using Application = Autodesk.Revit.ApplicationServices.Application;
 using Curve = Autodesk.Revit.DB.Curve;
 using PlanarFace = Autodesk.Revit.DB.PlanarFace;
+using Point = Autodesk.Revit.DB.Point;
+
 // ReSharper disable All
 #endregion
 
@@ -146,11 +148,20 @@ namespace DHHTools
         #region 05. Select Pile
         public void SelectPile()
         {
-            allPile = new FilteredElementCollector(doc, doc.ActiveView.Id)
-                .OfCategory(BuiltInCategory.OST_StructuralColumns)
-                .ToElements()
-                .ToList();
-            uidoc.Selection.SetElementIds(allPile.Select(e => e.Id).ToList());
+            allPile = (List<Element>) uidoc.Selection.PickElementsByRectangle(new PileSelectionFilter(), "Chọn cọc");
+        }
+        #endregion
+        #region 06. Get-Set Coordinates
+        public void CoornPile()
+        {
+            foreach (Element onePile in allPile)
+            {
+                LocationPoint location = onePile.Location as LocationPoint;
+                XYZ pointPile = location.Point;
+                double xRVpointPile = pointPile.X;
+                double yRVpointPile = pointPile.Y;
+
+            }
         }
         #endregion
 
