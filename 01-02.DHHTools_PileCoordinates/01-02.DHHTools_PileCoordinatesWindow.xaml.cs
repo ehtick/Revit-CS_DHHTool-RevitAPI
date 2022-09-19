@@ -59,7 +59,7 @@ namespace DHHTools
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            _viewModel.SelectPile();
+            _viewModel.CoornPile();
         }
     }
 }

@@ -46,16 +46,16 @@
                 <TextBlock
                     FontWeight="SemiBold"
                     Padding="12,4,4,8"
-                    Text="Tọa độ X (m)"
+                    Text="Tọa độ X1 (m)"
                     TextAlignment="Left" />
                 <TextBox
                     Grid.Row="0"
                     Grid.Column="1"
                     Width="140"
                     Height="35"
-                    IsReadOnly="True"
+                    VerticalContentAlignment="Center"
                     Style="{DynamicResource TextBoxStyle}"
-                    Text="{Binding VN_X1Point, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding sVN_X1Point, UpdateSourceTrigger=PropertyChanged}" />
                 <TextBlock
                     Grid.Row="1"
                     Grid.Column="0"
@@ -63,16 +63,16 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     FontWeight="SemiBold"
-                    Text="Tọa độ Y (m)"
+                    Text="Tọa độ Y1 (m)"
                     TextAlignment="Left" />
                 <TextBox
                     Grid.Row="1"
                     Grid.Column="1"
                     Width="140"
                     Height="35"
-                    IsReadOnly="True"
+                    VerticalContentAlignment="Center"
                     Style="{DynamicResource TextBoxStyle}"
-                    Text="{Binding VN_Y1Point, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding sVN_Y1Point, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
         </Grid>
         <Border BorderBrush="Black" 
@@ -104,16 +104,16 @@
                 <TextBlock
                     FontWeight="SemiBold"
                     Padding="12,4,4,8"
-                    Text="Tọa độ X (m)"
+                    Text="Tọa độ X2 (m)"
                     TextAlignment="Left" />
                 <TextBox
                     Grid.Row="0"
                     Grid.Column="1"
                     Width="140"
                     Height="35"
-                    IsReadOnly="True"
+                    VerticalContentAlignment="Center"
                     Style="{DynamicResource TextBoxStyle}"
-                    Text="{Binding VN_X2Point, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding sVN_X2Point, UpdateSourceTrigger=PropertyChanged}" />
                 <TextBlock
                     Grid.Row="1"
                     Grid.Column="0"
@@ -121,16 +121,16 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     FontWeight="SemiBold"
-                    Text="Tọa độ Y (m)"
+                    Text="Tọa độ Y2 (m)"
                     TextAlignment="Left" />
                 <TextBox
                     Grid.Row="1"
                     Grid.Column="1"
                     Width="140"
                     Height="35"
-                    IsReadOnly="True"
+                    VerticalContentAlignment="Center"
                     Style="{DynamicResource TextBoxStyle}"
-                    Text="{Binding VN_X2Point, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding sVN_Y2Point, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
         </Grid>
         <DockPanel

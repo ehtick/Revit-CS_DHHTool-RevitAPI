@@ -20,24 +20,22 @@ namespace DHHTools
             UIDocument uidoc = uiapp.ActiveUIDocument;
             //Application app = uiapp.Application;
             Document doc = uidoc.Document;
-            PileCoordinatesViewModel pileCoordinateViewModel = new PileCoordinatesViewModel(commandData);
-            return Result.Succeeded;
+            
             #region Lưu lại Transaction
 
-            //using (TransactionGroup transGr = new TransactionGroup(doc))
-            //{
-            //    transGr.Start("Set Elevation at Top of Beams");
+            using (TransactionGroup transGr = new TransactionGroup(doc))
+            {
+                transGr.Start("Set Elevation at Top of Beams");
+                PileCoordinatesViewModel pileCoordinateViewModel 
+                    = new PileCoordinatesViewModel(commandData);
+                PileCoordinatesWindow window
+                    = new PileCoordinatesWindow(pileCoordinateViewModel);
+                bool? dialog = window.ShowDialog();
+                if (dialog == false) return Result.Succeeded;
 
-            //    RebarColumnViewModel viewModel
-            //        = new RebarColumnViewModel();
-            //    CreateRebarColumnWindow window
-            //        = new CreateRebarColumnWindow(viewModel);
-            //    bool? dialog = window.ShowDialog();
-            //    if (dialog == false) return Result.Cancelled;
-
-            //    transGr.Assimilate();
-            //}
-            //return Result.Succeeded;
+                transGr.Assimilate();
+            }
+            return Result.Succeeded;
             #endregion
         }
     }
