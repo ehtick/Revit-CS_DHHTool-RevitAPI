@@ -35,10 +35,16 @@ namespace DHHTools
         private double vn_Y2Point_VM;
         private XYZ pointpick1_VM;
         private XYZ pointpick2_VM;
+        private XYZ rv_1PointPick_VM;
+        private XYZ rv_2PointPick_VM;
+        private double x_pointpick1_VM;
+        private double y_pointpick1_VM;
+        private double x_pointpick2_VM;
+        private double y_pointpick2_VM;
         private XYZ vn_1Point_VM;
         private XYZ vn_2Point_VM;
         private XYZ vn_12Vecto_VM;
-
+        private XYZ rv_12VectoPick_VM;
         #endregion
         #region 02. Public Property
         public UIDocument UiDoc;
@@ -93,7 +99,7 @@ namespace DHHTools
         }
         public double vn_X1Point
         {
-            get => DhhUnitUtils.MeterToFeet(Convert.ToDouble(sVN_X1Point));
+            get => Convert.ToDouble(sVN_X1Point)*1000;
             set
             {
                 if (vn_X1Point_VM != value)
@@ -106,7 +112,7 @@ namespace DHHTools
         }
         public double vn_Y1Point
         {
-            get => DhhUnitUtils.MeterToFeet(Convert.ToDouble(sVN_Y1Point));
+            get => Convert.ToDouble(sVN_Y1Point) * 1000;
             set
             {
                 if (vn_Y1Point_VM != value)
@@ -119,7 +125,7 @@ namespace DHHTools
         }
         public double vn_X2Point
         {
-            get => DhhUnitUtils.MeterToFeet(Convert.ToDouble(sVN_X2Point));
+            get => Convert.ToDouble(sVN_X2Point) * 1000;
             set
             {
                 if (vn_X2Point_VM != value)
@@ -132,7 +138,7 @@ namespace DHHTools
         }
         public double vn_Y2Point
         {
-            get => DhhUnitUtils.MeterToFeet(Convert.ToDouble(sVN_Y2Point));
+            get => Convert.ToDouble(sVN_Y2Point) * 1000;
             set
             {
                 if (vn_Y2Point_VM != value)
@@ -167,9 +173,61 @@ namespace DHHTools
                 }
             }
         }
+        public double x_pointpick1
+        {
+            get => DhhUnitUtils.FeetToMm(pointpick1.X);
+            set
+            {
+                if (x_pointpick1_VM != value)
+                {
+                    x_pointpick1_VM = value;
+                    OnPropertyChanged("x_pointpick1");
+                    OnPropertyChanged("pointpick1");
+                }
+            }
+        }
+        public double y_pointpick1
+        {
+            get => DhhUnitUtils.FeetToMm(pointpick1.Y);
+            set
+            {
+                if (y_pointpick1_VM != value)
+                {
+                    y_pointpick1_VM = value;
+                    OnPropertyChanged("y_pointpick1");
+                    OnPropertyChanged("pointpick1");
+                }
+            }
+        }
+        public double x_pointpick2
+        {
+            get => DhhUnitUtils.FeetToMm(pointpick2.X);
+            set
+            {
+                if (x_pointpick2_VM != value)
+                {
+                    x_pointpick2_VM = value;
+                    OnPropertyChanged("x_pointpick2");
+                    OnPropertyChanged("pointpick2");
+                }
+            }
+        }
+        public double y_pointpick2
+        {
+            get => DhhUnitUtils.FeetToMm(pointpick2.Y);
+            set
+            {
+                if (y_pointpick2_VM != value)
+                {
+                    y_pointpick2_VM = value;
+                    OnPropertyChanged("y_pointpick2");
+                    OnPropertyChanged("pointpick2");
+                }
+            }
+        }
         public XYZ vn_1Point
         {
-            get => new XYZ(vn_X1Point, vn_Y1Point, 0);
+            get => new XYZ(vn_Y1Point, vn_X1Point, 0);
             set
             {
                 if (vn_1Point_VM != value)
@@ -183,7 +241,7 @@ namespace DHHTools
         }
         public XYZ vn_2Point
         {
-            get => new XYZ(vn_X2Point, vn_Y2Point, 0);
+            get => new XYZ(vn_Y2Point, vn_X2Point, 0);
             set
             {
                 if (vn_2Point_VM != value)
@@ -192,6 +250,34 @@ namespace DHHTools
                     OnPropertyChanged("vn_2Point");
                     OnPropertyChanged("vn_X2Point");
                     OnPropertyChanged("vn_Y2Point");
+                }
+            }
+        }
+        public XYZ rv_1PointPick
+        {
+            get => new XYZ(x_pointpick1, y_pointpick1, 0);
+            set
+            {
+                if (rv_1PointPick_VM != value)
+                {
+                    rv_1PointPick_VM = value;
+                    OnPropertyChanged("rv_1PointPick");
+                    OnPropertyChanged("x_pointpick1");
+                    OnPropertyChanged("y_pointpick1");
+                }
+            }
+        }
+        public XYZ rv_2PointPick
+        {
+            get => new XYZ(x_pointpick2, y_pointpick2, 0);
+            set
+            {
+                if (rv_2PointPick_VM != value)
+                {
+                    rv_2PointPick_VM = value;
+                    OnPropertyChanged("rv_2PointPick");
+                    OnPropertyChanged("x_pointpick2");
+                    OnPropertyChanged("y_pointpick2");
                 }
             }
         }
@@ -209,7 +295,20 @@ namespace DHHTools
                 }
             }
         }
-
+        public XYZ rv_12VectoPick
+        {
+            get => rv_2PointPick - rv_1PointPick;
+            set
+            {
+                if (rv_12VectoPick_VM != value)
+                {
+                    rv_12VectoPick_VM = value;
+                    OnPropertyChanged("rv_12VectoPick");
+                    OnPropertyChanged("rv_2PointPick");
+                    OnPropertyChanged("rv_1PointPick");
+                }
+            }
+        }
         public List<Element> allPile = new List<Element>();
         #endregion
         #region 03. View Model
@@ -226,7 +325,7 @@ namespace DHHTools
             sVN_X2Point = "1148800.088";
             sVN_Y2Point = "575347.053";
             pointpick1 = new XYZ();
-            pointpick2 = new XYZ();           
+            pointpick2 = new XYZ();
         }
         #endregion
         #region 04. Pick Point
@@ -248,15 +347,15 @@ namespace DHHTools
         #region 06. Get-Set Coordinates
         public void CoornPile()
         {
-            XYZ translation = vn_1Point - pointpick1;
+            XYZ translation = vn_1Point - rv_1PointPick;
             Transform transformmove = Transform.CreateTranslation(translation);
-            XYZ rv_1Point = transformmove.OfPoint(pointpick1);
-            XYZ rv_2Point = transformmove.OfPoint(pointpick2);
+            XYZ rv_1Point = transformmove.OfPoint(rv_1PointPick);
+            XYZ rv_2Point = transformmove.OfPoint(rv_2PointPick);
             XYZ rv_12Vecto = rv_2Point - rv_1Point;
             //cần lấy góc quay giữa vecto Revit và Vecto VN2000
             double angle = vn_12Vecto.AngleTo(rv_12Vecto);
             double anglede = DhhUnitUtils.RadiansToDegrees(angle);
-            Transform transformrotate = Transform.CreateRotationAtPoint(XYZ.BasisZ, angle, vn_1Point);
+            Transform transformrotate = Transform.CreateRotationAtPoint(XYZ.BasisZ, -angle, vn_1Point);
             foreach (Element onePile in allPile)
             {
                 
@@ -264,10 +363,15 @@ namespace DHHTools
                 Parameter y_parameter = onePile.LookupParameter("Y_Coordinates");
                 LocationPoint location = onePile.Location as LocationPoint;
                 XYZ pointPile = location.Point;
-                XYZ tranpointPile = transformmove.OfPoint(pointPile);
+                double x_pointPile = DhhUnitUtils.FeetToMm(pointPile.X);
+                double y_pointPile = DhhUnitUtils.FeetToMm(pointPile.Y);
+                XYZ depointPile = new XYZ(x_pointPile, y_pointPile, 0);
+                XYZ tranpointPile = transformmove.OfPoint(depointPile);
                 XYZ rotatePointPile = transformrotate.OfPoint(tranpointPile);
-                x_parameter.Set((Math.Round(DhhUnitUtils.FeetToMeter(rotatePointPile.X), 3)).ToString());
-                y_parameter.Set((Math.Round(DhhUnitUtils.FeetToMeter(rotatePointPile.Y), 3)).ToString());
+                double x_roPointPile = Math.Round((rotatePointPile.X/1000), 3);
+                double y_roPointPile = Math.Round((rotatePointPile.Y/1000), 3);
+                x_parameter.Set(y_roPointPile.ToString());
+                y_parameter.Set(x_roPointPile.ToString());
                 
             }
         }
