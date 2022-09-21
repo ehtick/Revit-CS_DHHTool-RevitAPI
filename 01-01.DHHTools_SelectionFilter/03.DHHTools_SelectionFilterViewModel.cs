@@ -53,7 +53,7 @@ namespace DHHTools
             = new ObservableCollection<ElementExtension>();
         public List<Element> SeElements = new List<Element>();
         #endregion
-                #region 03. View Model
+        #region 03. View Model
         public SelectionFilterViewModel(ExternalCommandData commandData)
         {
             // Lưu trữ data từ Revit vào 2 Field Doc, UiDoc
@@ -83,6 +83,7 @@ namespace DHHTools
             }
         }
         #endregion
+        #region 04. Update Element
         public void UpdateAllElementExtensions()
         {
             ElementExtension level1 = new ElementExtension("All");
@@ -114,6 +115,7 @@ namespace DHHTools
 
             //OnPropertyChanged("AllViewsExtension");
         }
+        #endregion
     }
 }
 

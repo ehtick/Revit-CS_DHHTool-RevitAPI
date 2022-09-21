@@ -25,7 +25,7 @@ namespace DHHTools
 
             using (TransactionGroup transGr = new TransactionGroup(doc))
             {
-                transGr.Start("Set Elevation at Top of Beams");
+                transGr.Start("Pile Coordinates");
                 PileCoordinatesViewModel pileCoordinateViewModel 
                     = new PileCoordinatesViewModel(commandData);
                 PileCoordinatesWindow window
