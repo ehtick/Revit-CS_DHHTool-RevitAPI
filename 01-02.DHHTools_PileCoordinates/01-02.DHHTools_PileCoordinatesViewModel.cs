@@ -353,12 +353,44 @@ namespace DHHTools
             XYZ rv_2Point = transformmove.OfPoint(rv_2PointPick);
             XYZ rv_12Vecto = rv_2Point - rv_1Point;
             //cần lấy góc quay giữa vecto Revit và Vecto VN2000
-            double angle = vn_12Vecto.AngleTo(rv_12Vecto);
-            double anglede = DhhUnitUtils.RadiansToDegrees(angle);
-            Transform transformrotate = Transform.CreateRotationAtPoint(XYZ.BasisZ, -angle, vn_1Point);
-            foreach (Element onePile in allPile)
+            double vn_rv_angle = vn_12Vecto.AngleTo(rv_12Vecto);
+            double vnAngleOX = vn_12Vecto.AngleTo(XYZ.BasisX);
+            double vnAngleOY = vn_12Vecto.AngleTo(XYZ.BasisY);
+            double rvAngleOX = rv_12Vecto.AngleTo(XYZ.BasisX);
+            double rvAngleOY = rv_12Vecto.AngleTo(XYZ.BasisY);
+            double angle = 0;
+            if (vn_12Vecto.Y > 0 && rv_12Vecto.Y > 0)
             {
-                
+                if (vnAngleOX < rvAngleOX)
+                { angle = -vn_rv_angle; }
+                else if (vnAngleOX >= rvAngleOX)
+                { angle = vn_rv_angle; }
+            }
+            else if (vn_12Vecto.Y < 0 && rv_12Vecto.Y < 0)
+            {
+                if (vnAngleOX < rvAngleOX)
+                { angle = vn_rv_angle; }
+                else if (vnAngleOX >= rvAngleOX)
+                { angle = -vn_rv_angle; }
+            }
+            else if (vn_12Vecto.Y < 0 && rv_12Vecto.Y < 0)
+             {
+                if (vnAngleOX < rvAngleOX)
+                { angle = -vn_rv_angle; }
+                else if (vnAngleOX >= rvAngleOX)
+                { angle = vn_rv_angle; }
+            }
+            else if (vn_12Vecto.Y < 0 && rv_12Vecto.Y < 0)
+             {
+                if (vnAngleOX < rvAngleOX)
+                { angle = -vn_rv_angle; }
+                else if (vnAngleOX >= rvAngleOX)
+                { angle = vn_rv_angle; }
+            }
+            double anglede = DhhUnitUtils.RadiansToDegrees(angle);
+            Transform transformrotate = Transform.CreateRotationAtPoint(XYZ.BasisZ, angle, vn_1Point);
+            foreach (Element onePile in allPile)
+            { 
                 Parameter x_parameter = onePile.LookupParameter("X_Coordinates");
                 Parameter y_parameter = onePile.LookupParameter("Y_Coordinates");
                 LocationPoint location = onePile.Location as LocationPoint;
@@ -372,7 +404,6 @@ namespace DHHTools
                 double y_roPointPile = Math.Round((rotatePointPile.Y/1000), 3);
                 x_parameter.Set(y_roPointPile.ToString());
                 y_parameter.Set(x_roPointPile.ToString());
-                
             }
         }
         #endregion
