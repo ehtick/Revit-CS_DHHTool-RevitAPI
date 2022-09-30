@@ -18,26 +18,21 @@ namespace DHHTools
         {
             UIApplication uiapp = commandData.Application;
             UIDocument uidoc = uiapp.ActiveUIDocument;
-            //Application app = uiapp.Application;
             Document doc = uidoc.Document;
-            SelectionFilterViewModel columnViewModel = new SelectionFilterViewModel(commandData);
-            return Result.Cancelled;
+            SelectionFilterViewModel seFilterViewModel = new SelectionFilterViewModel(commandData);
             #region Lưu lại Transaction
 
-            //using (TransactionGroup transGr = new TransactionGroup(doc))
-            //{
-            //    transGr.Start("Set Elevation at Top of Beams");
+            using (TransactionGroup transGr = new TransactionGroup(doc))
+            {
+                transGr.Start("Selection Filter");
+                SelectionFilterWindow window
+                    = new SelectionFilterWindow(seFilterViewModel);
+                bool? dialog = window.ShowDialog();
+                if (dialog == false) return Result.Cancelled;
 
-            //    RebarColumnViewModel viewModel
-            //        = new RebarColumnViewModel();
-            //    CreateRebarColumnWindow window
-            //        = new CreateRebarColumnWindow(viewModel);
-            //    bool? dialog = window.ShowDialog();
-            //    if (dialog == false) return Result.Cancelled;
-
-            //    transGr.Assimilate();
-            //}
-            //return Result.Succeeded;
+                transGr.Assimilate();
+            }
+            return Result.Succeeded;
             #endregion
         }
     }

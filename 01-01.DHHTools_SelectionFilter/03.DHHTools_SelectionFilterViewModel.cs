@@ -18,7 +18,6 @@ namespace DHHTools
 {
     public class SelectionFilterViewModel : ViewModelBase
     {
-
         #region 01. Private Property
         protected internal ExternalEvent ExEvent;
         private UIApplication uiapp;
