@@ -22,6 +22,7 @@ namespace DHHTools
             SelectionFilterViewModel seFilterViewModel = new SelectionFilterViewModel(commandData);
             #region Lưu lại Transaction
 
+
             using (TransactionGroup transGr = new TransactionGroup(doc))
             {
                 transGr.Start("Selection Filter");
