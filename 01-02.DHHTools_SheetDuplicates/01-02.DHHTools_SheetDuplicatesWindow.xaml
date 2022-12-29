@@ -58,17 +58,17 @@
                        Padding="3"/>
                 <StackPanel Orientation="Vertical">
                     <RadioButton Content="Duplicate"
-                         GroupName="ScopeExcute"
+                         GroupName="ViewOption"
                          Style="{StaticResource RadioButtonStyle}"
-                         IsChecked="{Binding IsEntireProject}" />
+                         IsChecked="{Binding ViewIsDuplicate}" />
                     <RadioButton Content="Duplicate With Detailing"
-                         GroupName="ScopeExcute"
+                         GroupName="ViewOption"
                          Style="{StaticResource RadioButtonStyle}"
-                         IsChecked="{Binding IsCurrentView}" />
+                         IsChecked="{Binding ViewIsDuplicateDetailing}" />
                     <RadioButton Content="Duplicate With Dependence"
-                         GroupName="ScopeExcute"
+                         GroupName="ViewOption"
                          Style="{StaticResource RadioButtonStyle}"
-                         IsChecked="{Binding IsCurrentSelection}" />
+                         IsChecked="{Binding ViewIsDuplicateDependence}" />
                 </StackPanel>
                 <TextBlock Height="25" DockPanel.Dock="Top" Text="SCHEDULE Option: " 
                        TextWrapping="Wrap"
@@ -79,13 +79,30 @@
                        Padding="3"/>
                 <StackPanel Orientation="Vertical">
                     <RadioButton Content="No Duplicate"
-                         GroupName="ScopeExcute"
+                         GroupName="ScheduleOption"
                          Style="{StaticResource RadioButtonStyle}"
-                         IsChecked="{Binding IsEntireProject}" />
+                         IsChecked="{Binding ScheduleIsNoDuplicate}" />
                     <RadioButton Content="Duplicate"
-                         GroupName="ScopeExcute"
+                         GroupName="ScheduleOption"
                          Style="{StaticResource RadioButtonStyle}"
-                         IsChecked="{Binding IsCurrentView}" />
+                         IsChecked="{Binding ScheduleIsDuplicate}" />
+                </StackPanel>
+                <TextBlock Height="25" DockPanel.Dock="Top" Text="LEGEND Option: " 
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"
+                       FontSize ="15"
+                       FontFamily="San Serif"
+                       Padding="3"/>
+                <StackPanel Orientation="Vertical">
+                    <RadioButton Content="No Duplicate"
+                         GroupName="LegendOption"
+                         Style="{StaticResource RadioButtonStyle}"
+                         IsChecked="{Binding LegendIsNoDuplicate}" />
+                    <RadioButton Content="Duplicate"
+                         GroupName="LegendOption"
+                         Style="{StaticResource RadioButtonStyle}"
+                         IsChecked="{Binding LegendIsDuplicate}" />
                 </StackPanel>
             </StackPanel>
             
