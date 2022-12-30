@@ -29,8 +29,27 @@
                        FontSize ="15"
                        FontFamily="San Serif"
                        Padding="3"/>
-            <DataGrid ItemsSource="{Binding AllViewsExtension}">
+            <DataGrid  HeadersVisibility="None"
+                       ItemsSource="{Binding AllViewsSheet}">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate >
+                                <StackPanel Orientation="Horizontal">
+                                    <CheckBox IsChecked="True"
+                                                  VerticalAlignment="Center"
+                                                  Style="{DynamicResource CheckBoxStyle}"/>
+                                    <TextBlock Text="{Binding SheetNumber}"
+                                                   VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding SheetName}"
+                                                   VerticalAlignment="Center" />
+                                </StackPanel>
 
+                            </DataTemplate>
+
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
         <Grid Grid.Column="1">
