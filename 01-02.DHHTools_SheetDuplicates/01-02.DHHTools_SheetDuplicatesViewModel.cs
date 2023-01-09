@@ -3,6 +3,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Structure;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,8 @@ namespace DHHTools
         #region 02. Public Property
         public UIDocument UiDoc;
         public Document Doc;
-
+        public string SheetNumber { get; set; }
+        public string Name { get; set; }
         public List<ViewSheet> AllViewsSheetList { get; set; }
             = new List<ViewSheet>();
         public List<ViewSheet> SelectedViewsSheet{ get; set; }
@@ -55,13 +57,14 @@ namespace DHHTools
             foreach (ViewSheet vs in allview)
             {
                 AllViewsSheetList.Add(vs);
+                SheetNumber = vs.SheetNumber;
+                Name = vs.Name;
+                //SheetName = nameParameter.AsString();
             }
             AllViewsSheetList.Sort((v1, v2)
                 => String.CompareOrdinal(v1.SheetNumber, v2.SheetNumber));
         }
         #endregion
-       
-
     }
 }
 

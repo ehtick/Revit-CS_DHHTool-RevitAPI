@@ -8,7 +8,7 @@
     Title="Duplicate Sheets"
     Width="700"
     Height="600"
-    ResizeMode="NoResize"
+    ResizeMode="CanResize"
     ShowInTaskbar="True"
     Topmost="False"
     WindowStartupLocation="CenterScreen">
@@ -30,21 +30,24 @@
                        FontFamily="San Serif"
                        Padding="3"/>
             <DataGrid  HeadersVisibility="None"
-                       ItemsSource="{Binding AllViewsSheet}">
+                       AutoGenerateColumns="False"
+                       ItemsSource="{Binding AllViewsSheetList}">
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn >
+                    <DataGridTemplateColumn Width="*">
                         <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate >
+                            <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <CheckBox IsChecked="True"
                                                   VerticalAlignment="Center"
                                                   Style="{DynamicResource CheckBoxStyle}"/>
                                     <TextBlock Text="{Binding SheetNumber}"
                                                    VerticalAlignment="Center" />
-                                    <TextBlock Text="{Binding SheetName}"
+                                    <TextBlock Text=" - "
                                                    VerticalAlignment="Center" />
-                                </StackPanel>
+                                    <TextBlock Text="{Binding Name}"
+                                                   VerticalAlignment="Center" />
 
+                                </StackPanel>
                             </DataTemplate>
 
                         </DataGridTemplateColumn.CellTemplate>

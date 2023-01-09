@@ -93,7 +93,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="01-02.DHHTools_SheetDuplicatesCmd.cs" />
-    <Compile Include="01-02.DHHTools_SheetDuplicatesHandler.cs" />
     <Compile Include="01-02.DHHTools_SheetDuplicatesViewModel.cs" />
     <Compile Include="01-02.DHHTools_SheetDuplicatesWindow.xaml.cs">
       <DependentUpon>01-02.DHHTools_SheetDuplicatesWindow.xaml</DependentUpon>

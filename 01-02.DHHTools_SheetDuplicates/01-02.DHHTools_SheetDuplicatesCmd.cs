@@ -25,7 +25,7 @@ namespace DHHTools
 
             using (TransactionGroup transGr = new TransactionGroup(doc))
             {
-                transGr.Start("Pile Coordinates");
+                transGr.Start("Sheet Duplicates");
                 SheetDuplicatesViewModel pileCoordinateViewModel 
                     = new SheetDuplicatesViewModel(commandData);
                 SheetDuplicatesWindow window
