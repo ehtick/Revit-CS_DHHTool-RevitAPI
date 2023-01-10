@@ -37,6 +37,9 @@ namespace DHHTools
             = new List<ViewSheet>();
         public List<ViewSheet> SelectedViewsSheet{ get; set; }
             = new List<ViewSheet>();
+        public List<FamilySymbol> AllFamiliesTitleFrame { get; set; }
+            = new List<FamilySymbol>();
+        public FamilySymbol SelectedFamilyTitleFrame { get; set; }
         #endregion
         #region 03. View Model
         public SheetDuplicatesViewModel(ExternalCommandData commandData)
@@ -49,11 +52,20 @@ namespace DHHTools
             doc = uidoc.Document;
             UiDoc = uidoc;
             Doc = UiDoc.Document;
+            FilteredElementCollector allfamilyTitleblock = new FilteredElementCollector(doc)
+                .OfClass(typeof(FamilySymbol))
+                .OfCategory(BuiltInCategory.OST_TitleBlocks);
+             allfamilyTitleblock.ToList();
             List<ViewSheet> allview = new FilteredElementCollector(doc)
                 .OfClass(typeof(ViewSheet))
                 .OfCategory(BuiltInCategory.OST_Sheets)
                 .Cast<ViewSheet>()
                 .ToList();
+            foreach (FamilySymbol e in allfamilyTitleblock)
+            {
+                AllFamiliesTitleFrame.Add(e);
+            }
+            SelectedFamilyTitleFrame = AllFamiliesTitleFrame[0];
             foreach (ViewSheet vs in allview)
             {
                 AllViewsSheetList.Add(vs);

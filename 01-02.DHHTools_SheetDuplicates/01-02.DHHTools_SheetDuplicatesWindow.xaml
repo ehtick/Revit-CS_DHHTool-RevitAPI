@@ -6,22 +6,25 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Name="MainWindow"
     Title="Duplicate Sheets"
-    Width="700"
+    MinWidth="700"
+    MinHeight="600"
+    Width="800"
     Height="600"
     ResizeMode="CanResize"
     ShowInTaskbar="True"
     Topmost="False"
-    WindowStartupLocation="CenterScreen">
+    WindowStartupLocation="CenterScreen" >
 
     <Window.Resources>
         <ResourceDictionary Source="/DHHTools_Library;component/WPF/Resource/Styles.xaml" />
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="350"/>
         </Grid.ColumnDefinitions>
-        <DockPanel LastChildFill ="True">
+        <DockPanel LastChildFill ="True"
+                   ScrollViewer.CanContentScroll="True">
             <TextBlock Height="25" DockPanel.Dock="Top" Text="Chọn Sheets: " 
                        TextWrapping="Wrap"
                        VerticalAlignment="Center"
@@ -55,8 +58,9 @@
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
-        <Grid Grid.Column="1">
-            <StackPanel>
+        <DockPanel Grid.Column="1"
+                   LastChildFill="True">
+            <StackPanel DockPanel.Dock="Top">
                 <TextBlock Height="25" DockPanel.Dock="Top" Text="Chọn khung tên: " 
                        TextWrapping="Wrap"
                        VerticalAlignment="Center"
@@ -64,13 +68,14 @@
                        FontSize ="15"
                        FontFamily="San Serif"
                        Padding="3"/>
-                <ComboBox Height="25"
-                          Style="{DynamicResource ComboBoxStyle}"
+                <ComboBox Height="32"
+                          
                           ItemsSource="{Binding AllFamiliesTitleFrame}"
                           SelectedItem="{Binding SelectedFamilyTitleFrame}"
                           DisplayMemberPath="Name"
-                          IsEditable="True">
-                </ComboBox>
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Left"
+                          IsEditable="True"/>
                 <TextBlock Height="25" DockPanel.Dock="Top" Text="VIEW Option: " 
                        TextWrapping="Wrap"
                        VerticalAlignment="Center"
@@ -127,7 +132,25 @@
                          IsChecked="{Binding LegendIsDuplicate}" />
                 </StackPanel>
             </StackPanel>
-            
-        </Grid>
+            <DockPanel DockPanel.Dock="Bottom" 
+                Height="40"
+                VerticalAlignment="Bottom"
+                LastChildFill="True" 
+                HorizontalAlignment="Right">
+                <Button
+                    HorizontalAlignment="Right"
+                    Content="Cancel"
+                    DockPanel.Dock="Right"
+                    IsCancel="True"
+                    Height ="32"
+                    Style="{DynamicResource ButtonStyle}" />
+                <Button
+                    Content="OK"
+                    Height ="32"
+                    DockPanel.Dock="Right"
+                    Style="{DynamicResource ButtonStyle}" />
+            </DockPanel>
+
+        </DockPanel>
     </Grid>
 </Window>

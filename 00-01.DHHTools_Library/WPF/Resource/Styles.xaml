@@ -51,7 +51,10 @@
     <Style x:Key="MainGrid" TargetType="{x:Type Grid}">
         <Setter Property="Margin" Value="0,0,-1,0" />
     </Style>
-
+    <Style TargetType="{x:Type ComboBox}">
+        <Setter Property="BorderBrush" Value="#e3e9ef" />
+        <Setter Property="Margin" Value="0" />
+    </Style>
 
 
 </ResourceDictionary>
