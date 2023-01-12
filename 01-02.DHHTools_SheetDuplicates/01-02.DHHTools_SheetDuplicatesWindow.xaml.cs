@@ -20,7 +20,7 @@ namespace DHHTools
         public UIDocument UiDoc;
         public Document Doc;
         public Element ColumnElement;
-        
+        public TransactionGroup transG;
         public ExternalEvent MyExternalEvent;
 
         public SheetDuplicatesWindow(SheetDuplicatesViewModel viewModel)
@@ -29,8 +29,20 @@ namespace DHHTools
             _viewModel = viewModel;
             DataContext = _viewModel;
             Doc = _viewModel.Doc;
-
+            transG = new TransactionGroup(_viewModel.Doc);
             //Icon = _dhhConstraint.IconWindow;
+
+        }
+
+        private void Button_OK(object sender, RoutedEventArgs e)
+        {
+            Close();
+            _viewModel.duplicateSheet();
+        }
+
+        private void Button_Cancel(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

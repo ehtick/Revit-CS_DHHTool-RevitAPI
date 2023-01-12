@@ -7,7 +7,7 @@
     x:Name="MainWindow"
     Title="Duplicate Sheets"
     MinWidth="700"
-    MinHeight="600"
+    MinHeight="630"
     Width="800"
     Height="600"
     ResizeMode="CanResize"
@@ -23,45 +23,61 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="350"/>
         </Grid.ColumnDefinitions>
-        <DockPanel LastChildFill ="True"
-                   ScrollViewer.CanContentScroll="True">
-            <TextBlock Height="25" DockPanel.Dock="Top" Text="Chọn Sheets: " 
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="42"/>
+            </Grid.RowDefinitions>
+            <DockPanel LastChildFill ="True"
+                       ScrollViewer.CanContentScroll="True">
+                <TextBlock Height="25" DockPanel.Dock="Top" Text="Select Sheets: " 
                        TextWrapping="Wrap"
                        VerticalAlignment="Center"
                        TextAlignment="Center"
                        FontSize ="15"
                        FontFamily="San Serif"
                        Padding="3"/>
-            <DataGrid  HeadersVisibility="None"
+                <DataGrid  HeadersVisibility="None"
                        AutoGenerateColumns="False"
                        ItemsSource="{Binding AllViewsSheetList}">
-                <DataGrid.Columns>
-                    <DataGridTemplateColumn Width="*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <CheckBox IsChecked="True"
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox IsChecked="True"
                                                   VerticalAlignment="Center"
                                                   Style="{DynamicResource CheckBoxStyle}"/>
-                                    <TextBlock Text="{Binding SheetNumber}"
+                                        <TextBlock Text="{Binding SheetNumber}"
                                                    VerticalAlignment="Center" />
-                                    <TextBlock Text=" - "
+                                        <TextBlock Text=" - "
                                                    VerticalAlignment="Center" />
-                                    <TextBlock Text="{Binding Name}"
+                                        <TextBlock Text="{Binding Name}"
                                                    VerticalAlignment="Center" />
 
-                                </StackPanel>
-                            </DataTemplate>
+                                    </StackPanel>
+                                </DataTemplate>
 
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
-        </DockPanel>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+            <DockPanel Grid.Row="1">
+                <RadioButton Content="Select All"
+                         GroupName="SelectOption"
+                         Style="{StaticResource RadioButtonStyle}"
+                         IsChecked="{Binding ViewIsDuplicate}" />
+                <RadioButton Content="Select None"
+                         GroupName="SelectOption"
+                         Style="{StaticResource RadioButtonStyle}"
+                         IsChecked="{Binding ViewIsDuplicateDetailing}" />
+            </DockPanel>
+        </Grid>
         <DockPanel Grid.Column="1"
                    LastChildFill="True">
             <StackPanel DockPanel.Dock="Top">
-                <TextBlock Height="25" DockPanel.Dock="Top" Text="Chọn khung tên: " 
+                <TextBlock Height="25" DockPanel.Dock="Top" Text="Select Title Frame: " 
                        TextWrapping="Wrap"
                        VerticalAlignment="Center"
                        TextAlignment="Center"
@@ -69,7 +85,6 @@
                        FontFamily="San Serif"
                        Padding="3"/>
                 <ComboBox Height="32"
-                          
                           ItemsSource="{Binding AllFamiliesTitleFrame}"
                           SelectedItem="{Binding SelectedFamilyTitleFrame}"
                           DisplayMemberPath="Name"
@@ -131,6 +146,30 @@
                          Style="{StaticResource RadioButtonStyle}"
                          IsChecked="{Binding LegendIsDuplicate}" />
                 </StackPanel>
+                <TextBlock Height="25" DockPanel.Dock="Top" Text="NAME Option: " 
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"
+                       FontSize ="15"
+                       FontFamily="San Serif"
+                       Padding="3"/>
+                <Grid Height="80">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox  Style="{DynamicResource TextBoxStyle}" Height="40" Text="{Binding ViewNamePrefix}"/>
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="View Name" FontWeight="Bold"/>
+                    <TextBox Grid.Column="2"  Style="{DynamicResource TextBoxStyle}" Height="40" Text="{Binding ViewNameSuffix}"/>
+                    <TextBox  Grid.Row="1" Style="{DynamicResource TextBoxStyle}" Height="40" Text="{Binding SheetNamePrefix}"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Text="Sheet Name" FontWeight="Bold"/>
+                    <TextBox Grid.Row="1" Grid.Column="2" Style="{DynamicResource TextBoxStyle}" Height="40" Text="{Binding SheetNameSuffix}"/>
+                </Grid>
             </StackPanel>
             <DockPanel DockPanel.Dock="Bottom" 
                 Height="40"
@@ -143,14 +182,14 @@
                     DockPanel.Dock="Right"
                     IsCancel="True"
                     Height ="32"
-                    Style="{DynamicResource ButtonStyle}" />
+                    Style="{DynamicResource ButtonStyle}" Click="Button_Cancel" />
                 <Button
                     Content="OK"
                     Height ="32"
                     DockPanel.Dock="Right"
-                    Style="{DynamicResource ButtonStyle}" />
+                    Style="{DynamicResource ButtonStyle}" Click="Button_OK" />
             </DockPanel>
-
+    
         </DockPanel>
     </Grid>
 </Window>

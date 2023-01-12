@@ -40,6 +40,11 @@ namespace DHHTools
         public List<FamilySymbol> AllFamiliesTitleFrame { get; set; }
             = new List<FamilySymbol>();
         public FamilySymbol SelectedFamilyTitleFrame { get; set; }
+        public string ViewNamePrefix { get; set; }
+        public string ViewNameSuffix { get; set; }
+        public string SheetNamePrefix { get; set; }
+        public string SheetNameSuffix { get; set; }
+        
         #endregion
         #region 03. View Model
         public SheetDuplicatesViewModel(ExternalCommandData commandData)
@@ -75,6 +80,32 @@ namespace DHHTools
             }
             AllViewsSheetList.Sort((v1, v2)
                 => String.CompareOrdinal(v1.SheetNumber, v2.SheetNumber));
+            ViewNamePrefix = "Prefix";
+            ViewNameSuffix = "Suffix";
+            SheetNamePrefix = "Prefix";
+            SheetNameSuffix = "Suffix";
+        }
+        #endregion
+        #region 04. Method
+        public void duplicateSheet()
+        {
+            using (Transaction tran = new Transaction(doc))
+            {
+                tran.Start("Sheet Duplicates");
+                foreach (ViewSheet vs in AllViewsSheetList)
+                {
+                    ViewSheet viewSheet = ViewSheet.Create(doc, SelectedFamilyTitleFrame.GetTypeId());
+                    viewSheet.SheetNumber = ViewNamePrefix + vs.SheetNumber + ViewNameSuffix;
+                    ICollection<ElementId> viewID = vs.GetAllViewports();
+                    foreach (ElementId vID in viewID)
+                    {
+                        View view = doc.GetElement(vID) as View;
+                        //view.Duplicate(duplicateOption);
+                    }    
+                }
+                tran.Commit();
+            }
+
         }
         #endregion
     }

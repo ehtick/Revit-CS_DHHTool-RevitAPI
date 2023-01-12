@@ -26,13 +26,12 @@ namespace DHHTools
             using (TransactionGroup transGr = new TransactionGroup(doc))
             {
                 transGr.Start("Sheet Duplicates");
-                SheetDuplicatesViewModel pileCoordinateViewModel 
+                SheetDuplicatesViewModel sheetDuplicateViewModel 
                     = new SheetDuplicatesViewModel(commandData);
                 SheetDuplicatesWindow window
-                    = new SheetDuplicatesWindow(pileCoordinateViewModel);
+                    = new SheetDuplicatesWindow(sheetDuplicateViewModel);
                 bool? dialog = window.ShowDialog();
-                if (dialog == false) return Result.Succeeded;
-
+                if (dialog != false) return Result.Succeeded;
                 transGr.Assimilate();
             }
             return Result.Succeeded;
