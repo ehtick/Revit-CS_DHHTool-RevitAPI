@@ -127,11 +127,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="02-01.DHHTools_CreateSectionBeam-Detail2DCmd.cs" />
-    <Compile Include="02-01.DHHTools_CreateSectionBeam-Detail2DHandler.cs" />
-    <Compile Include="02-01.DHHTools_CreateSectionBeam-Detail2DViewModel.cs" />
-    <Compile Include="02-01.DHHTools_CreateSectionBeam-Detail2DWindow.xaml.cs">
-      <DependentUpon>02-01.DHHTools_CreateSectionBeam-Detail2DWindow.xaml</DependentUpon>
+    <Compile Include="02-01.CreateSectionBeam-Detail2DCmd.cs" />
+    <Compile Include="02-01.CreateSectionBeam-Detail2DHandler.cs" />
+    <Compile Include="02-01.CreateSectionBeam-Detail2DViewModel.cs" />
+    <Compile Include="02-01.CreateSectionBeam-Detail2DWindow.xaml.cs">
+      <DependentUpon>02-01.CreateSectionBeam-Detail2DWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lib\ExcelDataExtension.cs" />
     <Compile Include="Lib\FamilySymbolUtils.cs" />
@@ -141,7 +141,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="02-01.DHHTools_CreateSectionBeam-Detail2DWindow.xaml">
+    <Page Include="02-01.CreateSectionBeam-Detail2DWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

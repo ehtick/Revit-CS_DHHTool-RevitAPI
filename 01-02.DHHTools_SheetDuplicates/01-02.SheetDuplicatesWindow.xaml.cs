@@ -3,6 +3,7 @@
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using System;
+using System.Linq;
 using System.Windows;
 // ReSharper disable All
 
@@ -30,7 +31,6 @@ namespace DHHTools
             DataContext = _viewModel;
             Doc = _viewModel.Doc;
             transG = new TransactionGroup(_viewModel.Doc);
-            //Icon = _dhhConstraint.IconWindow;
 
         }
 
@@ -43,6 +43,33 @@ namespace DHHTools
         private void Button_Cancel(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void CheckedAll(object sender, RoutedEventArgs e)
+        {
+            foreach (ViewSheetPlus viewSheet in _viewModel.AllViewsSheetList)
+            {
+                viewSheet.IsSelected = true;
+            }
+        }
+
+        private void CheckedNone(object sender, RoutedEventArgs e)
+        {
+            foreach (ViewSheetPlus viewSheet in _viewModel.AllViewsSheetList)
+            {
+                viewSheet.IsSelected = false;
+            }
+        }
+
+
+        private void CheckBoxClick(object sender, RoutedEventArgs e)
+        {
+            ViewSheetPlus first = _viewModel.SelectedViewsSheet
+                .FirstOrDefault();
+
+            bool selected = first.IsSelected;
+            foreach (var vs in _viewModel.SelectedViewsSheet)
+                vs.IsSelected = !selected;
         }
     }
 }

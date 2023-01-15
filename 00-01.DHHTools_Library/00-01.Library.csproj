@@ -103,11 +103,12 @@
     <Compile Include="DhhGeometryUtils.cs" />
     <Compile Include="DhhElementUtils.cs" />
     <Compile Include="DhhUnitUtils.cs" />
+    <Compile Include="DhhViewSheetPlus.cs" />
     <Compile Include="ElementExtension.cs" />
+    <Compile Include="DhhViewPlus.cs" />
     <Compile Include="Lib\PileSelectionFilter.cs" />
     <Compile Include="Lib\FloorSelectionFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewExtension.cs" />
     <Compile Include="WPF\CustomControls\CustomDataGrid.cs" />
     <Compile Include="WPF\CustomControls\CustomListBox.cs" />
     <Compile Include="WPF\CustomControls\CustomTreeView.cs" />

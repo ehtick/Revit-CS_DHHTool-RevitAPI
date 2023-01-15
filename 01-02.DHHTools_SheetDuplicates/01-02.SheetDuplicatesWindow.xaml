@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dhhTools="clr-namespace:DHHTools;assembly=DHHTools_Library"
     x:Name="MainWindow"
     Title="Duplicate Sheets"
     MinWidth="700"
@@ -39,15 +40,16 @@
                        Padding="3"/>
                 <DataGrid  HeadersVisibility="None"
                        AutoGenerateColumns="False"
-                       ItemsSource="{Binding AllViewsSheetList}">
+                       ItemsSource="{Binding AllViewsSheetList}"
+                       dhhTools:CustomDataGrid.SelectedItems="{Binding SelectedViewsSheet}">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Width="*">
                             <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
+                                <DataTemplate DataType="dhhTools:ViewSheetPlus">
                                     <StackPanel Orientation="Horizontal">
-                                        <CheckBox IsChecked="True"
-                                                  VerticalAlignment="Center"
-                                                  Style="{DynamicResource CheckBoxStyle}"/>
+                                        <CheckBox IsChecked="{Binding IsSelected}"
+                                                  Style="{DynamicResource CheckBoxStyle}"
+                                                  Click="CheckBoxClick"/>
                                         <TextBlock Text="{Binding SheetNumber}"
                                                    VerticalAlignment="Center" />
                                         <TextBlock Text=" - "
@@ -67,11 +69,14 @@
                 <RadioButton Content="Select All"
                          GroupName="SelectOption"
                          Style="{StaticResource RadioButtonStyle}"
-                         IsChecked="{Binding ViewIsDuplicate}" />
+                         Checked= "CheckedAll"
+                         IsChecked="{Binding IsCheckedAll}"/>
                 <RadioButton Content="Select None"
                          GroupName="SelectOption"
                          Style="{StaticResource RadioButtonStyle}"
-                         IsChecked="{Binding ViewIsDuplicateDetailing}" />
+                         Checked= "CheckedNone"
+                         IsChecked="{Binding IsCheckedNone}"/>
+                
             </DockPanel>
         </Grid>
         <DockPanel Grid.Column="1"
@@ -164,9 +169,9 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <TextBox  Style="{DynamicResource TextBoxStyle}" Height="40" Text="{Binding ViewNamePrefix}"/>
-                    <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="View Name" FontWeight="Bold"/>
-                    <TextBox Grid.Column="2"  Style="{DynamicResource TextBoxStyle}" Height="40" Text="{Binding ViewNameSuffix}"/>
-                    <TextBox  Grid.Row="1" Style="{DynamicResource TextBoxStyle}" Height="40" Text="{Binding SheetNamePrefix}"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="View Name" FontWeight="Bold"/>
+                    <TextBox Grid.Row="0" Grid.Column="2"  Style="{DynamicResource TextBoxStyle}" Height="40" Text="{Binding ViewNameSuffix}"/>
+                    <TextBox  Grid.Row="1" Grid.Column="0" Style="{DynamicResource TextBoxStyle}" Height="40" Text="{Binding SheetNamePrefix}"/>
                     <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Text="Sheet Name" FontWeight="Bold"/>
                     <TextBox Grid.Row="1" Grid.Column="2" Style="{DynamicResource TextBoxStyle}" Height="40" Text="{Binding SheetNameSuffix}"/>
                 </Grid>

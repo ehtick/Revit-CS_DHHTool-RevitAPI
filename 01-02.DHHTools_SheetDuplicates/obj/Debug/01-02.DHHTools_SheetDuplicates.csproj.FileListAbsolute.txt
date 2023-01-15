@@ -11,3 +11,16 @@ D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-02.DHHTools_She
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-02.DHHTools_SheetDuplicates\obj\Debug\01-02.DHHTools_SheetDuplicates.csproj.CopyComplete
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-02.DHHTools_SheetDuplicates\obj\Debug\SheetDuplicates.dll
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-02.DHHTools_SheetDuplicates\obj\Debug\SheetDuplicates.pdb
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_SheetDuplicates\bin\Debug\SheetDuplicates.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_SheetDuplicates\bin\Debug\SheetDuplicates.pdb
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_SheetDuplicates\bin\Debug\DHHTools_Library.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_SheetDuplicates\bin\Debug\DHHTools_Library.pdb
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_SheetDuplicates\obj\Debug\01-02.DHHTools_SheetDuplicates.csproj.AssemblyReference.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_SheetDuplicates\obj\Debug\01-02.DHHTools_SheetDuplicatesWindow.baml
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_SheetDuplicates\obj\Debug\01-02.DHHTools_SheetDuplicatesWindow.g.cs
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_SheetDuplicates\obj\Debug\SheetDuplicates_MarkupCompile.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_SheetDuplicates\obj\Debug\SheetDuplicates.g.resources
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_SheetDuplicates\obj\Debug\01-02.DHHTools_SheetDuplicates.csproj.CoreCompileInputs.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_SheetDuplicates\obj\Debug\01-02.DHHTools_SheetDuplicates.csproj.CopyComplete
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_SheetDuplicates\obj\Debug\SheetDuplicates.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_SheetDuplicates\obj\Debug\SheetDuplicates.pdb

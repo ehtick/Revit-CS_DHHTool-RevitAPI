@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DF498842-EFB4-43B4-910C-4B1D4144CA4A}</ProjectGuid>
+    <ProjectGuid>{69DC0E0C-8C65-4228-BAD9-4C099C5A21AD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DHHTools</RootNamespace>
-    <AssemblyName>SheetDuplicates</AssemblyName>
+    <AssemblyName>CreateRebarColumn</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -92,10 +92,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="01-02.DHHTools_SheetDuplicatesCmd.cs" />
-    <Compile Include="01-02.DHHTools_SheetDuplicatesViewModel.cs" />
-    <Compile Include="01-02.DHHTools_SheetDuplicatesWindow.xaml.cs">
-      <DependentUpon>01-02.DHHTools_SheetDuplicatesWindow.xaml</DependentUpon>
+    <Compile Include="03-02.CreateRebarColumnCmd.cs" />
+    <Compile Include="03-02.CreateRebarColumnHandler.cs" />
+    <Compile Include="03-02.CreateRebarColumnViewModel.cs" />
+    <Compile Include="03-02.CreateRebarColumnWindow.xaml.cs">
+      <DependentUpon>03-02.CreateRebarColumnWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lib\FamilySymbolUtils.cs" />
     <Compile Include="Lib\GeneralUtils.cs" />
@@ -104,16 +105,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\00-01.DHHTools_Library\00-01.DHHTools_Library.csproj">
-      <Project>{c1343206-2654-4111-b0fa-b296cbba6b66}</Project>
-      <Name>00-01.DHHTools_Library</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="01-02.DHHTools_SheetDuplicatesWindow.xaml">
+    <Page Include="03-02.CreateRebarColumnWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\00-01.DHHTools_Library\00-01.Library.csproj">
+      <Project>{c1343206-2654-4111-b0fa-b296cbba6b66}</Project>
+      <Name>00-01.Library</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

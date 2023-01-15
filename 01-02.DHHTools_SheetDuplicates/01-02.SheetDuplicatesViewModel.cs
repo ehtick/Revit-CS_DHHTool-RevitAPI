@@ -1,9 +1,8 @@
 ﻿#region Namespaces
 using Autodesk.Revit.DB;
-using Autodesk.Revit.DB.Structure;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
-
+using Autodesk.Revit.DB.Structure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,17 +25,40 @@ namespace DHHTools
         private UIDocument uidoc;
         private Application app;
         private Document doc;
-        
+        private bool CheckedAll_VM;
+        private bool CheckedNone_VM;
         #endregion
         #region 02. Public Property
         public UIDocument UiDoc;
         public Document Doc;
         public string SheetNumber { get; set; }
         public string Name { get; set; }
-        public List<ViewSheet> AllViewsSheetList { get; set; }
-            = new List<ViewSheet>();
-        public List<ViewSheet> SelectedViewsSheet{ get; set; }
-            = new List<ViewSheet>();
+        public bool CheckedAll
+        {
+            get => CheckedAll_VM;
+            set
+            {
+                CheckedAll_VM = value;
+                OnPropertyChanged("CheckedAll");
+                //if (value)
+                //UpdateAllViewsExtensions();
+            }
+        }
+        public bool CheckedNone
+        {
+            get => CheckedNone_VM;
+            set
+            {
+                CheckedNone_VM = value;
+                OnPropertyChanged("CheckedNone");
+                //if (value)
+                //UpdateAllViewsExtensions();
+            }
+        }
+        public List<ViewSheetPlus> AllViewsSheetList { get; set; }
+            = new List<ViewSheetPlus>();
+        public List<ViewSheetPlus> SelectedViewsSheet{ get; set; }
+            = new List<ViewSheetPlus>();
         public List<FamilySymbol> AllFamiliesTitleFrame { get; set; }
             = new List<FamilySymbol>();
         public FamilySymbol SelectedFamilyTitleFrame { get; set; }
@@ -70,13 +92,14 @@ namespace DHHTools
             {
                 AllFamiliesTitleFrame.Add(e);
             }
-            SelectedFamilyTitleFrame = AllFamiliesTitleFrame[0];
+
+
             foreach (ViewSheet vs in allview)
             {
-                AllViewsSheetList.Add(vs);
-                SheetNumber = vs.SheetNumber;
-                Name = vs.Name;
-                //SheetName = nameParameter.AsString();
+                ViewSheetPlus viewSheetPlus = new ViewSheetPlus(vs);
+                AllViewsSheetList.Add(viewSheetPlus);
+                SheetNumber = viewSheetPlus.SheetNumber;
+                Name = viewSheetPlus.Name;
             }
             AllViewsSheetList.Sort((v1, v2)
                 => String.CompareOrdinal(v1.SheetNumber, v2.SheetNumber));
@@ -84,6 +107,7 @@ namespace DHHTools
             ViewNameSuffix = "Suffix";
             SheetNamePrefix = "Prefix";
             SheetNameSuffix = "Suffix";
+
         }
         #endregion
         #region 04. Method
@@ -92,11 +116,12 @@ namespace DHHTools
             using (Transaction tran = new Transaction(doc))
             {
                 tran.Start("Sheet Duplicates");
-                foreach (ViewSheet vs in AllViewsSheetList)
+                foreach (ViewSheetPlus vs in AllViewsSheetList)
                 {
+
                     ViewSheet viewSheet = ViewSheet.Create(doc, SelectedFamilyTitleFrame.GetTypeId());
                     viewSheet.SheetNumber = ViewNamePrefix + vs.SheetNumber + ViewNameSuffix;
-                    ICollection<ElementId> viewID = vs.GetAllViewports();
+                    ICollection<ElementId> viewID = vs.ViewSheet.GetAllViewports();
                     foreach (ElementId vID in viewID)
                     {
                         View view = doc.GetElement(vID) as View;
