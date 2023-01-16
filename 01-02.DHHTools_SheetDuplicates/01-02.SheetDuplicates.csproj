@@ -97,6 +97,7 @@
     <Compile Include="01-02.SheetDuplicatesWindow.xaml.cs">
       <DependentUpon>01-02.SheetDuplicatesWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="01-02.SheetDuplicatesHandler.cs" />
     <Compile Include="Lib\FamilySymbolUtils.cs" />
     <Compile Include="Lib\GeneralUtils.cs" />
     <Compile Include="Lib\LineSelectionFilter.cs" />

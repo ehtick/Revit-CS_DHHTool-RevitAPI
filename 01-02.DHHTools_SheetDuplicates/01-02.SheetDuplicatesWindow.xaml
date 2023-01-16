@@ -107,15 +107,15 @@
                     <RadioButton Content="Duplicate"
                          GroupName="ViewOption"
                          Style="{StaticResource RadioButtonStyle}"
-                         IsChecked="{Binding ViewIsDuplicate}" />
+                         Checked="ViewDuplicate" />
                     <RadioButton Content="Duplicate With Detailing"
                          GroupName="ViewOption"
                          Style="{StaticResource RadioButtonStyle}"
-                         IsChecked="{Binding ViewIsDuplicateDetailing}" />
+                         Checked="ViewDuplicateDetailing" />
                     <RadioButton Content="Duplicate With Dependence"
                          GroupName="ViewOption"
                          Style="{StaticResource RadioButtonStyle}"
-                         IsChecked="{Binding ViewIsDuplicateDependence}" />
+                         Checked="ViewDuplicateDependence" />
                 </StackPanel>
                 <TextBlock Height="25" DockPanel.Dock="Top" Text="SCHEDULE Option: " 
                        TextWrapping="Wrap"

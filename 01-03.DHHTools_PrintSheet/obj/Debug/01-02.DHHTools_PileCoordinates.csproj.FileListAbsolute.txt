@@ -1,0 +1,26 @@
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-02.DHHTools_PileCoordinates\obj\Debug\01-02.DHHTools_PileCoordinates.csproj.AssemblyReference.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-02.DHHTools_PileCoordinates\obj\Debug\PileCoordinates_MarkupCompile.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-02.DHHTools_PileCoordinates\obj\Debug\01-02.DHHTools_PileCoordinatesWindow.baml
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-02.DHHTools_PileCoordinates\obj\Debug\01-02.DHHTools_PileCoordinatesWindow.g.cs
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-02.DHHTools_PileCoordinates\obj\Debug\PileCoordinates.g.resources
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-02.DHHTools_PileCoordinates\obj\Debug\01-02.DHHTools_PileCoordinates.csproj.CoreCompileInputs.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-02.DHHTools_PileCoordinates\bin\Debug\PileCoordinates.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-02.DHHTools_PileCoordinates\bin\Debug\PileCoordinates.pdb
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-02.DHHTools_PileCoordinates\bin\Debug\DHHTools_Library.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-02.DHHTools_PileCoordinates\bin\Debug\DHHTools_Library.pdb
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-02.DHHTools_PileCoordinates\obj\Debug\01-02.DHHTools_PileCoordinates.csproj.CopyComplete
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-02.DHHTools_PileCoordinates\obj\Debug\PileCoordinates.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-02.DHHTools_PileCoordinates\obj\Debug\PileCoordinates.pdb
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_PileCoordinates\bin\Debug\PileCoordinates.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_PileCoordinates\bin\Debug\PileCoordinates.pdb
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_PileCoordinates\bin\Debug\DHHTools_Library.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_PileCoordinates\bin\Debug\DHHTools_Library.pdb
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_PileCoordinates\obj\Debug\01-02.DHHTools_PileCoordinates.csproj.AssemblyReference.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_PileCoordinates\obj\Debug\01-02.DHHTools_PileCoordinatesWindow.baml
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_PileCoordinates\obj\Debug\01-02.DHHTools_PileCoordinatesWindow.g.cs
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_PileCoordinates\obj\Debug\PileCoordinates_MarkupCompile.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_PileCoordinates\obj\Debug\PileCoordinates.g.resources
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_PileCoordinates\obj\Debug\01-02.DHHTools_PileCoordinates.csproj.CoreCompileInputs.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_PileCoordinates\obj\Debug\01-02.DHHTools_PileCoordinates.csproj.CopyComplete
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_PileCoordinates\obj\Debug\PileCoordinates.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-02.DHHTools_PileCoordinates\obj\Debug\PileCoordinates.pdb

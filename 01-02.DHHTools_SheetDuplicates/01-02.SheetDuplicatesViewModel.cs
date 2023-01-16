@@ -27,6 +27,7 @@ namespace DHHTools
         private Document doc;
         private bool CheckedAll_VM;
         private bool CheckedNone_VM;
+        private ViewDuplicateOption duplicationOption_VM;
         #endregion
         #region 02. Public Property
         public UIDocument UiDoc;
@@ -66,6 +67,15 @@ namespace DHHTools
         public string ViewNameSuffix { get; set; }
         public string SheetNamePrefix { get; set; }
         public string SheetNameSuffix { get; set; }
+        public ViewDuplicateOption duplicateOption 
+        {
+            get => duplicationOption_VM;
+            set
+            {
+                duplicationOption_VM = value;
+                OnPropertyChanged("duplicateOption");
+            }
+        }
         
         #endregion
         #region 03. View Model
@@ -92,7 +102,7 @@ namespace DHHTools
             {
                 AllFamiliesTitleFrame.Add(e);
             }
-
+            SelectedFamilyTitleFrame = AllFamiliesTitleFrame[0];
 
             foreach (ViewSheet vs in allview)
             {
@@ -107,12 +117,13 @@ namespace DHHTools
             ViewNameSuffix = "Suffix";
             SheetNamePrefix = "Prefix";
             SheetNameSuffix = "Suffix";
-
         }
         #endregion
+
         #region 04. Method
         public void duplicateSheet()
         {
+            
             using (Transaction tran = new Transaction(doc))
             {
                 tran.Start("Sheet Duplicates");
@@ -125,12 +136,11 @@ namespace DHHTools
                     foreach (ElementId vID in viewID)
                     {
                         View view = doc.GetElement(vID) as View;
-                        //view.Duplicate(duplicateOption);
+                        view.Duplicate(duplicateOption);
                     }    
                 }
                 tran.Commit();
             }
-
         }
         #endregion
     }
