@@ -36,9 +36,12 @@ namespace DHHTools
             transG = new TransactionGroup(_viewModel.Doc);
         }
 
-       
-
-
-        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            _viewModel.exportDWF();
+            _viewModel.exportDWG();
+            _viewModel.exportPDF();
+        }
     }
 }

@@ -40,29 +40,42 @@ namespace DHHTools
            = new List<ViewSheetPlus>();
         public List<ViewSheetPlus> SelectedViewsSheet { get; set; }
             = new List<ViewSheetPlus>();
+        public List<string> AllCADVersionsList { get; set; }
+        List<ElementId> sheetIDs { get; set; } = new List<ElementId>();
 
+        public string selectCADVersion { get; set; }
         #endregion
         #region 03. View Model
         public PrintSheetViewModel(ExternalCommandData commandData)
         {
             // Lưu trữ data từ Revit
-           
+
             uiapp = commandData.Application;
             uidoc = uiapp.ActiveUIDocument;
             app = uiapp.Application;
             doc = uidoc.Document;
             UiDoc = uidoc;
             Doc = UiDoc.Document;
-
+            
 
             FilteredElementCollector colec = new FilteredElementCollector(doc);
             List<Element> allsheetset = colec.OfClass(typeof(ViewSheetSet)).ToElements().ToList();
-            foreach (ViewSheetSet vs in allsheetset)
+            foreach (Element item in allsheetset)
             {
-                AllSheetSetList.Add(vs);
+                AllSheetSetList.Add(item as ViewSheetSet);
             }
+            
             SelectedSheetSet = AllSheetSetList[0];
-
+            
+            foreach (View item in SelectedSheetSet.Views)
+            {
+                sheetIDs.Add(item.Id);
+            }
+            ViewSet views = SelectedSheetSet.Views;
+            views.ToString();
+            AllCADVersionsList = new List<string>{"AutoCAD 2007", "AutoCAD 2010", "AutoCAD 2013", "AutoCAD 2018" };
+            selectCADVersion = AllCADVersionsList[0];
+            
             List<ViewSheet> allviewsheet = new FilteredElementCollector(doc)
                 .OfClass(typeof(ViewSheet))
                 .OfCategory(BuiltInCategory.OST_Sheets)
@@ -82,9 +95,45 @@ namespace DHHTools
         }
         #endregion
         #region 04. Method
+        public void exportDWF()
+        {
+            using (Transaction tran = new Transaction(doc))
+            {
+                tran.Start("Export DWF");
+                DWFExportOptions dWFExportOptions = new DWFExportOptions();
+                dWFExportOptions.MergedViews = true;
+                dWFExportOptions.PaperFormat = ExportPaperFormat.ISO_A1;
+                doc.Export("C:\\Users\\hoadh\\Documents", doc.Title, SelectedSheetSet.Views, dWFExportOptions);
+                tran.Commit();
+            }
+        }
+        public void exportDWG()
+        {
+            using (Transaction tran = new Transaction(doc))
+            {
+                tran.Start("Export DWG");
+                DWGExportOptions dWGExportOptions = new DWGExportOptions();
+                dWGExportOptions.MergedViews = true;
+                dWGExportOptions.FileVersion = ACADVersion.R2007;
+                dWGExportOptions.TargetUnit = ExportUnit.Millimeter;
+                doc.Export("C:\\Users\\hoadh\\Documents", " ", sheetIDs, dWGExportOptions);
+                
+                tran.Commit();
+            }
+        }
+        public void exportPDF()
+        {
+            using (Transaction tran = new Transaction(doc))
+            {
+                tran.Start("Export PDF");
+                PrintManager printManager = doc.PrintManager;
+                printManager.CombinedFile = true;
+                printManager.PrintToFile = true;
+                printManager.Apply();
+                doc.Print(SelectedSheetSet.Views);
+                tran.Commit();
+            }
+        }
         #endregion
     }
 }
-
-
-
