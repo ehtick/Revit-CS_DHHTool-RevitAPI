@@ -127,6 +127,8 @@ namespace DHHTools
             {
                 tran.Start("Export PDF");
                 PrintManager printManager = doc.PrintManager;
+                // Set the printer name to "PDF"
+                printManager.SelectNewPrintDriver("PDF24");
                 printManager.CombinedFile = true;
                 printManager.PrintToFile = true;
                 printManager.Apply();
