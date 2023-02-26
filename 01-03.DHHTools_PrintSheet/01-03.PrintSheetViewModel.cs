@@ -27,7 +27,6 @@ namespace DHHTools
         private Document doc;
 
         #endregion
-
         #region 02. Public Property
         public UIDocument UiDoc;
         public Document Doc;
