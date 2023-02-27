@@ -25,7 +25,7 @@ namespace DHHTools
         private UIDocument uidoc;
         private Application app;
         private Document doc;
-
+        private ViewSheetSet selectedSheetSet_VM;
         #endregion
         #region 02. Public Property
         public UIDocument UiDoc;
@@ -34,7 +34,15 @@ namespace DHHTools
         public string Name { get; set; }
         
         public List<ViewSheetSet> AllSheetSetList { get; set; } = new List<ViewSheetSet>();
-        public ViewSheetSet SelectedSheetSet { get; set; }
+        public ViewSheetSet SelectedSheetSet 
+        {
+            get => selectedSheetSet_VM;
+            set
+            {
+                selectedSheetSet_VM = value;
+                OnPropertyChanged("selectedSheetSet");
+            }
+        }
         public List<ViewSheetPlus> AllViewsSheetList { get; set; }
            = new List<ViewSheetPlus>();
         public List<ViewSheetPlus> SelectedViewsSheet { get; set; }
@@ -66,12 +74,12 @@ namespace DHHTools
             
             SelectedSheetSet = AllSheetSetList[0];
             
-            foreach (View item in SelectedSheetSet.Views)
-            {
-                sheetIDs.Add(item.Id);
-            }
-            ViewSet views = SelectedSheetSet.Views;
-            views.ToString();
+            //foreach (View item in SelectedSheetSet.Views)
+            //{
+            //    sheetIDs.Add(item.Id);
+            //}
+            //ViewSet views = SelectedSheetSet.Views;
+            //views.ToString();
             AllCADVersionsList = new List<string>{"AutoCAD 2007", "AutoCAD 2010", "AutoCAD 2013", "AutoCAD 2018" };
             selectCADVersion = AllCADVersionsList[0];
             
@@ -101,7 +109,8 @@ namespace DHHTools
                 tran.Start("Export DWF");
                 DWFExportOptions dWFExportOptions = new DWFExportOptions();
                 dWFExportOptions.MergedViews = true;
-                dWFExportOptions.PaperFormat = ExportPaperFormat.ISO_A1;
+                //dWFExportOptions.PaperFormat = ExportPaperFormat.ISO_A1;
+                
                 doc.Export("C:\\Users\\hoadh\\Documents", doc.Title, SelectedSheetSet.Views, dWFExportOptions);
                 tran.Commit();
             }
@@ -115,6 +124,12 @@ namespace DHHTools
                 dWGExportOptions.MergedViews = true;
                 dWGExportOptions.FileVersion = ACADVersion.R2007;
                 dWGExportOptions.TargetUnit = ExportUnit.Millimeter;
+
+                foreach (View item in SelectedSheetSet.Views)
+                {
+                    sheetIDs.Add(item.Id);
+                }
+                
                 doc.Export("C:\\Users\\hoadh\\Documents", " ", sheetIDs, dWGExportOptions);
                 
                 tran.Commit();

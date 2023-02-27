@@ -29,6 +29,7 @@ namespace DHHTools
         private bool CheckedNone_VM;
         private ViewDuplicateOption duplicationOption_VM;
         #endregion
+
         #region 02. Public Property
         public UIDocument UiDoc;
         public Document Doc;
