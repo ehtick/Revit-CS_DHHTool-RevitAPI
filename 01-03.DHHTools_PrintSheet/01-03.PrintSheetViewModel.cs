@@ -83,8 +83,8 @@ namespace DHHTools
             doc = uidoc.Document;
             UiDoc = uidoc;
             Doc = UiDoc.Document;
-            
 
+            
             FilteredElementCollector colec = new FilteredElementCollector(doc);
             List<Element> allsheetset = colec.OfClass(typeof(ViewSheetSet)).ToElements().ToList();
             foreach (Element item in allsheetset)
@@ -93,12 +93,12 @@ namespace DHHTools
             }
             SelectedSheetSet = AllSheetSetList[0];
 
-            //foreach (View item in SelectedSheetSet.Views)
-            //{
-            //    sheetIDs.Add(item.Id);
-            //}
-            //ViewSet views = SelectedSheetSet.Views;
-            //views.ToString();
+            foreach (string printer in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
+            {
+                AllPrinterList.Add(printer);
+            }
+            AllPrinterList.Sort();
+            SelectPrinter = AllPrinterList[0];
             AllCADVersionsList = new List<string>{"AutoCAD 2007", "AutoCAD 2010", "AutoCAD 2013", "AutoCAD 2018" };
             SelectCADVersion = AllCADVersionsList[0];
             

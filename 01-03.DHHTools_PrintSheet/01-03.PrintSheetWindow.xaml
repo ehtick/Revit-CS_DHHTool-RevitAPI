@@ -157,6 +157,26 @@
                            FontSize ="15"
                            IsChecked="{Binding IsSelected}"
                            Style="{DynamicResource CheckBoxStyle}"/>
+                <DockPanel LastChildFill="True">
+                    <TextBlock DockPanel.Dock="Left"
+                               Height="25"  
+                               Width="100"
+                               Text="Printer Name: " 
+                               TextWrapping="Wrap"
+                               VerticalAlignment="Center"
+                               TextAlignment="Left"
+                               FontSize ="15"
+                               FontFamily="San Serif"
+                               Padding="3"/>
+                    <ComboBox 
+                        DockPanel.Dock="Right"
+                        Height="32"
+                        ItemsSource="{Binding AllPrinterList}"
+                        SelectedItem="{Binding SelectPrinter}"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Left"
+                        IsEditable="True"/>
+                </DockPanel>
             </StackPanel>
             <DockPanel DockPanel.Dock="Bottom" 
                 Height="40"
