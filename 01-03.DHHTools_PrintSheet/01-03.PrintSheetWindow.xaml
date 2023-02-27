@@ -135,10 +135,12 @@
                            Padding="3"/>
                 <DockPanel LastChildFill="True">
                     <TextBlock DockPanel.Dock="Left"
-                           Height="25"  Text="CAD Version: " 
+                           Height="25"  
+                           Width="100"
+                           Text="CAD Version: " 
                            TextWrapping="Wrap"
                            VerticalAlignment="Center"
-                           TextAlignment="Center"
+                           TextAlignment="Left"
                            FontSize ="15"
                            FontFamily="San Serif"
                            Padding="3"/>
@@ -146,7 +148,7 @@
                         DockPanel.Dock="Right"
                         Height="32"
                         ItemsSource="{Binding AllCADVersionsList}"
-                        SelectedItem="{Binding selectCADVersion}"
+                        SelectedItem="{Binding SelectCADVersion}"
                         VerticalContentAlignment="Center"
                         HorizontalContentAlignment="Left"
                         IsEditable="True"/>
@@ -155,25 +157,6 @@
                            FontSize ="15"
                            IsChecked="{Binding IsSelected}"
                            Style="{DynamicResource CheckBoxStyle}"/>
-                <DockPanel LastChildFill="True">
-                    <TextBlock DockPanel.Dock="Left"
-                           Height="25"  Text="Paper Size: " 
-                           TextWrapping="Wrap"
-                           VerticalAlignment="Center"
-                           TextAlignment="Center"
-                           FontSize ="15"
-                           FontFamily="San Serif"
-                           Padding="3"/>
-                    <ComboBox 
-                        DockPanel.Dock="Right"
-                        Height="32"
-                        ItemsSource="{Binding AllPaperSizeList}"
-                        SelectedItem="{Binding selectPaperSize}"
-                        VerticalContentAlignment="Center"
-                        HorizontalContentAlignment="Left"
-                        IsEditable="True"/>
-                </DockPanel>
-                
             </StackPanel>
             <DockPanel DockPanel.Dock="Bottom" 
                 Height="40"

@@ -26,13 +26,14 @@ namespace DHHTools
         private Application app;
         private Document doc;
         private ViewSheetSet selectedSheetSet_VM;
+        private string selectPrinter_VM;
+        private string selectCADVersion_VM;
         #endregion
         #region 02. Public Property
         public UIDocument UiDoc;
         public Document Doc;
         public string SheetNumber { get; set; }
         public string Name { get; set; }
-        
         public List<ViewSheetSet> AllSheetSetList { get; set; } = new List<ViewSheetSet>();
         public ViewSheetSet SelectedSheetSet 
         {
@@ -43,14 +44,33 @@ namespace DHHTools
                 OnPropertyChanged("selectedSheetSet");
             }
         }
+        public List<string> AllPrinterList { get; set; } = new List<string>();
+        public string SelectPrinter
+        {
+            get => selectPrinter_VM;
+            set
+            {
+                selectPrinter_VM = value;
+                OnPropertyChanged("SelectPrinter");
+            }
+        }
         public List<ViewSheetPlus> AllViewsSheetList { get; set; }
            = new List<ViewSheetPlus>();
         public List<ViewSheetPlus> SelectedViewsSheet { get; set; }
             = new List<ViewSheetPlus>();
         public List<string> AllCADVersionsList { get; set; }
         List<ElementId> sheetIDs { get; set; } = new List<ElementId>();
-
-        public string selectCADVersion { get; set; }
+        public string SelectCADVersion
+        
+        {
+            get => selectCADVersion_VM;
+            set
+            {
+                selectCADVersion_VM = value;
+                OnPropertyChanged("SelectCADVersion");
+            }
+        }
+        
         #endregion
         #region 03. View Model
         public PrintSheetViewModel(ExternalCommandData commandData)
@@ -71,9 +91,8 @@ namespace DHHTools
             {
                 AllSheetSetList.Add(item as ViewSheetSet);
             }
-            
             SelectedSheetSet = AllSheetSetList[0];
-            
+
             //foreach (View item in SelectedSheetSet.Views)
             //{
             //    sheetIDs.Add(item.Id);
@@ -81,7 +100,7 @@ namespace DHHTools
             //ViewSet views = SelectedSheetSet.Views;
             //views.ToString();
             AllCADVersionsList = new List<string>{"AutoCAD 2007", "AutoCAD 2010", "AutoCAD 2013", "AutoCAD 2018" };
-            selectCADVersion = AllCADVersionsList[0];
+            SelectCADVersion = AllCADVersionsList[0];
             
             List<ViewSheet> allviewsheet = new FilteredElementCollector(doc)
                 .OfClass(typeof(ViewSheet))
@@ -111,7 +130,7 @@ namespace DHHTools
                 dWFExportOptions.MergedViews = true;
                 //dWFExportOptions.PaperFormat = ExportPaperFormat.ISO_A1;
                 
-                doc.Export("C:\\Users\\hoadh\\Documents", doc.Title, SelectedSheetSet.Views, dWFExportOptions);
+                doc.Export("C:\\Users\\Admin\\Documents", doc.Title, SelectedSheetSet.Views, dWFExportOptions);
                 tran.Commit();
             }
         }
@@ -123,15 +142,18 @@ namespace DHHTools
                 DWGExportOptions dWGExportOptions = new DWGExportOptions();
                 dWGExportOptions.MergedViews = true;
                 dWGExportOptions.FileVersion = ACADVersion.R2007;
+                if (SelectCADVersion == "AutoCAD 2007")
+                { dWGExportOptions.FileVersion = ACADVersion.R2007; }
+                else if (SelectCADVersion == "AutoCAD 2010")
+                { dWGExportOptions.FileVersion = ACADVersion.R2010; }
+                else if (SelectCADVersion == "AutoCAD 2013")
+                { dWGExportOptions.FileVersion = ACADVersion.R2013; }
+                else if (SelectCADVersion == "AutoCAD 2018")
+                { dWGExportOptions.FileVersion = ACADVersion.R2018; }
                 dWGExportOptions.TargetUnit = ExportUnit.Millimeter;
-
                 foreach (View item in SelectedSheetSet.Views)
-                {
-                    sheetIDs.Add(item.Id);
-                }
-                
-                doc.Export("C:\\Users\\hoadh\\Documents", " ", sheetIDs, dWGExportOptions);
-                
+                { sheetIDs.Add(item.Id); }
+                doc.Export("C:\\Users\\Admin\\Documents", " ", sheetIDs, dWGExportOptions);
                 tran.Commit();
             }
         }
@@ -142,7 +164,7 @@ namespace DHHTools
                 tran.Start("Export PDF");
                 PrintManager printManager = doc.PrintManager;
                 // Set the printer name to "PDF"
-                printManager.SelectNewPrintDriver("PDF24");
+                printManager.SelectNewPrintDriver("Microsoft Print to PDF");
                 printManager.CombinedFile = true;
                 printManager.PrintToFile = true;
                 printManager.Apply();
