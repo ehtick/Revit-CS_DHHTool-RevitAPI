@@ -5,6 +5,8 @@ using Autodesk.Revit.UI;
 using System;
 using System.Linq;
 using System.Windows;
+using System.Windows.Forms;
+
 // ReSharper disable All
 
 #endregion
@@ -35,13 +37,26 @@ namespace DHHTools
             MyExternalEvent = ExternalEvent.Create(eventHandler);
             transG = new TransactionGroup(_viewModel.Doc);
         }
+        private void Btn_SaveLocation(object sender, RoutedEventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            // shows the path to the selected folder in the folder dialog
+            //System.Windows.MessageBox.Show(fbd.SelectedPath);
+            _viewModel.SelectFolder = fbd.SelectedPath;
+        }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Btn_OK(object sender, RoutedEventArgs e)
         {
             Close();
             _viewModel.exportDWF();
             _viewModel.exportDWG();
             _viewModel.exportPDF();
+        }
+
+        private void Btn_Cancel(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

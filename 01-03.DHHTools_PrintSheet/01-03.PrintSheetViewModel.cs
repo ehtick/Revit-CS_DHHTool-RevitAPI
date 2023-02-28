@@ -28,6 +28,7 @@ namespace DHHTools
         private ViewSheetSet selectedSheetSet_VM;
         private string selectPrinter_VM;
         private string selectCADVersion_VM;
+        private string selectFolder_VM;
         #endregion
         #region 02. Public Property
         public UIDocument UiDoc;
@@ -41,7 +42,7 @@ namespace DHHTools
             set
             {
                 selectedSheetSet_VM = value;
-                OnPropertyChanged("selectedSheetSet");
+                OnPropertyChanged("SelectedSheetSet");
             }
         }
         public List<string> AllPrinterList { get; set; } = new List<string>();
@@ -70,21 +71,32 @@ namespace DHHTools
                 OnPropertyChanged("SelectCADVersion");
             }
         }
-        
+        public string SelectFolder
+
+        {
+            get => selectFolder_VM;
+            set
+            {
+                selectFolder_VM = value;
+                OnPropertyChanged("SelectFolder");
+            }
+        }
         #endregion
         #region 03. View Model
         public PrintSheetViewModel(ExternalCommandData commandData)
         {
             // Lưu trữ data từ Revit
-
             uiapp = commandData.Application;
             uidoc = uiapp.ActiveUIDocument;
             app = uiapp.Application;
             doc = uidoc.Document;
             UiDoc = uidoc;
             Doc = UiDoc.Document;
-
-            
+            string userName = "";
+            if(System.Security.Principal.WindowsIdentity.GetCurrent().Name == "ICIC\\Dinh Hoang Hoa")
+            {userName = "hoadh";}
+            else {userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;}
+            SelectFolder = "C:\\Users\\" + userName + "\\Documents";
             FilteredElementCollector colec = new FilteredElementCollector(doc);
             List<Element> allsheetset = colec.OfClass(typeof(ViewSheetSet)).ToElements().ToList();
             foreach (Element item in allsheetset)
@@ -101,7 +113,7 @@ namespace DHHTools
             SelectPrinter = AllPrinterList[0];
             AllCADVersionsList = new List<string>{"AutoCAD 2007", "AutoCAD 2010", "AutoCAD 2013", "AutoCAD 2018" };
             SelectCADVersion = AllCADVersionsList[0];
-            
+            SelectPrinter = "Microsoft Print to PDF";
             List<ViewSheet> allviewsheet = new FilteredElementCollector(doc)
                 .OfClass(typeof(ViewSheet))
                 .OfCategory(BuiltInCategory.OST_Sheets)
@@ -116,8 +128,6 @@ namespace DHHTools
             }
             AllViewsSheetList.Sort((v1, v2)
                 => String.CompareOrdinal(v1.SheetNumber, v2.SheetNumber));
-
-
         }
         #endregion
         #region 04. Method
@@ -128,9 +138,7 @@ namespace DHHTools
                 tran.Start("Export DWF");
                 DWFExportOptions dWFExportOptions = new DWFExportOptions();
                 dWFExportOptions.MergedViews = true;
-                //dWFExportOptions.PaperFormat = ExportPaperFormat.ISO_A1;
-                
-                doc.Export("C:\\Users\\Admin\\Documents", doc.Title, SelectedSheetSet.Views, dWFExportOptions);
+                doc.Export(SelectFolder, doc.Title, SelectedSheetSet.Views, dWFExportOptions);
                 tran.Commit();
             }
         }
@@ -142,18 +150,18 @@ namespace DHHTools
                 DWGExportOptions dWGExportOptions = new DWGExportOptions();
                 dWGExportOptions.MergedViews = true;
                 dWGExportOptions.FileVersion = ACADVersion.R2007;
-                if (SelectCADVersion == "AutoCAD 2007")
-                { dWGExportOptions.FileVersion = ACADVersion.R2007; }
-                else if (SelectCADVersion == "AutoCAD 2010")
-                { dWGExportOptions.FileVersion = ACADVersion.R2010; }
-                else if (SelectCADVersion == "AutoCAD 2013")
-                { dWGExportOptions.FileVersion = ACADVersion.R2013; }
-                else if (SelectCADVersion == "AutoCAD 2018")
-                { dWGExportOptions.FileVersion = ACADVersion.R2018; }
+                    if (SelectCADVersion == "AutoCAD 2007")
+                    { dWGExportOptions.FileVersion = ACADVersion.R2007; }
+                    else if (SelectCADVersion == "AutoCAD 2010")
+                    { dWGExportOptions.FileVersion = ACADVersion.R2010; }
+                    else if (SelectCADVersion == "AutoCAD 2013")
+                    { dWGExportOptions.FileVersion = ACADVersion.R2013; }
+                    else if (SelectCADVersion == "AutoCAD 2018")
+                    { dWGExportOptions.FileVersion = ACADVersion.R2018; }
                 dWGExportOptions.TargetUnit = ExportUnit.Millimeter;
                 foreach (View item in SelectedSheetSet.Views)
                 { sheetIDs.Add(item.Id); }
-                doc.Export("C:\\Users\\Admin\\Documents", " ", sheetIDs, dWGExportOptions);
+                doc.Export(SelectFolder, " ", sheetIDs, dWGExportOptions);
                 tran.Commit();
             }
         }
@@ -164,9 +172,10 @@ namespace DHHTools
                 tran.Start("Export PDF");
                 PrintManager printManager = doc.PrintManager;
                 // Set the printer name to "PDF"
-                printManager.SelectNewPrintDriver("Microsoft Print to PDF");
+                printManager.SelectNewPrintDriver(SelectPrinter);
                 printManager.CombinedFile = true;
                 printManager.PrintToFile = true;
+                printManager.PrintToFileName = SelectFolder +@"\"+ doc.Title + ".pdf";
                 printManager.Apply();
                 doc.Print(SelectedSheetSet.Views);
                 tran.Commit();
