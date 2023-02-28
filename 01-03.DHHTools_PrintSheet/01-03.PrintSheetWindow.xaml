@@ -115,16 +115,16 @@
                            Padding="3"/>
                 <CheckBox  Content="Export CAD (*.dwg)" 
                            FontSize ="15"
-                           IsChecked="{Binding IsSelected}"
+                           IsChecked="{Binding IsCadSelected}"
                            Style="{DynamicResource CheckBoxStyle}"/>
 
                 <CheckBox  Content="Export DWF (*.dwf/*.dwfx)" 
                            FontSize ="15"
-                           IsChecked="{Binding IsSelected}"
+                           IsChecked="{Binding IsDWFSelected}"
                            Style="{DynamicResource CheckBoxStyle}"/>
                 <CheckBox  Content="Export PDF (*.pdf)" 
                            FontSize ="15"
-                           IsChecked="{Binding IsSelected}"
+                           IsChecked="{Binding IsPDFSelected}"
                            Style="{DynamicResource CheckBoxStyle}"/>
                 <TextBlock Height="25" DockPanel.Dock="Top" Text="EXPORT Setting: " 
                            TextWrapping="Wrap"

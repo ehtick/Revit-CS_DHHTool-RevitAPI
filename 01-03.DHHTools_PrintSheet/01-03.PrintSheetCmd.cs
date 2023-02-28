@@ -26,10 +26,10 @@ namespace DHHTools
             using (TransactionGroup transGr = new TransactionGroup(doc))
             {
                 transGr.Start("Print Sheets");
-                PrintSheetViewModel sheetDuplicateViewModel 
+                PrintSheetViewModel printSheetViewModel 
                     = new PrintSheetViewModel(commandData);
                 PrintSheetWindow window
-                    = new PrintSheetWindow(sheetDuplicateViewModel);
+                    = new PrintSheetWindow(printSheetViewModel);
                 bool? dialog = window.ShowDialog();
                 if (dialog != false) return Result.Succeeded;
                 transGr.Assimilate();

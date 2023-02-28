@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using System.Windows.Interop;
 using Application = Autodesk.Revit.ApplicationServices.Application;
 using Curve = Autodesk.Revit.DB.Curve;
 using PlanarFace = Autodesk.Revit.DB.PlanarFace;
@@ -29,12 +30,14 @@ namespace DHHTools
         private string selectPrinter_VM;
         private string selectCADVersion_VM;
         private string selectFolder_VM;
+        private bool isSelected_VM;
         #endregion
         #region 02. Public Property
         public UIDocument UiDoc;
         public Document Doc;
         public string SheetNumber { get; set; }
         public string Name { get; set; }
+        
         public List<ViewSheetSet> AllSheetSetList { get; set; } = new List<ViewSheetSet>();
         public ViewSheetSet SelectedSheetSet 
         {
@@ -81,6 +84,16 @@ namespace DHHTools
                 OnPropertyChanged("SelectFolder");
             }
         }
+        public bool IsSelected
+        {
+            get => isSelected_VM;
+            set
+            {
+                isSelected_VM = value;
+                OnPropertyChanged("IsSelected");
+            }
+        }
+
         #endregion
         #region 03. View Model
         public PrintSheetViewModel(ExternalCommandData commandData)
@@ -104,6 +117,7 @@ namespace DHHTools
                 AllSheetSetList.Add(item as ViewSheetSet);
             }
             SelectedSheetSet = AllSheetSetList[0];
+            
 
             foreach (string printer in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
             {
@@ -125,9 +139,23 @@ namespace DHHTools
                 AllViewsSheetList.Add(viewSheetPlus);
                 SheetNumber = viewSheetPlus.SheetNumber;
                 Name = viewSheetPlus.Name;
+                //viewSheetPlus.IsSelected = false;
+            }
+
+            foreach (ViewSheet viewSheet in SelectedSheetSet.Views)
+            {
+                ViewSheetPlus viewSheetPlus = new ViewSheetPlus(viewSheet);
+                SelectedViewsSheet.Add(viewSheetPlus); 
+                SheetNumber = viewSheetPlus.SheetNumber;
+                Name = viewSheetPlus.Name;
+                viewSheetPlus.IsSelected = true;
+                
+
+
             }
             AllViewsSheetList.Sort((v1, v2)
                 => String.CompareOrdinal(v1.SheetNumber, v2.SheetNumber));
+            
         }
         #endregion
         #region 04. Method
