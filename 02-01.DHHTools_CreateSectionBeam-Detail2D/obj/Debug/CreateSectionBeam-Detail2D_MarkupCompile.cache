@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\
 DHHTools
 none
 false
@@ -12,8 +12,8 @@ DEBUG;TRACE
 
 11591414831
 
-101963900410
-28-487759362
+111121541043
+28740446201
 02-01.CreateSectionBeam-Detail2DWindow.xaml;
 
 True

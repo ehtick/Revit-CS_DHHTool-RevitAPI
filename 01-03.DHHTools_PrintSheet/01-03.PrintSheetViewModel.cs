@@ -46,6 +46,7 @@ namespace DHHTools
             {
                 selectedSheetSet_VM = value;
                 OnPropertyChanged("SelectedSheetSet");
+                OnPropertyChanged("SelectedViewsSheet");
             }
         }
         public List<string> AllPrinterList { get; set; } = new List<string>();
@@ -117,14 +118,11 @@ namespace DHHTools
                 AllSheetSetList.Add(item as ViewSheetSet);
             }
             SelectedSheetSet = AllSheetSetList[0];
-            
-
             foreach (string printer in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
             {
                 AllPrinterList.Add(printer);
             }
             AllPrinterList.Sort();
-            SelectPrinter = AllPrinterList[0];
             AllCADVersionsList = new List<string>{"AutoCAD 2007", "AutoCAD 2010", "AutoCAD 2013", "AutoCAD 2018" };
             SelectCADVersion = AllCADVersionsList[0];
             SelectPrinter = "Microsoft Print to PDF";
@@ -139,22 +137,27 @@ namespace DHHTools
                 AllViewsSheetList.Add(viewSheetPlus);
                 SheetNumber = viewSheetPlus.SheetNumber;
                 Name = viewSheetPlus.Name;
-                //viewSheetPlus.IsSelected = false;
-            }
-
-            foreach (ViewSheet viewSheet in SelectedSheetSet.Views)
-            {
-                ViewSheetPlus viewSheetPlus = new ViewSheetPlus(viewSheet);
-                SelectedViewsSheet.Add(viewSheetPlus); 
-                SheetNumber = viewSheetPlus.SheetNumber;
-                Name = viewSheetPlus.Name;
-                viewSheetPlus.IsSelected = true;
-                
-
-
+                viewSheetPlus.IsSelected = false;
             }
             AllViewsSheetList.Sort((v1, v2)
                 => String.CompareOrdinal(v1.SheetNumber, v2.SheetNumber));
+
+            foreach (ViewSheet vSheet in SelectedSheetSet.Views)
+            {
+                ViewSheetPlus viewSheetPlus = new ViewSheetPlus(vSheet);
+                SelectedViewsSheet.Add(viewSheetPlus);
+                SheetNumber = viewSheetPlus.SheetNumber;
+                Name = viewSheetPlus.Name;
+            }
+
+            foreach (ViewSheetPlus item in SelectedViewsSheet)
+            {
+                int i =AllViewsSheetList.IndexOf(item);
+                if (i>0)
+                {
+                    AllViewsSheetList[i].IsSelected = true;
+                }
+            }
             
         }
         #endregion
