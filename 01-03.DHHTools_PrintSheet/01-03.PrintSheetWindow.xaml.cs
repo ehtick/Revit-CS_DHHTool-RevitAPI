@@ -49,14 +49,21 @@ namespace DHHTools
         private void Btn_OK(object sender, RoutedEventArgs e)
         {
             Close();
+            _viewModel.createFolder();
             _viewModel.exportDWF();
             _viewModel.exportDWG();
+            _viewModel.deletePCPFile();
             _viewModel.exportPDF();
         }
 
         private void Btn_Cancel(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void Btn_ListChange(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            _viewModel.updateViewSheet();
         }
     }
 }

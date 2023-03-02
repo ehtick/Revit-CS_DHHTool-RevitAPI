@@ -5,6 +5,7 @@ using Autodesk.Revit.UI.Selection;
 using Autodesk.Revit.DB.Structure;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Interop;
@@ -31,6 +32,10 @@ namespace DHHTools
         private string selectCADVersion_VM;
         private string selectFolder_VM;
         private bool isSelected_VM;
+        private bool isCADSelected_VM;
+        private bool isDWFSelected_VM;
+        private bool isPDFSelected_VM;
+        private bool isSeprateFolder_VM;
         #endregion
         #region 02. Public Property
         public UIDocument UiDoc;
@@ -94,7 +99,42 @@ namespace DHHTools
                 OnPropertyChanged("IsSelected");
             }
         }
-
+        public bool IsCADSelected
+        {
+            get => isCADSelected_VM;
+            set
+            {
+                isCADSelected_VM = value;
+                OnPropertyChanged("IsCADSelected");
+            }
+        }
+        public bool IsDWFSelected
+        {
+            get => isDWFSelected_VM;
+            set
+            {
+                isDWFSelected_VM = value;
+                OnPropertyChanged("IsDWFSelected");
+            }
+        }
+        public bool IsPDFSelected
+        {
+            get => isPDFSelected_VM;
+            set
+            {
+                isPDFSelected_VM = value;
+                OnPropertyChanged("IsPDFSelected");
+            }
+        }
+        public bool IsSeprateFolder
+        {
+            get => isSeprateFolder_VM;
+            set
+            {
+                isSeprateFolder_VM = value;
+                OnPropertyChanged("IsSeprateFolder");
+            }
+        }
         #endregion
         #region 03. View Model
         public PrintSheetViewModel(ExternalCommandData commandData)
@@ -106,11 +146,7 @@ namespace DHHTools
             doc = uidoc.Document;
             UiDoc = uidoc;
             Doc = UiDoc.Document;
-            string userName = "";
-            if(System.Security.Principal.WindowsIdentity.GetCurrent().Name == "ICIC\\Dinh Hoang Hoa")
-            {userName = "hoadh";}
-            else {userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;}
-            SelectFolder = "C:\\Users\\" + userName + "\\Documents";
+            SelectFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             FilteredElementCollector colec = new FilteredElementCollector(doc);
             List<Element> allsheetset = colec.OfClass(typeof(ViewSheetSet)).ToElements().ToList();
             foreach (Element item in allsheetset)
@@ -141,75 +177,141 @@ namespace DHHTools
             }
             AllViewsSheetList.Sort((v1, v2)
                 => String.CompareOrdinal(v1.SheetNumber, v2.SheetNumber));
+            IsCADSelected = true;
+            IsDWFSelected = true;
+            IsPDFSelected = true;
+            IsSeprateFolder = false;
 
-            foreach (ViewSheet vSheet in SelectedSheetSet.Views)
-            {
-                ViewSheetPlus viewSheetPlus = new ViewSheetPlus(vSheet);
-                SelectedViewsSheet.Add(viewSheetPlus);
-                SheetNumber = viewSheetPlus.SheetNumber;
-                Name = viewSheetPlus.Name;
-            }
 
-            foreach (ViewSheetPlus item in SelectedViewsSheet)
-            {
-                int i =AllViewsSheetList.IndexOf(item);
-                if (i>0)
-                {
-                    AllViewsSheetList[i].IsSelected = true;
-                }
-            }
-            
         }
         #endregion
         #region 04. Method
         public void exportDWF()
         {
-            using (Transaction tran = new Transaction(doc))
-            {
-                tran.Start("Export DWF");
-                DWFExportOptions dWFExportOptions = new DWFExportOptions();
-                dWFExportOptions.MergedViews = true;
-                doc.Export(SelectFolder, doc.Title, SelectedSheetSet.Views, dWFExportOptions);
-                tran.Commit();
+            if (IsDWFSelected==true)
+            {using (Transaction tran = new Transaction(doc))
+                {
+                    tran.Start("Export DWF");
+                    DWFExportOptions dWFExportOptions = new DWFExportOptions();
+                    dWFExportOptions.MergedViews = true;
+                    string DWFFolder = "";
+                    if (IsSeprateFolder == true)
+                    {
+                        DWFFolder = SelectFolder + "\\DWF";
+                    }
+                    else
+                    {
+                        DWFFolder = SelectFolder;
+                    }
+                    doc.Export(DWFFolder, doc.Title, SelectedSheetSet.Views, dWFExportOptions);
+                    tran.Commit();
+                }
             }
+            
         }
         public void exportDWG()
         {
-            using (Transaction tran = new Transaction(doc))
-            {
-                tran.Start("Export DWG");
-                DWGExportOptions dWGExportOptions = new DWGExportOptions();
-                dWGExportOptions.MergedViews = true;
-                dWGExportOptions.FileVersion = ACADVersion.R2007;
-                    if (SelectCADVersion == "AutoCAD 2007")
-                    { dWGExportOptions.FileVersion = ACADVersion.R2007; }
-                    else if (SelectCADVersion == "AutoCAD 2010")
-                    { dWGExportOptions.FileVersion = ACADVersion.R2010; }
-                    else if (SelectCADVersion == "AutoCAD 2013")
-                    { dWGExportOptions.FileVersion = ACADVersion.R2013; }
-                    else if (SelectCADVersion == "AutoCAD 2018")
-                    { dWGExportOptions.FileVersion = ACADVersion.R2018; }
-                dWGExportOptions.TargetUnit = ExportUnit.Millimeter;
-                foreach (View item in SelectedSheetSet.Views)
-                { sheetIDs.Add(item.Id); }
-                doc.Export(SelectFolder, " ", sheetIDs, dWGExportOptions);
-                tran.Commit();
+            if(IsCADSelected == true)
+            {using (Transaction tran = new Transaction(doc))
+                {
+                    tran.Start("Export DWG");
+                    DWGExportOptions dWGExportOptions = new DWGExportOptions();
+                    dWGExportOptions.MergedViews = true;
+                    dWGExportOptions.FileVersion = ACADVersion.R2007;
+                        if (SelectCADVersion == "AutoCAD 2007")
+                        { dWGExportOptions.FileVersion = ACADVersion.R2007; }
+                        else if (SelectCADVersion == "AutoCAD 2010")
+                        { dWGExportOptions.FileVersion = ACADVersion.R2010; }
+                        else if (SelectCADVersion == "AutoCAD 2013")
+                        { dWGExportOptions.FileVersion = ACADVersion.R2013; }
+                        else if (SelectCADVersion == "AutoCAD 2018")
+                        { dWGExportOptions.FileVersion = ACADVersion.R2018; }
+                    dWGExportOptions.TargetUnit = ExportUnit.Millimeter;
+                    foreach (View item in SelectedSheetSet.Views)
+                    { sheetIDs.Add(item.Id); }
+                    string DWGFolder = "";
+                    if (IsSeprateFolder == true)
+                    {
+                        DWGFolder = SelectFolder + "\\DWG";
+                    }
+                    else
+                    {
+                        DWGFolder = SelectFolder;
+                    }
+                    doc.Export(DWGFolder, " ", sheetIDs, dWGExportOptions);
+                    tran.Commit();
+                }
             }
         }
         public void exportPDF()
         {
-            using (Transaction tran = new Transaction(doc))
+            if (IsPDFSelected ==true)
             {
-                tran.Start("Export PDF");
-                PrintManager printManager = doc.PrintManager;
-                // Set the printer name to "PDF"
-                printManager.SelectNewPrintDriver(SelectPrinter);
-                printManager.CombinedFile = true;
-                printManager.PrintToFile = true;
-                printManager.PrintToFileName = SelectFolder +@"\"+ doc.Title + ".pdf";
-                printManager.Apply();
-                doc.Print(SelectedSheetSet.Views);
-                tran.Commit();
+                using (Transaction tran = new Transaction(doc))
+                {
+                    tran.Start("Export PDF");
+                    PrintManager printManager = doc.PrintManager;
+                    // Set the printer name to "PDF"
+                    printManager.SelectNewPrintDriver(SelectPrinter);
+                    printManager.CombinedFile = true;
+                    printManager.PrintToFile = true;
+                    printManager.PrintToFileName = SelectFolder + @"\" + doc.Title + ".pdf";
+                    printManager.Apply();
+                    doc.Print(SelectedSheetSet.Views);
+                    tran.Commit();
+                }
+            }
+            
+        }
+        public void updateViewSheet()
+        {
+            foreach (ViewSheetPlus vsPlus in AllViewsSheetList)
+            { vsPlus.IsSelected = false;}
+            List<string> SNList = new List<string>();
+            foreach (ViewSheetPlus vsPlus in AllViewsSheetList)
+            { SNList.Add(vsPlus.SheetNumber);}
+            ViewSet viewSet = SelectedSheetSet.Views;
+            foreach (ViewSheet vSheet in viewSet)
+            { int i = SNList.IndexOf(vSheet.SheetNumber);
+                if (i > -1) {AllViewsSheetList[i].IsSelected = true;}}
+        }
+        public void deletePCPFile()
+        {
+            if (IsCADSelected == true)
+            {
+                string DWGFolder = "";
+                if (IsSeprateFolder == true)
+                {
+                    DWGFolder = SelectFolder + "\\DWG";
+                }
+                else
+                {
+                    DWGFolder = SelectFolder;
+                }
+                string[] stringPath = Directory.GetFiles(DWGFolder, "*.pcp", SearchOption.TopDirectoryOnly);
+                foreach (string path in stringPath)
+                { System.IO.File.Delete(path); }
+            }
+        }
+        public void createFolder()
+        {
+            if (IsSeprateFolder == true)
+            {
+                if (IsCADSelected == true)
+                {
+                    System.IO.Directory.CreateDirectory(SelectFolder + "\\DWG");
+                }
+
+                if (IsDWFSelected == true)
+                {
+                    System.IO.Directory.CreateDirectory(SelectFolder + "\\DWF");
+                }
+
+                if (IsPDFSelected == true)
+                {
+                    System.IO.Directory.CreateDirectory(SelectFolder + "\\PDF");
+                }
+
             }
         }
         #endregion

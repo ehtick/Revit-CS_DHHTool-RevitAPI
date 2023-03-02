@@ -89,7 +89,7 @@
                           DisplayMemberPath="Name"
                           VerticalContentAlignment="Center"
                           HorizontalContentAlignment="Left"
-                          IsEditable="True"/>
+                          IsEditable="True" SelectionChanged="Btn_ListChange"/>
                 <DockPanel  Height="40"
                             VerticalAlignment="Bottom"
                             LastChildFill="True" 
@@ -115,7 +115,7 @@
                            Padding="3"/>
                 <CheckBox  Content="Export CAD (*.dwg)" 
                            FontSize ="15"
-                           IsChecked="{Binding IsCadSelected}"
+                           IsChecked="{Binding IsCADSelected}"
                            Style="{DynamicResource CheckBoxStyle}"/>
 
                 <CheckBox  Content="Export DWF (*.dwf/*.dwfx)" 
