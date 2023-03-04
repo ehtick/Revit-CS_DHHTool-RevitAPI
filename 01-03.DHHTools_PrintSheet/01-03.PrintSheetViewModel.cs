@@ -1,19 +1,11 @@
 ﻿#region Namespaces
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-using Autodesk.Revit.UI.Selection;
-using Autodesk.Revit.DB.Structure;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Windows;
-using System.Windows.Interop;
 using Application = Autodesk.Revit.ApplicationServices.Application;
-using Curve = Autodesk.Revit.DB.Curve;
-using PlanarFace = Autodesk.Revit.DB.PlanarFace;
-using Point = Autodesk.Revit.DB.Point;
-
 // ReSharper disable All
 #endregion
 
@@ -258,7 +250,7 @@ namespace DHHTools
                     printManager.PrintToFileName = SelectFolder + @"\" + doc.Title + ".pdf";
                     printManager.Apply();
                     doc.Print(SelectedSheetSet.Views);
-                    tran.Commit();
+
                 }
             }
             

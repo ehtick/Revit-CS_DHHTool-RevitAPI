@@ -108,6 +108,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="ModelCreateColumnRebar.cs" />
+    <Compile Include="LoadMultiFile.cs" />
     <Compile Include="ViewPlanCreateRebarSlab2D.cs" />
     <Compile Include="ViewPlanDimensionPlanColumnCmd.cs" />
     <Compile Include="ViewDetailDimensionDetailDamCmd.cs" />
