@@ -248,6 +248,7 @@ namespace DHHTools
                     printManager.CombinedFile = true;
                     printManager.PrintToFile = true;
                     printManager.PrintToFileName = SelectFolder + @"\" + doc.Title + ".pdf";
+                    
                     printManager.Apply();
                     doc.Print(SelectedSheetSet.Views);
 
