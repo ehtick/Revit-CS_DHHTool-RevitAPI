@@ -1,0 +1,16 @@
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-01.DHHTools_CreateSectionBeam-Detail2D\bin\Debug\CreateSectionBeam-Detail2D.dll.config
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-01.DHHTools_CreateSectionBeam-Detail2D\bin\Debug\CreateSectionBeam-Detail2D.dll
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-01.DHHTools_CreateSectionBeam-Detail2D\bin\Debug\CreateSectionBeam-Detail2D.pdb
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-01.DHHTools_CreateSectionBeam-Detail2D\bin\Debug\DHHTools_Library.dll
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-01.DHHTools_CreateSectionBeam-Detail2D\bin\Debug\DHHTools_Library.pdb
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\02-01.CreateSectionBeam-Detail2D.csproj.AssemblyReference.cache
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\02-01.CreateSectionBeam-Detail2D.csproj.ResolveComReference.cache
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\02-01.CreateSectionBeam-Detail2DWindow.g.cs
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\CreateSectionBeam-Detail2D_MarkupCompile.cache
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\CreateSectionBeam-Detail2D_MarkupCompile.lref
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\02-01.CreateSectionBeam-Detail2DWindow.baml
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\CreateSectionBeam-Detail2D.g.resources
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\02-01.CreateSectionBeam-Detail2D.csproj.CoreCompileInputs.cache
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\02-01.CreateSectionBeam-Detail2D.csproj.CopyComplete
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\CreateSectionBeam-Detail2D.dll
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-01.DHHTools_CreateSectionBeam-Detail2D\obj\Debug\CreateSectionBeam-Detail2D.pdb

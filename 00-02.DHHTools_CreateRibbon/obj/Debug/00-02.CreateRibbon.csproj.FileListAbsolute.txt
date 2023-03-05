@@ -1,0 +1,8 @@
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-02.DHHTools_CreateRibbon\bin\Debug\00.CreateRibbon.dll
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-02.DHHTools_CreateRibbon\bin\Debug\00.CreateRibbon.pdb
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-02.DHHTools_CreateRibbon\bin\Debug\DHHTools_Library.pdb
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-02.DHHTools_CreateRibbon\obj\Debug\00-02.CreateRibbon.csproj.AssemblyReference.cache
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-02.DHHTools_CreateRibbon\obj\Debug\00-02.CreateRibbon.csproj.CoreCompileInputs.cache
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-02.DHHTools_CreateRibbon\obj\Debug\00-02.CreateRibbon.csproj.CopyComplete
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-02.DHHTools_CreateRibbon\obj\Debug\00.CreateRibbon.dll
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-02.DHHTools_CreateRibbon\obj\Debug\00.CreateRibbon.pdb

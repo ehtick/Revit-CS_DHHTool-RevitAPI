@@ -1,0 +1,11 @@
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\01-01.DHHTools_SelectionFilter\bin\Debug\SelectionFilter.dll
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\01-01.DHHTools_SelectionFilter\bin\Debug\SelectionFilter.pdb
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\01-01.DHHTools_SelectionFilter\obj\Debug\01-01.SelectionFilter.csproj.AssemblyReference.cache
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\01-01.DHHTools_SelectionFilter\obj\Debug\03.SelectionFilterWindow.baml
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\01-01.DHHTools_SelectionFilter\obj\Debug\03.SelectionFilterWindow.g.cs
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\01-01.DHHTools_SelectionFilter\obj\Debug\SelectionFilter_MarkupCompile.cache
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\01-01.DHHTools_SelectionFilter\obj\Debug\SelectionFilter.g.resources
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\01-01.DHHTools_SelectionFilter\obj\Debug\01-01.SelectionFilter.csproj.CoreCompileInputs.cache
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\01-01.DHHTools_SelectionFilter\obj\Debug\01-01.SelectionFilter.csproj.CopyComplete
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\01-01.DHHTools_SelectionFilter\obj\Debug\SelectionFilter.dll
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\01-01.DHHTools_SelectionFilter\obj\Debug\SelectionFilter.pdb

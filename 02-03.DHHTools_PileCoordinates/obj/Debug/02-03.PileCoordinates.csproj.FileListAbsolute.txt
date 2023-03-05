@@ -1,0 +1,13 @@
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-03.DHHTools_PileCoordinates\bin\Debug\PileCoordinates.dll
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-03.DHHTools_PileCoordinates\bin\Debug\PileCoordinates.pdb
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-03.DHHTools_PileCoordinates\bin\Debug\DHHTools_Library.dll
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-03.DHHTools_PileCoordinates\bin\Debug\DHHTools_Library.pdb
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-03.DHHTools_PileCoordinates\obj\Debug\02-03.PileCoordinates.csproj.AssemblyReference.cache
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-03.DHHTools_PileCoordinates\obj\Debug\02-03.PileCoordinatesWindow.baml
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-03.DHHTools_PileCoordinates\obj\Debug\02-03.PileCoordinatesWindow.g.cs
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-03.DHHTools_PileCoordinates\obj\Debug\PileCoordinates_MarkupCompile.cache
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-03.DHHTools_PileCoordinates\obj\Debug\PileCoordinates.g.resources
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-03.DHHTools_PileCoordinates\obj\Debug\02-03.PileCoordinates.csproj.CoreCompileInputs.cache
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-03.DHHTools_PileCoordinates\obj\Debug\02-03.PileCoordinates.csproj.CopyComplete
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-03.DHHTools_PileCoordinates\obj\Debug\PileCoordinates.dll
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-03.DHHTools_PileCoordinates\obj\Debug\PileCoordinates.pdb

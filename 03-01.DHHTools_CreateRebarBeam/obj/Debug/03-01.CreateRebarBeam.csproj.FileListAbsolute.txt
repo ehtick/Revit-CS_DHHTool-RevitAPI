@@ -1,0 +1,6 @@
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\03-01.DHHTools_CreateRebarBeam\obj\Debug\03-01.CreateRebarBeam.csproj.AssemblyReference.cache
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\03-01.DHHTools_CreateRebarBeam\obj\Debug\03-01.CreateRebarBeamWindow.baml
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\03-01.DHHTools_CreateRebarBeam\obj\Debug\03-01.CreateRebarBeamWindow.g.cs
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\03-01.DHHTools_CreateRebarBeam\obj\Debug\Lesson_12_CreateRebarBeam_MarkupCompile.cache
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\03-01.DHHTools_CreateRebarBeam\obj\Debug\Lesson_12_CreateRebarBeam.g.resources
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\03-01.DHHTools_CreateRebarBeam\obj\Debug\03-01.CreateRebarBeam.csproj.CoreCompileInputs.cache
