@@ -1,6 +1,8 @@
 ﻿#region Namespaces
 
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI.Selection;
@@ -13,8 +15,19 @@ namespace DHHTools
     public class DocumentPlus : ViewModelBase
     {
         private string modelPath_VM;
-        public Document Document { get; set; }
-        public List<ViewSheetSet> AllSheetSetList { get; set; } = new List<ViewSheetSet>();
+        private Document document_VM;
+        private string documentSelectSheetSet_VM;
+        private string docSheetSetName_VM;
+
+        public Document Document
+        {
+            get => document_VM;
+            set
+            {
+                document_VM = value;
+                OnPropertyChanged("Document");
+            }
+        }
         public string ModelPath
         {
             get => modelPath_VM;
@@ -24,18 +37,33 @@ namespace DHHTools
                 OnPropertyChanged("ModelPath");
             }
         }
-        
+        public string DocSheetSetName
+        {
+            get => docSheetSetName_VM;
+            set
+            {
+                docSheetSetName_VM = value;
+                OnPropertyChanged("DocSheetSetName");
+            }
+        }
+        public string DocumentSelectSheetSet
+        {
+            get => documentSelectSheetSet_VM;
+            set
+            {
+                documentSelectSheetSet_VM = value;
+                OnPropertyChanged("DocumentSelectSheetSet");
+            }
+        }
+        public List<string> DocumentsAllSheetSet { get; set; } = new List<string>();
+        public List<string> DocAllSheetSetName { get; set; } 
+
         public DocumentPlus(Document doc)
         {
             Document = doc;
             ModelPath = doc.PathName;
-            FilteredElementCollector colec = new FilteredElementCollector(doc);
-            List<Element> allsheetset = colec.OfClass(typeof(ViewSheetSet)).ToElements().ToList();
-            foreach (Element item in allsheetset)
-            {
-                AllSheetSetList.Add(item as ViewSheetSet);
-            }
-            AllSheetSetList.Sort();
         }
+        
+
     }
 }

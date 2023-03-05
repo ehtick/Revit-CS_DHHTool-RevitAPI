@@ -167,8 +167,7 @@ namespace DHHTools
                 Name = viewSheetPlus.Name;
                 viewSheetPlus.IsSelected = false;
             }
-            AllViewsSheetList.Sort((v1, v2)
-                => String.CompareOrdinal(v1.SheetNumber, v2.SheetNumber));
+            AllViewsSheetList.Sort((v1, v2) => String.CompareOrdinal(v1.SheetNumber, v2.SheetNumber));
             IsCADSelected = true;
             IsDWFSelected = true;
             IsPDFSelected = true;

@@ -11,3 +11,16 @@ D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-02.DHHTools_CreateRebarSlab2D-RebarPl
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-02.DHHTools_CreateRebarSlab2D-RebarPlan2D\obj\Debug\02-02.CreateRebarSlab2D-RebarPlan2D.csproj.CopyComplete
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-02.DHHTools_CreateRebarSlab2D-RebarPlan2D\obj\Debug\CreateRebarSlab2D-RebarPlan2D.dll
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02-02.DHHTools_CreateRebarSlab2D-RebarPlan2D\obj\Debug\CreateRebarSlab2D-RebarPlan2D.pdb
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-02.DHHTools_CreateRebarSlab2D-RebarPlan2D\bin\Debug\CreateRebarSlab2D-RebarPlan2D.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-02.DHHTools_CreateRebarSlab2D-RebarPlan2D\bin\Debug\CreateRebarSlab2D-RebarPlan2D.pdb
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-02.DHHTools_CreateRebarSlab2D-RebarPlan2D\bin\Debug\DHHTools_Library.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-02.DHHTools_CreateRebarSlab2D-RebarPlan2D\bin\Debug\DHHTools_Library.pdb
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-02.DHHTools_CreateRebarSlab2D-RebarPlan2D\obj\Debug\02-02.CreateRebarSlab2D-RebarPlan2D.csproj.AssemblyReference.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-02.DHHTools_CreateRebarSlab2D-RebarPlan2D\obj\Debug\02-02.CreateRebarSlab2D-RebarPlan2DWindow.baml
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-02.DHHTools_CreateRebarSlab2D-RebarPlan2D\obj\Debug\02-02.CreateRebarSlab2D-RebarPlan2DWindow.g.cs
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-02.DHHTools_CreateRebarSlab2D-RebarPlan2D\obj\Debug\CreateRebarSlab2D-RebarPlan2D_MarkupCompile.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-02.DHHTools_CreateRebarSlab2D-RebarPlan2D\obj\Debug\CreateRebarSlab2D-RebarPlan2D.g.resources
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-02.DHHTools_CreateRebarSlab2D-RebarPlan2D\obj\Debug\02-02.CreateRebarSlab2D-RebarPlan2D.csproj.CoreCompileInputs.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-02.DHHTools_CreateRebarSlab2D-RebarPlan2D\obj\Debug\02-02.CreateRebarSlab2D-RebarPlan2D.csproj.CopyComplete
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-02.DHHTools_CreateRebarSlab2D-RebarPlan2D\obj\Debug\CreateRebarSlab2D-RebarPlan2D.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\02-02.DHHTools_CreateRebarSlab2D-RebarPlan2D\obj\Debug\CreateRebarSlab2D-RebarPlan2D.pdb

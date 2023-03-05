@@ -3,6 +3,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using Application = Autodesk.Revit.ApplicationServices.Application;
@@ -20,6 +21,8 @@ namespace DHHTools
         private Application app;
         private Document doc;
         private ViewSheetSet selectedSheetSet_VM;
+        private string modelPath_VM;
+        private ViewSheetSet documentSelectSheetSet_VM;
         private string selectPrinter_VM;
         private string selectCADVersion_VM;
         private string selectFolder_VM;
@@ -34,7 +37,28 @@ namespace DHHTools
         public string SheetNumber { get; set; }
         public string Name { get; set; }
 
-        //public List<ViewSheetSet> AllSheetSetList { get; set; } = new List<ViewSheetSet>();
+        public string Modelpath
+        {
+            get => modelPath_VM;
+            set
+            {
+                modelPath_VM = value;
+                OnPropertyChanged("Modelpath");
+            }
+
+        }
+
+        public ViewSheetSet DocumentSelectSheetSet
+        {
+            get => documentSelectSheetSet_VM;
+            set
+            {
+                documentSelectSheetSet_VM = value;
+                OnPropertyChanged("DocumentSelectSheetSet");
+            }
+        }
+        public List<ViewSheetSet> DocumentsAllSheetSet { get; set; } = new List<ViewSheetSet>();
+
         public ViewSheetSet SelectedSheetSet
         {
             get => selectedSheetSet_VM;
@@ -55,8 +79,9 @@ namespace DHHTools
                 OnPropertyChanged("SelectPrinter");
             }
         }
-        public List<DocumentPlus> AllDocumentList { get; set; }
+        public List<DocumentPlus> AllDocumentsList { get; set; }
            = new List<DocumentPlus>();
+        public DocumentPlus DocPlus { get; set; }
         public List<string> AllCADVersionsList { get; set; }
         List<ElementId> sheetIDs { get; set; } = new List<ElementId>();
         public string SelectCADVersion
@@ -79,7 +104,6 @@ namespace DHHTools
                 OnPropertyChanged("SelectFolder");
             }
         }
-
         public bool IsCADSelected
         {
             get => isCADSelected_VM;
@@ -141,6 +165,20 @@ namespace DHHTools
             AllCADVersionsList = new List<string> { "AutoCAD 2007", "AutoCAD 2010", "AutoCAD 2013", "AutoCAD 2018" };
             SelectCADVersion = AllCADVersionsList[0];
 
+            DocPlus = new DocumentPlus(Doc);
+            AllDocumentsList.Add(DocPlus);
+            Modelpath = DocPlus.ModelPath;
+            FilteredElementCollector colec = new FilteredElementCollector(doc);
+            List<Element> allsheetset = colec.OfClass(typeof(ViewSheetSet)).ToElements().ToList();
+            foreach (Element item in allsheetset)
+            {
+                string name = (item as ViewSheetSet).Name;
+                //DocPlus.DocAllSheetSetName.Add(name);
+                DocPlus.DocumentsAllSheetSet.Add((item as ViewSheetSet).Name.ToString());
+            }
+            
+            DocPlus.DocumentSelectSheetSet = DocPlus.DocumentsAllSheetSet[0];
+            
 
             IsCADSelected = true;
             IsDWFSelected = true;
