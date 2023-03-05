@@ -23,9 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-02.SheetDuplicates", "01
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-03.PileCoordinates", "02-03.DHHTools_PileCoordinates\02-03.PileCoordinates.csproj", "{FAAE2845-34C9-47F2-83F4-8D2A13B105D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-03.PrintSheet", "01-03.DHHTools_PrintSheet\01-03.PrintSheet.csproj", "{417B1605-A6D3-4478-B7B7-E65E093F1A79}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-04.PrintSheetMultiFile", "01-04.DHHTools_PrintSheetMultiFIle\01-04.PrintSheetMultiFile.csproj", "{354A8D69-7055-4F72-9016-3D7997C8C8A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-04.PrintMultiFile", "01-04.DHHTools_PrintSheetMultiFIle\01-04.PrintMultiFile.csproj", "{354A8D69-7055-4F72-9016-3D7997C8C8A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -157,18 +155,6 @@ Global
 		{FAAE2845-34C9-47F2-83F4-8D2A13B105D2}.Release|x64.Build.0 = Release|x64
 		{FAAE2845-34C9-47F2-83F4-8D2A13B105D2}.Release|x86.ActiveCfg = Release|x86
 		{FAAE2845-34C9-47F2-83F4-8D2A13B105D2}.Release|x86.Build.0 = Release|x86
-		{417B1605-A6D3-4478-B7B7-E65E093F1A79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{417B1605-A6D3-4478-B7B7-E65E093F1A79}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{417B1605-A6D3-4478-B7B7-E65E093F1A79}.Debug|x64.ActiveCfg = Debug|x64
-		{417B1605-A6D3-4478-B7B7-E65E093F1A79}.Debug|x64.Build.0 = Debug|x64
-		{417B1605-A6D3-4478-B7B7-E65E093F1A79}.Debug|x86.ActiveCfg = Debug|x86
-		{417B1605-A6D3-4478-B7B7-E65E093F1A79}.Debug|x86.Build.0 = Debug|x86
-		{417B1605-A6D3-4478-B7B7-E65E093F1A79}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{417B1605-A6D3-4478-B7B7-E65E093F1A79}.Release|Any CPU.Build.0 = Release|Any CPU
-		{417B1605-A6D3-4478-B7B7-E65E093F1A79}.Release|x64.ActiveCfg = Release|x64
-		{417B1605-A6D3-4478-B7B7-E65E093F1A79}.Release|x64.Build.0 = Release|x64
-		{417B1605-A6D3-4478-B7B7-E65E093F1A79}.Release|x86.ActiveCfg = Release|x86
-		{417B1605-A6D3-4478-B7B7-E65E093F1A79}.Release|x86.Build.0 = Release|x86
 		{354A8D69-7055-4F72-9016-3D7997C8C8A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{354A8D69-7055-4F72-9016-3D7997C8C8A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{354A8D69-7055-4F72-9016-3D7997C8C8A7}.Debug|x64.ActiveCfg = Debug|x64

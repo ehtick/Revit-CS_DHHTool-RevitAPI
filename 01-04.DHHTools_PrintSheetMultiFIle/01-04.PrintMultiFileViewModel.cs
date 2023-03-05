@@ -23,7 +23,6 @@ namespace DHHTools
         private string selectPrinter_VM;
         private string selectCADVersion_VM;
         private string selectFolder_VM;
-        private bool isSelected_VM;
         private bool isCADSelected_VM;
         private bool isDWFSelected_VM;
         private bool isPDFSelected_VM;
@@ -34,9 +33,9 @@ namespace DHHTools
         public Document Doc;
         public string SheetNumber { get; set; }
         public string Name { get; set; }
-        
-        public List<ViewSheetSet> AllSheetSetList { get; set; } = new List<ViewSheetSet>();
-        public ViewSheetSet SelectedSheetSet 
+
+        //public List<ViewSheetSet> AllSheetSetList { get; set; } = new List<ViewSheetSet>();
+        public ViewSheetSet SelectedSheetSet
         {
             get => selectedSheetSet_VM;
             set
@@ -56,14 +55,12 @@ namespace DHHTools
                 OnPropertyChanged("SelectPrinter");
             }
         }
-        public List<ViewSheetPlus> AllViewsSheetList { get; set; }
-           = new List<ViewSheetPlus>();
-        public List<ViewSheetPlus> SelectedViewsSheet { get; set; }
-            = new List<ViewSheetPlus>();
+        public List<DocumentPlus> AllDocumentList { get; set; }
+           = new List<DocumentPlus>();
         public List<string> AllCADVersionsList { get; set; }
         List<ElementId> sheetIDs { get; set; } = new List<ElementId>();
         public string SelectCADVersion
-        
+
         {
             get => selectCADVersion_VM;
             set
@@ -82,15 +79,7 @@ namespace DHHTools
                 OnPropertyChanged("SelectFolder");
             }
         }
-        public bool IsSelected
-        {
-            get => isSelected_VM;
-            set
-            {
-                isSelected_VM = value;
-                OnPropertyChanged("IsSelected");
-            }
-        }
+
         public bool IsCADSelected
         {
             get => isCADSelected_VM;
@@ -138,37 +127,21 @@ namespace DHHTools
             doc = uidoc.Document;
             UiDoc = uidoc;
             Doc = UiDoc.Document;
+
+            // Thư mục xuất file mặc định
             SelectFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            FilteredElementCollector colec = new FilteredElementCollector(doc);
-            List<Element> allsheetset = colec.OfClass(typeof(ViewSheetSet)).ToElements().ToList();
-            foreach (Element item in allsheetset)
-            {
-                AllSheetSetList.Add(item as ViewSheetSet);
-            }
-            SelectedSheetSet = AllSheetSetList[0];
+
+            //Lấy tất cả các máy in và chọn máy in mặc đinh
             foreach (string printer in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
-            {
-                AllPrinterList.Add(printer);
-            }
+            { AllPrinterList.Add(printer); }
             AllPrinterList.Sort();
-            AllCADVersionsList = new List<string>{"AutoCAD 2007", "AutoCAD 2010", "AutoCAD 2013", "AutoCAD 2018" };
-            SelectCADVersion = AllCADVersionsList[0];
             SelectPrinter = "Microsoft Print to PDF";
-            List<ViewSheet> allviewsheet = new FilteredElementCollector(doc)
-                .OfClass(typeof(ViewSheet))
-                .OfCategory(BuiltInCategory.OST_Sheets)
-                .Cast<ViewSheet>()
-                .ToList();
-            foreach (ViewSheet vs in allviewsheet)
-            {
-                ViewSheetPlus viewSheetPlus = new ViewSheetPlus(vs);
-                AllViewsSheetList.Add(viewSheetPlus);
-                SheetNumber = viewSheetPlus.SheetNumber;
-                Name = viewSheetPlus.Name;
-                viewSheetPlus.IsSelected = false;
-            }
-            AllViewsSheetList.Sort((v1, v2)
-                => String.CompareOrdinal(v1.SheetNumber, v2.SheetNumber));
+
+            //Lấy về tất cả các phiên bản CAD và chọn phiên bản mặc định
+            AllCADVersionsList = new List<string> { "AutoCAD 2007", "AutoCAD 2010", "AutoCAD 2013", "AutoCAD 2018" };
+            SelectCADVersion = AllCADVersionsList[0];
+
+
             IsCADSelected = true;
             IsDWFSelected = true;
             IsPDFSelected = true;
@@ -180,8 +153,9 @@ namespace DHHTools
         #region 04. Method
         public void exportDWF()
         {
-            if (IsDWFSelected==true)
-            {using (Transaction tran = new Transaction(doc))
+            if (IsDWFSelected == true)
+            {
+                using (Transaction tran = new Transaction(doc))
                 {
                     tran.Start("Export DWF");
                     DWFExportOptions dWFExportOptions = new DWFExportOptions();
@@ -199,25 +173,26 @@ namespace DHHTools
                     tran.Commit();
                 }
             }
-            
+
         }
         public void exportDWG()
         {
-            if(IsCADSelected == true)
-            {using (Transaction tran = new Transaction(doc))
+            if (IsCADSelected == true)
+            {
+                using (Transaction tran = new Transaction(doc))
                 {
                     tran.Start("Export DWG");
                     DWGExportOptions dWGExportOptions = new DWGExportOptions();
                     dWGExportOptions.MergedViews = true;
                     dWGExportOptions.FileVersion = ACADVersion.R2007;
-                        if (SelectCADVersion == "AutoCAD 2007")
-                        { dWGExportOptions.FileVersion = ACADVersion.R2007; }
-                        else if (SelectCADVersion == "AutoCAD 2010")
-                        { dWGExportOptions.FileVersion = ACADVersion.R2010; }
-                        else if (SelectCADVersion == "AutoCAD 2013")
-                        { dWGExportOptions.FileVersion = ACADVersion.R2013; }
-                        else if (SelectCADVersion == "AutoCAD 2018")
-                        { dWGExportOptions.FileVersion = ACADVersion.R2018; }
+                    if (SelectCADVersion == "AutoCAD 2007")
+                    { dWGExportOptions.FileVersion = ACADVersion.R2007; }
+                    else if (SelectCADVersion == "AutoCAD 2010")
+                    { dWGExportOptions.FileVersion = ACADVersion.R2010; }
+                    else if (SelectCADVersion == "AutoCAD 2013")
+                    { dWGExportOptions.FileVersion = ACADVersion.R2013; }
+                    else if (SelectCADVersion == "AutoCAD 2018")
+                    { dWGExportOptions.FileVersion = ACADVersion.R2018; }
                     dWGExportOptions.TargetUnit = ExportUnit.Millimeter;
                     foreach (View item in SelectedSheetSet.Views)
                     { sheetIDs.Add(item.Id); }
@@ -237,7 +212,7 @@ namespace DHHTools
         }
         public void exportPDF()
         {
-            if (IsPDFSelected ==true)
+            if (IsPDFSelected == true)
             {
                 using (Transaction tran = new Transaction(doc))
                 {
@@ -248,25 +223,28 @@ namespace DHHTools
                     printManager.CombinedFile = true;
                     printManager.PrintToFile = true;
                     printManager.PrintToFileName = SelectFolder + @"\" + doc.Title + ".pdf";
+
                     printManager.Apply();
                     doc.Print(SelectedSheetSet.Views);
 
                 }
             }
-            
+
         }
-        public void updateViewSheet()
-        {
-            foreach (ViewSheetPlus vsPlus in AllViewsSheetList)
-            { vsPlus.IsSelected = false;}
-            List<string> SNList = new List<string>();
-            foreach (ViewSheetPlus vsPlus in AllViewsSheetList)
-            { SNList.Add(vsPlus.SheetNumber);}
-            ViewSet viewSet = SelectedSheetSet.Views;
-            foreach (ViewSheet vSheet in viewSet)
-            { int i = SNList.IndexOf(vSheet.SheetNumber);
-                if (i > -1) {AllViewsSheetList[i].IsSelected = true;}}
-        }
+        //public void updateViewSheet()
+        //{
+        //    foreach (ViewSheetPlus vsPlus in AllViewsSheetList)
+        //    { vsPlus.IsSelected = false; }
+        //    List<string> SNList = new List<string>();
+        //    foreach (ViewSheetPlus vsPlus in AllViewsSheetList)
+        //    { SNList.Add(vsPlus.SheetNumber); }
+        //    ViewSet viewSet = SelectedSheetSet.Views;
+        //    foreach (ViewSheet vSheet in viewSet)
+        //    {
+        //        int i = SNList.IndexOf(vSheet.SheetNumber);
+        //        if (i > -1) { AllViewsSheetList[i].IsSelected = true; }
+        //    }
+        //}
         public void deletePCPFile()
         {
             if (IsCADSelected == true)

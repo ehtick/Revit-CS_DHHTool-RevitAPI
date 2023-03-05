@@ -60,9 +60,6 @@ namespace DHHTools
             Close();
         }
 
-        private void Btn_ListChange(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            _viewModel.updateViewSheet();
-        }
+        
     }
 }

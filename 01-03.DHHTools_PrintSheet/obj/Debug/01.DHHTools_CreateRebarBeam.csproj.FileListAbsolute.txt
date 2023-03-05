@@ -1,6 +1,0 @@
-D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\01.DHHTools_CreateRebarBeam\obj\Debug\01.DHHTools_CreateRebarBeam.csprojAssemblyReference.cache
-D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\01.DHHTools_CreateRebarBeam\obj\Debug\01.DHHTools_CreateRebarBeamWindow.baml
-D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\01.DHHTools_CreateRebarBeam\obj\Debug\01.DHHTools_CreateRebarBeamWindow.g.cs
-D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\01.DHHTools_CreateRebarBeam\obj\Debug\Lesson_12_CreateRebarBeam_MarkupCompile.cache
-D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\01.DHHTools_CreateRebarBeam\obj\Debug\Lesson_12_CreateRebarBeam.g.resources
-D:\WORKING\STUDY\Programming\C-Sharp\C-Sharp_DHHTools-DinhHoangHoa\01.DHHTools_CreateRebarBeam\obj\Debug\01.DHHTools_CreateRebarBeam.csproj.CoreCompileInputs.cache
