@@ -60,6 +60,11 @@ namespace DHHTools
             Close();
         }
 
-        
+
+        private void Btn_AddFile(object sender, RoutedEventArgs e)
+        {
+            _viewModel.addFile();
+            _viewModel.UpdateAllDocumentList();
+        }
     }
 }

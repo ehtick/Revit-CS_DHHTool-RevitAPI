@@ -201,7 +201,7 @@
                 Content="Add Files"
                 Height ="32"
                 DockPanel.Dock="Right"
-                Style="{DynamicResource ButtonStyle}" Click="Btn_SaveLocation"  />
+                Style="{DynamicResource ButtonStyle}" Click="Btn_AddFile"  />
 
 </DockPanel>
     </Grid>

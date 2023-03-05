@@ -6,7 +6,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 using Application = Autodesk.Revit.ApplicationServices.Application;
+using View = Autodesk.Revit.DB.View;
+
 // ReSharper disable All
 #endregion
 
@@ -57,7 +60,7 @@ namespace DHHTools
                 OnPropertyChanged("DocumentSelectSheetSet");
             }
         }
-        public List<ViewSheetSet> DocumentsAllSheetSet { get; set; } = new List<ViewSheetSet>();
+        public ObservableCollection<ViewSheetSet> DocumentsAllSheetSet { get; set; } = new ObservableCollection<ViewSheetSet>();
 
         public ViewSheetSet SelectedSheetSet
         {
@@ -79,8 +82,8 @@ namespace DHHTools
                 OnPropertyChanged("SelectPrinter");
             }
         }
-        public List<DocumentPlus> AllDocumentsList { get; set; }
-           = new List<DocumentPlus>();
+        public ObservableCollection<DocumentPlus> AllDocumentsList { get; set; }
+           = new ObservableCollection<DocumentPlus>();
         public DocumentPlus DocPlus { get; set; }
         public List<string> AllCADVersionsList { get; set; }
         List<ElementId> sheetIDs { get; set; } = new List<ElementId>();
@@ -165,20 +168,21 @@ namespace DHHTools
             AllCADVersionsList = new List<string> { "AutoCAD 2007", "AutoCAD 2010", "AutoCAD 2013", "AutoCAD 2018" };
             SelectCADVersion = AllCADVersionsList[0];
 
-            DocPlus = new DocumentPlus(Doc);
+            DocPlus = new DocumentPlus(doc);
             AllDocumentsList.Add(DocPlus);
-            Modelpath = DocPlus.ModelPath;
-            FilteredElementCollector colec = new FilteredElementCollector(doc);
+
+            //Modelpath = DocPlus.ModelPath;
+            FilteredElementCollector colec = new FilteredElementCollector(DocPlus.Document);
             List<Element> allsheetset = colec.OfClass(typeof(ViewSheetSet)).ToElements().ToList();
-            foreach (Element item in allsheetset)
-            {
-                string name = (item as ViewSheetSet).Name;
-                //DocPlus.DocAllSheetSetName.Add(name);
-                DocPlus.DocumentsAllSheetSet.Add((item as ViewSheetSet).Name.ToString());
-            }
-            
-            DocPlus.DocumentSelectSheetSet = DocPlus.DocumentsAllSheetSet[0];
-            
+            //foreach (Element item in allsheetset)
+            //{
+            //    string name = (item as ViewSheetSet).Name;
+            //    //DocPlus.DocAllSheetSetName.Add(name);
+            //    DocPlus.DocumentsAllSheetSet.Add((item as ViewSheetSet));
+            //}
+
+            //DocPlus.DocumentSelectSheetSet = DocPlus.DocumentsAllSheetSet[0];
+
 
             IsCADSelected = true;
             IsDWFSelected = true;
@@ -320,6 +324,45 @@ namespace DHHTools
                     System.IO.Directory.CreateDirectory(SelectFolder + "\\PDF");
                 }
 
+            }
+        }
+
+        public void addFile()
+        {
+            OpenFileDialog file = new OpenFileDialog();
+            {
+                file.InitialDirectory = "C:\\";
+                file.DefaultExt = "xls";
+                file.Filter = "Revit File(*.rvt)|*.rvt" + "|All Files (*.*)|*.*";
+                file.FilterIndex = 1;
+                file.Multiselect = true;
+                file.RestoreDirectory = true;
+            }
+            if (file.ShowDialog() == DialogResult.OK) //if there is a file chosen by the user
+
+            {
+                foreach (String filename in file.FileNames)
+                {
+                    Document openedDoc = app.OpenDocumentFile(filename);
+                    DocumentPlus docPlus = new DocumentPlus(openedDoc);
+                    AllDocumentsList.Add(docPlus);
+                }
+            }
+        }
+
+        public void UpdateAllDocumentList()
+        {
+            foreach (DocumentPlus docplus in AllDocumentsList)
+            {
+                Modelpath = docplus.ModelPath;
+                FilteredElementCollector colec = new FilteredElementCollector(docplus.Document);
+                List<Element> allsheetset = colec.OfClass(typeof(ViewSheetSet)).ToElements().ToList();
+                foreach (Element item in allsheetset)
+                {
+                    string name = (item as ViewSheetSet).Name;
+                    //docplus.DocAllSheetSetName.Add(name);
+                    //docplus.DocumentsAllSheetSet.Add((item as ViewSheetSet));
+                }
             }
         }
         #endregion
