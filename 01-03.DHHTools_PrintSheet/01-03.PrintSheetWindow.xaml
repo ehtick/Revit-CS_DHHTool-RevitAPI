@@ -1,0 +1,227 @@
+﻿<Window
+    x:Class="DHHTools.PrintSheetWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dhhTools="clr-namespace:DHHTools;assembly=DHHTools_Library"
+    x:Name="MainWindow"
+    Title="Print Sheets"
+    MinWidth="700"
+    MinHeight="630"
+    Width="800"
+    Height="600"
+    ResizeMode="CanResize"
+    ShowInTaskbar="True"
+    Topmost="False"
+    WindowStartupLocation="CenterScreen" >
+
+    <Window.Resources>
+        <ResourceDictionary Source="/DHHTools_Library;component/WPF/Resource/Styles.xaml" />
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="350"/>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="42"/>
+            </Grid.RowDefinitions>
+            <DockPanel LastChildFill ="True"
+                       ScrollViewer.CanContentScroll="True">
+                <TextBlock Height="25" DockPanel.Dock="Top" Text="Select Sheets: " 
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"
+                       FontSize ="15"
+                       FontFamily="San Serif"
+                       Padding="3"/>
+                <DataGrid  HeadersVisibility="None"
+                       AutoGenerateColumns="False"
+                       ItemsSource="{Binding AllViewsSheetList}"
+                       dhhTools:CustomDataGrid.SelectedItems="{Binding SelectedViewsSheet}">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="dhhTools:ViewSheetPlus">
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox IsChecked="{Binding IsSelected}"
+                                                  Style="{DynamicResource CheckBoxStyle}"/>
+                                        <TextBlock Text="{Binding SheetNumber}"
+                                                   VerticalAlignment="Center" />
+                                        <TextBlock Text=" - "
+                                                   VerticalAlignment="Center" />
+                                        <TextBlock Text="{Binding Name}"
+                                                   VerticalAlignment="Center" />
+
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+            <DockPanel Grid.Row="1">
+                <RadioButton Content="Select All"
+                         GroupName="SelectOption"
+                         Style="{StaticResource RadioButtonStyle}"/>
+                <RadioButton Content="Select None"
+                         GroupName="SelectOption"
+                         Style="{StaticResource RadioButtonStyle}"/>
+                
+            </DockPanel>
+        </Grid>
+        <DockPanel Grid.Column="1"
+                   LastChildFill="True">
+            <StackPanel DockPanel.Dock="Top">
+                <TextBlock Height="25" DockPanel.Dock="Top" Text="Select Sheet Set: " 
+                           TextWrapping="Wrap"
+                           VerticalAlignment="Center"
+                           TextAlignment="Center"
+                           FontSize ="15"
+                           FontFamily="San Serif"
+                           Padding="3"/>
+                <ComboBox Height="32"
+                          ItemsSource="{Binding AllSheetSetList}"
+                          SelectedItem="{Binding SelectedSheetSet}"
+                          DisplayMemberPath="Name"
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Left"
+                          IsEditable="True" SelectionChanged="Btn_ListChange"/>
+                <DockPanel  Height="40"
+                            VerticalAlignment="Bottom"
+                            LastChildFill="True" 
+                            HorizontalAlignment="Right">
+                    <Button
+                        HorizontalAlignment="Right"
+                        Content="Save As"
+                        DockPanel.Dock="Right"
+                        Height ="32"
+                        Style="{DynamicResource ButtonStyle}" />
+                    <Button
+                        Content="Save"
+                        Height ="32"
+                        DockPanel.Dock="Right"
+                        Style="{DynamicResource ButtonStyle}" />
+                </DockPanel>
+                <TextBlock Height="25" DockPanel.Dock="Top" Text="EXPORT Option: " 
+                           TextWrapping="Wrap"
+                           VerticalAlignment="Center"
+                           TextAlignment="Center"
+                           FontSize ="15"
+                           FontFamily="San Serif"
+                           Padding="3"/>
+                <CheckBox  Content="Export CAD (*.dwg)" 
+                           FontSize ="15"
+                           IsChecked="{Binding IsCADSelected}"
+                           Style="{DynamicResource CheckBoxStyle}"/>
+
+                <CheckBox  Content="Export DWF (*.dwf/*.dwfx)" 
+                           FontSize ="15"
+                           IsChecked="{Binding IsDWFSelected}"
+                           Style="{DynamicResource CheckBoxStyle}"/>
+                <CheckBox  Content="Export PDF (*.pdf)" 
+                           FontSize ="15"
+                           IsChecked="{Binding IsPDFSelected}"
+                           Style="{DynamicResource CheckBoxStyle}"/>
+                <TextBlock Height="25" DockPanel.Dock="Top" Text="EXPORT Setting: " 
+                           TextWrapping="Wrap"
+                           VerticalAlignment="Center"
+                           TextAlignment="Center"
+                           FontSize ="15"
+                           FontFamily="San Serif"
+                           Padding="3"/>
+                <DockPanel LastChildFill="True">
+                    <TextBlock DockPanel.Dock="Left"
+                           Height="25"  
+                           Width="100"
+                           Text="CAD Version: " 
+                           TextWrapping="Wrap"
+                           VerticalAlignment="Center"
+                           TextAlignment="Left"
+                           FontSize ="15"
+                           FontFamily="San Serif"
+                           Padding="3"/>
+                    <ComboBox 
+                        DockPanel.Dock="Right"
+                        Height="32"
+                        ItemsSource="{Binding AllCADVersionsList}"
+                        SelectedItem="{Binding SelectCADVersion}"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Left"
+                        IsEditable="True"/>
+                </DockPanel>
+                
+                <DockPanel LastChildFill="True">
+                    <TextBlock DockPanel.Dock="Left"
+                               Height="25"  
+                               Width="100"
+                               Text="Printer Name: " 
+                               TextWrapping="Wrap"
+                               VerticalAlignment="Center"
+                               TextAlignment="Left"
+                               FontSize ="15"
+                               FontFamily="San Serif"
+                               Padding="3"/>
+                    <ComboBox 
+                        DockPanel.Dock="Right"
+                        Height="32"
+                        ItemsSource="{Binding AllPrinterList}"
+                        SelectedItem="{Binding SelectPrinter}"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Left"
+                        IsEditable="True"/>
+                </DockPanel>
+                
+                <DockPanel LastChildFill="True">
+                    <TextBlock DockPanel.Dock="Left"
+                               Height="25"  
+                               Width="100"
+                               Text="Save Folder: " 
+                               TextWrapping="Wrap"
+                               VerticalAlignment="Center"
+                               TextAlignment="Left"
+                               FontSize ="15"
+                               FontFamily="San Serif"
+                               Padding="3"/>
+                    <TextBox 
+                        DockPanel.Dock="Right"
+                        Height="32"
+                        Text="{Binding SelectFolder}"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Left"/>
+
+                </DockPanel>
+                <CheckBox  Content="Create Seprate Folder (DWG, DWF, PDF)" 
+                           FontSize ="15"
+                           IsChecked="{Binding IsSeprateFolder}"
+                           Style="{DynamicResource CheckBoxStyle}"/>
+            </StackPanel>
+            <DockPanel DockPanel.Dock="Bottom" 
+                Height="40"
+                VerticalAlignment="Bottom"
+                LastChildFill="True" 
+                HorizontalAlignment="Right">
+                <Button
+                    HorizontalAlignment="Right"
+                    Content="Cancel"
+                    DockPanel.Dock="Right"
+                    IsCancel="True"
+                    Height ="32"
+                    Style="{DynamicResource ButtonStyle}" Click="Btn_Cancel" />
+                <Button
+                    Content="OK"
+                    Height ="32"
+                    DockPanel.Dock="Right"
+                    Style="{DynamicResource ButtonStyle}" Click="Btn_OK"  />
+                <Button
+                    Content="Save Location"
+                    Height ="32"
+                    DockPanel.Dock="Right"
+                    Style="{DynamicResource ButtonStyle}" Click="Btn_SaveLocation"  />
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,39 @@
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-03.DHHTools_PrintSheet\obj\Debug\01-03.PrintSheet.csproj.AssemblyReference.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-03.DHHTools_PrintSheet\obj\Debug\01-03.PrintSheetWindow.baml
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-03.DHHTools_PrintSheet\obj\Debug\01-03.PrintSheetWindow.g.cs
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-03.DHHTools_PrintSheet\obj\Debug\PrintSheet_MarkupCompile.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-03.DHHTools_PrintSheet\obj\Debug\PrintSheet.g.resources
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-03.DHHTools_PrintSheet\obj\Debug\01-03.PrintSheet.csproj.CoreCompileInputs.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-03.DHHTools_PrintSheet\bin\Debug\PrintSheet.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-03.DHHTools_PrintSheet\bin\Debug\PrintSheet.pdb
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-03.DHHTools_PrintSheet\bin\Debug\DHHTools_Library.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-03.DHHTools_PrintSheet\bin\Debug\DHHTools_Library.pdb
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-03.DHHTools_PrintSheet\obj\Debug\01-03.PrintSheet.csproj.CopyComplete
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-03.DHHTools_PrintSheet\obj\Debug\PrintSheet.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-03.DHHTools_PrintSheet\obj\Debug\PrintSheet.pdb
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\bin\Debug\PrintSheet.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\bin\Debug\PrintSheet.pdb
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\bin\Debug\DHHTools_Library.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\bin\Debug\DHHTools_Library.pdb
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\obj\Debug\01-03.PrintSheet.csproj.AssemblyReference.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\obj\Debug\01-03.PrintSheetWindow.baml
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\obj\Debug\01-03.PrintSheetWindow.g.cs
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\obj\Debug\PrintSheet_MarkupCompile.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\obj\Debug\PrintSheet.g.resources
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\obj\Debug\01-03.PrintSheet.csproj.CoreCompileInputs.cache
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\obj\Debug\01-03.PrintSheet.csproj.CopyComplete
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\obj\Debug\PrintSheet.dll
+D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\obj\Debug\PrintSheet.pdb
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\bin\Debug\PrintSheet.dll
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\bin\Debug\PrintSheet.pdb
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\bin\Debug\DHHTools_Library.dll
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\bin\Debug\DHHTools_Library.pdb
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\obj\Debug\01-03.PrintSheet.csproj.AssemblyReference.cache
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\obj\Debug\01-03.PrintSheetWindow.baml
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\obj\Debug\01-03.PrintSheetWindow.g.cs
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\obj\Debug\PrintSheet_MarkupCompile.cache
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\obj\Debug\PrintSheet.g.resources
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\obj\Debug\01-03.PrintSheet.csproj.CoreCompileInputs.cache
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\obj\Debug\01-03.PrintSheet.csproj.CopyComplete
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\obj\Debug\PrintSheet.dll
+D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\01-03.DHHTools_PrintSheet\obj\Debug\PrintSheet.pdb
