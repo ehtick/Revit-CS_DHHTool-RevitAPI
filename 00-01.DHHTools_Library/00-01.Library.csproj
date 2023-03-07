@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="DhhConstraint.cs" />
     <Compile Include="DhhElementFilter.cs" />
+    <Compile Include="DhhDocumentUtils.cs" />
     <Compile Include="DhhGeometryUtils.cs" />
     <Compile Include="DhhElementUtils.cs" />
     <Compile Include="DhhUnitUtils.cs" />

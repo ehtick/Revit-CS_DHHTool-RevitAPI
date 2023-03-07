@@ -50,7 +50,6 @@ namespace DHHTools
             }
 
         }
-
         public ViewSheetSet DocumentSelectSheetSet
         {
             get => documentSelectSheetSet_VM;
@@ -82,6 +81,7 @@ namespace DHHTools
                 OnPropertyChanged("SelectPrinter");
             }
         }
+        
         public ObservableCollection<DocumentPlus> AllDocumentsList { get; set; }
            = new ObservableCollection<DocumentPlus>();
         public DocumentPlus DocPlus { get; set; }
@@ -171,18 +171,12 @@ namespace DHHTools
             DocPlus = new DocumentPlus(doc);
             AllDocumentsList.Add(DocPlus);
 
-            //Modelpath = DocPlus.ModelPath;
-            FilteredElementCollector colec = new FilteredElementCollector(DocPlus.Document);
-            List<Element> allsheetset = colec.OfClass(typeof(ViewSheetSet)).ToElements().ToList();
-            //foreach (Element item in allsheetset)
-            //{
-            //    string name = (item as ViewSheetSet).Name;
-            //    //DocPlus.DocAllSheetSetName.Add(name);
-            //    DocPlus.DocumentsAllSheetSet.Add((item as ViewSheetSet));
-            //}
-
-            //DocPlus.DocumentSelectSheetSet = DocPlus.DocumentsAllSheetSet[0];
-
+            foreach (DocumentPlus docplus in AllDocumentsList)
+            {
+                Modelpath = docplus.ModelPath;
+                docplus.DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(docplus.Document);
+                docplus.DocumentSelectSheetSet = docplus.DocumentsAllSheetSet[0];
+            }
 
             IsCADSelected = true;
             IsDWFSelected = true;
@@ -207,10 +201,7 @@ namespace DHHTools
                     {
                         DWFFolder = SelectFolder + "\\DWF";
                     }
-                    else
-                    {
-                        DWFFolder = SelectFolder;
-                    }
+                    else {DWFFolder = SelectFolder;}
                     doc.Export(DWFFolder, doc.Title, SelectedSheetSet.Views, dWFExportOptions);
                     tran.Commit();
                 }
@@ -267,26 +258,14 @@ namespace DHHTools
                     printManager.PrintToFileName = SelectFolder + @"\" + doc.Title + ".pdf";
 
                     printManager.Apply();
+                    
                     doc.Print(SelectedSheetSet.Views);
+                    
 
                 }
             }
 
         }
-        //public void updateViewSheet()
-        //{
-        //    foreach (ViewSheetPlus vsPlus in AllViewsSheetList)
-        //    { vsPlus.IsSelected = false; }
-        //    List<string> SNList = new List<string>();
-        //    foreach (ViewSheetPlus vsPlus in AllViewsSheetList)
-        //    { SNList.Add(vsPlus.SheetNumber); }
-        //    ViewSet viewSet = SelectedSheetSet.Views;
-        //    foreach (ViewSheet vSheet in viewSet)
-        //    {
-        //        int i = SNList.IndexOf(vSheet.SheetNumber);
-        //        if (i > -1) { AllViewsSheetList[i].IsSelected = true; }
-        //    }
-        //}
         public void deletePCPFile()
         {
             if (IsCADSelected == true)
@@ -355,15 +334,10 @@ namespace DHHTools
             foreach (DocumentPlus docplus in AllDocumentsList)
             {
                 Modelpath = docplus.ModelPath;
-                FilteredElementCollector colec = new FilteredElementCollector(docplus.Document);
-                List<Element> allsheetset = colec.OfClass(typeof(ViewSheetSet)).ToElements().ToList();
-                foreach (Element item in allsheetset)
-                {
-                    string name = (item as ViewSheetSet).Name;
-                    //docplus.DocAllSheetSetName.Add(name);
-                    //docplus.DocumentsAllSheetSet.Add((item as ViewSheetSet));
-                }
+                docplus.DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(docplus.Document);
+                docplus.DocumentSelectSheetSet = docplus.DocumentsAllSheetSet[0];
             }
+
         }
         #endregion
     }

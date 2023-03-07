@@ -34,8 +34,9 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate DataType="dhhTools:DocumentPlus">
                                     <DockPanel LastChildFill="True">
-                                        <TextBox Width="550"
-                                                 VerticalContentAlignment="Center"
+                                        <TextBox 
+                                            Width="600"
+                                            VerticalContentAlignment="Center"
                                             Text ="{Binding ModelPath}"
                                             HorizontalAlignment="Left"/>
                                         <ComboBox 
@@ -44,6 +45,7 @@
                                             SelectedItem="{Binding DocumentSelectSheetSet}"
                                             VerticalContentAlignment="Center"
                                             HorizontalContentAlignment="Left"
+                                            DisplayMemberPath="Name"
                                             IsEditable="True"/>
                                     </DockPanel>
 
