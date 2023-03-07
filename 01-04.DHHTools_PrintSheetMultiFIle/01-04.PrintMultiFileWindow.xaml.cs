@@ -48,7 +48,6 @@ namespace DHHTools
         private void Btn_OK(object sender, RoutedEventArgs e)
         {
             Close();
-            _viewModel.createFolder();
             _viewModel.exportDWF();
             _viewModel.exportDWG();
             _viewModel.deletePCPFile();
