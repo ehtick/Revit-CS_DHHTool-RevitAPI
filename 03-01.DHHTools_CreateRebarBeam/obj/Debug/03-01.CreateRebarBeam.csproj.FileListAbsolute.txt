@@ -10,3 +10,9 @@ D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\03-01.DHHTools_Cre
 D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\03-01.DHHTools_CreateRebarBeam\obj\Debug\Lesson_12_CreateRebarBeam_MarkupCompile.cache
 D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\03-01.DHHTools_CreateRebarBeam\obj\Debug\Lesson_12_CreateRebarBeam.g.resources
 D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\03-01.DHHTools_CreateRebarBeam\obj\Debug\03-01.CreateRebarBeam.csproj.CoreCompileInputs.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\03-01.DHHTools_CreateRebarBeam\obj\Debug\03-01.CreateRebarBeam.csproj.AssemblyReference.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\03-01.DHHTools_CreateRebarBeam\obj\Debug\03-01.CreateRebarBeamWindow.baml
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\03-01.DHHTools_CreateRebarBeam\obj\Debug\03-01.CreateRebarBeamWindow.g.cs
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\03-01.DHHTools_CreateRebarBeam\obj\Debug\Lesson_12_CreateRebarBeam_MarkupCompile.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\03-01.DHHTools_CreateRebarBeam\obj\Debug\Lesson_12_CreateRebarBeam.g.resources
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\03-01.DHHTools_CreateRebarBeam\obj\Debug\03-01.CreateRebarBeam.csproj.CoreCompileInputs.cache
