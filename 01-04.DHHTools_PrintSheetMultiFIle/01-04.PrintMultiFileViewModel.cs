@@ -1,9 +1,11 @@
-﻿#region Namespaces
+﻿// ReSharper disable All
+#region Namespaces
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+// ReSharper disable once RedundantUsingDirective
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -24,7 +26,6 @@ namespace DHHTools
         private UIDocument uidoc;
         private Application app;
         private Document doc;
-        private ViewSheetSet selectedSheetSet_VM;
         private string modelPath_VM;
         private ViewSheetSet documentSelectSheetSet_VM;
         private string selectPrinter_VM;
@@ -161,9 +162,9 @@ namespace DHHTools
 
             foreach (DocumentPlus docplus in AllDocumentsList)
             {
-                Modelpath = docplus.ModelPath;
-                docplus.AllSheetSets = DhhDocumentUtil.GetAllSheetSet(docplus.Document);
-                docplus.SelectSheetSet = docplus.AllSheetSets[0];
+                
+                //Modelpath = docplus.ModelPath;
+                DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(docplus.Document);
             }
             IsCADSelected = true;
             IsDWFSelected = true;
@@ -324,8 +325,8 @@ namespace DHHTools
             foreach (DocumentPlus docplus in AllDocumentsList)
             {
                 Modelpath = docplus.ModelPath;
-                docplus.AllSheetSets = DhhDocumentUtil.GetAllSheetSet(docplus.Document);
-                docplus.SelectSheetSet = docplus.AllSheetSets[0];
+                docplus.DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(docplus.Document);
+                docplus.SelectSheetSet = docplus.DocumentsAllSheetSet[0];
             }
 
         }
