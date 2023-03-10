@@ -61,16 +61,6 @@ namespace DHHTools
         }
         public ObservableCollection<ViewSheetSet> DocumentsAllSheetSet { get; set; } 
             = new ObservableCollection<ViewSheetSet>();
-        public ViewSheetSet SelectedSheetSet
-        {
-            get => selectedSheetSet_VM;
-            set
-            {
-                selectedSheetSet_VM = value;
-                OnPropertyChanged("SelectedSheetSet");
-                OnPropertyChanged("SelectedViewsSheet");
-            }
-        }
         public List<string> AllPrinterList { get; set; } = new List<string>();
         public string SelectPrinter
         {
@@ -85,7 +75,6 @@ namespace DHHTools
            = new ObservableCollection<DocumentPlus>();
         public DocumentPlus DocPlus { get; set; }
         public List<string> AllCADVersionsList { get; set; }
-        
         public string SelectCADVersion
 
         {
@@ -173,10 +162,9 @@ namespace DHHTools
             foreach (DocumentPlus docplus in AllDocumentsList)
             {
                 Modelpath = docplus.ModelPath;
-                docplus.DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(docplus.Document);
-                docplus.DocumentSelectSheetSet = docplus.DocumentsAllSheetSet[0];
+                docplus.AllSheetSets = DhhDocumentUtil.GetAllSheetSet(docplus.Document);
+                docplus.SelectSheetSet = docplus.AllSheetSets[0];
             }
-
             IsCADSelected = true;
             IsDWFSelected = true;
             IsPDFSelected = true;
@@ -210,7 +198,7 @@ namespace DHHTools
                             System.IO.Directory.CreateDirectory(SelectFolder + "\\" + exportFolder);
                             DWFFolder = SelectFolder + "\\" + exportFolder;
                         }
-                        documentPlus.Document.Export(DWFFolder, exportFolder, documentPlus.DocumentSelectSheetSet.Views, dWFExportOptions);
+                        //documentPlus.Document.Export(DWFFolder, exportFolder, documentPlus.DocumentSelectSheetSet.Views, dWFExportOptions);
                         tran.Commit();
                     }
                 }
@@ -241,7 +229,7 @@ namespace DHHTools
                         else if (SelectCADVersion == "AutoCAD 2018")
                         { dWGExportOptions.FileVersion = ACADVersion.R2018; }
                         dWGExportOptions.TargetUnit = ExportUnit.Millimeter;
-                        foreach (View item in documentPlus.DocumentSelectSheetSet.Views)
+                        foreach (View item in documentPlus.SelectSheetSet.Views)
                         { sheetIDs.Add(item.Id); }
                         string DWGFolder = "";
                         if (IsSeprateFolder == true)
@@ -278,13 +266,10 @@ namespace DHHTools
                         printManager.PrintToFile = true;
                         printManager.PrintToFileName = SelectFolder + @"\" + exportFolder + ".pdf";
                         printManager.Apply();
-                        doc.Print(documentPlus.DocumentSelectSheetSet.Views);
+                        doc.Print(documentPlus.SelectSheetSet.Views);
 
                     }
-                }
-
-
-                
+                }  
             }
 
         }
@@ -339,8 +324,8 @@ namespace DHHTools
             foreach (DocumentPlus docplus in AllDocumentsList)
             {
                 Modelpath = docplus.ModelPath;
-                docplus.DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(docplus.Document);
-                docplus.DocumentSelectSheetSet = docplus.DocumentsAllSheetSet[0];
+                docplus.AllSheetSets = DhhDocumentUtil.GetAllSheetSet(docplus.Document);
+                docplus.SelectSheetSet = docplus.AllSheetSets[0];
             }
 
         }

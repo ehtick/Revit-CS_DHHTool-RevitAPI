@@ -32,12 +32,12 @@
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Width="*">
                             <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate DataType="dhhTools:DocumentPlus">
+                                <DataTemplate >
                                     <DockPanel LastChildFill="True">
                                         <TextBox 
                                             Width="600"
                                             VerticalContentAlignment="Center"
-                                            Text ="{Binding ModelPath}"
+                                            Text ="{Binding DocumentsModelPath}"
                                             HorizontalAlignment="Left"/>
                                         <ComboBox 
                                             Height="32"
