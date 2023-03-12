@@ -5,6 +5,7 @@
     xmlns:dhhTools="clr-namespace:DHHTools;assembly=DHHTools_Library"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+    
     x:Name="MainWindow"
     Title="Print Multi Files"
     MinWidth="800"
@@ -15,6 +16,7 @@
     ShowInTaskbar="True"
     Topmost="False"
     WindowStartupLocation="CenterScreen" >
+
 
     <Window.Resources>
         <ResourceDictionary Source="/DHHTools_Library;component/WPF/Resource/Styles.xaml" />
@@ -48,9 +50,8 @@
                                             VerticalContentAlignment="Center"
                                             HorizontalContentAlignment="Left"
                                             DisplayMemberPath="Name"
-                                            IsEditable="True" d:DataContext="{d:DesignData }" />
+                                            IsEditable="True" />
                                     </DockPanel>
-
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
