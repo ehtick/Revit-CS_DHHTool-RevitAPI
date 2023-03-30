@@ -77,19 +77,18 @@
                                            FontFamily="San Serif"
                                            Padding="3"/>
                                 <CheckBox  Content="Export CAD (*.dwg)" 
-                                           FontSize ="15"
-                                           IsChecked="{Binding IsCADSelected}"
-                                           Style="{DynamicResource CheckBoxStyle}"/>
-
+                                               FontSize ="15"
+                                               IsChecked="{Binding IsCADSelected}"
+                                               Style="{DynamicResource CheckBoxStyle}"/>
                                 <CheckBox  Content="Export DWF (*.dwf/*.dwfx)" 
-                                           FontSize ="15"
-                                           IsChecked="{Binding IsDWFSelected}"
-                                           Style="{DynamicResource CheckBoxStyle}"/>
+                                               FontSize ="15"
+                                               IsChecked="{Binding IsDWFSelected}"
+                                               Style="{DynamicResource CheckBoxStyle}"/>    
                                 <CheckBox  Content="Export PDF (*.pdf)" 
                                            FontSize ="15"
                                            IsChecked="{Binding IsPDFSelected}"
                                            Style="{DynamicResource CheckBoxStyle}"/>
-                                </StackPanel>
+                    </StackPanel>
                     <StackPanel 
                             Grid.Column="1"
                             DockPanel.Dock="Top">
@@ -141,7 +140,7 @@
                                     VerticalContentAlignment="Center"
                                     HorizontalContentAlignment="Left"
                                     IsEditable="True"/>
-                            </DockPanel>
+                        </DockPanel>
                     </StackPanel>
                     <StackPanel Grid.Column="2"
                                 DockPanel.Dock="Top">
@@ -178,7 +177,6 @@
                    VerticalAlignment="Bottom"
                    LastChildFill="True" 
                    HorizontalAlignment="Right">
-            
             <Button
                 HorizontalAlignment="Right"
                 Content="Cancel"
@@ -208,6 +206,6 @@
                 DockPanel.Dock="Right"
                 Style="{DynamicResource ButtonStyle}" Click="Btn_AddFile"  />
 
-</DockPanel>
+        </DockPanel>
     </Grid>
 </Window>

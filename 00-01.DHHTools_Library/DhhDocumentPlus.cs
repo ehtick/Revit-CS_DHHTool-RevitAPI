@@ -17,7 +17,6 @@ namespace DHHTools
         private string modelPath_VM;
         private Document document_VM;
         private ViewSheetSet documentSelectSheetSet_VM;
-
         public Document Document
         {
             get => document_VM;
@@ -55,7 +54,6 @@ namespace DHHTools
             ModelPath = doc.PathName;
             DocumentsAllSheetSet = new ObservableCollection<ViewSheetSet>();
             DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(doc);
-            DocumentSelectSheetSet = DocumentsAllSheetSet[0];
 
         }
 

@@ -162,7 +162,6 @@ namespace DHHTools
 
             foreach (DocumentPlus docplus in AllDocumentsList)
             {
-                
                 Modelpath = docplus.ModelPath;
                docplus.DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(docplus.Document);
                //docplus.DocumentSelectSheetSet = docplus.DocumentsAllSheetSet[0];
@@ -171,8 +170,6 @@ namespace DHHTools
             IsDWFSelected = true;
             IsPDFSelected = true;
             IsSeprateFolder = false;
-
-
         }
         #endregion
         #region 04. Method
@@ -310,7 +307,6 @@ namespace DHHTools
                 file.RestoreDirectory = true;
             }
             if (file.ShowDialog() == DialogResult.OK) //if there is a file chosen by the user
-
             {
                 foreach (String filename in file.FileNames)
                 {
