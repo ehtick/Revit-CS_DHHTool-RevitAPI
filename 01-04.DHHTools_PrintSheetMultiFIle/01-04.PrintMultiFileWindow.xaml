@@ -33,17 +33,16 @@
                 <DataGrid  HeadersVisibility="None"
                            AutoGenerateColumns="False"
                            ItemsSource="{Binding AllDocumentsList}">
-                    <DataGrid.Columns>
-                        <DataGridTemplateColumn Width="*">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate DataType="dhhTools:DocumentPlus">
-                                    <DockPanel LastChildFill="True">
-                                        <TextBox 
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="dhhTool:DocumentPlus">
+                                <DockPanel LastChildFill="  True">
+                                    <TextBox 
                                             Width="600"
                                             VerticalContentAlignment="Center"
                                             Text ="{Binding ModelPath}"
                                             HorizontalAlignment="Left"/>
-                                        <ComboBox 
+                                    <ComboBox 
                                             Height="32"
                                             ItemsSource="{Binding DocumentsAllSheetSet }"
                                             SelectedItem="{Binding DocumentSelectSheetSet}"
@@ -51,11 +50,24 @@
                                             HorizontalContentAlignment="Left"
                                             DisplayMemberPath="Name"
                                             IsEditable="True" />
-                                    </DockPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
+                                </DockPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate DataType="dhhTool:DocumentPlus">
+                                <ComboBox 
+                                            Height="32"
+                                            ItemsSource="{Binding Path=DocumentsAllSheetSet}"
+                                            SelectedItem="{Binding Path=DocumentSelectSheetSet, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                            VerticalContentAlignment="Center"
+                                            HorizontalContentAlignment="Left"
+                                            DisplayMemberPath="Name"
+                                            IsEditable="True" />
+                            </DataTemplate>
+ 
+                        </DataGridTemplateColumn.CellEditingTemplate>   
+                    </DataGridTemplateColumn>
+
                 </DataGrid>
             </DockPanel>
         </Grid>

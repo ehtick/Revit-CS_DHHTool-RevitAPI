@@ -45,16 +45,13 @@ namespace DHHTools
                 OnPropertyChanged("DocumentsAllSheetSet");
             }
         }
-        public ObservableCollection<ViewSheetSet> DocumentsAllSheetSet { get; set; } 
+        public ObservableCollection<ViewSheetSet> DocumentsAllSheetSet { get; set; }
 
 
         public DocumentPlus(Document doc)
         {
             Document = doc;
             ModelPath = doc.PathName;
-            DocumentsAllSheetSet = new ObservableCollection<ViewSheetSet>();
-            DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(doc);
-
         }
 
     }
