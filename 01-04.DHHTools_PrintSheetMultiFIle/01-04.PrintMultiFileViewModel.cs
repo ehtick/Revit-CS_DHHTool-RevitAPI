@@ -72,8 +72,8 @@ namespace DHHTools
                 OnPropertyChanged("SelectPrinter");
             }
         }
-        public ObservableCollection<Document> AllDocumentsList { get; set; }
-           = new ObservableCollection<Document>();
+        public ObservableCollection<DocumentPlus> AllDocumentsList { get; set; }
+           = new ObservableCollection<DocumentPlus>();
         public DocumentPlus DocPlus { get; set; }
         public List<string> AllCADVersionsList { get; set; }
         public string SelectCADVersion
@@ -158,13 +158,13 @@ namespace DHHTools
             SelectCADVersion = AllCADVersionsList[0];
 
             DocPlus = new DocumentPlus(doc);
-            AllDocumentsList.Add(doc);
+            AllDocumentsList.Add(DocPlus);
 
 
-            foreach (Document doc in AllDocumentsList)
+            foreach (DocumentPlus doc in AllDocumentsList)
             {
-               Modelpath = doc.Title;
-               DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(doc);
+               Modelpath = doc.Document.Title;
+               DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(doc.Document);
                DocumentSelectSheetSet = DocumentsAllSheetSet[0];
             }
             IsCADSelected = true;
@@ -210,12 +210,12 @@ namespace DHHTools
         {
             if (IsCADSelected == true)
             {
-                foreach (Document document in AllDocumentsList)
+                foreach (DocumentPlus document in AllDocumentsList)
                 {
                     List<ElementId> sheetIDs = new List<ElementId>();
                     using (Transaction tran = new Transaction(doc))
                     {
-                        string exportFolder = document.Title;
+                        string exportFolder = document.Document.Title;
                         tran.Start("Export DWG");
                         DWGExportOptions dWGExportOptions = new DWGExportOptions();
                         dWGExportOptions.MergedViews = true;
@@ -242,7 +242,7 @@ namespace DHHTools
                             System.IO.Directory.CreateDirectory(SelectFolder + "\\" + exportFolder);
                             DWGFolder = SelectFolder + "\\" + exportFolder;
                         }
-                        document.Export(DWGFolder, " ", sheetIDs, dWGExportOptions);
+                        document.Document.Export(DWGFolder, " ", sheetIDs, dWGExportOptions);
                         tran.Commit();
                     }
 
@@ -275,9 +275,9 @@ namespace DHHTools
         //}
         public void deletePCPFile()
         {
-            foreach (Document document in AllDocumentsList)
+            foreach (DocumentPlus document in AllDocumentsList)
             {
-                string exportFolder = document.Title;
+                string exportFolder = document.Document.Title;
                 if (IsCADSelected == true)
                 {
                     string DWGFolder = "";
@@ -312,18 +312,18 @@ namespace DHHTools
                 foreach (String filename in file.FileNames)
                 {
                     Document openedDoc = app.OpenDocumentFile(filename);
-                    //DocumentPlus docPlus = new DocumentPlus(openedDoc);
-                    AllDocumentsList.Add(openedDoc);
+                    DocumentPlus docPlus = new DocumentPlus(openedDoc);
+                    AllDocumentsList.Add(docPlus);
                 }
             }
         }
 
         public void UpdateAllDocumentList()
         {
-            foreach (Document doc in AllDocumentsList)
+            foreach (DocumentPlus doc in AllDocumentsList)
             {
-                Modelpath = doc.Title;
-                DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(doc);
+                Modelpath = doc.Document.Title;
+                DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(doc.Document);
                 
             }
 

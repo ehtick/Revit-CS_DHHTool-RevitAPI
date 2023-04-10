@@ -35,7 +35,7 @@
                            ItemsSource="{Binding AllDocumentsList}">
                     <DataGridTemplateColumn Width="*">
                         <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate DataType="dhhTool:DocumentPlus">
+                            <DataTemplate DataType="dhhTools:DocumentPlus">
                                 <DockPanel LastChildFill="  True">
                                     <TextBox 
                                             Width="600"
