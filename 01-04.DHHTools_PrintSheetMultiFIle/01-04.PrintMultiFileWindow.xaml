@@ -33,17 +33,16 @@
                 <DataGrid  HeadersVisibility="None"
                            AutoGenerateColumns="False"
                            ItemsSource="{Binding AllDocumentsList}">
-                    <DataGrid.Columns>
-                        <DataGridTemplateColumn Width="*">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate DataType="dhhTools:DocumentPlus">
-                                    <DockPanel LastChildFill="True">
-                                        <TextBox 
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="dhhTools:DocumentPlus">
+                                <DockPanel LastChildFill="  True">
+                                    <TextBox 
                                             Width="600"
                                             VerticalContentAlignment="Center"
                                             Text ="{Binding ModelPath}"
                                             HorizontalAlignment="Left"/>
-                                        <ComboBox 
+                                    <ComboBox 
                                             Height="32"
                                             ItemsSource="{Binding Path=DocumentsAllSheetSet }"
                                             SelectedItem="{Binding Path=DocumentSelectSheetSet}"
@@ -51,11 +50,24 @@
                                             HorizontalContentAlignment="Left"
                                             DisplayMemberPath="Name"
                                             IsEditable="True" />
-                                    </DockPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
+                                </DockPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate DataType="dhhTool:DocumentPlus">
+                                <ComboBox 
+                                            Height="32"
+                                            ItemsSource="{Binding Path=DocumentsAllSheetSet}"
+                                            SelectedItem="{Binding Path=DocumentSelectSheetSet, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                            VerticalContentAlignment="Center"
+                                            HorizontalContentAlignment="Left"
+                                            DisplayMemberPath="Name"
+                                            IsEditable="True" />
+                            </DataTemplate>
+ 
+                        </DataGridTemplateColumn.CellEditingTemplate>   
+                    </DataGridTemplateColumn>
+
                 </DataGrid>
             </DockPanel>
         </Grid>
@@ -77,19 +89,18 @@
                                            FontFamily="San Serif"
                                            Padding="3"/>
                                 <CheckBox  Content="Export CAD (*.dwg)" 
-                                           FontSize ="15"
-                                           IsChecked="{Binding IsCADSelected}"
-                                           Style="{DynamicResource CheckBoxStyle}"/>
-
+                                               FontSize ="15"
+                                               IsChecked="{Binding IsCADSelected}"
+                                               Style="{DynamicResource CheckBoxStyle}"/>
                                 <CheckBox  Content="Export DWF (*.dwf/*.dwfx)" 
-                                           FontSize ="15"
-                                           IsChecked="{Binding IsDWFSelected}"
-                                           Style="{DynamicResource CheckBoxStyle}"/>
+                                               FontSize ="15"
+                                               IsChecked="{Binding IsDWFSelected}"
+                                               Style="{DynamicResource CheckBoxStyle}"/>    
                                 <CheckBox  Content="Export PDF (*.pdf)" 
                                            FontSize ="15"
                                            IsChecked="{Binding IsPDFSelected}"
                                            Style="{DynamicResource CheckBoxStyle}"/>
-                                </StackPanel>
+                    </StackPanel>
                     <StackPanel 
                             Grid.Column="1"
                             DockPanel.Dock="Top">
@@ -141,7 +152,7 @@
                                     VerticalContentAlignment="Center"
                                     HorizontalContentAlignment="Left"
                                     IsEditable="True"/>
-                            </DockPanel>
+                        </DockPanel>
                     </StackPanel>
                     <StackPanel Grid.Column="2"
                                 DockPanel.Dock="Top">
@@ -178,7 +189,6 @@
                    VerticalAlignment="Bottom"
                    LastChildFill="True" 
                    HorizontalAlignment="Right">
-            
             <Button
                 HorizontalAlignment="Right"
                 Content="Cancel"
@@ -208,6 +218,6 @@
                 DockPanel.Dock="Right"
                 Style="{DynamicResource ButtonStyle}" Click="Btn_AddFile"  />
 
-</DockPanel>
+        </DockPanel>
     </Grid>
 </Window>

@@ -27,7 +27,7 @@ namespace DHHTools
         private Application app;
         private Document doc;
         private string modelPath_VM;
-        //private ViewSheetSet documentSelectSheetSet_VM;
+        private ViewSheetSet documentSelectSheetSet_VM;
         private string selectPrinter_VM;
         private string selectCADVersion_VM;
         private string selectFolder_VM;
@@ -51,17 +51,17 @@ namespace DHHTools
             }
 
         }
-        //public ViewSheetSet DocumentSelectSheetSet
-        //{
-        //    get => documentSelectSheetSet_VM;
-        //    set
-        //    {
-        //        documentSelectSheetSet_VM = value;
-        //        OnPropertyChanged("DocumentSelectSheetSet");
-        //    }
-        //}
-        //public ObservableCollection<ViewSheetSet> DocumentsAllSheetSet { get; set; } 
-        //    = new ObservableCollection<ViewSheetSet>();
+        public ViewSheetSet DocumentSelectSheetSet
+        {
+            get => documentSelectSheetSet_VM;
+            set
+            {
+                documentSelectSheetSet_VM = value;
+                OnPropertyChanged("DocumentSelectSheetSet");
+            }
+        }
+        public ObservableCollection<ViewSheetSet> DocumentsAllSheetSet { get; set; } 
+            = new ObservableCollection<ViewSheetSet>();
         public List<string> AllPrinterList { get; set; } = new List<string>();
         public string SelectPrinter
         {
@@ -160,64 +160,62 @@ namespace DHHTools
             DocPlus = new DocumentPlus(doc);
             AllDocumentsList.Add(DocPlus);
 
-            foreach (DocumentPlus docplus in AllDocumentsList)
+
+            foreach (DocumentPlus doc in AllDocumentsList)
             {
-                
-                Modelpath = docplus.ModelPath;
-               docplus.DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(docplus.Document);
-               //docplus.DocumentSelectSheetSet = docplus.DocumentsAllSheetSet[0];
+               Modelpath = doc.Document.Title;
+               DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(doc.Document);
+               DocumentSelectSheetSet = DocumentsAllSheetSet[0];
             }
             IsCADSelected = true;
             IsDWFSelected = true;
             IsPDFSelected = true;
             IsSeprateFolder = false;
-
-
         }
         #endregion
         #region 04. Method
-        public void exportDWF()
-        {
-            if (IsDWFSelected == true)
-            {
-                foreach (DocumentPlus documentPlus in AllDocumentsList)
-                {
-                    string exportFolder = documentPlus.Document.Title;
-                    using (Transaction tran = new Transaction(documentPlus.Document))
-                    {
-                        tran.Start("Export DWF");
-                        DWFExportOptions dWFExportOptions = new DWFExportOptions();
-                        dWFExportOptions.MergedViews = true;
+        //public void exportDWF()
+        //{
+        //    if (IsDWFSelected == true)
+        //    {
+        //        foreach (Document document in AllDocumentsList)
+        //        {
+        //            string exportFolder = document.Title;
+        //            using (Transaction tran = new Transaction(document))
+        //            {
+        //                tran.Start("Export DWF");
+        //                DWFExportOptions dWFExportOptions = new DWFExportOptions();
+        //                dWFExportOptions.MergedViews = true;
 
-                        string DWFFolder = "";
-                        if (IsSeprateFolder == true)
-                        {
-                            System.IO.Directory.CreateDirectory(SelectFolder + "\\" + exportFolder + "\\DWF");
-                            DWFFolder = SelectFolder + "\\"+ exportFolder + "\\DWF";
-                        }
-                        else
-                        {
-                            System.IO.Directory.CreateDirectory(SelectFolder + "\\" + exportFolder);
-                            DWFFolder = SelectFolder + "\\" + exportFolder;
-                        }
-                        //documentPlus.Document.Export(DWFFolder, exportFolder, documentPlus.DocumentSelectSheetSet.Views, dWFExportOptions);
-                        tran.Commit();
-                    }
-                }
+        //                string DWFFolder = "";
+        //                if (IsSeprateFolder == true)
+        //                {
+        //                    System.IO.Directory.CreateDirectory(SelectFolder + "\\" + exportFolder + "\\DWF");
+        //                    DWFFolder = SelectFolder + "\\"+ exportFolder + "\\DWF";
+        //                }
+        //                else
+        //                {
+        //                    System.IO.Directory.CreateDirectory(SelectFolder + "\\" + exportFolder);
+        //                    DWFFolder = SelectFolder + "\\" + exportFolder;
+        //                }
+        //                //documentPlus.Document.Export(DWFFolder, exportFolder, documentPlus.DocumentSelectSheetSet.Views, dWFExportOptions);
+        //                tran.Commit();
+        //            }
+        //        }
                 
-            }
+        //    }
 
-        }
+        //}
         public void exportDWG()
         {
             if (IsCADSelected == true)
             {
-                foreach (DocumentPlus documentPlus in AllDocumentsList)
+                foreach (DocumentPlus document in AllDocumentsList)
                 {
                     List<ElementId> sheetIDs = new List<ElementId>();
                     using (Transaction tran = new Transaction(doc))
                     {
-                        string exportFolder = documentPlus.Document.Title;
+                        string exportFolder = document.Document.Title;
                         tran.Start("Export DWG");
                         DWGExportOptions dWGExportOptions = new DWGExportOptions();
                         dWGExportOptions.MergedViews = true;
@@ -231,7 +229,7 @@ namespace DHHTools
                         else if (SelectCADVersion == "AutoCAD 2018")
                         { dWGExportOptions.FileVersion = ACADVersion.R2018; }
                         dWGExportOptions.TargetUnit = ExportUnit.Millimeter;
-                        foreach (View item in documentPlus.DocumentSelectSheetSet.Views)
+                        foreach (View item in DocumentSelectSheetSet.Views)
                         { sheetIDs.Add(item.Id); }
                         string DWGFolder = "";
                         if (IsSeprateFolder == true)
@@ -244,42 +242,42 @@ namespace DHHTools
                             System.IO.Directory.CreateDirectory(SelectFolder + "\\" + exportFolder);
                             DWGFolder = SelectFolder + "\\" + exportFolder;
                         }
-                        documentPlus.Document.Export(DWGFolder," ", sheetIDs, dWGExportOptions);
+                        document.Document.Export(DWGFolder, " ", sheetIDs, dWGExportOptions);
                         tran.Commit();
                     }
-                    
+
                 }
             }
         }
-        public void exportPDF()
-        {
-            if (IsPDFSelected == true)
-            {
-                foreach (DocumentPlus documentPlus in AllDocumentsList)
-                {
-                    string exportFolder = documentPlus.Document.Title;
-                    using (Transaction tran = new Transaction(documentPlus.Document))
-                    {
-                        tran.Start("Export PDF");
-                        PrintManager printManager = documentPlus.Document.PrintManager;
-                        // Set the printer name to "PDF"
-                        printManager.SelectNewPrintDriver(SelectPrinter);
-                        printManager.CombinedFile = true;
-                        printManager.PrintToFile = true;
-                        printManager.PrintToFileName = SelectFolder + @"\" + exportFolder + ".pdf";
-                        printManager.Apply();
-                        doc.Print(documentPlus.DocumentSelectSheetSet.Views);
+        //public void exportPDF()
+        //{
+        //    if (IsPDFSelected == true)
+        //    {
+        //        foreach (DocumentPlus documentPlus in AllDocumentsList)
+        //        {
+        //            string exportFolder = documentPlus.Document.Title;
+        //            using (Transaction tran = new Transaction(documentPlus.Document))
+        //            {
+        //                tran.Start("Export PDF");
+        //                PrintManager printManager = documentPlus.Document.PrintManager;
+        //                // Set the printer name to "PDF"
+        //                printManager.SelectNewPrintDriver(SelectPrinter);
+        //                printManager.CombinedFile = true;
+        //                printManager.PrintToFile = true;
+        //                printManager.PrintToFileName = SelectFolder + @"\" + exportFolder + ".pdf";
+        //                printManager.Apply();
+        //                doc.Print(documentPlus.DocumentSelectSheetSet.Views);
 
-                    }
-                }  
-            }
+        //            }
+        //        }  
+        //    }
 
-        }
+        //}
         public void deletePCPFile()
         {
-            foreach (DocumentPlus documentPlus in AllDocumentsList)
+            foreach (DocumentPlus document in AllDocumentsList)
             {
-                string exportFolder = documentPlus.Document.Title;
+                string exportFolder = document.Document.Title;
                 if (IsCADSelected == true)
                 {
                     string DWGFolder = "";
@@ -310,7 +308,6 @@ namespace DHHTools
                 file.RestoreDirectory = true;
             }
             if (file.ShowDialog() == DialogResult.OK) //if there is a file chosen by the user
-
             {
                 foreach (String filename in file.FileNames)
                 {
@@ -323,11 +320,11 @@ namespace DHHTools
 
         public void UpdateAllDocumentList()
         {
-            foreach (DocumentPlus docplus in AllDocumentsList)
+            foreach (DocumentPlus doc in AllDocumentsList)
             {
-                Modelpath = docplus.ModelPath;
-                docplus.DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(docplus.Document);
-                docplus.DocumentSelectSheetSet = docplus.DocumentsAllSheetSet[0];
+                Modelpath = doc.Document.Title;
+                DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(doc.Document);
+                
             }
 
         }

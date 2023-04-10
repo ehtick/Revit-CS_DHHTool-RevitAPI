@@ -1,10 +1,10 @@
 ﻿
 #region Namespaces
-
 //using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using System.Windows;   
 
 #endregion
 
@@ -13,8 +13,7 @@ namespace DHHTools
     [Transaction(TransactionMode.Manual)]
     public class PrintMultiFileCmd : IExternalCommand
     {
-        public Result Execute(ExternalCommandData commandData,
-            ref string message, ElementSet elements)
+        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             UIApplication uiapp = commandData.Application;
             UIDocument uidoc = uiapp.ActiveUIDocument;
