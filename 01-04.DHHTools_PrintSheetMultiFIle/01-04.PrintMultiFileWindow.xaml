@@ -45,8 +45,8 @@
                                             HorizontalAlignment="Left"/>
                                         <ComboBox 
                                             Height="32"
-                                            ItemsSource="{Binding DocumentsAllSheetSet }"
-                                            SelectedItem="{Binding DocumentSelectSheetSet}"
+                                            ItemsSource="{Binding Path=DocumentsAllSheetSet }"
+                                            SelectedItem="{Binding Path=DocumentSelectSheetSet}"
                                             VerticalContentAlignment="Center"
                                             HorizontalContentAlignment="Left"
                                             DisplayMemberPath="Name"
