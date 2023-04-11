@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:dhhTools="clr-namespace:DHHTools;assembly=DHHTools_Library"
+    xmlns:dhhTools="clr-namespace:DHHTools;assembly=DHHLibrary"
     x:Name="MainWindow"
     Title="Duplicate Sheets"
     MinWidth="700"
@@ -17,7 +17,7 @@
     WindowStartupLocation="CenterScreen" >
 
     <Window.Resources>
-        <ResourceDictionary Source="/DHHTools_Library;component/WPF/Resource/Styles.xaml" />
+        <ResourceDictionary Source="/DHHLibrary;component/WPF/Resource/Styles.xaml" />
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
