@@ -13,7 +13,7 @@ namespace DHHTools
     public class CreateFramingWindow
     {
         private CreateFramingViewModel _viewModel;
-        private DLQConstraint _dlqConstraint = new DLQConstraint();
+        private DHHConstraint _dlqConstraint = new DHHConstraint();
 
         public CreateFramingWindow(CreateFramingViewModel viewModel)
         {
