@@ -17,7 +17,7 @@ using Point = Autodesk.Revit.DB.Point;
 
 namespace DHHTools
 {
-    public class PileCoordinatesViewModel : ViewModelBase
+    public class PileCoordinatesViewModel: ViewModelBase
     {
         #region 01. Private Property
         protected internal ExternalEvent ExEvent;

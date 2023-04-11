@@ -31,3 +31,5 @@ D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-01.DHHTools_Sel
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-01.DHHTools_SelectionFilter\obj\Debug\01-01.SelectionFilter.csproj.CopyComplete
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-01.DHHTools_SelectionFilter\obj\Debug\SelectionFilter.dll
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-01.DHHTools_SelectionFilter\obj\Debug\SelectionFilter.pdb
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-01.DHHTools_SelectionFilter\bin\Debug\DHHLibrary.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-01.DHHTools_SelectionFilter\bin\Debug\DHHLibrary.pdb

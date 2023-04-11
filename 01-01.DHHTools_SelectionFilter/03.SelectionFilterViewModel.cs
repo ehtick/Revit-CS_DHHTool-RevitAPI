@@ -86,7 +86,7 @@ namespace DHHTools
         public void UpdateAllElementExtensions()
         {
             ElementExtension level1 = new ElementExtension("All");
-            List<Category> categories = ElementUtils.GetAllCategory(Doc, IsCurrentSelection, SeElements);
+            //List<Category> categories = DhhElementUtils.GetAllCategory(Doc, IsCurrentSelection, SeElements);
 
             //foreach (ViewType viewType in viewTypes)
             //{

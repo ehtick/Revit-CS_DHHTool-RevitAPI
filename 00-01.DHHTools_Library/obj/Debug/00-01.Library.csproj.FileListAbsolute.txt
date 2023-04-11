@@ -81,3 +81,4 @@ D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Lib
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\DHHLibrary.g.resources
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\DHHLibrary.dll
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\DHHLibrary.pdb
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\00-01.Library.csproj.AssemblyReference.cache
