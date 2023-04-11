@@ -1,17 +1,10 @@
 ﻿#region Namespaces
-
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using Autodesk.Revit.DB;
-using Autodesk.Revit.UI.Selection;
-
 #endregion
 
 namespace DHHTools
 {
-
     public class DocumentPlus : ViewModelBase
     {
         private string modelPath_VM;
@@ -48,7 +41,7 @@ namespace DHHTools
             }
         }
         public ObservableCollection<ViewSheetSet> DocumentsAllSheetSet 
-        { get { return documentsAllSheetSet_VM; } 
+        { get => DhhDocumentUtil.GetAllSheetSet(Document);
           set
             {
                 documentsAllSheetSet_VM = value;

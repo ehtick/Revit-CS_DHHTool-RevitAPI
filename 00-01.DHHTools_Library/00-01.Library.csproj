@@ -8,8 +8,8 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DHHTools</RootNamespace>
-    <AssemblyName>DHHTools_Library</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AssemblyName>DHHLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
@@ -73,6 +73,9 @@
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -94,22 +97,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DhhConstraint.cs" />
-    <Compile Include="DhhElementFilter.cs" />
-    <Compile Include="DhhDocumentUtils.cs" />
-    <Compile Include="DhhGeometryUtils.cs" />
-    <Compile Include="DhhElementUtils.cs" />
-    <Compile Include="DhhUnitUtils.cs" />
     <Compile Include="DhhDocumentPlus.cs" />
-    <Compile Include="DhhViewSheetPlus.cs" />
-    <Compile Include="ElementExtension.cs" />
+    <Compile Include="DhhDocumentUtils.cs" />
+    <Compile Include="DhhElementExtension.cs" />
+    <Compile Include="DhhElementFilter.cs" />
+    <Compile Include="DhhElementUtils.cs" />
+    <Compile Include="DhhFloorSelectionFilter.cs" />
+    <Compile Include="DhhGeometryUtils.cs" />
+    <Compile Include="DhhPileSelectionFilter.cs" />
+    <Compile Include="DhhUnitUtils.cs" />
     <Compile Include="DhhViewPlus.cs" />
-    <Compile Include="PileSelectionFilter.cs" />
-    <Compile Include="FloorSelectionFilter.cs" />
+    <Compile Include="DhhViewSheetPlus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WPF\CustomControls\CustomDataGrid.cs" />
     <Compile Include="WPF\CustomControls\CustomListBox.cs" />
     <Compile Include="WPF\CustomControls\CustomTreeView.cs" />
-    <Compile Include="WPF\ViewModelBase.cs" />
+    <Compile Include="ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="WPF\Resource\BorderGridStyle.xaml">

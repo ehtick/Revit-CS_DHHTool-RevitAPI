@@ -19,9 +19,6 @@ D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\00-01.DHHTools_Lib
 D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\00-01.DHHTools_Library\obj\Debug\00-01.Library.csproj.CoreCompileInputs.cache
 D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\00-01.DHHTools_Library\obj\Debug\DHHTools_Library.dll
 D:\STUDY\Programming\C-Sharp\C-Sharp_LapTrinhRevitAPI-DHHTool\00-01.DHHTools_Library\obj\Debug\DHHTools_Library.pdb
-D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\bin\Debug\DHHTools_Library.dll
-D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\bin\Debug\DHHTools_Library.pdb
-D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\00-01.Library.csproj.AssemblyReference.cache
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\WPF\Resource\BorderGridStyle.baml
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\WPF\Resource\ButtonStyle.baml
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\WPF\Resource\CheckBoxStyle.baml
@@ -33,13 +30,8 @@ D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Lib
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\WPF\Resource\Styles.baml
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\WPF\Resource\TextBoxStyle.baml
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\GeneratedInternalTypeHelper.g.cs
-D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\DHHTools_Library_MarkupCompile.cache
-D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\DHHTools_Library_MarkupCompile.lref
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\WPF\Resource\TreeViewStyle.baml
-D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\DHHTools_Library.g.resources
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\00-01.Library.csproj.CoreCompileInputs.cache
-D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\DHHTools_Library.dll
-D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\DHHTools_Library.pdb
 D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00-01.DHHTools_Library\bin\Debug\DHHTools_Library.dll
 D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00-01.DHHTools_Library\bin\Debug\DHHTools_Library.pdb
 D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00-01.DHHTools_Library\obj\Debug\00-01.Library.csproj.AssemblyReference.cache
@@ -82,3 +74,10 @@ D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHTool
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\00-01.Library.csproj.CoreCompileInputs.cache
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHTools_Library.dll
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHTools_Library.pdb
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\bin\Debug\DHHLibrary.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\bin\Debug\DHHLibrary.pdb
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\DHHLibrary_MarkupCompile.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\DHHLibrary_MarkupCompile.lref
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\DHHLibrary.g.resources
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\DHHLibrary.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\DHHLibrary.pdb

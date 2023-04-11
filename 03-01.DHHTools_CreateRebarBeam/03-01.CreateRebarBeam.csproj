@@ -70,8 +70,8 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DHHTools_Library">
-      <HintPath>..\00-01.DHHTools_Library\bin\Debug\DHHTools_Library.dll</HintPath>
+    <Reference Include="DHHLibrary">
+      <HintPath>..\00-01.DHHTools_Library\bin\Debug\DHHLibrary.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />

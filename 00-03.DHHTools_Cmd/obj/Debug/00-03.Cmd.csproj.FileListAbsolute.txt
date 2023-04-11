@@ -14,3 +14,7 @@ D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-03.DHHTools_Cmd\obj\Debug\00-03.Cmd.c
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-03.DHHTools_Cmd\obj\Debug\00-03.Cmd.csproj.CopyComplete
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-03.DHHTools_Cmd\obj\Debug\DHHTools_Cmd.dll
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-03.DHHTools_Cmd\obj\Debug\DHHTools_Cmd.pdb
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-03.DHHTools_Cmd\obj\Debug\00-03.Cmd.csproj.AssemblyReference.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-03.DHHTools_Cmd\obj\Debug\00-03.Cmd.csproj.CoreCompileInputs.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-03.DHHTools_Cmd\obj\Debug\DHHTools_Cmd.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-03.DHHTools_Cmd\obj\Debug\DHHTools_Cmd.pdb

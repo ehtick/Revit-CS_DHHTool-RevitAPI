@@ -70,6 +70,9 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DHHLibrary">
+      <HintPath>..\00-01.DHHTools_Library\bin\Debug\DHHLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="RevitAPI, Version=20.0.0.0, Culture=neutral, processorArchitecture=AMD64">
@@ -103,12 +106,6 @@
     <Compile Include="Lib\LineSelectionFilter.cs" />
     <Compile Include="Lib\ParameterUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\00-01.DHHTools_Library\00-01.Library.csproj">
-      <Project>{c1343206-2654-4111-b0fa-b296cbba6b66}</Project>
-      <Name>00-01.Library</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="02-03.PileCoordinatesWindow.xaml">
