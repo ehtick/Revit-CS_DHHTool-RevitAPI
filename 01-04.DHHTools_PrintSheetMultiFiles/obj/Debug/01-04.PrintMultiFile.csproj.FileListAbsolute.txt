@@ -63,3 +63,16 @@ D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-04.DHHTools_Pri
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-04.DHHTools_PrintSheetMultiFiles\obj\Debug\01-04.PrintMultiFile.csproj.CopyComplete
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-04.DHHTools_PrintSheetMultiFiles\obj\Debug\PrintSheetMultiFile.dll
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-04.DHHTools_PrintSheetMultiFiles\obj\Debug\PrintSheetMultiFile.pdb
+D:\STUDY\Programming\C-Sharp\CS_RevitAPI_DHHTool\01-04.DHHTools_PrintSheetMultiFiles\bin\Debug\PrintSheetMultiFile.dll
+D:\STUDY\Programming\C-Sharp\CS_RevitAPI_DHHTool\01-04.DHHTools_PrintSheetMultiFiles\bin\Debug\PrintSheetMultiFile.pdb
+D:\STUDY\Programming\C-Sharp\CS_RevitAPI_DHHTool\01-04.DHHTools_PrintSheetMultiFiles\bin\Debug\DHHLibrary.dll
+D:\STUDY\Programming\C-Sharp\CS_RevitAPI_DHHTool\01-04.DHHTools_PrintSheetMultiFiles\bin\Debug\DHHLibrary.pdb
+D:\STUDY\Programming\C-Sharp\CS_RevitAPI_DHHTool\01-04.DHHTools_PrintSheetMultiFiles\obj\Debug\01-04.PrintMultiFile.csproj.AssemblyReference.cache
+D:\STUDY\Programming\C-Sharp\CS_RevitAPI_DHHTool\01-04.DHHTools_PrintSheetMultiFiles\obj\Debug\01-04.PrintMultiFileWindow.baml
+D:\STUDY\Programming\C-Sharp\CS_RevitAPI_DHHTool\01-04.DHHTools_PrintSheetMultiFiles\obj\Debug\01-04.PrintMultiFileWindow.g.cs
+D:\STUDY\Programming\C-Sharp\CS_RevitAPI_DHHTool\01-04.DHHTools_PrintSheetMultiFiles\obj\Debug\PrintSheetMultiFile_MarkupCompile.cache
+D:\STUDY\Programming\C-Sharp\CS_RevitAPI_DHHTool\01-04.DHHTools_PrintSheetMultiFiles\obj\Debug\PrintSheetMultiFile.g.resources
+D:\STUDY\Programming\C-Sharp\CS_RevitAPI_DHHTool\01-04.DHHTools_PrintSheetMultiFiles\obj\Debug\01-04.PrintMultiFile.csproj.CoreCompileInputs.cache
+D:\STUDY\Programming\C-Sharp\CS_RevitAPI_DHHTool\01-04.DHHTools_PrintSheetMultiFiles\obj\Debug\01-04.PrintMultiFile.csproj.CopyComplete
+D:\STUDY\Programming\C-Sharp\CS_RevitAPI_DHHTool\01-04.DHHTools_PrintSheetMultiFiles\obj\Debug\PrintSheetMultiFile.dll
+D:\STUDY\Programming\C-Sharp\CS_RevitAPI_DHHTool\01-04.DHHTools_PrintSheetMultiFiles\obj\Debug\PrintSheetMultiFile.pdb
