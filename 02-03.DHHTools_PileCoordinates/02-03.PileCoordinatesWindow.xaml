@@ -14,7 +14,7 @@
     WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
-        <ResourceDictionary Source="/DHHTools_Library;component/WPF/Resource/Styles.xaml" />
+        <ResourceDictionary Source="/DHHLibrary;component/WPF/Resource/Styles.xaml" />
     </Window.Resources>
     <StackPanel>
         <Border BorderBrush="Black" 

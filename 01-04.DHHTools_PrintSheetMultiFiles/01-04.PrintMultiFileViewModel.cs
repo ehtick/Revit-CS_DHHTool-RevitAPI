@@ -58,10 +58,8 @@ namespace DHHTools
                 OnPropertyChanged("DocumentSelectSheetSet");
             }
         }
-        public ObservableCollection<ViewSheetSet> DocumentsAllSheetSet 
-
-        { get; set; }
-            = new ObservableCollection<ViewSheetSet>();
+        public List<ViewSheetSet> DocumentsAllSheetSet { get; set; }
+            = new List<ViewSheetSet>();
         public List<string> AllPrinterList { get; set; } = new List<string>();
         public string SelectPrinter
         {
@@ -72,9 +70,9 @@ namespace DHHTools
                 OnPropertyChanged("SelectPrinter");
             }
         }
-        public ObservableCollection<Document> AllDocumentsList {  get; set; }
-           = new ObservableCollection<Document>();
-        public DocumentPlus DocPlus { get; set; }
+        List<Document> allDocumentsList {  get; set; }
+           = new List<Document>();
+            
         public List<string> AllCADVersionsList { get; set; }
         public string SelectCADVersion
 
@@ -138,13 +136,11 @@ namespace DHHTools
         {
             // Lưu trữ data từ Revit
             uiapp = commandData.Application;
-
             uidoc = uiapp.ActiveUIDocument;
             app = uiapp.Application;
             doc = uidoc.Document;
             UiDoc = uidoc;
             Doc = UiDoc.Document;
-
             // Thư mục xuất file mặc định
             SelectFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
@@ -157,15 +153,14 @@ namespace DHHTools
             //Lấy về tất cả các phiên bản CAD và chọn phiên bản mặc định
             AllCADVersionsList = new List<string> { "AutoCAD 2007", "AutoCAD 2010", "AutoCAD 2013", "AutoCAD 2018" };
             SelectCADVersion = AllCADVersionsList[0];
-            DocPlus = new DocumentPlus(doc);
-            AllDocumentsList.Add(DocPlus.Document);
 
-            //foreach (DocumentPlus doc in AllDocumentsList)
-            //{
-            //   Modelpath = doc.Document.Title;
-            //   DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(doc.Document);
-            //   DocumentSelectSheetSet = DocumentsAllSheetSet[0];
-            //}
+            allDocumentsList.Add(Doc);
+            foreach (Document doc in allDocumentsList)
+            {
+                Modelpath = doc.Title;
+                //DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(doc);
+                //DocumentSelectSheetSet = DocumentsAllSheetSet[0];
+            }
             IsCADSelected = true;
             IsDWFSelected = true;
             IsPDFSelected = true;
@@ -274,7 +269,7 @@ namespace DHHTools
         //}
         public void deletePCPFile()
         {
-            foreach (Document document in AllDocumentsList)
+            foreach (Document document in allDocumentsList)
             {
                 string exportFolder = document.Title;
                 if (IsCADSelected == true)
@@ -312,7 +307,7 @@ namespace DHHTools
                 {
                     Document openedDoc = app.OpenDocumentFile(filename);
                     DocumentPlus docPlus = new DocumentPlus(openedDoc);
-                    AllDocumentsList.Add(openedDoc);
+                    allDocumentsList.Add(openedDoc);
                 }
             }
         }

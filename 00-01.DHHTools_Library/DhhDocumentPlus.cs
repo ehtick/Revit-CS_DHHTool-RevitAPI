@@ -10,7 +10,6 @@ namespace DHHTools
         private string modelPath_VM;
         private Document document_VM;
         private ViewSheetSet documentSelectSheetSet_VM;
-        private ObservableCollection<ViewSheetSet> documentsAllSheetSet_VM;
 
         public Document Document
         {
@@ -40,19 +39,12 @@ namespace DHHTools
                 OnPropertyChanged("DocumentsAllSheetSet");
             }
         }
-        public ObservableCollection<ViewSheetSet> DocumentsAllSheetSet 
-        { get => DhhDocumentUtil.GetAllSheetSet(Document);
-          set
-            {
-                documentsAllSheetSet_VM = value;
-                OnPropertyChanged("DocumentsAllSheetSet");
-            }
-        }
-
+        public ObservableCollection<ViewSheetSet> DocumentsAllSheetSet { get; set; }
         public DocumentPlus(Document doc)
         {
             Document = doc;
-            ModelPath = doc.PathName;
+            ModelPath = doc.Title;
+            DocumentsAllSheetSet = new ObservableCollection<ViewSheetSet>();
         }
 
     }

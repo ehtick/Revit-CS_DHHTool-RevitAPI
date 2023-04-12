@@ -31,7 +31,6 @@ namespace DHHTools
             _viewModel = viewModel;
             DataContext = _viewModel;
             Doc = _viewModel.Doc;
-
             transG = new TransactionGroup(_viewModel.Doc);
         }
         private void Btn_SaveLocation(object sender, RoutedEventArgs e)

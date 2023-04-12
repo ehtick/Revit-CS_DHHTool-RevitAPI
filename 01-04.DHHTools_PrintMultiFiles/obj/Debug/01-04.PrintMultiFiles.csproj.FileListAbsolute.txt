@@ -1,0 +1,13 @@
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-04.DHHTools_PrintMultiFiles\bin\Debug\DHHLibrary.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-04.DHHTools_PrintMultiFiles\bin\Debug\DHHLibrary.pdb
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-04.DHHTools_PrintMultiFiles\obj\Debug\01-04.PrintMultiFiles.csproj.AssemblyReference.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-04.DHHTools_PrintMultiFiles\obj\Debug\01-04.PrintMultiFilesWindow.baml
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-04.DHHTools_PrintMultiFiles\obj\Debug\01-04.PrintMultiFilesWindow.g.cs
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-04.DHHTools_PrintMultiFiles\obj\Debug\01-04.PrintMultiFiles.csproj.CoreCompileInputs.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-04.DHHTools_PrintMultiFiles\obj\Debug\01-04.PrintMultiFiles.csproj.CopyComplete
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-04.DHHTools_PrintMultiFiles\bin\Debug\PrintMultiFiles.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-04.DHHTools_PrintMultiFiles\bin\Debug\PrintMultiFiles.pdb
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-04.DHHTools_PrintMultiFiles\obj\Debug\PrintMultiFiles_MarkupCompile.cache
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-04.DHHTools_PrintMultiFiles\obj\Debug\PrintMultiFiles.g.resources
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-04.DHHTools_PrintMultiFiles\obj\Debug\PrintMultiFiles.dll
+D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\01-04.DHHTools_PrintMultiFiles\obj\Debug\PrintMultiFiles.pdb

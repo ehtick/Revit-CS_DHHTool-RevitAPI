@@ -21,10 +21,8 @@ namespace DHHTools
             Document doc = uidoc.Document;
             
             #region Lưu lại Transaction
-
             using (TransactionGroup transGr = new TransactionGroup(doc))
             {
-
                 transGr.Start("Print Multi File");
                 PrintMultiFileViewModel printMultiFileViewModel 
                     = new PrintMultiFileViewModel(commandData);
