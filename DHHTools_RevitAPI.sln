@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-03.PrintSheet", "01-03.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-04.PrintMultiFiles", "01-04.DHHTools_PrintMultiFiles\01-04.PrintMultiFiles.csproj", "{C182D603-EAED-4B5C-B446-EA1DC2053BAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-01.RebarFoudation", "03-01.DHHTools_CreateRebarFoundation\03-01.RebarFoudation.csproj", "{55990FE1-1F8C-4BED-AD16-516E24E91734}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -167,6 +169,18 @@ Global
 		{C182D603-EAED-4B5C-B446-EA1DC2053BAE}.Release|x64.Build.0 = Release|x64
 		{C182D603-EAED-4B5C-B446-EA1DC2053BAE}.Release|x86.ActiveCfg = Release|x86
 		{C182D603-EAED-4B5C-B446-EA1DC2053BAE}.Release|x86.Build.0 = Release|x86
+		{55990FE1-1F8C-4BED-AD16-516E24E91734}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55990FE1-1F8C-4BED-AD16-516E24E91734}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55990FE1-1F8C-4BED-AD16-516E24E91734}.Debug|x64.ActiveCfg = Debug|x64
+		{55990FE1-1F8C-4BED-AD16-516E24E91734}.Debug|x64.Build.0 = Debug|x64
+		{55990FE1-1F8C-4BED-AD16-516E24E91734}.Debug|x86.ActiveCfg = Debug|x86
+		{55990FE1-1F8C-4BED-AD16-516E24E91734}.Debug|x86.Build.0 = Debug|x86
+		{55990FE1-1F8C-4BED-AD16-516E24E91734}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55990FE1-1F8C-4BED-AD16-516E24E91734}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55990FE1-1F8C-4BED-AD16-516E24E91734}.Release|x64.ActiveCfg = Release|x64
+		{55990FE1-1F8C-4BED-AD16-516E24E91734}.Release|x64.Build.0 = Release|x64
+		{55990FE1-1F8C-4BED-AD16-516E24E91734}.Release|x86.ActiveCfg = Release|x86
+		{55990FE1-1F8C-4BED-AD16-516E24E91734}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
