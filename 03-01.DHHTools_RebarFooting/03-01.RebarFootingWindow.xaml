@@ -11,6 +11,8 @@
     ShowInTaskbar="True"
     Topmost="False"
     WindowStartupLocation="CenterScreen"
+    xmlns:vm="clr-namespace:DHHTools"
+    d:DataContext="{d:DesignInstance Type=vm:RebarFootingViewModel}"
     mc:Ignorable="d" Background="White" WindowStyle="ThreeDBorderWindow" >
 
     <Window.Resources>
@@ -30,8 +32,85 @@
             <DockPanel LastChildFill="True">
                 <TextBlock Text ="Family móng:    "/>
                 <ComboBox DockPanel.Dock="Top"
-                          Style="{StaticResource ComboBoxStyle}"/>
+                          Style="{StaticResource ComboBoxStyle}"
+                          ItemsSource="{Binding AllCADVersionsList}"
+                          SelectedItem="{Binding SelectCADVersion}"/>
             </DockPanel>
+            <StackPanel Grid.Row="1">
+                <Grid Height="Auto">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <TextBlock Text ="Bottom Layer: "/>
+                        <Grid Height="100">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock 
+                                Text ="Diameter:    "/>
+                            <ComboBox Grid.Row="0"
+                                      Grid.Column="1"
+                                      Style="{StaticResource ComboBoxStyle}"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0"
+                                       Text ="Distance:    "/>
+                            <TextBox Grid.Row ="1" Grid.Column="1"
+                                     Style="{StaticResource TextBoxStyle}"
+                                     Text="{Binding disBottom}"/>
+                            <TextBlock Grid.Row="2" Grid.Column="0"
+                                       Text ="Number:    "/>
+                            <TextBox Grid.Row="2" Grid.Column="1"
+                                     Style="{StaticResource TextBoxStyle}"/>
+                        </Grid>
+                    </StackPanel>
+                    <Line Grid.Column="1" X1="0" Y1="0" X2="0"  Y2="1" 
+                          Stroke="Gray" StrokeThickness="1" 
+                          Stretch="Uniform"/>
+                    <StackPanel Grid.Column="2" VerticalAlignment="Top">
+                        <CheckBox 
+                          Style="{StaticResource CheckBoxStyle}"
+                          Content="Top Layer:  " FontSize="14"
+                          IsChecked="{Binding IsEnableTopLayer}"/>
+                        <Grid Height="100">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock 
+                                Text ="Diameter:    "/>
+                            <ComboBox Grid.Row="0"
+                                      Grid.Column="1"
+                                      IsEnabled="{Binding IsEnableTopLayer}"
+                                      Style="{StaticResource ComboBoxStyle}"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0"
+                                Text ="Distance:    "/>
+                            <TextBox Grid.Row ="1" Grid.Column="1"
+                                IsEnabled="{Binding IsEnableTopLayer}"
+                                Style="{StaticResource TextBoxStyle}"/>
+                            <TextBlock Grid.Row="2" Grid.Column="0"
+                                Text ="Number:    "/>
+                            <TextBox Grid.Row="2" Grid.Column="1"
+                                     IsEnabled="{Binding IsEnableTopLayer}"
+                                     Style="{StaticResource TextBoxStyle}"/>
+                        </Grid>
+
+                    </StackPanel>
+                </Grid>
+
+            </StackPanel>
             <DockPanel Grid.Row="2"
                        Height="30"
                        LastChildFill="True" 
@@ -47,7 +126,7 @@
                         Content="Cancel" Width="80"/>
             </DockPanel>
         </Grid>
-
+        
         <Canvas Grid.Column="1"
                 Margin="5"/>
 

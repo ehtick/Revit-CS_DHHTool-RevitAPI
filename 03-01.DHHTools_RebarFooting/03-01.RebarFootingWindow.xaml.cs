@@ -5,6 +5,7 @@ using Autodesk.Revit.UI;
 using System;
 using System.Drawing;
 using System.IO;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
@@ -26,7 +27,7 @@ namespace DHHTools
         public Element ColumnElement;
         public RebarFootingHandler eventHandler;
         public ExternalEvent MyExternalEvent;
-        private object _dhhConstraint;
+
 
         public RebarFootingWindow(RebarFootingViewModel viewModel)
         {
@@ -36,7 +37,9 @@ namespace DHHTools
             Doc = _viewModel.Doc;
             eventHandler = new RebarFootingHandler();
             MyExternalEvent = ExternalEvent.Create(eventHandler);
-            string iconPath = Path.Combine("D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\03-01.DHHTools_RebarFooting\\Image", "Footing.ico");
+            string location = Assembly.GetExecutingAssembly().Location;
+            string appPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string iconPath = Path.Combine("D:\\WORKING\\DHH\\C-Sharp_DHHTool-RevitAPI\\03-01.DHHTools_RebarFooting\\Image\\", "Footing.ico");
             Uri iconUri = new Uri(iconPath, UriKind.Absolute);
             BitmapImage icconWin = new BitmapImage(iconUri);
             Icon = icconWin;

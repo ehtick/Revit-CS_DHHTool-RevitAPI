@@ -22,6 +22,7 @@ namespace DHHTools
         private UIDocument uidoc;
         private Application app;
         private Document doc;
+        private bool _IsEnableTopLayer;
         private string columnInformation_VM;
         private string RebarTypeNameMain_VM;
         private string RebarTypeNameStirrup_VM;
@@ -44,24 +45,19 @@ namespace DHHTools
         #region 02. Public Property
         public UIDocument UiDoc;
         public Document Doc;
-        public string ColumnInformation
-        {
-            get
-            {
-                if (SelectedElement == null)
-                {
-                    return null;
-                }
-                return $"{bPara.AsValueString()}×{hPara.AsValueString()}" + "   " + SelectedElement.Id.ToString();
 
-            }
+        public bool IsEnableTopLayer
+        {
+            get => _IsEnableTopLayer;
             set
             {
-                columnInformation_VM = value;
-                OnPropertyChanged();
+                if (_IsEnableTopLayer != value)
+                {
+                    _IsEnableTopLayer = value;
+                    OnPropertyChanged("IsEnableTopLayer");
+                }
             }
         }
-        public List<string> allRebarTypeName { get; set; }
         public string RebarTypeNameMain
         {
             get => RebarTypeNameMain_VM;
@@ -113,25 +109,7 @@ namespace DHHTools
                 }
             }
         }
-        public string HamLuongThep
-        {
-            get
-            {
-                if (SelectedElement == null)
-                {
-                    return "0.00%";
-                }
-                return (Math.Round((SoluongH - 2 + SoluongB) * 2 * DhhUnitUtils.FeetToMm(RebarTypeMain.BarDiameter) / (b * h) * 100, 2)).ToString() + " %";
-            }
-            set
-            {
-                if (hamLuongThep_VM != value)
-                {
-                    hamLuongThep_VM = value;
-                    OnPropertyChanged("HamLuongThep");
-                }
-            }
-        }
+        
         public double SoluongH
         {
             get => SoluongH_VM;
@@ -302,18 +280,9 @@ namespace DHHTools
                 }
             }
         }
-        public double LDinh
-        {
-            get => LDinh_VM;
-            set
-            {
-                if (LDinh_VM != value)
-                {
-                    LDinh_VM = value;
-                    OnPropertyChanged("LDinh");
-                }
-            }
-        }
+
+
+
         #endregion
         #region 03. View Model
         public RebarFootingViewModel(ExternalCommandData commandData)
@@ -332,14 +301,7 @@ namespace DHHTools
             {
                 allRebarTypeName.Add((rebarType as RebarBarType)?.Name);
             }
-            allRebarTypeName.Sort();
-            SoluongH = 2;
-            SoluongB = 2;
-            LChan = 1000;
-            LGiua = 2000;
-            LDinh = 1000;
-            RebarTypeNameMain = allRebarTypeName[5];
-            RebarTypeNameStirrup = allRebarTypeName[0];
+
 
         }
         #endregion
