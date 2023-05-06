@@ -24,7 +24,7 @@ namespace DHHTools
         public UIDocument UiDoc;
         public Document Doc;
         public TransactionGroup transG;
-        public ExternalEvent MyExternalEvent;
+        //public ExternalEvent MyExternalEvent;
 
 
         public PrintMultiFilesWindow(PrintMultiFilesViewModel viewModel)

@@ -31,8 +31,7 @@ namespace DHHTools
                 PrintMultiFilesWindow window
                     = new PrintMultiFilesWindow(PrintMultiFilesViewModel);
                 bool? dialog = window.ShowDialog();
-                if (dialog != false) return Result.Succeeded;
-                transGr.Assimilate();
+                transGr.Commit();
             }
             return Result.Succeeded;
             #endregion

@@ -82,3 +82,24 @@ D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Lib
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\DHHLibrary.dll
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\DHHLibrary.pdb
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\00-01.Library.csproj.AssemblyReference.cache
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\bin\Debug\DHHLibrary.dll
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\bin\Debug\DHHLibrary.pdb
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\00-01.Library.csproj.AssemblyReference.cache
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\WPF\Resource\BorderGridStyle.baml
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\WPF\Resource\ButtonStyle.baml
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\WPF\Resource\CheckBoxStyle.baml
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\WPF\Resource\ComboBoxStyle.baml
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\WPF\Resource\DataGridStyle.baml
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\WPF\Resource\GroupBoxStyle.baml
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\WPF\Resource\ProgressBarStyle.baml
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\WPF\Resource\RadiobuttonStyle.baml
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\WPF\Resource\Styles.baml
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\WPF\Resource\TextBoxStyle.baml
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHLibrary_MarkupCompile.cache
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHLibrary_MarkupCompile.lref
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\WPF\Resource\TreeViewStyle.baml
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHLibrary.g.resources
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\00-01.Library.csproj.CoreCompileInputs.cache
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHLibrary.dll
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHLibrary.pdb

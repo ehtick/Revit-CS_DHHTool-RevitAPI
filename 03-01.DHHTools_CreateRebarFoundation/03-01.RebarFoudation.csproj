@@ -75,7 +75,6 @@
   <ItemGroup>
     <Reference Include="DHHLibrary">
       <HintPath>..\00-01.DHHTools_Library\bin\Debug\DHHLibrary.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="MaterialDesignColors, Version=2.1.2.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.2.1.2\lib\net462\MaterialDesignColors.dll</HintPath>
@@ -108,22 +107,21 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="03-01.RebarFoudationCmd.cs" />
-    <Compile Include="MVVM\ViewModel\03-01.RebarFoudationViewModel.cs" />
-    <Compile Include="MVVM\View\03-01.RebarFoudationWindow.xaml.cs">
-      <DependentUpon>03-01.RebarFoudationWindow.xaml</DependentUpon>
+    <Compile Include="03-01.RebarFoundationCmd.cs" />
+    <Compile Include="03-01.RebarFoundationViewModel.cs" />
+    <Compile Include="03-01.RebarFoundationWindow.xaml.cs">
+      <DependentUpon>03-01.RebarFoundationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="MVVM\View\03-01.RebarFoudationWindow.xaml">
+    <Page Include="03-01.RebarFoundationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />
-    <Folder Include="MVVM\Model\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
