@@ -5,15 +5,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Rebar Single Footing"
-    Width="800"
-    Height="600"
+    Width="1000"
+    Height="800"
     ResizeMode="NoResize"
     ShowInTaskbar="True"
     Topmost="False"
     WindowStartupLocation="CenterScreen"
+    
     xmlns:vm="clr-namespace:DHHTools"
     d:DataContext="{d:DesignInstance Type=vm:RebarFootingViewModel}"
-    mc:Ignorable="d" Background="White" WindowStyle="ThreeDBorderWindow" >
+    mc:Ignorable="d" Background="Beige"  WindowStyle="ThreeDBorderWindow" >
 
     <Window.Resources>
         <ResourceDictionary Source="/DHHLibrary;component/WPF/Resource/Styles.xaml" />
@@ -26,17 +27,32 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
+                <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
             <DockPanel LastChildFill="True">
                 <TextBlock Text ="Family móng:    "/>
                 <ComboBox DockPanel.Dock="Top"
                           Style="{StaticResource ComboBoxStyle}"
-                          ItemsSource="{Binding AllCADVersionsList}"
-                          SelectedItem="{Binding SelectCADVersion}"/>
+                          ItemsSource="{Binding AllFamilyFooting}"/>
             </DockPanel>
-            <StackPanel Grid.Row="1">
+            <DockPanel Grid.Row="1"
+                       LastChildFill="True">
+                <RadioButton 
+                    Content="Single Footing"
+                    Style="{StaticResource RadioButtonStyle}"/>
+                <RadioButton 
+                    Content="Strip Footing"
+                    Style="{StaticResource RadioButtonStyle}"/>
+                <RadioButton 
+                    Content ="Pile Cap"
+                    Style="{StaticResource RadioButtonStyle}"/>
+
+            </DockPanel>
+            <StackPanel Grid.Row="2">
+                <TextBlock Text="Bottom Layer:     "/>
                 <Grid Height="Auto">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -44,10 +60,9 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel>
-                        <TextBlock Text ="Bottom Layer: "/>
-                        <Grid Height="100">
+                        <TextBlock Text ="Direction X: "/>
+                        <Grid Height="70">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
@@ -59,29 +74,92 @@
                                 Text ="Diameter:    "/>
                             <ComboBox Grid.Row="0"
                                       Grid.Column="1"
-                                      Style="{StaticResource ComboBoxStyle}"/>
+                                      Style="{StaticResource ComboBoxStyle}"
+                                      ItemsSource="{Binding AllRebarBarTypes}"
+                                      DisplayMemberPath="Name"/>
                             <TextBlock Grid.Row="1" Grid.Column="0"
                                        Text ="Distance:    "/>
                             <TextBox Grid.Row ="1" Grid.Column="1"
                                      Style="{StaticResource TextBoxStyle}"
-                                     Text="{Binding disBottom}"/>
-                            <TextBlock Grid.Row="2" Grid.Column="0"
-                                       Text ="Number:    "/>
-                            <TextBox Grid.Row="2" Grid.Column="1"
-                                     Style="{StaticResource TextBoxStyle}"/>
+                                     MouseLeave="DrawCanvas_MouseLeave"
+                                     Text="{Binding DistanceBottom}"/>
                         </Grid>
                     </StackPanel>
                     <Line Grid.Column="1" X1="0" Y1="0" X2="0"  Y2="1" 
-                          Stroke="Gray" StrokeThickness="1" 
+                          Stroke="Gray" StrokeThickness="0.5" 
                           Stretch="Uniform"/>
                     <StackPanel Grid.Column="2" VerticalAlignment="Top">
-                        <CheckBox 
-                          Style="{StaticResource CheckBoxStyle}"
-                          Content="Top Layer:  " FontSize="14"
-                          IsChecked="{Binding IsEnableTopLayer}"/>
-                        <Grid Height="100">
+                        <TextBlock Text ="Direction Y: "/>
+                        <Grid Height="70">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
+
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock 
+                                Text ="Diameter:    "/>
+                            <ComboBox Grid.Row="0"
+                                      Grid.Column="1"
+                                      Style="{StaticResource ComboBoxStyle}"
+                                      ItemsSource="{Binding AllRebarBarTypes}"
+                                      DisplayMemberPath="Name"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0"
+                                Text ="Distance:    "/>
+                            <TextBox Grid.Row ="1" Grid.Column="1"
+                                     Text="{Binding DistanceTop}"
+                                     Style="{StaticResource TextBoxStyle}"/>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+                <CheckBox 
+                    Style="{StaticResource CheckBoxStyle}"
+                    Content="Top Layer:  " FontSize="14"
+                    IsChecked="{Binding IsEnableTopLayer}"/>
+                <Grid Height="Auto">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <TextBlock Text ="Direction X: "/>
+                        <Grid Height="70">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock 
+                                Text ="Diameter:    "/>
+                            <ComboBox Grid.Row="0"
+                                      Grid.Column="1"
+                                      Style="{StaticResource ComboBoxStyle}"
+                                      IsEnabled="{Binding IsEnableTopLayer}"
+                                      ItemsSource="{Binding AllRebarBarTypes}"
+                                      DisplayMemberPath="Name"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0"
+                                       Text ="Distance:    "/>
+                            <TextBox Grid.Row ="1" Grid.Column="1"
+                                     Style="{StaticResource TextBoxStyle}"
+                                     IsEnabled="{Binding IsEnableTopLayer}"
+                                     Text="{Binding DistanceBottom}"/>
+                            
+                        </Grid>
+                    </StackPanel>
+                    <Line Grid.Column="1" X1="0" Y1="0" X2="0"  Y2="1" 
+                          Stroke="Gray" StrokeThickness="0.5" 
+                          Stretch="Uniform"/>
+                    <StackPanel Grid.Column="2" VerticalAlignment="Top">
+                        <TextBlock Text ="Direction Y: "/>
+                        <Grid Height="70">
+                            <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
@@ -94,41 +172,101 @@
                             <ComboBox Grid.Row="0"
                                       Grid.Column="1"
                                       IsEnabled="{Binding IsEnableTopLayer}"
-                                      Style="{StaticResource ComboBoxStyle}"/>
+                                      Style="{StaticResource ComboBoxStyle}"
+                                      ItemsSource="{Binding AllRebarBarTypes}"
+                                      DisplayMemberPath="Name"/>
                             <TextBlock Grid.Row="1" Grid.Column="0"
                                 Text ="Distance:    "/>
                             <TextBox Grid.Row ="1" Grid.Column="1"
-                                IsEnabled="{Binding IsEnableTopLayer}"
-                                Style="{StaticResource TextBoxStyle}"/>
-                            <TextBlock Grid.Row="2" Grid.Column="0"
-                                Text ="Number:    "/>
-                            <TextBox Grid.Row="2" Grid.Column="1"
+                                     Text="{Binding DistanceTop}"
                                      IsEnabled="{Binding IsEnableTopLayer}"
                                      Style="{StaticResource TextBoxStyle}"/>
                         </Grid>
-
                     </StackPanel>
                 </Grid>
 
+                <CheckBox 
+                    Style="{StaticResource CheckBoxStyle}"
+                    Content="Middel Layer:  " FontSize="14"
+                    IsChecked="{Binding IsEnableMiddleLayer}"/>
+                <Grid Height="35">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text ="Diameter:    "/>
+                    <ComboBox Grid.Row="0"
+                              Grid.Column="1"
+                              Style="{StaticResource ComboBoxStyle}"
+                              ItemsSource="{Binding AllRebarBarTypes}"
+                              DisplayMemberPath="Name"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2"
+                              Text ="Distance:     "/>
+                    <TextBox Grid.Column="3"
+                             Style="{StaticResource TextBoxStyle}"
+                             Text="{Binding DistanceBottom}"/>
+                    <TextBlock Grid.Row="0" Grid.Column="4"
+                              Text ="n Layer:     "/>
+                    <TextBox Grid.Column="5"
+                             Style="{StaticResource TextBoxStyle}"
+                             Text="{Binding DistanceBottom}"/>
+                </Grid>
+                <CheckBox 
+                    Style="{StaticResource CheckBoxStyle}"
+                    Content="Round Stirrup:  " FontSize="14"
+                    IsChecked="{Binding IsEnableMiddleLayer}"/>
+                <Grid Height="35">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text ="Diameter:    "/>
+                    <ComboBox Grid.Row="0"
+                              Grid.Column="1"
+                              Style="{StaticResource ComboBoxStyle}"
+                              ItemsSource="{Binding AllRebarBarTypes}"
+                              DisplayMemberPath="Name"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2"
+                              Text ="Distance:    "/>
+                    <TextBox Grid.Column="3"
+                             Style="{StaticResource TextBoxStyle}"
+                             Text="{Binding DistanceBottom}"/>
+                </Grid>
             </StackPanel>
-            <DockPanel Grid.Row="2"
+            <DockPanel Grid.Row ="3">
+                <RadioButton Style="{StaticResource RadioButtonStyle}" 
+                             Content="Draw 2D"/>
+                <RadioButton Style="{StaticResource RadioButtonStyle}" 
+                             Content="Draw 3D"/>
+            </DockPanel>
+            <DockPanel Grid.Row="4"
                        Height="30"
                        LastChildFill="True" 
                        HorizontalAlignment="Right">
+
                 <Button Style="{StaticResource ButtonStyle}" 
                         Margin="0,0,5,0" 
-                        Content="Select" Width="80"/>
+                        Content="Select" Width="80"
+                        Click="btnSelect_Click"/>
                 <Button Margin="5,0,5,0" 
                         Style="{StaticResource ButtonStyle}"
                         Content="OK" Width="80"/>
                 <Button Margin="5,0,0,0" 
                         Style="{StaticResource ButtonStyle}"
-                        Content="Cancel" Width="80"/>
+                        Content="Cancel" Width="80"
+                        Click="btnCancel_Click"/>
             </DockPanel>
         </Grid>
-        
-        <Canvas Grid.Column="1"
-                Margin="5"/>
-
+        <Canvas 
+            x:Name="viewCanvas"
+            Grid.Column="1"
+                Margin="5">
+        </Canvas>
     </Grid>
 </Window>

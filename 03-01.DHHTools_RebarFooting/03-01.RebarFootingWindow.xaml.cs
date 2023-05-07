@@ -27,6 +27,8 @@ namespace DHHTools
         public Element ColumnElement;
         public RebarFootingHandler eventHandler;
         public ExternalEvent MyExternalEvent;
+        public double scale = 0.2;
+
 
 
         public RebarFootingWindow(RebarFootingViewModel viewModel)
@@ -35,17 +37,18 @@ namespace DHHTools
             _viewModel = viewModel;
             DataContext = _viewModel;
             Doc = _viewModel.Doc;
-            eventHandler = new RebarFootingHandler();
-            MyExternalEvent = ExternalEvent.Create(eventHandler);
+            //eventHandler = new RebarFootingHandler();
+            //MyExternalEvent = ExternalEvent.Create(eventHandler);
             string location = Assembly.GetExecutingAssembly().Location;
+            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
             string appPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            string iconPath = Path.Combine("D:\\WORKING\\DHH\\C-Sharp_DHHTool-RevitAPI\\03-01.DHHTools_RebarFooting\\Image\\", "Footing.ico");
+            string iconPath = Path.Combine("D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\03-01.DHHTools_RebarFooting\\Image\\", "Footing.ico");
             Uri iconUri = new Uri(iconPath, UriKind.Absolute);
             BitmapImage icconWin = new BitmapImage(iconUri);
             Icon = icconWin;
         }
 
-        public void Btn_Select(object sender, RoutedEventArgs e)
+        public void btnSelect_Click(object sender, RoutedEventArgs e)
         {
             Hide();
             _viewModel.SelectElementBtn();
@@ -54,7 +57,7 @@ namespace DHHTools
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            Close();
         }
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
@@ -62,6 +65,14 @@ namespace DHHTools
             Close();
             eventHandler.ViewModel = _viewModel;
             MyExternalEvent.Raise();
+        }
+
+        private void DrawCanvas_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            double scaleX = viewCanvas.ActualWidth / _viewModel.bFooting;
+            double scaleY = viewCanvas.ActualHeight / _viewModel.hFooting;
+            viewCanvas.Children.Clear();
+            _viewModel.DrawFootingPlanCanvas(viewCanvas, scale);
         }
     }
 }

@@ -51,6 +51,7 @@ namespace DHHTools
                 .FirstOrDefault(e => e.Name.Equals(rebarbartypename)) as RebarBarType;
             return rebarbartype;
         }
+
         #endregion
     }
 }
