@@ -14,6 +14,7 @@ using PlanarFace = Autodesk.Revit.DB.PlanarFace;
 using Rectangle = System.Windows.Shapes.Rectangle;
 using System.Windows.Shapes;
 using System.Windows.Media;
+using DHHTools.Library;
 // ReSharper disable All
 #endregion
 
@@ -307,15 +308,6 @@ namespace DHHTools
                     Stroke = Brushes.Black,
                     StrokeDashArray = new DoubleCollection() { 10 },
                 };
-                Rectangle recPedestal = new Rectangle
-                {
-                    Width = bPedestal * scale,
-                    Height = hPedestal * scale,
-                    StrokeThickness = 1,
-                    Stroke = Brushes.Black,
-
-                };
-
                 if (Math.Round(bDifferent) <= Math.Round(bPedestal/2)) 
                 {
                     bColumn = bPedestal - 50;
@@ -329,14 +321,13 @@ namespace DHHTools
                 if (Math.Round(hDifferent) <= Math.Round(hPedestal/2)) 
                 { 
                     hColumn = hPedestal - 50;
-                    hColumnTop = viewCanvas.ActualHeight / 2 - hColumn * scale / 2 - (hFooting / 2 - hDifferent + 25) * scale;
+                    hColumnTop = viewCanvas.ActualHeight / 4 - hColumn * scale / 2 - (hFooting / 2 - hDifferent + 25) * scale;
                 }
                 else 
                 { 
                     hColumn = hPedestal - 100;
-                    hColumnTop = viewCanvas.ActualHeight / 2 - hColumn * scale / 2 - (hFooting / 2 - hDifferent) * scale;
+                    hColumnTop = viewCanvas.ActualHeight / 4 - hColumn * scale / 2 - (hFooting / 2 - hDifferent) * scale;
                 }
-                System.Drawing.SolidBrush blueBrush = new System.Drawing.SolidBrush(System.Drawing.Color.Gray);
                 Rectangle recColumn = new Rectangle
                 {
                     Width = bColumn * scale,
@@ -347,18 +338,24 @@ namespace DHHTools
 
 
                 };
+                PathGeometry pthGeometry = RebarFootingLibrary
+                    .GetSingleFootingPath(bFooting*scale, hFooting * scale, bPedestal * scale, hPedestal * scale, bDifferent * scale, hDifferent * scale);
+                Path footPath = new Path();
+                footPath.Stroke = new SolidColorBrush(Colors.Black);
+                footPath.StrokeThickness = 1;
+                footPath.Data = pthGeometry;
                 Canvas.SetLeft(recFoot, viewCanvas.ActualWidth / 2 - bFooting * scale / 2);
-                Canvas.SetTop(recFoot, viewCanvas.ActualHeight / 2 - hFooting * scale / 2);
+                Canvas.SetTop(recFoot, viewCanvas.ActualHeight / 4 - hFooting * scale / 2);
                 Canvas.SetLeft(recLean, viewCanvas.ActualWidth / 2 - (bFooting+100) * scale / 2 );
-                Canvas.SetTop(recLean, viewCanvas.ActualHeight / 2 - (hFooting+100) * scale / 2 );
-                Canvas.SetLeft(recPedestal, viewCanvas.ActualWidth / 2 - bPedestal * scale / 2 - (bFooting / 2 - bDifferent) * scale);
-                Canvas.SetTop(recPedestal, viewCanvas.ActualHeight / 2 - hPedestal * scale / 2 - (hFooting / 2 - hDifferent) * scale);
+                Canvas.SetTop(recLean, viewCanvas.ActualHeight / 4 - (hFooting+100) * scale / 2 );
                 Canvas.SetLeft(recColumn, bColumnLeft);
                 Canvas.SetTop(recColumn, hColumnTop);
+                Canvas.SetLeft(footPath, viewCanvas.ActualWidth / 2 - bFooting * scale / 2);
+                Canvas.SetTop(footPath, viewCanvas.ActualHeight / 4 - hFooting * scale / 2);
                 viewCanvas.Children.Add(recFoot);
                 viewCanvas.Children.Add(recLean);
-                viewCanvas.Children.Add(recPedestal);
                 viewCanvas.Children.Add(recColumn);
+                viewCanvas.Children.Add(footPath);
             }    
 
         }

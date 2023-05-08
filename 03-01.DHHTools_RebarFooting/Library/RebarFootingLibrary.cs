@@ -9,35 +9,50 @@ namespace DHHTools.Library
 {
     class RebarFootingLibrary
     {
-        public static PathGeometry GetSingleFootingPath(double Width, double Height, double WPedestal, double HPedestal, double WDiferrent, double HDiferrent, double scale)
+        public static PathGeometry GetSingleFootingPath(double Width, double Height, double WPedestal, double HPedestal, double WDiferrent, double HDiferrent)
         {
-            PathGeometry stirrupPath = new PathGeometry();
+            PathGeometry footPath = new PathGeometry();
             PathFigure pthFigure = new PathFigure();
             pthFigure.StartPoint = new System.Windows.Point(0, 0);// starting cordinates of arcs
             LineSegment lineSegA = new LineSegment();
-            lineSegA.Point = new System.Windows.Point((WDiferrent - WPedestal/2) * scale, (HDiferrent - HPedestal/2)*scale);
+            lineSegA.Point = new System.Windows.Point((WDiferrent - WPedestal/2), (HDiferrent - HPedestal/2));
             LineSegment lineSegAB = new LineSegment();
-            lineSegAB.Point = new System.Windows.Point((WDiferrent + WPedestal / 2) * scale, (HDiferrent - HPedestal / 2) * scale);
-            LineSegment lineSegB = new LineSegment();
-            lineSegB.Point = new System.Windows.Point(Width * scale, 0) ;
+            lineSegAB.Point = new System.Windows.Point((WDiferrent + WPedestal / 2) , (HDiferrent - HPedestal / 2));
+            LineSegment lineSegBConer = new LineSegment();
+            lineSegBConer.Point = new System.Windows.Point(Width  , 0) ;
+            LineSegment lineSegCConer = new LineSegment();
+            lineSegCConer.Point = new System.Windows.Point( Width, Height);
+            LineSegment lineSegC = new LineSegment();
+            lineSegC.Point = new System.Windows.Point((WDiferrent + WPedestal / 2), (HDiferrent + HPedestal / 2));
+            LineSegment lineSegCB = new LineSegment();
+            lineSegCB.Point = new System.Windows.Point((WDiferrent + WPedestal / 2), (HDiferrent - HPedestal / 2));
+            LineSegment lineSegBA = new LineSegment();
+            lineSegBA.Point = new System.Windows.Point((WDiferrent - WPedestal / 2), (HDiferrent - HPedestal / 2));
+            LineSegment lineSegD = new LineSegment();
+            lineSegD.Point = new System.Windows.Point((WDiferrent - WPedestal / 2), (HDiferrent + HPedestal / 2));
+            LineSegment lineSegDConer = new LineSegment();
+            lineSegDConer.Point = new System.Windows.Point(0, Height);
+            LineSegment lineSegCD = new LineSegment();
+            lineSegCD.Point = new System.Windows.Point((WDiferrent - WPedestal / 2), (HDiferrent + HPedestal / 2));
             PathSegmentCollection myPathSegmentCollection = new PathSegmentCollection();
             myPathSegmentCollection.Add(lineSegA);
-            myPathSegmentCollection.Add(arcSegA);
-            myPathSegmentCollection.Add(lineSeg1);
-            myPathSegmentCollection.Add(arcSegB);
-            myPathSegmentCollection.Add(lineSeg2);
-            myPathSegmentCollection.Add(arcSegC);
-            myPathSegmentCollection.Add(lineSeg3);
-            myPathSegmentCollection.Add(arcSegD);
-            myPathSegmentCollection.Add(lineSeg4);
-            myPathSegmentCollection.Add(arcSegA);
-            myPathSegmentCollection.Add(lineSegB);
+            myPathSegmentCollection.Add(lineSegAB);
+            myPathSegmentCollection.Add(lineSegBConer);
+            myPathSegmentCollection.Add(lineSegCConer);
+            myPathSegmentCollection.Add(lineSegC);
+            myPathSegmentCollection.Add(lineSegCB);
+            myPathSegmentCollection.Add(lineSegBA);
+            myPathSegmentCollection.Add(lineSegD);
+            myPathSegmentCollection.Add(lineSegDConer);
+            myPathSegmentCollection.Add(lineSegCConer);
+            myPathSegmentCollection.Add(lineSegC);
+            myPathSegmentCollection.Add(lineSegCD);
             pthFigure.Segments = myPathSegmentCollection;
             PathFigureCollection pthFigureCollection = new PathFigureCollection();
             pthFigureCollection.Add(pthFigure);
-            stirrupPath.Figures = pthFigureCollection;
+            footPath.Figures = pthFigureCollection;
 
-            return stirrupPath;
+            return footPath;
         }
     }
 }
