@@ -42,7 +42,7 @@ namespace DHHTools
             string location = Assembly.GetExecutingAssembly().Location;
             string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
             string appPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            string iconPath = Path.Combine("D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\03-01.DHHTools_RebarFooting\\Image\\", "Footing.ico");
+            string iconPath = Path.Combine("D:\\01. WORKING\\00. C-Sharp\\04.CS_DHHTool_RevitAPI\\03-01.DHHTools_RebarFooting\\Image\\", "Footing.ico");
             Uri iconUri = new Uri(iconPath, UriKind.Absolute);
             BitmapImage icconWin = new BitmapImage(iconUri);
             Icon = icconWin;

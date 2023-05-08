@@ -103,6 +103,7 @@
     <Compile Include="03-01.RebarFootingWindow.xaml.cs">
       <DependentUpon>03-01.RebarFootingWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Library\RebarFootingLibrary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

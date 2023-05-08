@@ -76,13 +76,14 @@
                                       Grid.Column="1"
                                       Style="{StaticResource ComboBoxStyle}"
                                       ItemsSource="{Binding AllRebarBarTypes}"
+                                      SelectedItem="{Binding DiameterXBottom}"
                                       DisplayMemberPath="Name"/>
                             <TextBlock Grid.Row="1" Grid.Column="0"
                                        Text ="Distance:    "/>
                             <TextBox Grid.Row ="1" Grid.Column="1"
                                      Style="{StaticResource TextBoxStyle}"
                                      MouseLeave="DrawCanvas_MouseLeave"
-                                     Text="{Binding DistanceBottom}"/>
+                                     Text="{Binding DistanceBottomX}"/>
                         </Grid>
                     </StackPanel>
                     <Line Grid.Column="1" X1="0" Y1="0" X2="0"  Y2="1" 
@@ -106,11 +107,12 @@
                                       Grid.Column="1"
                                       Style="{StaticResource ComboBoxStyle}"
                                       ItemsSource="{Binding AllRebarBarTypes}"
+                                      SelectedItem="{Binding DiameterYBottom}"
                                       DisplayMemberPath="Name"/>
                             <TextBlock Grid.Row="1" Grid.Column="0"
                                 Text ="Distance:    "/>
                             <TextBox Grid.Row ="1" Grid.Column="1"
-                                     Text="{Binding DistanceTop}"
+                                     Text="{Binding DistanceBottomY}"
                                      Style="{StaticResource TextBoxStyle}"/>
                         </Grid>
                     </StackPanel>
@@ -143,13 +145,14 @@
                                       Style="{StaticResource ComboBoxStyle}"
                                       IsEnabled="{Binding IsEnableTopLayer}"
                                       ItemsSource="{Binding AllRebarBarTypes}"
+                                      SelectedItem="{Binding DiameterXTop}"
                                       DisplayMemberPath="Name"/>
                             <TextBlock Grid.Row="1" Grid.Column="0"
                                        Text ="Distance:    "/>
                             <TextBox Grid.Row ="1" Grid.Column="1"
                                      Style="{StaticResource TextBoxStyle}"
                                      IsEnabled="{Binding IsEnableTopLayer}"
-                                     Text="{Binding DistanceBottom}"/>
+                                     Text="{Binding DistanceTopX}"/>
                             
                         </Grid>
                     </StackPanel>
@@ -174,11 +177,12 @@
                                       IsEnabled="{Binding IsEnableTopLayer}"
                                       Style="{StaticResource ComboBoxStyle}"
                                       ItemsSource="{Binding AllRebarBarTypes}"
+                                      SelectedItem="{Binding DiameterYTop}"
                                       DisplayMemberPath="Name"/>
                             <TextBlock Grid.Row="1" Grid.Column="0"
                                 Text ="Distance:    "/>
                             <TextBox Grid.Row ="1" Grid.Column="1"
-                                     Text="{Binding DistanceTop}"
+                                     Text="{Binding DistanceTopY}"
                                      IsEnabled="{Binding IsEnableTopLayer}"
                                      Style="{StaticResource TextBoxStyle}"/>
                         </Grid>
@@ -233,10 +237,9 @@
                               ItemsSource="{Binding AllRebarBarTypes}"
                               DisplayMemberPath="Name"/>
                     <TextBlock Grid.Row="0" Grid.Column="2"
-                              Text ="Distance:    "/>
+                              Text ="n Layer:    "/>
                     <TextBox Grid.Column="3"
-                             Style="{StaticResource TextBoxStyle}"
-                             Text="{Binding DistanceBottom}"/>
+                             Style="{StaticResource TextBoxStyle}"/>
                 </Grid>
             </StackPanel>
             <DockPanel Grid.Row ="3">
@@ -265,6 +268,7 @@
         </Grid>
         <Canvas 
             x:Name="viewCanvas"
+            Background="WhiteSmoke"
             Grid.Column="1"
                 Margin="5">
         </Canvas>

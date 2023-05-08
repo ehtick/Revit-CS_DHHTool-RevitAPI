@@ -34,8 +34,14 @@ namespace DHHTools
         private double _DistanceTop;
         private double _bFooting;
         private double _hFooting;
-        private RebarBarType _RebarType;
-
+        private double _bPedestal;
+        private double _hPedestal;
+        private double _bDifferent;
+        private double _hDifferent;
+        private RebarBarType _DiameterXBottom;
+        private RebarBarType _DiameterYBottom;
+        private RebarBarType _DiameterXTop;
+        private RebarBarType _DiameterYTop;
 
         #endregion
         #region 02. Public Property
@@ -91,7 +97,7 @@ namespace DHHTools
                 {
                     return 0;
                 }
-                return Math.Round(DhhUnitUtils.FeetToMm((doc.GetElement(SelectedElement.GetTypeId()) as FamilySymbol).LookupParameter("ChieuRong_Mong").AsDouble()));
+                return Math.Round(DhhUnitUtils.FeetToMm((doc.GetElement(SelectedElement.GetTypeId()) as FamilySymbol).LookupParameter("Width").AsDouble()));
             }
             set
             {
@@ -107,12 +113,124 @@ namespace DHHTools
                 {
                     return 0;
                 }
-                return Math.Round(DhhUnitUtils.FeetToMm((doc.GetElement(SelectedElement.GetTypeId()) as FamilySymbol).LookupParameter("ChieuDai_Mong").AsDouble()));
+                return Math.Round(DhhUnitUtils.FeetToMm((doc.GetElement(SelectedElement.GetTypeId()) as FamilySymbol).LookupParameter("Length").AsDouble()));
             }
             set
             {
                 _hFooting = value;
                 OnPropertyChanged("hFooting");
+            }
+        }
+        public double bPedestal
+        {
+            get
+            {
+                if (SelectedElement == null)
+                {
+                    return 0;
+                }
+                return Math.Round(DhhUnitUtils.FeetToMm((doc.GetElement(SelectedElement.GetTypeId()) as FamilySymbol).LookupParameter("Co_Cot_RongTD").AsDouble()));
+            }
+            set
+            {
+                _bPedestal = value;
+                OnPropertyChanged("bPedestal");
+            }
+        }
+        public double hPedestal
+        {
+            get
+            {
+                if (SelectedElement == null)
+                {
+                    return 0;
+                }
+                return Math.Round(DhhUnitUtils.FeetToMm((doc.GetElement(SelectedElement.GetTypeId()) as FamilySymbol).LookupParameter("Co_Cot_DaiTD").AsDouble()));
+            }
+            set
+            {
+                _hPedestal = value;
+                OnPropertyChanged("hPedestal");
+            }
+        }
+        public double bDifferent
+        {
+            get
+            {
+                if (SelectedElement == null)
+                {
+                    return 0;
+                }
+                return Math.Round(DhhUnitUtils.FeetToMm((doc.GetElement(SelectedElement.GetTypeId()) as FamilySymbol).LookupParameter("Lech_Phuong_Rong").AsDouble()));
+            }
+            set
+            {
+                _bDifferent = value;
+                OnPropertyChanged("bDifferent");
+            }
+        }
+        public double hDifferent
+        {
+            get
+            {
+                if (SelectedElement == null)
+                {
+                    return 0;
+                }
+                return Math.Round(DhhUnitUtils.FeetToMm((doc.GetElement(SelectedElement.GetTypeId()) as FamilySymbol).LookupParameter("Lech_Phuong_Dai").AsDouble()));
+            }
+            set
+            {
+                _hDifferent = value;
+                OnPropertyChanged("hDifferent");
+            }
+        }
+        public RebarBarType DiameterXBottom
+        {
+            get => _DiameterXBottom;
+            set
+            {
+                if (_DiameterXBottom != value)
+                {
+                    _DiameterXBottom = value;
+                    OnPropertyChanged("DiameterXBottom");
+                }
+            }
+        }
+        public RebarBarType DiameterYBottom
+        {
+            get => _DiameterYBottom;
+            set
+            {
+                if (_DiameterYBottom != value)
+                {
+                    _DiameterYBottom = value;
+                    OnPropertyChanged("DiameterYBottom");
+                }
+            }
+        }
+        public RebarBarType DiameterXTop
+        {
+            get => _DiameterXTop;
+            set
+            {
+                if (_DiameterXTop != value)
+                {
+                    _DiameterXTop = value;
+                    OnPropertyChanged("DiameterXTop");
+                }
+            }
+        }
+        public RebarBarType DiameterYTop
+        {
+            get => _DiameterYTop;
+            set
+            {
+                if (_DiameterYTop != value)
+                {
+                    _DiameterYTop = value;
+                    OnPropertyChanged("DiameterYTop");
+                }
             }
         }
         public ObservableCollection<RebarBarType> AllRebarBarTypes { get; set; } = new ObservableCollection<RebarBarType>();
@@ -128,8 +246,10 @@ namespace DHHTools
                 }
             }
         }
-
-
+        public double bColumn;
+        public double hColumn;
+        public double bColumnLeft;
+        public double hColumnTop;
         #endregion
         #region 03. View Model
         public RebarFootingViewModel(ExternalCommandData commandData)
@@ -153,6 +273,10 @@ namespace DHHTools
             }
             #endregion
 
+            DiameterXBottom = AllRebarBarTypes[3];
+            DiameterYBottom = AllRebarBarTypes[3];
+            DiameterXTop = AllRebarBarTypes[3];
+            DiameterYTop = AllRebarBarTypes[3];
         }
         #endregion
         #region 04. Select Element
@@ -162,36 +286,79 @@ namespace DHHTools
             SelectedElement = Doc.GetElement(pickObject);
         }
         #endregion
-        #region Draw Canvas
+        #region 05. Draw Canvas
         public void DrawFootingPlanCanvas(Canvas viewCanvas, double scale)
         {
             if (bFooting != 0 && hFooting != 0)
             {
-                Rectangle rectangle = new Rectangle
+                Rectangle recFoot = new Rectangle
                 {
                     Width = bFooting * scale,
                     Height = hFooting * scale,
-                    StrokeThickness = 2,
+                    StrokeThickness = 1,
                     Stroke = Brushes.Black,
                     
                 };
-                Rectangle rectangleLean = new Rectangle
+                Rectangle recLean = new Rectangle
                 {
                     Width = (bFooting + 100) * scale,
                     Height = (hFooting + 100) * scale,
-                    StrokeThickness = 1,
+                    StrokeThickness = 0.5,
                     Stroke = Brushes.Black,
                     StrokeDashArray = new DoubleCollection() { 10 },
-                   
+                };
+                Rectangle recPedestal = new Rectangle
+                {
+                    Width = bPedestal * scale,
+                    Height = hPedestal * scale,
+                    StrokeThickness = 1,
+                    Stroke = Brushes.Black,
 
                 };
-                Canvas.SetLeft(rectangle, viewCanvas.ActualWidth / 2 - bFooting * scale / 2);
-                Canvas.SetTop(rectangle, viewCanvas.ActualHeight / 2 - hFooting * scale / 2);
-                Canvas.SetLeft(rectangleLean, viewCanvas.ActualWidth / 2 - (bFooting+100) * scale / 2 );
-                Canvas.SetTop(rectangleLean, viewCanvas.ActualHeight / 2 - (hFooting+100) * scale / 2 );
 
-                viewCanvas.Children.Add(rectangle);
-                viewCanvas.Children.Add(rectangleLean);
+                if (Math.Round(bDifferent) <= Math.Round(bPedestal/2)) 
+                {
+                    bColumn = bPedestal - 50;
+                    bColumnLeft = viewCanvas.ActualWidth / 2 - bColumn * scale / 2 - (bFooting / 2 - bDifferent+25) * scale;
+                }
+                else 
+                { 
+                    bColumn = bPedestal - 100;
+                    bColumnLeft = viewCanvas.ActualWidth / 2 - bColumn * scale / 2 - (bFooting / 2 - bDifferent) * scale;
+                }
+                if (Math.Round(hDifferent) <= Math.Round(hPedestal/2)) 
+                { 
+                    hColumn = hPedestal - 50;
+                    hColumnTop = viewCanvas.ActualHeight / 2 - hColumn * scale / 2 - (hFooting / 2 - hDifferent + 25) * scale;
+                }
+                else 
+                { 
+                    hColumn = hPedestal - 100;
+                    hColumnTop = viewCanvas.ActualHeight / 2 - hColumn * scale / 2 - (hFooting / 2 - hDifferent) * scale;
+                }
+                System.Drawing.SolidBrush blueBrush = new System.Drawing.SolidBrush(System.Drawing.Color.Gray);
+                Rectangle recColumn = new Rectangle
+                {
+                    Width = bColumn * scale,
+                    Height = hColumn * scale,
+                    StrokeThickness = 2,
+                    Stroke = Brushes.Black,
+                    Fill = Brushes.LightGray,
+
+
+                };
+                Canvas.SetLeft(recFoot, viewCanvas.ActualWidth / 2 - bFooting * scale / 2);
+                Canvas.SetTop(recFoot, viewCanvas.ActualHeight / 2 - hFooting * scale / 2);
+                Canvas.SetLeft(recLean, viewCanvas.ActualWidth / 2 - (bFooting+100) * scale / 2 );
+                Canvas.SetTop(recLean, viewCanvas.ActualHeight / 2 - (hFooting+100) * scale / 2 );
+                Canvas.SetLeft(recPedestal, viewCanvas.ActualWidth / 2 - bPedestal * scale / 2 - (bFooting / 2 - bDifferent) * scale);
+                Canvas.SetTop(recPedestal, viewCanvas.ActualHeight / 2 - hPedestal * scale / 2 - (hFooting / 2 - hDifferent) * scale);
+                Canvas.SetLeft(recColumn, bColumnLeft);
+                Canvas.SetTop(recColumn, hColumnTop);
+                viewCanvas.Children.Add(recFoot);
+                viewCanvas.Children.Add(recLean);
+                viewCanvas.Children.Add(recPedestal);
+                viewCanvas.Children.Add(recColumn);
             }    
 
         }

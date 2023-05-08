@@ -26,3 +26,17 @@ D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\03-01.DHHTools_RebarFooting\obj\Debug\Re
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\03-01.DHHTools_RebarFooting\obj\Debug\RebarFooting.pdb
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\03-01.DHHTools_RebarFooting\obj\Debug\RebarFooting_MarkupCompile.lref
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\03-01.DHHTools_RebarFooting\obj\Debug\RebarFooting_MarkupCompile.lref
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03-01.DHHTools_RebarFooting\bin\Debug\RebarFooting.dll
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03-01.DHHTools_RebarFooting\bin\Debug\RebarFooting.pdb
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03-01.DHHTools_RebarFooting\bin\Debug\DHHLibrary.dll
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03-01.DHHTools_RebarFooting\bin\Debug\DHHLibrary.pdb
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03-01.DHHTools_RebarFooting\obj\Debug\03-01.RebarFooting.csproj.AssemblyReference.cache
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03-01.DHHTools_RebarFooting\obj\Debug\03-01.RebarFootingWindow.g.cs
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03-01.DHHTools_RebarFooting\obj\Debug\RebarFooting_MarkupCompile.cache
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03-01.DHHTools_RebarFooting\obj\Debug\RebarFooting_MarkupCompile.lref
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03-01.DHHTools_RebarFooting\obj\Debug\03-01.RebarFootingWindow.baml
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03-01.DHHTools_RebarFooting\obj\Debug\RebarFooting.g.resources
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03-01.DHHTools_RebarFooting\obj\Debug\03-01.RebarFooting.csproj.CoreCompileInputs.cache
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03-01.DHHTools_RebarFooting\obj\Debug\03-01.RebarFooting.csproj.CopyComplete
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03-01.DHHTools_RebarFooting\obj\Debug\RebarFooting.dll
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03-01.DHHTools_RebarFooting\obj\Debug\RebarFooting.pdb
