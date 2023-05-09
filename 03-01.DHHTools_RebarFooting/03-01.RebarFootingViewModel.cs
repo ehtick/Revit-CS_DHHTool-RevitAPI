@@ -292,6 +292,7 @@ namespace DHHTools
         {
             if (bFooting != 0 && hFooting != 0)
             {
+                double topFoot = viewCanvas.ActualHeight / 4 - hFooting * scale / 2;
                 Rectangle recFoot = new Rectangle
                 {
                     Width = bFooting * scale,
@@ -306,12 +307,14 @@ namespace DHHTools
                     Height = (hFooting + 100) * scale,
                     StrokeThickness = 0.5,
                     Stroke = Brushes.Black,
-                    StrokeDashArray = new DoubleCollection() { 10 },
+                    StrokeDashArray = new DoubleCollection() { 20 },
                 };
+                bool facingFlipped = (SelectedElement as FamilyInstance).FacingFlipped;
+                bool handingFlipped = (SelectedElement as FamilyInstance).HandFlipped;
                 if (Math.Round(bDifferent) <= Math.Round(bPedestal/2)) 
                 {
                     bColumn = bPedestal - 50;
-                    bColumnLeft = viewCanvas.ActualWidth / 2 - bColumn * scale / 2 - (bFooting / 2 - bDifferent+25) * scale;
+                    bColumnLeft = viewCanvas.ActualWidth / 2 - bColumn * scale / 2 - (bFooting / 2 - bDifferent + 25)*scale;
                 }
                 else 
                 { 
@@ -321,7 +324,7 @@ namespace DHHTools
                 if (Math.Round(hDifferent) <= Math.Round(hPedestal/2)) 
                 { 
                     hColumn = hPedestal - 50;
-                    hColumnTop = viewCanvas.ActualHeight / 4 - hColumn * scale / 2 - (hFooting / 2 - hDifferent + 25) * scale;
+                    hColumnTop = viewCanvas.ActualHeight / 4 - hColumn * scale / 2 - (hFooting / 2 - hDifferent + 25)*scale;
                 }
                 else 
                 { 
@@ -335,27 +338,37 @@ namespace DHHTools
                     StrokeThickness = 2,
                     Stroke = Brushes.Black,
                     Fill = Brushes.LightGray,
-
-
                 };
+                
                 PathGeometry pthGeometry = RebarFootingLibrary
                     .GetSingleFootingPath(bFooting*scale, hFooting * scale, bPedestal * scale, hPedestal * scale, bDifferent * scale, hDifferent * scale);
-                Path footPath = new Path();
+                Path footPath = RebarFootingLibrary.GetFootPathFromGeometry(pthGeometry,SelectedElement,bFooting*scale,hFooting*scale);
                 footPath.Stroke = new SolidColorBrush(Colors.Black);
                 footPath.StrokeThickness = 1;
-                footPath.Data = pthGeometry;
+
+                Canvas.SetLeft(recLean, viewCanvas.ActualWidth / 2 - (bFooting + 100) * scale / 2);
+                Canvas.SetTop(recLean, viewCanvas.ActualHeight / 4 - (hFooting + 100) * scale / 2);
                 Canvas.SetLeft(recFoot, viewCanvas.ActualWidth / 2 - bFooting * scale / 2);
                 Canvas.SetTop(recFoot, viewCanvas.ActualHeight / 4 - hFooting * scale / 2);
-                Canvas.SetLeft(recLean, viewCanvas.ActualWidth / 2 - (bFooting+100) * scale / 2 );
-                Canvas.SetTop(recLean, viewCanvas.ActualHeight / 4 - (hFooting+100) * scale / 2 );
-                Canvas.SetLeft(recColumn, bColumnLeft);
-                Canvas.SetTop(recColumn, hColumnTop);
                 Canvas.SetLeft(footPath, viewCanvas.ActualWidth / 2 - bFooting * scale / 2);
                 Canvas.SetTop(footPath, viewCanvas.ActualHeight / 4 - hFooting * scale / 2);
-                viewCanvas.Children.Add(recFoot);
+
+                if (handingFlipped == false)
+                { Canvas.SetLeft(recColumn, bColumnLeft );}
+                else if (handingFlipped == true)
+                { Canvas.SetRight(recColumn, bColumnLeft); }
+
+                double tranfer = hFooting*scale - hColumn*scale - 2 * ( hColumnTop - topFoot);
+                if (facingFlipped == false)
+                { Canvas.SetTop(recColumn, hColumnTop); }
+                else if (facingFlipped == true)
+                { Canvas.SetTop(recColumn, hColumnTop + tranfer); }
+                
                 viewCanvas.Children.Add(recLean);
-                viewCanvas.Children.Add(recColumn);
+                viewCanvas.Children.Add(recFoot);
                 viewCanvas.Children.Add(footPath);
+                viewCanvas.Children.Add(recColumn);
+                
             }    
 
         }

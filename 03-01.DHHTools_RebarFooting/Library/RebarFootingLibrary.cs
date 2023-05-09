@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Autodesk.Revit.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using System.Windows.Shapes;
+using LineSegment = System.Windows.Media.LineSegment;
 
 namespace DHHTools.Library
 {
@@ -12,6 +15,7 @@ namespace DHHTools.Library
         public static PathGeometry GetSingleFootingPath(double Width, double Height, double WPedestal, double HPedestal, double WDiferrent, double HDiferrent)
         {
             PathGeometry footPath = new PathGeometry();
+            
             PathFigure pthFigure = new PathFigure();
             pthFigure.StartPoint = new System.Windows.Point(0, 0);// starting cordinates of arcs
             LineSegment lineSegA = new LineSegment();
@@ -51,8 +55,43 @@ namespace DHHTools.Library
             PathFigureCollection pthFigureCollection = new PathFigureCollection();
             pthFigureCollection.Add(pthFigure);
             footPath.Figures = pthFigureCollection;
-
+           
             return footPath;
+        }
+
+        public static Path GetFootPathFromGeometry(PathGeometry opthGeometry, Element element, double Width, double Height)
+        {
+            Path path = new Path();
+            path.Data = opthGeometry;
+
+            ScaleTransform hStransform = new ScaleTransform(1, -1);
+            TranslateTransform hMtransform = new TranslateTransform(0, Height);
+            TransformGroup htransform = new TransformGroup();
+            htransform.Children.Add(hStransform);
+            htransform.Children.Add(hMtransform);
+
+
+            ScaleTransform vStransform = new ScaleTransform(-1, 1);
+            TranslateTransform vMtransform = new TranslateTransform(Width, 0);
+            TransformGroup vtransform = new TransformGroup();
+            vtransform.Children.Add(vStransform);
+            vtransform.Children.Add(vMtransform);
+
+            PathGeometry vhpathGeometry = new PathGeometry();
+            ScaleTransform vhStransform = new ScaleTransform(-1, -1);
+            TranslateTransform vhMtransform = new TranslateTransform(Width, Height);
+            TransformGroup vhtransform = new TransformGroup();
+            vhtransform.Children.Add(vhStransform);
+            vhtransform.Children.Add(vhMtransform);
+
+
+            if ((element as FamilyInstance).FacingFlipped == true && (element as FamilyInstance).HandFlipped == false)
+            { path.RenderTransform = htransform; }
+            else if ((element as FamilyInstance).FacingFlipped == false && (element as FamilyInstance).HandFlipped == true)
+            { path.RenderTransform = vtransform; }
+            else if ((element as FamilyInstance).FacingFlipped == true && (element as FamilyInstance).HandFlipped == true)
+            { path.RenderTransform = vhtransform; }
+            return path;
         }
     }
 }

@@ -26,19 +26,13 @@
         </Grid.ColumnDefinitions>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-            <DockPanel LastChildFill="True">
-                <TextBlock Text ="Family móng:    "/>
-                <ComboBox DockPanel.Dock="Top"
-                          Style="{StaticResource ComboBoxStyle}"
-                          ItemsSource="{Binding AllFamilyFooting}"/>
-            </DockPanel>
-            <DockPanel Grid.Row="1"
+          
+            <DockPanel 
                        LastChildFill="True">
                 <RadioButton 
                     Content="Single Footing"
@@ -51,7 +45,7 @@
                     Style="{StaticResource RadioButtonStyle}"/>
 
             </DockPanel>
-            <StackPanel Grid.Row="2">
+            <StackPanel Grid.Row="1">
                 <TextBlock Text="Bottom Layer:     "/>
                 <Grid Height="Auto">
                     <Grid.ColumnDefinitions>
@@ -242,7 +236,7 @@
                              Style="{StaticResource TextBoxStyle}"/>
                 </Grid>
             </StackPanel>
-            <DockPanel Grid.Row ="3">
+            <DockPanel Grid.Row ="2">
                 <RadioButton Style="{StaticResource RadioButtonStyle}" 
                              Content="Draw 2D"/>
                 <RadioButton Style="{StaticResource RadioButtonStyle}" 
