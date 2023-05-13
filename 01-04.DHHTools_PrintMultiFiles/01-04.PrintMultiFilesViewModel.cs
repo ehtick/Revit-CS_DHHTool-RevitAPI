@@ -7,9 +7,11 @@ using System.IO;
 using System.Linq;
 using Application = Autodesk.Revit.ApplicationServices.Application;
 using System.Collections.ObjectModel;
+using System.Windows.Controls;
 // ReSharper disable once RedundantUsingDirective
 using System.Windows.Forms;
 using View = Autodesk.Revit.DB.View;
+using BIMSoftLib.MVVM;
 
 // ReSharper disable All
 #endregion
@@ -18,6 +20,7 @@ namespace DHHTools
 {
     public class PrintMultiFilesViewModel : ViewModelBase
     {
+
         #region 01. Private Property
         protected internal ExternalEvent ExEvent;
         private UIApplication uiapp;
@@ -71,10 +74,10 @@ namespace DHHTools
             = new List<ViewSheetPlus>();
         public List<string> AllCADVersionsList { get; set; }
         List<ElementId> sheetIDs { get; set; } = new List<ElementId>();
-        ObservableCollection<DocumentPlus> allDocumentsList { get; set; }
-            = new ObservableCollection<DocumentPlus>();
-        public ObservableCollection<ViewSheetSet> DocumentsAllSheetSet { get; set; }
-            = new ObservableCollection<ViewSheetSet>();
+        public  ObservableRangeCollection<DocumentPlus> allDocumentsList { get; set; }
+            = new ObservableRangeCollection<DocumentPlus>();
+        public ObservableRangeCollection<ViewSheetSet> DocumentsAllSheetSet { get; set; }
+            = new ObservableRangeCollection<ViewSheetSet>();
         public string ModelPath
         {
             get => modelpath_VM;

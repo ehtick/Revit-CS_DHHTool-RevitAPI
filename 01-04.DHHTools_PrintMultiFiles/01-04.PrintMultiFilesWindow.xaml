@@ -2,9 +2,12 @@
     x:Class="DHHTools.PrintMultiFilesWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dhhTools="clr-namespace:DHHTools;assembly=DHHLibrary"
+    xmlns:viewModel="clr-namespace:DHHTools"
+    d:DataContext="{d:DesignData viewModel:PrintMultiFilesViewModel}"
     x:Name="MainWindow"
     Title="Print Sheets"
     MinWidth="700"
@@ -30,7 +33,7 @@
                        ScrollViewer.CanContentScroll="True">
                 <DataGrid  HeadersVisibility="None"
                            AutoGenerateColumns="False"
-                           ItemsSource="{Binding allDocumentsList}">
+                           ItemsSource="{Binding allDocumentsList }">
                     <DataGridTemplateColumn Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate DataType="dhhTools:DocumentPlus">

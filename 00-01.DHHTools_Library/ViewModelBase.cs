@@ -15,7 +15,7 @@ namespace DHHTools
         /// phương thức OnPropertyChanged
         /// </summary>
         /// <param name="propertyName">Tên của Property bị Changed value</param>
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

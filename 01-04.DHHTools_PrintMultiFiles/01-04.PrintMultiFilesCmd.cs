@@ -5,7 +5,6 @@
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-
 #endregion
 
 namespace DHHTools
@@ -20,17 +19,16 @@ namespace DHHTools
             UIDocument uidoc = uiapp.ActiveUIDocument;
             //Application app = uiapp.Application;
             Document doc = uidoc.Document;
-            
             #region Lưu lại Transaction
 
             using (TransactionGroup transGr = new TransactionGroup(doc))
             {
                 transGr.Start("Print Multi Files");
-                PrintMultiFilesViewModel PrintMultiFilesViewModel 
+                PrintMultiFilesViewModel printMultiFilesViewModel 
                     = new PrintMultiFilesViewModel(commandData);
                 PrintMultiFilesWindow window
-                    = new PrintMultiFilesWindow(PrintMultiFilesViewModel);
-                bool? dialog = window.ShowDialog();
+                    = new PrintMultiFilesWindow(printMultiFilesViewModel);
+                window.ShowDialog();
                 transGr.Commit();
             }
             return Result.Succeeded;

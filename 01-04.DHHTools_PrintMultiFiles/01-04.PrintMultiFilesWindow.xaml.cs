@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using DHHTools;
 // ReSharper disable All
 
 #endregion
@@ -30,10 +31,11 @@ namespace DHHTools
         public PrintMultiFilesWindow(PrintMultiFilesViewModel viewModel)
         {
             InitializeComponent();
+            
             _viewModel = viewModel;
-            DataContext = _viewModel;
+            DataContext = viewModel;
             Doc = _viewModel.Doc;
-            transG = new TransactionGroup(_viewModel.Doc);
+            
         }
         private void Btn_SaveLocation(object sender, RoutedEventArgs e)
         {

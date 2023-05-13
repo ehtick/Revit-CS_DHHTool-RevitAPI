@@ -74,6 +74,9 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BIMSoftLib">
+      <HintPath>..\..\00.CS_Library\BIMSoftLib.dll</HintPath>
+    </Reference>
     <Reference Include="DHHLibrary">
       <HintPath>..\00-01.DHHTools_Library\bin\Debug\DHHLibrary.dll</HintPath>
     </Reference>
