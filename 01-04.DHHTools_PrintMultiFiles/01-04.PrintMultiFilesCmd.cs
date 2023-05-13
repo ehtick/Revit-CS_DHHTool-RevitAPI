@@ -1,7 +1,6 @@
-﻿
-#region Namespaces
-
+﻿#region Namespaces
 //using Autodesk.Revit.ApplicationServices;
+using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
@@ -17,7 +16,7 @@ namespace DHHTools
         {
             UIApplication uiapp = commandData.Application;
             UIDocument uidoc = uiapp.ActiveUIDocument;
-            //Application app = uiapp.Application;
+            Application app = uiapp.Application;
             Document doc = uidoc.Document;
             #region Lưu lại Transaction
 

@@ -6,7 +6,6 @@
     mc:Ignorable="d"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dhhTools="clr-namespace:DHHTools;assembly=DHHLibrary"
-    xmlns:viewModel="clr-namespace:DHHTools"
     d:DataContext="{d:DesignData viewModel:PrintMultiFilesViewModel}"
     x:Name="MainWindow"
     Title="Print Sheets"
