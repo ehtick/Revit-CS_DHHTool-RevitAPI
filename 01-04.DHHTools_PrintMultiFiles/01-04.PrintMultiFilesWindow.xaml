@@ -16,12 +16,13 @@
     ResizeMode="CanResize"
     ShowInTaskbar="True"
     Topmost="False"
-    WindowStartupLocation="CenterScreen" >
+    WindowStartupLocation="CenterScreen">
 
-    <Window.Resources>
+    <Window.Resources xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <ResourceDictionary Source="/DHHLibrary;component/WPF/Resource/Styles.xaml" />
     </Window.Resources>
-    <Grid>
+    <Grid xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+          xmlns:dhhTools="clr-namespace:DHHTools;assembly=DHHLibrary">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="120"/>
