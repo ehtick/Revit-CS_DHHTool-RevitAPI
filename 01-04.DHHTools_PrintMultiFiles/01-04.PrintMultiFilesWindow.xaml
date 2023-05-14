@@ -6,7 +6,8 @@
     mc:Ignorable="d"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dhhTools="clr-namespace:DHHTools;assembly=DHHLibrary"
-    d:DataContext="{d:DesignData viewModel:PrintMultiFilesViewModel}"
+    xmlns:vm="clr-namespace:DHHTools"
+    d:DataContext="{d:DesignInstance vm:PrintMultiFilesViewModel}"
     x:Name="MainWindow"
     Title="Print Sheets"
     MinWidth="700"
@@ -18,11 +19,10 @@
     Topmost="False"
     WindowStartupLocation="CenterScreen">
 
-    <Window.Resources xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    <Window.Resources >
         <ResourceDictionary Source="/DHHLibrary;component/WPF/Resource/Styles.xaml" />
     </Window.Resources>
-    <Grid xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-          xmlns:dhhTools="clr-namespace:DHHTools;assembly=DHHLibrary">
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="120"/>
@@ -31,22 +31,23 @@
         <Grid>
             <DockPanel LastChildFill ="True"
                        ScrollViewer.CanContentScroll="True">
-                <DataGrid  HeadersVisibility="None"
+                <DataGrid     
+                    HeadersVisibility="None"
                            AutoGenerateColumns="False"
                            ItemsSource="{Binding allDocumentsList }">
                     <DataGridTemplateColumn Width="*">
                         <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate DataType="dhhTools:DocumentPlus">
+                            <DataTemplate>
                                 <DockPanel LastChildFill="True">
                                     <TextBox 
                                         Width="600"
                                         VerticalContentAlignment="Center"
-                                        Text ="{Binding Path=ModelPath}"
+                                        Text ="{Binding ModelPath}"
                                         HorizontalAlignment="Left"/>
                                     <ComboBox 
                                         Height="32"
-                                        ItemsSource="{Binding Path=DocumentsAllSheetSet}"
-                                        SelectedItem="{Binding Path=DocumentSelectSheetSet}"
+                                        ItemsSource="{Binding DocumentsAllSheetSet}"
+                                        SelectedItem="{Binding DocumentSelectSheetSet}"
                                         VerticalContentAlignment="Center"
                                         HorizontalContentAlignment="Left"
                                         DisplayMemberPath="Name"

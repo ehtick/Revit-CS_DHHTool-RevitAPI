@@ -1,11 +1,12 @@
 ﻿#region Namespaces
 using System.Collections.ObjectModel;
 using Autodesk.Revit.DB;
+using BIMSoftLib.MVVM;
 #endregion
 
 namespace DHHTools
 {
-    public class DocumentPlus : ViewModelBase
+    public class DocumentPlus : PropertyChangedBase
     {
         private string modelPath_VM;
         private Document document_VM;
@@ -39,12 +40,13 @@ namespace DHHTools
                 OnPropertyChanged("DocumentsAllSheetSet");
             }
         }
-        public ObservableCollection<ViewSheetSet> DocumentsAllSheetSet { get; set; }
+        public ObservableRangeCollection<ViewSheetSet> DocumentsAllSheetSet { get; set; }
         public DocumentPlus(Document doc)
         {
             Document = doc;
             ModelPath = doc.Title;
-            DocumentsAllSheetSet = new ObservableCollection<ViewSheetSet>();
+            DocumentsAllSheetSet = new ObservableRangeCollection<ViewSheetSet>();
+
         }
 
     }

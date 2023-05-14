@@ -11,7 +11,6 @@ using System.Windows.Controls;
 // ReSharper disable once RedundantUsingDirective
 using System.Windows.Forms;
 using View = Autodesk.Revit.DB.View;
-using BIMSoftLib.MVVM;
 
 // ReSharper disable All
 #endregion
@@ -74,10 +73,10 @@ namespace DHHTools
             = new List<ViewSheetPlus>();
         public List<string> AllCADVersionsList { get; set; }
         List<ElementId> sheetIDs { get; set; } = new List<ElementId>();
-        public  ObservableRangeCollection<DocumentPlus> allDocumentsList { get; set; }
-            = new ObservableRangeCollection<DocumentPlus>();
-        public ObservableRangeCollection<ViewSheetSet> DocumentsAllSheetSet { get; set; }
-            = new ObservableRangeCollection<ViewSheetSet>();
+        public  ObservableCollection<DocumentPlus> allDocumentsList { get; set; }
+            = new ObservableCollection<DocumentPlus>();
+        public ObservableCollection<ViewSheetSet> DocumentsAllSheetSet { get; set; }
+            = new ObservableCollection<ViewSheetSet>();
         public string ModelPath
         {
             get => modelpath_VM;
@@ -87,17 +86,17 @@ namespace DHHTools
                 OnPropertyChanged("ModelPath");
             }
         }
-        public DocumentPlus DocPlus 
-        { get
-            {
-                return new DocumentPlus(doc);
-            }
-          set
-            {
-                docplus_VM = value;
-                OnPropertyChanged("DocPlus");
-            }
-        }
+        //public DocumentPlus DocPlus 
+        //{ get
+        //    {
+        //        return new DocumentPlus(doc);
+        //    }
+        //  set
+        //    {
+        //        docplus_VM = value;
+        //        OnPropertyChanged("DocPlus");
+        //    }
+        //}
         public string SelectCADVersion
         {
             get => selectCADVersion_VM;
@@ -189,15 +188,14 @@ namespace DHHTools
             //Lấy về tất cả các phiên bản CAD và chọn phiên bản mặc định
             AllCADVersionsList = new List<string> { "AutoCAD 2007", "AutoCAD 2010", "AutoCAD 2013", "AutoCAD 2018" };
             SelectCADVersion = AllCADVersionsList[0];
-
-            allDocumentsList.Add(DocPlus);
-
-            foreach (DocumentPlus doc in allDocumentsList)
-            {
-                doc.ModelPath = doc.Document.Title;
-                doc.DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(doc.Document);
-                //DocumentSelectSheetSet = DocumentsAllSheetSet[0];
-            }
+            DocumentPlus documentPlus = new DocumentPlus(Doc);
+            //allDocumentsList.Add(documentPlus);
+            //foreach (DocumentPlus doc in allDocumentsList)
+            //{
+            //    doc.ModelPath = doc.Document.Title;
+            //    doc.DocumentsAllSheetSet = DhhDocumentUtil.GetAllSheetSet(doc.Document);
+            //    //DocumentSelectSheetSet = DocumentsAllSheetSet[0];
+            //}
         }
         #endregion
         #region 04. Method

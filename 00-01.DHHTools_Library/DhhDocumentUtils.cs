@@ -3,6 +3,7 @@ using Autodesk.Revit.DB.Structure;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using BIMSoftLib.MVVM;
 
 namespace DHHTools
 {
@@ -16,7 +17,7 @@ namespace DHHTools
 
         public static ObservableCollection<ViewSheetSet> GetAllSheetSet(Document doc)
         {
-            ObservableCollection<ViewSheetSet> allViewSheetSet = new ObservableCollection<ViewSheetSet>();
+            ObservableRangeCollection<ViewSheetSet> allViewSheetSet = new ObservableRangeCollection<ViewSheetSet>();
 
             FilteredElementCollector colec = new FilteredElementCollector(doc);
             List<Element> allsheetset = colec.OfClass(typeof(ViewSheetSet)).ToElements().ToList();
