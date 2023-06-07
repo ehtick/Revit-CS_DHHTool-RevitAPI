@@ -17,7 +17,7 @@ namespace DHHTools
             UIApplication uiapp = commandData.Application;
             UIDocument uidoc = uiapp.ActiveUIDocument;
             //Application app = uiapp.Application;
-            Document doc = uidoc.Document;
+            Document doc = uidoc.Document; 
             #region Lưu lại Transaction
 
             using (TransactionGroup transGr = new TransactionGroup(doc))

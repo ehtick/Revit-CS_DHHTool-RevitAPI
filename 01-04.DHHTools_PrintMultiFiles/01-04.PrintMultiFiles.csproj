@@ -74,7 +74,8 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DHHLibrary">
+    <Reference Include="DHHLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\00-01.DHHTools_Library\bin\Debug\DHHLibrary.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
