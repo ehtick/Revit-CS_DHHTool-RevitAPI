@@ -358,6 +358,7 @@ namespace DHHTools
             double vnAngleOY = vn_12Vecto.AngleTo(XYZ.BasisY);
             double rvAngleOX = rv_12Vecto.AngleTo(XYZ.BasisX);
             double rvAngleOY = rv_12Vecto.AngleTo(XYZ.BasisY);
+            
             double angle = 0;
             if (vn_12Vecto.Y > 0 && rv_12Vecto.Y > 0)
             {
