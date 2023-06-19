@@ -100,7 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DhhConstraint.cs" />
-    <Compile Include="DhhDocumentPlus.cs" />
     <Compile Include="DhhDocumentUtils.cs" />
     <Compile Include="DhhElementExtension.cs" />
     <Compile Include="DhhElementFilter.cs" />
