@@ -6,3 +6,11 @@ D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-02.DHHTools_CreateRibbon\
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-02.DHHTools_CreateRibbon\obj\Debug\00-02.Ribbon.csproj.CopyComplete
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-02.DHHTools_CreateRibbon\obj\Debug\00.CreateRibbon.dll
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-02.DHHTools_CreateRibbon\obj\Debug\00.CreateRibbon.pdb
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.DHHTools_CreateRibbon\bin\Debug\00.CreateRibbon.dll
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.DHHTools_CreateRibbon\bin\Debug\00.CreateRibbon.pdb
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.DHHTools_CreateRibbon\bin\Debug\DHHTools_Library.pdb
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.DHHTools_CreateRibbon\obj\Debug\00-02.Ribbon.csproj.AssemblyReference.cache
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.DHHTools_CreateRibbon\obj\Debug\00-02.Ribbon.csproj.CoreCompileInputs.cache
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.DHHTools_CreateRibbon\obj\Debug\00-02.Ribbon.csproj.CopyComplete
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.DHHTools_CreateRibbon\obj\Debug\00.CreateRibbon.dll
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.DHHTools_CreateRibbon\obj\Debug\00.CreateRibbon.pdb
