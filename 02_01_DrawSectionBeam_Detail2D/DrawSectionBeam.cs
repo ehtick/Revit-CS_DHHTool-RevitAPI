@@ -15,14 +15,16 @@ namespace _02_01_DrawSectionBeam_Detail2D
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            return Execute(commandData.Application);
-        }
-        public Result Execute(UIApplication application)
-        {
             var win = new vMain();
             win.Show();
             return Result.Succeeded;
         }
+        //public Result Execute(UIApplication application)
+        //{
+        //    var win = new vMain();
+        //    win.Show();
+        //    return Result.Succeeded;
+        //}
 
     }
 }

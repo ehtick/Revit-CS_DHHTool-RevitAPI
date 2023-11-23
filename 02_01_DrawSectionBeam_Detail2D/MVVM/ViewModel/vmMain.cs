@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using _02_01_DrawSectionBeam_Detail2D.MVVM.Model;
 using BIMSoftLib.MVVM;
 using System.Windows.Input;
+using System.Windows;
 
 namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
 {
@@ -18,6 +19,7 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
 
         private ObservableRangeCollection<mSectionBeam> _dgSectionBeam = new ObservableRangeCollection<mSectionBeam>();
 
+        mExcel mExcel = new mExcel();
         public ObservableRangeCollection<mSectionBeam> DgSectionBeam
         {
             get
@@ -50,6 +52,17 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
 
         private void PerformFileExcelOpen()
         {
+            try
+            {
+                mExcel.xlRange = mExcel.OpenExcelFile();
+                MessageBox.Show(mExcel.xlRange.Count.ToString());
+                mExcel.xlsworkbook.Close();
+                mExcel.xlsApp.Quit();
+            }
+            catch
+            {
+
+            }
         }
 
         private ActionCommand createSectionDetail;

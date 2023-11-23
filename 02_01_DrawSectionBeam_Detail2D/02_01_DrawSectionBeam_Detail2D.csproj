@@ -85,9 +85,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="DrawSectionBeam.addin">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

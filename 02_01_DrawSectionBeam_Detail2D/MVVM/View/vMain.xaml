@@ -15,33 +15,26 @@
     <Window.Resources>
         <ResourceDictionary>
             <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#006536" />
-            <!--  5c5b5e  -->
             <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="#FFFFFF" />
             <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#F26522" />
-            <!--  6134d9  -->
             <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="#FFFFFF" />
             <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#006536" />
-            <!--  4D1DCF  -->
             <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="#FFFFFF" />
-            <!--  accent  -->
             <SolidColorBrush x:Key="SecondaryAccentBrush" Color="#006536" />
-            <!--  5c5b5e  -->
             <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="#FFFFFF" />
-
             <SolidColorBrush x:Key="CamXuanMai" Color="#F26522" />
             <SolidColorBrush x:Key="XanhXuanMai" Color="#006536" />
-
             <SolidColorBrush x:Key="Hong" Color="#D25E5D" />
             <SolidColorBrush x:Key="Tim" Color="#008472" />
             <SolidColorBrush x:Key="Vang" Color="#E0BB1B" />
             <SolidColorBrush x:Key="Xanh" Color="#024E72" />
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/Generic.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign2.Defaults.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Font.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.TextBlock.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Window.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Font.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Window.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Badged.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Calendar.xaml" />
