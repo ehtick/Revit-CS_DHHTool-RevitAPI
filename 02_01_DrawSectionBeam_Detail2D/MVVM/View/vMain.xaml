@@ -108,6 +108,31 @@
                         <TextBlock Text="Vị trí" TextAlignment="Center" />
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
+                <DataGridTextColumn Width="*" Binding="{Binding B}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="B" TextAlignment="Center" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="*" Binding="{Binding H}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="H" TextAlignment="Center" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="*" Binding="{Binding DiaStirrup}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="Dia-Stirrup" TextAlignment="Center" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="*" Binding="{Binding NStirrup}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="N-Stirrup" TextAlignment="Center" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="*" Binding="{Binding DisStirrup}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="Dis-Stirrup" TextAlignment="Center" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
                 <DataGridTextColumn Width="*" Binding="{Binding nMain1}">
                     <DataGridTextColumn.Header>
                         <TextBlock Text="S. Lượng 1" />

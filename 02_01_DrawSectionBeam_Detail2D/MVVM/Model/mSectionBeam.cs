@@ -30,6 +30,27 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
                 OnPropertyChanged(nameof(SectionLocation));
             }
         }
+        private double _b;
+        public double B
+        {
+            get => _b;
+            set
+            {
+                _b = value;
+                OnPropertyChanged(nameof(B));
+            }
+        }
+        private double _h;
+        public double H
+        {
+            get => _h;
+            set
+            {
+                _h = value;
+                OnPropertyChanged(nameof(H));
+            }
+        }
+        private int _diaMain1;
         private int _nMain1;
         public int nMain1
         {
@@ -41,16 +62,7 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
             }
         }
 
-        private int _diaMain1;
-        public int DiaMain1
-        {
-            get => _diaMain1;
-            set
-            {
-                _diaMain1 = value;
-                OnPropertyChanged(nameof(DiaMain1));
-            }
-        }
+
         private int _nMain2;
         public int nMain2
         {
@@ -89,6 +101,36 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
             {
                 _diaSub = value;
                 OnPropertyChanged(nameof(DiaSub));
+            }
+        }
+        private int _diaStirrup;
+        public int DiaStirrup
+        {
+            get => _diaStirrup;
+            set
+            {
+                _diaStirrup = value;
+                OnPropertyChanged(nameof(DiaStirrup));
+            }
+        }
+        private int _nStirrup;
+        public int NStirrup
+        {
+            get => _nStirrup;
+            set
+            {
+                _nStirrup = value;
+                OnPropertyChanged(nameof(NStirrup));
+            }
+        }
+        private double _disStirrup;
+        public double DisStirrup
+        {
+            get => _disStirrup;
+            set
+            {
+                _disStirrup = value;
+                OnPropertyChanged(nameof(DisStirrup));
             }
         }
     }
