@@ -53,8 +53,6 @@ D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00-01.DHHTools_Library\obj\Debug
 D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00-01.DHHTools_Library\obj\Debug\00-01.Library.csproj.CoreCompileInputs.cache
 D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00-01.DHHTools_Library\obj\Debug\DHHTools_Library.dll
 D:\WORKING\DHH\C-Sharp_LapTrinhRevitAPI-DHHTool\00-01.DHHTools_Library\obj\Debug\DHHTools_Library.pdb
-D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\bin\Debug\DHHTools_Library.dll
-D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\bin\Debug\DHHTools_Library.pdb
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\00-01.Library.csproj.AssemblyReference.cache
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\WPF\Resource\BorderGridStyle.baml
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\WPF\Resource\ButtonStyle.baml
@@ -67,13 +65,8 @@ D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\WPF\Res
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\WPF\Resource\Styles.baml
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\WPF\Resource\TextBoxStyle.baml
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\GeneratedInternalTypeHelper.g.cs
-D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHTools_Library_MarkupCompile.cache
-D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHTools_Library_MarkupCompile.lref
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\WPF\Resource\TreeViewStyle.baml
-D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHTools_Library.g.resources
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\00-01.Library.csproj.CoreCompileInputs.cache
-D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHTools_Library.dll
-D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHTools_Library.pdb
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\bin\Debug\DHHLibrary.dll
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\bin\Debug\DHHLibrary.pdb
 D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00-01.DHHTools_Library\obj\Debug\DHHLibrary_MarkupCompile.cache
@@ -128,3 +121,11 @@ D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\bin\D
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\00-01.Library.csproj.CopyComplete
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\bin\Debug\BIMSoftLib.dll
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\00-01.Library.csproj.CopyComplete
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\bin\Debug\DHHLibrary.dll
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\bin\Debug\DHHLibrary.pdb
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHLibrary_MarkupCompile.cache
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHLibrary_MarkupCompile.lref
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHLibrary.g.resources
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\00-01.Library.csproj.CopyComplete
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHLibrary.dll
+D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHLibrary.pdb

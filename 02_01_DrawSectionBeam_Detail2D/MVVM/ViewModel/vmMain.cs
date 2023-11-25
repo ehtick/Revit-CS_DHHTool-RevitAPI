@@ -19,7 +19,8 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
 
         private ObservableRangeCollection<mSectionBeam> _dgSectionBeam = new ObservableRangeCollection<mSectionBeam>();
 
-        mExcel mExcel = new mExcel();
+        readonly mExcel mExcel = new mExcel();
+        
         public ObservableRangeCollection<mSectionBeam> DgSectionBeam
         {
             get
@@ -55,7 +56,20 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
             try
             {
                 mExcel.xlRange = mExcel.OpenExcelFile();
-                MessageBox.Show(mExcel.xlRange.Count.ToString());
+                for (int i =36;i< mExcel.xlRange.Count;i++)
+                {
+                    mSectionBeam mSectionBeam = mExcel.SectionBeam(i);
+                    DgSectionBeam.Add(mSectionBeam);
+                }
+                var itemsToRemove = DgSectionBeam.Where(x=>x.BeamName == null).ToList();
+
+                foreach (var itemToRemove in itemsToRemove)
+                {
+                    DgSectionBeam.Remove(itemToRemove);
+                }
+                
+                //MessageBox.Show(mExcel.xlRange.ToString());
+                //MessageBox.Show(mExcel.xlRange.Count.ToString());
                 mExcel.xlsworkbook.Close();
                 mExcel.xlsApp.Quit();
             }

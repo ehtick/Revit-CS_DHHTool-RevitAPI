@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using _02_01_DrawSectionBeam_Detail2D.MVVM.Model;
+using Microsoft.Office.Interop.Excel;
 
 namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
 {
@@ -15,6 +16,7 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
         public static Excel.Application xlsApp { get; set; } = new Excel.Application();
         public static Excel.Workbook xlsworkbook { get; set; }
         public static Excel.Range xlRange { get; set; }
+        public static Excel.Worksheet xlSheet { get; set; }
         public Excel.Range OpenExcelFile()
         {
             OpenFileDialog file = new OpenFileDialog();
@@ -28,7 +30,9 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
             if (file.ShowDialog() == DialogResult.OK)
             {
                 xlsworkbook = xlsApp.Workbooks.Open(file.FileName);
-                xlRange = xlsworkbook.Worksheets["Beam"].UsedRange;
+                xlSheet = xlsworkbook.Worksheets["Beam"];
+                //xlRange = xlSheet.Cells.SpecialCells(XlCellType.xlCellTypeLastCell, Type.Missing);
+                xlRange = xlSheet.UsedRange;
             }
             #region
             //if (file.ShowDialog() == DialogResult.OK) //if there is a file chosen by the user
@@ -208,9 +212,17 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
 
         public mSectionBeam SectionBeam(int i)
         {
-            Excel.Range xlRange = xlsworkbook.Worksheets["Beam"].UsedRange;
-            int rowCnt = 0;
+            string beamName = "";
+            if ((xlRange.Cells[i, 2] as Microsoft.Office.Interop.Excel.Range).Value == null)
+            {
+                beamName = (xlRange.Cells[i - 1, 2] as Microsoft.Office.Interop.Excel.Range).Value;
 
+            }
+            else
+            {
+                beamName = (xlRange.Cells[i, 2] as Microsoft.Office.Interop.Excel.Range).Value;
+            }
+            string Location = (xlRange.Cells[i, 3] as Microsoft.Office.Interop.Excel.Range).Value;
             //for (rowCnt = 36; rowCnt <= xlRange.Rows.Count; rowCnt++)
             //{
             //    #region Thông tin dầm
@@ -372,14 +384,14 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
 
             //    //    }
             //    #endregion
-                
+
 
             //}
             return new mSectionBeam()
             {
 
-                //BeamName = beamName,
-                //SectionLocation = Location,
+                BeamName = beamName,
+                SectionLocation = Location,
                 //b = b,
                 //h = h,
             };
