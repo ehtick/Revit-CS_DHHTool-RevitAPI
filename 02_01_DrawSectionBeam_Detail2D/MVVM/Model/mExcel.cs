@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using _02_01_DrawSectionBeam_Detail2D.MVVM.Model;
-using Microsoft.Office.Interop.Excel;
+
 
 namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
 {
     public class mExcel : PropertyChangedBase
     {
+
         public static Excel.Application xlsApp { get; set; } = new Excel.Application();
         public static Excel.Workbook xlsworkbook { get; set; }
         public static Excel.Range xlRange { get; set; }
