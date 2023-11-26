@@ -8,6 +8,7 @@ using _02_01_DrawSectionBeam_Detail2D.MVVM.Model;
 using BIMSoftLib.MVVM;
 using System.Windows.Input;
 using System.Windows;
+using Microsoft.Office.Interop.Excel;
 
 namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
 {
@@ -20,7 +21,20 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
         private ObservableRangeCollection<mSectionBeam> _dgSectionBeam = new ObservableRangeCollection<mSectionBeam>();
 
         readonly mExcel mExcel = new mExcel();
-        
+
+        private Range _excelRange;
+        public Range ExcelRange
+        {
+            get 
+            {
+                _excelRange = mExcel.xlRange;
+                return _excelRange; }
+            set
+            {
+                _excelRange = value;
+                OnPropertyChanged(nameof(ExcelRange));
+            }
+        }
         public ObservableRangeCollection<mSectionBeam> DgSectionBeam
         {
             get
@@ -55,18 +69,18 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
         {
             try
             {
-                mExcel.xlRange = mExcel.OpenExcelFile();
-                for (int i =36;i< mExcel.xlRange.Rows.Count;i++)
+                int lastrow = mExcel.OpenExcelFile();
+                for (int i =36;i< lastrow;i++)
                 {
                     mSectionBeam mSectionBeam = mExcel.SectionBeam(i);
                     DgSectionBeam.Add(mSectionBeam);
                 }
-                var itemsToRemove = DgSectionBeam.Where(x=>x.BeamName == null).ToList();
+                //var itemsToRemove = DgSectionBeam.Where(x=>x.BeamName == null).ToList();
 
-                foreach (var itemToRemove in itemsToRemove)
-                {
-                    DgSectionBeam.Remove(itemToRemove);
-                }
+                //foreach (var itemToRemove in itemsToRemove)
+                //{
+                //    DgSectionBeam.Remove(itemToRemove);
+                //}
                 
                 //MessageBox.Show(mExcel.xlRange.ToString());
                 //MessageBox.Show(mExcel.xlRange.Count.ToString());

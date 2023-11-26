@@ -51,6 +51,15 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
             }
         }
         private int _diaMain1;
+        public int DiaMain1
+        {
+            get => _diaMain1;
+            set
+            {
+                _diaMain2 = value;
+                OnPropertyChanged(nameof(DiaMain1));
+            }
+        }
         private int _nMain1;
         public int nMain1
         {
@@ -103,8 +112,8 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
                 OnPropertyChanged(nameof(DiaSub));
             }
         }
-        private int _diaStirrup;
-        public int DiaStirrup
+        private double _diaStirrup;
+        public double DiaStirrup
         {
             get => _diaStirrup;
             set
@@ -113,8 +122,8 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
                 OnPropertyChanged(nameof(DiaStirrup));
             }
         }
-        private int _nStirrup;
-        public int NStirrup
+        private double _nStirrup;
+        public double NStirrup
         {
             get => _nStirrup;
             set

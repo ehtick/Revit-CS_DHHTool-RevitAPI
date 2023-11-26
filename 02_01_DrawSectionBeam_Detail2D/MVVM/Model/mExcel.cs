@@ -18,7 +18,8 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
         public static Excel.Workbook xlsworkbook { get; set; }
         public static Excel.Range xlRange { get; set; }
         public static Excel.Worksheet xlSheet { get; set; }
-        public Excel.Range OpenExcelFile()
+        public static int lastrow { get; set; }
+        public int OpenExcelFile()
         {
             OpenFileDialog file = new OpenFileDialog();
             {
@@ -33,9 +34,11 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
                 xlsworkbook = xlsApp.Workbooks.Open(file.FileName);
                 xlSheet = xlsworkbook.Worksheets["Beam"];
                 Excel.Range xllast = xlSheet.Cells.SpecialCells(XlCellType.xlCellTypeLastCell, Type.Missing);
-                xlRange = xlSheet.Range["A1", xllast];
-                int rowIndex = xlSheet.Cells.Find("*", System.Reflection.Missing.Value, System.Reflection.Missing.Value, System.Reflection.Missing.Value, Microsoft.Office.Interop.Excel.XlSearchOrder.xlByRows, Microsoft.Office.Interop.Excel.XlSearchDirection.xlPrevious, false, System.Reflection.Missing.Value, System.Reflection.Missing.Value).Row;
+                //xlRange = xlSheet.Range["A1", xllast];
+                lastrow = xlSheet.Cells.Find("*", System.Reflection.Missing.Value, System.Reflection.Missing.Value, System.Reflection.Missing.Value, Microsoft.Office.Interop.Excel.XlSearchOrder.xlByRows, Microsoft.Office.Interop.Excel.XlSearchDirection.xlPrevious, false, System.Reflection.Missing.Value, System.Reflection.Missing.Value).Row;
                 //xlRange = xlSheet.Cells[2,rowIndex];
+                //xlRange = xlSheet.UsedRange;
+                //xlRange = xlSheet.Range["A1", xlSheet.Cells[lastrow, 50]];
             }
             #region
             //if (file.ShowDialog() == DialogResult.OK) //if there is a file chosen by the user
@@ -210,28 +213,30 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
             //    xlsApp.Quit();
             //}
             #endregion
-            return xlRange;
+            return lastrow;
         }
 
         public mSectionBeam SectionBeam(int i)
         {
             string beamName = "";
-            if ((xlRange.Cells[i, 2] as Microsoft.Office.Interop.Excel.Range).Value == null)
+            if ((xlSheet.Cells[i, 2] as Microsoft.Office.Interop.Excel.Range).Value == null)
             {
-                beamName = (xlRange.Cells[i - 1, 2] as Microsoft.Office.Interop.Excel.Range).Value;
+                beamName = (xlSheet.Cells[i - 1, 2] as Microsoft.Office.Interop.Excel.Range).Value;
 
             }
             else
             {
-                beamName = (xlRange.Cells[i, 2] as Microsoft.Office.Interop.Excel.Range).Value;
+                beamName = (xlSheet.Cells[i, 2] as Microsoft.Office.Interop.Excel.Range).Value;
             }
-            string Location = (xlRange.Cells[i, 3] as Microsoft.Office.Interop.Excel.Range).Value;
-            double b = (xlRange.Cells[i, 6] as Microsoft.Office.Interop.Excel.Range).Value;
-            double h = (xlRange.Cells[i, 7] as Microsoft.Office.Interop.Excel.Range).Value;
+            string Location = (xlSheet.Cells[i, 3] as Microsoft.Office.Interop.Excel.Range).Value;
+            double b = (xlSheet.Cells[i, 6] as Microsoft.Office.Interop.Excel.Range).Value;
+            double h = (xlSheet.Cells[i, 7] as Microsoft.Office.Interop.Excel.Range).Value;
             #region Thép giá
-            int dkThepDai = (xlRange.Cells[i, 8] as Microsoft.Office.Interop.Excel.Range).Value;
-            int sLThepDai = (xlRange.Cells[i, 9] as Microsoft.Office.Interop.Excel.Range).Value;
-            double kcThepDai = (xlRange.Cells[i, 10] as Microsoft.Office.Interop.Excel.Range).Value;
+            double dkThepDai = (xlSheet.Cells[i, 8] as Microsoft.Office.Interop.Excel.Range).Value;
+            double sLThepDai = (xlSheet.Cells[i, 9] as Microsoft.Office.Interop.Excel.Range).Value;
+            double kcThepDai = (xlSheet.Cells[i, 10] as Microsoft.Office.Interop.Excel.Range).Value;
+            int slThepTrenL1_P1 = (xlSheet.Cells[i, 18] as Microsoft.Office.Interop.Excel.Range).Value;
+            double dkThepTrenL1_P1 = (xlSheet.Cells[i, 19] as Microsoft.Office.Interop.Excel.Range).Value;
             #endregion
             //for (rowCnt = 36; rowCnt <= xlRange.Rows.Count; rowCnt++)
             //{
@@ -400,6 +405,8 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
                 DiaStirrup = dkThepDai,
                 NStirrup = sLThepDai,
                 DisStirrup = kcThepDai,
+                nMain1 = slThepTrenL1_P1,
+                DiaMain1 = slThepTrenL1_P1,
 
             };
         }
