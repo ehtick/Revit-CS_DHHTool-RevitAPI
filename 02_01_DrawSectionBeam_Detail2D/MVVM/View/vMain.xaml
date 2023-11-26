@@ -1,16 +1,20 @@
-﻿<Window x:Class="_02_01_DrawSectionBeam_Detail2D.MVVM.View.vMain"
+﻿<Window
+    x:Class="_02_01_DrawSectionBeam_Detail2D.MVVM.View.vMain"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-xmlns:local="clr-namespace:_02_01_DrawSectionBeam_Detail2D.MVVM.View"
-xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
-xmlns:vm="clr-namespace:_02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel"
-d:DataContext="{d:DesignInstance Type=vm:vmMain}"
-d:DesignHeight="450"
-d:DesignWidth="800"
-DataContext="{Binding Source={x:Static vm:vmMain.DcMain}}"
-mc:Ignorable="d">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_02_01_DrawSectionBeam_Detail2D.MVVM.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:vm="clr-namespace:_02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel"
+    d:DataContext="{d:DesignInstance Type=vm:vmMain}"
+    Height="500"
+    Width="800"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    DataContext="{Binding Source={x:Static vm:vmMain.DcMain}}"
+    mc:Ignorable="d">
+    
     <Window.Resources>
         <ResourceDictionary>
             <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#006536" />
@@ -93,91 +97,84 @@ mc:Ignorable="d">
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
         <DataGrid
-        AutoGenerateColumns="False"
-        Background="AntiqueWhite"
-        CanUserAddRows="False"
-        ItemsSource="{Binding DgSectionBeam}">
+            AlternatingRowBackground="AliceBlue"
+            AlternationCount="2"
+            AutoGenerateColumns="False"
+            Background="AntiqueWhite"
+            CanUserAddRows="False"
+            ItemsSource="{Binding DgSectionBeam}">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Binding="{Binding BeamName}">
                     <DataGridTextColumn.Header>
-                        <TextBlock Text="Tên" />
+                        <TextBlock Text="Name" />
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
                 <DataGridTextColumn Width="*" Binding="{Binding SectionLocation}">
                     <DataGridTextColumn.Header>
-                        <TextBlock Text="Vị trí" TextAlignment="Center" />
+                        <TextBlock Text="Loc" />
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
                 <DataGridTextColumn Width="*" Binding="{Binding B}">
                     <DataGridTextColumn.Header>
-                        <TextBlock Text="B" TextAlignment="Center" />
+                        <TextBlock Text="B" />
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
                 <DataGridTextColumn Width="*" Binding="{Binding H}">
                     <DataGridTextColumn.Header>
-                        <TextBlock Text="H" TextAlignment="Center" />
+                        <TextBlock Text="H" />
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
-                <DataGridTextColumn Width="*" Binding="{Binding DiaStirrup}">
+                <DataGridTextColumn Width="1.5*" Binding="{Binding Stirrup}">
                     <DataGridTextColumn.Header>
-                        <TextBlock Text="Dia-Stirrup" TextAlignment="Center" />
+                        <TextBlock Text="Stirrup" />
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
-                <DataGridTextColumn Width="*" Binding="{Binding NStirrup}">
+                <DataGridTextColumn Width="2*" Binding="{Binding TopView}">
                     <DataGridTextColumn.Header>
-                        <TextBlock Text="N-Stirrup" TextAlignment="Center" />
+                        <TextBlock Text="Top Rebar" />
                     </DataGridTextColumn.Header>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="">
+                                    <Setter Property="Opacity" Value="0" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Width="*" Binding="{Binding DisStirrup}">
+                <DataGridTextColumn Width="2*" Binding="{Binding BotView}">
                     <DataGridTextColumn.Header>
-                        <TextBlock Text="Dis-Stirrup" TextAlignment="Center" />
+                        <TextBlock Text="Bottom Rebar" />
                     </DataGridTextColumn.Header>
-                </DataGridTextColumn>
-                <DataGridTextColumn Width="*" Binding="{Binding nMain1}">
-                    <DataGridTextColumn.Header>
-                        <TextBlock Text="S. Lượng 1" />
-                    </DataGridTextColumn.Header>
-                </DataGridTextColumn>
-                <DataGridTextColumn Width="*" Binding="{Binding DiaMain1}">
-                    <DataGridTextColumn.Header>
-                        <TextBlock Text="Đ. Kính 1" />
-                    </DataGridTextColumn.Header>
-                </DataGridTextColumn>
-                <DataGridTextColumn Width="*" Binding="{Binding nMain2}">
-                    <DataGridTextColumn.Header>
-                        <TextBlock Text="S. Lượng 2" />
-                    </DataGridTextColumn.Header>
-                </DataGridTextColumn>
-                <DataGridTextColumn Width="*" Binding="{Binding DiaMain2}">
-                    <DataGridTextColumn.Header>
-                        <TextBlock Text="Đ. Kính 2" />
-                    </DataGridTextColumn.Header>
-                </DataGridTextColumn>
-                <DataGridTextColumn Width="1.2*" Binding="{Binding nSub}">
-                    <DataGridTextColumn.Header>
-                        <TextBlock Text="S. Lượng Phụ" />
-                    </DataGridTextColumn.Header>
-                </DataGridTextColumn>
-                <DataGridTextColumn Width="1.2*" Binding="{Binding DiaSub}">
-                    <DataGridTextColumn.Header>
-                        <TextBlock Text="Đ. Kính Phụ" />
-                    </DataGridTextColumn.Header>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="">
+                                    <Setter Property="Opacity" Value="0" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <DockPanel Grid.Row="1" LastChildFill="True">
+        <DockPanel
+            Grid.Row="1"
+            Grid.ColumnSpan="3"
+            LastChildFill="True">
             <Button
-            Width="200"
-            Margin="4"
-            Command="{Binding CreateSectionDetail}"
-            Content="OK"
-            DockPanel.Dock="Right" />
+                Width="200"
+                Margin="4"
+                Command="{Binding CreateSectionDetail}"
+                Content="OK"
+                DockPanel.Dock="Right" />
             <Button
-            Width="200"
-            Margin="4"
-            HorizontalAlignment="Right"
-            Command="{Binding FileExcelOpen}"
-            Content="Tệp Excel" />
+                Width="200"
+                Margin="4"
+                HorizontalAlignment="Right"
+                Command="{Binding FileExcelOpen}"
+                Content="Tệp Excel" />
 
         </DockPanel>
     </Grid>

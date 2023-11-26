@@ -70,7 +70,7 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
             try
             {
                 int lastrow = mExcel.OpenExcelFile();
-                for (int i =36;i< lastrow;i++)
+                for (int i =36;i< lastrow+1;i++)
                 {
                     mSectionBeam mSectionBeam = mExcel.SectionBeam(i);
                     DgSectionBeam.Add(mSectionBeam);

@@ -9,6 +9,7 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
 {
     public class mSectionBeam: PropertyChangedBase
     {
+        #region Beam Information
         private string _beamName;
         public string BeamName
         {
@@ -19,7 +20,6 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
                 OnPropertyChanged(nameof(BeamName));
             }
         }
-
         private string _sectionLocation;   
         public string SectionLocation
         {
@@ -50,68 +50,101 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
                 OnPropertyChanged(nameof(H));
             }
         }
-        private int _diaMain1;
-        public int DiaMain1
-        {
-            get => _diaMain1;
-            set
-            {
-                _diaMain2 = value;
-                OnPropertyChanged(nameof(DiaMain1));
-            }
-        }
-        private int _nMain1;
-        public int nMain1
-        {
-            get => _nMain1;
-            set
-            {
-                _nMain1 = value;
-                OnPropertyChanged(nameof(nMain1));
-            }
-        }
+        #endregion
 
+        #region Top 1
+        private double _diaTop1;
+        public double DiaTop1
+        {
+            get => _diaTop1;
+            set
+            {
+                _diaTop1 = value;
+                OnPropertyChanged(nameof(DiaTop1));
+            }
+        }
+        private double _nTop1;
+        public double nTop1
+        {
+            get => _nTop1;
+            set
+            {
+                _nTop1 = value;
+                OnPropertyChanged(nameof(nTop1));
+            }
+        }
+        #endregion
 
-        private int _nMain2;
-        public int nMain2
+        #region Top 2
+        private double _nTop2;
+        public double nTop2
         {
-            get => _nMain2;
+            get => _nTop2;
             set
             {
-                _nMain2 = value;
-                OnPropertyChanged(nameof(nMain2));
+                _nTop2 = value;
+                OnPropertyChanged(nameof(nTop2));
             }
         }
-        private int _diaMain2;
-        public int DiaMain2
+        private double _diaTop2;
+        public double DiaTop2
         {
-            get => _diaMain2;
+            get => _diaTop2;
             set
             {
-                _diaMain2 = value;
-                OnPropertyChanged(nameof(DiaMain2));
+                _diaTop2 = value;
+                OnPropertyChanged(nameof(DiaTop2));
             }
         }
-        private int _nSub;
-        public int nSub
+        #endregion
+
+        #region Bot 1
+        private double _diaBot1;
+        public double DiaBot1
         {
-            get => _nSub;
+            get => _diaBot1;
             set
             {
-                _nSub = value;
-                OnPropertyChanged(nameof(nSub));
+                _diaBot1 = value;
+                OnPropertyChanged(nameof(DiaBot1));
             }
         }
-        private int _diaSub;
-        public int DiaSub
+        private double _nBot1;
+        public double nBot1
         {
-            get => _diaSub;
+            get => _nBot1;
             set
             {
-                _diaSub = value;
-                OnPropertyChanged(nameof(DiaSub));
+                _nBot1 = value;
+                OnPropertyChanged(nameof(nBot1));
             }
         }
+        #endregion
+
+        #region Bot 2
+        private double _nBot2;
+        public double nBot2
+        {
+            get => _nBot2;
+            set
+            {
+                _nBot2 = value;
+                OnPropertyChanged(nameof(nBot2));
+            }
+        }
+        private double _diaBot2;
+        public double DiaBot2
+        {
+            get => _diaBot2;
+            set
+            {
+                _diaBot2 = value;
+                OnPropertyChanged(nameof(DiaBot2));
+            }
+        }
+        #endregion
+
+        #region Stirrup
         private double _diaStirrup;
         public double DiaStirrup
         {
@@ -142,5 +175,36 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
                 OnPropertyChanged(nameof(DisStirrup));
             }
         }
+        private string _stirrup;
+        public string Stirrup
+        {
+            get => _stirrup;
+            set
+            {
+                _stirrup = value;
+                OnPropertyChanged(nameof(Stirrup)); 
+            }
+        }
+        private string _topView;
+        public string TopView
+        {
+            get => _topView;
+            set
+            {
+                _topView = value;
+                OnPropertyChanged(nameof(TopView));
+            }
+        }
+        private string _botView;
+        public string BotView
+        {
+            get => _botView;
+            set
+            {
+                _botView = value;
+                OnPropertyChanged(nameof(BotView));
+            }
+        }
+        #endregion
     }
 }

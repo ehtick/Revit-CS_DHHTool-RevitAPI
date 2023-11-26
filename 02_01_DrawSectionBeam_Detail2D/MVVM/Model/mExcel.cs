@@ -235,8 +235,80 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
             double dkThepDai = (xlSheet.Cells[i, 8] as Microsoft.Office.Interop.Excel.Range).Value;
             double sLThepDai = (xlSheet.Cells[i, 9] as Microsoft.Office.Interop.Excel.Range).Value;
             double kcThepDai = (xlSheet.Cells[i, 10] as Microsoft.Office.Interop.Excel.Range).Value;
-            //int slThepTrenL1_P1 = (xlSheet.Cells[i, 18] as Microsoft.Office.Interop.Excel.Range).Value;
-            //double dkThepTrenL1_P1 = (xlSheet.Cells[i, 19] as Microsoft.Office.Interop.Excel.Range).Value;
+            #endregion
+
+            #region Thép chủ
+            #region Biến phụ cho mSection
+            double n1T = 0;
+            double n2T = 0;
+            double n1B = 0;
+            double n2B = 0;
+            double d1T = 0;
+            double d2T = 0;
+            double d1B = 0;
+            double d2B = 0;
+            #endregion
+            #region Biến phụ lấy dữ liệu Excel
+            //dòng trước
+            double ExcelCells18_N1_DongTruoc = 0;
+            if ((xlSheet.Cells[i - 1, 18] as Microsoft.Office.Interop.Excel.Range).Value != null)
+            { ExcelCells18_N1_DongTruoc = (xlSheet.Cells[i - 1, 18] as Microsoft.Office.Interop.Excel.Range).Value; }
+
+            double ExcelCells19_D1_DongTruoc = 0;
+            if ((xlSheet.Cells[i - 1, 19] as Microsoft.Office.Interop.Excel.Range).Value != null)
+            { ExcelCells19_D1_DongTruoc = (xlSheet.Cells[i - 1, 19] as Microsoft.Office.Interop.Excel.Range).Value; }
+
+
+            double ExcelCells18_N1 = 0;
+            if ((xlSheet.Cells[i, 18] as Microsoft.Office.Interop.Excel.Range).Value != null) 
+            { ExcelCells18_N1 = (xlSheet.Cells[i, 18] as Microsoft.Office.Interop.Excel.Range).Value;}
+
+            double ExcelCells19_D1 = 0;
+            if ((xlSheet.Cells[i, 19] as Microsoft.Office.Interop.Excel.Range).Value != null)
+            { ExcelCells19_D1 = (xlSheet.Cells[i, 19] as Microsoft.Office.Interop.Excel.Range).Value; }
+
+            double ExcelCells22_N2 = 0;
+            if ((xlSheet.Cells[i, 22] as Microsoft.Office.Interop.Excel.Range).Value != null)
+            { ExcelCells22_N2 = (xlSheet.Cells[i, 22] as Microsoft.Office.Interop.Excel.Range).Value; }
+
+            double ExcelCells23_D2 = 0;
+            if ((xlSheet.Cells[i, 23] as Microsoft.Office.Interop.Excel.Range).Value != null)
+            { ExcelCells23_D2 = (xlSheet.Cells[i, 23] as Microsoft.Office.Interop.Excel.Range).Value; }
+
+            //dòng sau
+            double ExcelCells18_N1_DongSau= 0;
+            if ((xlSheet.Cells[i+1, 18] as Microsoft.Office.Interop.Excel.Range).Value != null)
+            { ExcelCells18_N1_DongSau = (xlSheet.Cells[i+1, 18] as Microsoft.Office.Interop.Excel.Range).Value; }
+
+            double ExcelCells19_D1_DongSau = 0;
+            if ((xlSheet.Cells[i+1, 19] as Microsoft.Office.Interop.Excel.Range).Value != null)
+            { ExcelCells19_D1_DongSau = (xlSheet.Cells[i+1, 19] as Microsoft.Office.Interop.Excel.Range).Value; }
+
+            #endregion
+            #region Gán biên
+            #region Gán biến
+            if (Location.Contains("END") | Location.Contains("GỐI"))
+            {
+                n1T = ExcelCells18_N1;
+                d1T = ExcelCells19_D1;
+                n2T = ExcelCells22_N2;
+                d2T = ExcelCells23_D2;
+                n1B = ExcelCells18_N1_DongSau;
+                d1B = ExcelCells19_D1_DongSau;
+            }
+            else if (Location.Contains("CENTER") | Location.Contains("NHỊP"))
+            {
+                n1B = ExcelCells18_N1;
+                d1B = ExcelCells19_D1;
+                n2B = ExcelCells22_N2;
+                d2B = ExcelCells23_D2;
+                n1T = ExcelCells18_N1_DongTruoc;
+                d1T = ExcelCells19_D1_DongTruoc;
+            }
+            #endregion
+            #endregion
+            double slThepTrenL1_P1 = (xlSheet.Cells[i, 18] as Microsoft.Office.Interop.Excel.Range).Value;
+            double dkThepTrenL1_P1 = (xlSheet.Cells[i, 19] as Microsoft.Office.Interop.Excel.Range).Value;
             #endregion
             //for (rowCnt = 36; rowCnt <= xlRange.Rows.Count; rowCnt++)
             //{
@@ -395,6 +467,22 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
             //    #endregion
 
             //}
+            string top1View;
+            if(n1T==0) { top1View = null;}
+            else { top1View = n1T.ToString() + "T" + d1T.ToString(); }
+
+            string top2View;
+            if (n2T == 0){top2View = null;}
+            else { top2View =" + " + n2T.ToString() + "T" + d2T.ToString(); }
+
+            string bot1View;
+            if (n1B == 0) { bot1View = null; }
+            else { bot1View = n1B.ToString() + "T" + d1B.ToString(); }
+
+            string bot2View;
+            if (n2B == 0){ bot2View = null;}
+            else { bot2View = " + " + n2B.ToString() + "T" + d2B.ToString(); }
+
             return new mSectionBeam()
             {
 
@@ -405,8 +493,17 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
                 DiaStirrup = dkThepDai,
                 NStirrup = sLThepDai,
                 DisStirrup = kcThepDai,
-                //nMain1 = slThepTrenL1_P1,
-                //DiaMain1 = slThepTrenL1_P1,
+                nTop1 = n1T,
+                DiaTop1 = d1T,
+                nTop2 = n2T,
+                DiaTop2 = d2T,
+                nBot1 = n1B,
+                DiaBot1 = d1B,
+                nBot2 = n2B,
+                DiaBot2 = d2B,
+                Stirrup = sLThepDai.ToString() + "d" + dkThepDai.ToString() + "a" + kcThepDai.ToString(),
+                TopView = top1View + top2View,
+                BotView = bot1View + bot2View,
 
             };
         }
