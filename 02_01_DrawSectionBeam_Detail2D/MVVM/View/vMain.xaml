@@ -1,16 +1,16 @@
 ﻿<Window x:Class="_02_01_DrawSectionBeam_Detail2D.MVVM.View.vMain"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:_02_01_DrawSectionBeam_Detail2D.MVVM.View"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
-    xmlns:vm="clr-namespace:_02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel"
-    d:DataContext="{d:DesignInstance Type=vm:vmMain}"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
-    DataContext="{Binding Source={x:Static vm:vmMain.DcMain}}"
-    mc:Ignorable="d">
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+xmlns:local="clr-namespace:_02_01_DrawSectionBeam_Detail2D.MVVM.View"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+xmlns:vm="clr-namespace:_02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel"
+d:DataContext="{d:DesignInstance Type=vm:vmMain}"
+d:DesignHeight="450"
+d:DesignWidth="800"
+DataContext="{Binding Source={x:Static vm:vmMain.DcMain}}"
+mc:Ignorable="d">
     <Window.Resources>
         <ResourceDictionary>
             <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#006536" />
@@ -93,10 +93,10 @@
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
         <DataGrid
-            AutoGenerateColumns="False"
-            Background="AntiqueWhite"
-            CanUserAddRows="False"
-            ItemsSource="{Binding DgSectionBeam}">
+        AutoGenerateColumns="False"
+        Background="AntiqueWhite"
+        CanUserAddRows="False"
+        ItemsSource="{Binding DgSectionBeam}">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Binding="{Binding BeamName}">
                     <DataGridTextColumn.Header>
@@ -167,17 +167,17 @@
         </DataGrid>
         <DockPanel Grid.Row="1" LastChildFill="True">
             <Button
-                Width="200"
-                Margin="4"
-                Command="{Binding CreateSectionDetail}"
-                Content="OK"
-                DockPanel.Dock="Right" />
+            Width="200"
+            Margin="4"
+            Command="{Binding CreateSectionDetail}"
+            Content="OK"
+            DockPanel.Dock="Right" />
             <Button
-                Width="200"
-                Margin="4"
-                HorizontalAlignment="Right"
-                Command="{Binding FileExcelOpen}"
-                Content="Tệp Excel" />
+            Width="200"
+            Margin="4"
+            HorizontalAlignment="Right"
+            Command="{Binding FileExcelOpen}"
+            Content="Tệp Excel" />
 
         </DockPanel>
     </Grid>

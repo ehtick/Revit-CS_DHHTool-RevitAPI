@@ -235,8 +235,8 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
             double dkThepDai = (xlSheet.Cells[i, 8] as Microsoft.Office.Interop.Excel.Range).Value;
             double sLThepDai = (xlSheet.Cells[i, 9] as Microsoft.Office.Interop.Excel.Range).Value;
             double kcThepDai = (xlSheet.Cells[i, 10] as Microsoft.Office.Interop.Excel.Range).Value;
-            int slThepTrenL1_P1 = (xlSheet.Cells[i, 18] as Microsoft.Office.Interop.Excel.Range).Value;
-            double dkThepTrenL1_P1 = (xlSheet.Cells[i, 19] as Microsoft.Office.Interop.Excel.Range).Value;
+            //int slThepTrenL1_P1 = (xlSheet.Cells[i, 18] as Microsoft.Office.Interop.Excel.Range).Value;
+            //double dkThepTrenL1_P1 = (xlSheet.Cells[i, 19] as Microsoft.Office.Interop.Excel.Range).Value;
             #endregion
             //for (rowCnt = 36; rowCnt <= xlRange.Rows.Count; rowCnt++)
             //{
@@ -405,8 +405,8 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
                 DiaStirrup = dkThepDai,
                 NStirrup = sLThepDai,
                 DisStirrup = kcThepDai,
-                nMain1 = slThepTrenL1_P1,
-                DiaMain1 = slThepTrenL1_P1,
+                //nMain1 = slThepTrenL1_P1,
+                //DiaMain1 = slThepTrenL1_P1,
 
             };
         }

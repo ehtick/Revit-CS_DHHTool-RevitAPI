@@ -1,4 +1,3 @@
-D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\02_01_DrawSectionBeam_Detail2D\bin\Release\DrawSectionBeam.addin
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\02_01_DrawSectionBeam_Detail2D\bin\Release\02_01_DrawSectionBeam_Detail2D.dll
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\02_01_DrawSectionBeam_Detail2D\bin\Release\02_01_DrawSectionBeam_Detail2D.pdb
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\02_01_DrawSectionBeam_Detail2D\bin\Release\BIMSoftLib.dll
@@ -44,3 +43,10 @@ D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02_01_DrawSectionBeam_Detail2D\obj\Relea
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02_01_DrawSectionBeam_Detail2D\obj\Release\02_01_DrawSectionBeam_Detail2D.csproj.CopyComplete
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02_01_DrawSectionBeam_Detail2D\obj\Release\02_01_DrawSectionBeam_Detail2D.dll
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\02_01_DrawSectionBeam_Detail2D\obj\Release\02_01_DrawSectionBeam_Detail2D.pdb
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\02_01_DrawSectionBeam_Detail2D\bin\Release\EPPlus.dll
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\02_01_DrawSectionBeam_Detail2D\bin\Release\EPPlus.Interfaces.dll
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\02_01_DrawSectionBeam_Detail2D\bin\Release\EPPlus.System.Drawing.dll
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\02_01_DrawSectionBeam_Detail2D\bin\Release\Microsoft.IO.RecyclableMemoryStream.dll
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\02_01_DrawSectionBeam_Detail2D\bin\Release\System.ComponentModel.Annotations.dll
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\02_01_DrawSectionBeam_Detail2D\bin\Release\EPPlus.xml
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\02_01_DrawSectionBeam_Detail2D\bin\Release\Microsoft.IO.RecyclableMemoryStream.xml
