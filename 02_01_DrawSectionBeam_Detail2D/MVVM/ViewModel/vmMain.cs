@@ -9,6 +9,8 @@ using BIMSoftLib.MVVM;
 using System.Windows.Input;
 using System.Windows;
 using Microsoft.Office.Interop.Excel;
+using Autodesk.Revit.UI;
+using Autodesk.Revit.DB;
 
 namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
 {
@@ -20,6 +22,10 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
 
         private ObservableRangeCollection<mSectionBeam> _dgSectionBeam = new ObservableRangeCollection<mSectionBeam>();
 
+        mRevit mRevit = new mRevit();
+
+        public static UIControlledApplication RevitCtrlApp;
+        public static UIApplication RevitApp;
         readonly mExcel mExcel = new mExcel();
 
         private Range _excelRange;
@@ -130,6 +136,18 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
 
         private void PerformCreateSectionDetail()
         {
+            try
+            {
+                UIDocument uiDocument = RevitApp.ActiveUIDocument;
+                Document doc = uiDocument.Document;
+                mRevit.CreateSectionBeam2D(doc, DgSectionBeam);
+                MessageBox.Show(DgSectionBeam.Count.ToString());
+
+            }
+            catch 
+            {
+
+            }
         }
     }
 }

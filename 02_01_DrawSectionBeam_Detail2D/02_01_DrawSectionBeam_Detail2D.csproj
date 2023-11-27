@@ -93,6 +93,7 @@
   <ItemGroup>
     <Compile Include="DrawSectionBeam.cs" />
     <Compile Include="MVVM\Model\mExcel.cs" />
+    <Compile Include="MVVM\Model\mRevit.cs" />
     <Compile Include="MVVM\Model\mSectionBeam.cs" />
     <Compile Include="MVVM\ViewModel\vmMain.cs" />
     <Compile Include="MVVM\View\vMain.xaml.cs">
