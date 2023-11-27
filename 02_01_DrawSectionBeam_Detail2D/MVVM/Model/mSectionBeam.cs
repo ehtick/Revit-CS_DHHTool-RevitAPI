@@ -52,94 +52,186 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
         }
         #endregion
 
-        #region Top 1
-        private double _diaTop1;
-        public double DiaTop1
+        #region Layer 1 Top 1
+        private double _diaTop1_Layer1;
+        public double DiaTop1_Layer1
         {
-            get => _diaTop1;
+            get => _diaTop1_Layer1;
             set
             {
-                _diaTop1 = value;
-                OnPropertyChanged(nameof(DiaTop1));
+                _diaTop1_Layer1 = value;
+                OnPropertyChanged(nameof(DiaTop1_Layer1));
             }
         }
-        private double _nTop1;
-        public double nTop1
+        private double _nTop1_Layer1;
+        public double nTop1_Layer1
         {
-            get => _nTop1;
+            get => _nTop1_Layer1;
             set
             {
-                _nTop1 = value;
-                OnPropertyChanged(nameof(nTop1));
-            }
-        }
-        #endregion
-
-        #region Top 2
-        private double _nTop2;
-        public double nTop2
-        {
-            get => _nTop2;
-            set
-            {
-                _nTop2 = value;
-                OnPropertyChanged(nameof(nTop2));
-            }
-        }
-        private double _diaTop2;
-        public double DiaTop2
-        {
-            get => _diaTop2;
-            set
-            {
-                _diaTop2 = value;
-                OnPropertyChanged(nameof(DiaTop2));
+                _nTop1_Layer1 = value;
+                OnPropertyChanged(nameof(nTop1_Layer1));
             }
         }
         #endregion
 
-        #region Bot 1
-        private double _diaBot1;
-        public double DiaBot1
+        #region Layer 1 Top 2
+        private double _nTop2_Layer1;
+        public double nTop2_Layer1
         {
-            get => _diaBot1;
+            get => _nTop2_Layer1;
             set
             {
-                _diaBot1 = value;
-                OnPropertyChanged(nameof(DiaBot1));
+                _nTop2_Layer1 = value;
+                OnPropertyChanged(nameof(nTop2_Layer1));
             }
         }
-        private double _nBot1;
-        public double nBot1
+        private double _diaTop2_Layer1;
+        public double DiaTop2_Layer1
         {
-            get => _nBot1;
+            get => _diaTop2_Layer1;
             set
             {
-                _nBot1 = value;
-                OnPropertyChanged(nameof(nBot1));
+                _diaTop2_Layer1 = value;
+                OnPropertyChanged(nameof(DiaTop2_Layer1));
             }
         }
         #endregion
 
-        #region Bot 2
-        private double _nBot2;
-        public double nBot2
+        #region Layer 2 Top 1
+        private double _diaTop1_Layer2;
+        public double DiaTop1_Layer2
         {
-            get => _nBot2;
+            get => _diaTop1_Layer2;
             set
             {
-                _nBot2 = value;
-                OnPropertyChanged(nameof(nBot2));
+                _diaTop1_Layer2 = value;
+                OnPropertyChanged(nameof(DiaTop1_Layer2));
             }
         }
-        private double _diaBot2;
-        public double DiaBot2
+        private double _nTop1_Layer2;
+        public double nTop1_Layer2
         {
-            get => _diaBot2;
+            get => _nTop1_Layer2;
             set
             {
-                _diaBot2 = value;
-                OnPropertyChanged(nameof(DiaBot2));
+                _nTop1_Layer2 = value;
+                OnPropertyChanged(nameof(nTop1_Layer2));
+            }
+        }
+        #endregion
+
+        #region Layer 2 Top 2
+        private double _nTop2_Layer2;
+        public double nTop2_Layer2
+        {
+            get => _nTop2_Layer2;
+            set
+            {
+                _nTop2_Layer2 = value;
+                OnPropertyChanged(nameof(nTop2_Layer2));
+            }
+        }
+        private double _diaTop2_Layer2;
+        public double DiaTop2_Layer2
+        {
+            get => _diaTop2_Layer2;
+            set
+            {
+                _diaTop2_Layer2 = value;
+                OnPropertyChanged(nameof(DiaTop2_Layer2));
+            }
+        }
+        #endregion
+
+        #region Layer 1 Bottom 1
+        private double _diaBot1_Layer1;
+        public double DiaBot1_Layer1
+        {
+            get => _diaBot1_Layer1;
+            set
+            {
+                _diaBot1_Layer1 = value;
+                OnPropertyChanged(nameof(DiaBot1_Layer1));
+            }
+        }
+        private double _nBot1_Layer1;
+        public double nBot1_Layer1
+        {
+            get => _nBot1_Layer1;
+            set
+            {
+                _nBot1_Layer1 = value;
+                OnPropertyChanged(nameof(nBot1_Layer1));
+            }
+        }
+        #endregion
+
+        #region Layer 1 Bottom 2 
+        private double _nBot2_Layer1;
+        public double nBot2_Layer1
+        {
+            get => _nBot2_Layer1;
+            set
+            {
+                _nBot2_Layer1 = value;
+                OnPropertyChanged(nameof(nBot2_Layer1));
+            }
+        }
+        private double _diaBot2_Layer1;
+        public double DiaBot2_Layer1
+        {
+            get => _diaBot2_Layer1;
+            set
+            {
+                _diaBot2_Layer1 = value;
+                OnPropertyChanged(nameof(DiaBot2_Layer1));
+            }
+        }
+        #endregion
+
+        #region Layer 2 Bottom 1
+        private double _diaBot1_Layer2;
+        public double DiaBot1_Layer2
+        {
+            get => _diaBot1_Layer2;
+            set
+            {
+                _diaBot1_Layer2 = value;
+                OnPropertyChanged(nameof(DiaBot1_Layer2));
+            }
+        }
+        private double _nBot1_Layer2;
+        public double nBot1_Layer2
+        {
+            get => _nBot1_Layer2;
+            set
+            {
+                _nBot1_Layer2 = value;
+                OnPropertyChanged(nameof(nBot1_Layer2));
+            }
+        }
+        #endregion
+
+        #region Layer 2 Bottom 2 
+        private double _nBot2_Layer2;
+        public double nBot2_Layer2
+        {
+            get => _nBot2_Layer2;
+            set
+            {
+                _nBot2_Layer2 = value;
+                OnPropertyChanged(nameof(nBot2_Layer2));
+            }
+        }
+        private double _diaBot2_Layer2;
+        public double DiaBot2_Layer2
+        {
+            get => _diaBot2_Layer2;
+            set
+            {
+                _diaBot2_Layer2 = value;
+                OnPropertyChanged(nameof(DiaBot2_Layer2));
             }
         }
         #endregion

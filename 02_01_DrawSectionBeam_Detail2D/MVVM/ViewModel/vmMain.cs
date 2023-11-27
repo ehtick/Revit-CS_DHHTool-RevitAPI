@@ -35,6 +35,29 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
                 OnPropertyChanged(nameof(ExcelRange));
             }
         }
+
+        private double _widthFrame = 1000;
+        public double WidthFrame
+        {
+            get => _widthFrame;
+            set
+            {
+                _widthFrame = value;
+                OnPropertyChanged(nameof(WidthFrame));
+            }
+        }
+
+        private double _heightFrame = 1250;
+        public double HeightFrame
+        {
+            get => _heightFrame;
+            set
+            {
+                _heightFrame = value;
+                OnPropertyChanged(nameof(HeightFrame));
+            }
+        }
+
         public ObservableRangeCollection<mSectionBeam> DgSectionBeam
         {
             get
@@ -75,15 +98,12 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
                     mSectionBeam mSectionBeam = mExcel.SectionBeam(i);
                     DgSectionBeam.Add(mSectionBeam);
                 }
-                //var itemsToRemove = DgSectionBeam.Where(x=>x.BeamName == null).ToList();
+                var itemsToRemove = DgSectionBeam.Where(x => x.BeamName == null).ToList();
 
-                //foreach (var itemToRemove in itemsToRemove)
-                //{
-                //    DgSectionBeam.Remove(itemToRemove);
-                //}
-                
-                //MessageBox.Show(mExcel.xlRange.ToString());
-                //MessageBox.Show(mExcel.xlRange.Count.ToString());
+                foreach (var itemToRemove in itemsToRemove)
+                {
+                    DgSectionBeam.Remove(itemToRemove);
+                }
                 mExcel.xlsworkbook.Close();
                 mExcel.xlsApp.Quit();
             }

@@ -9,7 +9,7 @@
     xmlns:vm="clr-namespace:_02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel"
     d:DataContext="{d:DesignInstance Type=vm:vmMain}"
     Height="500"
-    Width="800"
+    Width="900"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     DataContext="{Binding Source={x:Static vm:vmMain.DcMain}}"
@@ -111,25 +111,25 @@
                 </DataGridTextColumn>
                 <DataGridTextColumn Width="*" Binding="{Binding SectionLocation}">
                     <DataGridTextColumn.Header>
-                        <TextBlock Text="Loc" />
+                        <TextBlock Text="Locaction" />
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
-                <DataGridTextColumn Width="*" Binding="{Binding B}">
+                <DataGridTextColumn Width="0.7*" Binding="{Binding B}">
                     <DataGridTextColumn.Header>
                         <TextBlock Text="B" />
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
-                <DataGridTextColumn Width="*" Binding="{Binding H}">
+                <DataGridTextColumn Width="0.7*" Binding="{Binding H}">
                     <DataGridTextColumn.Header>
                         <TextBlock Text="H" />
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
-                <DataGridTextColumn Width="1.5*" Binding="{Binding Stirrup}">
+                <DataGridTextColumn Width="*" Binding="{Binding Stirrup}">
                     <DataGridTextColumn.Header>
                         <TextBlock Text="Stirrup" />
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
-                <DataGridTextColumn Width="2*" Binding="{Binding TopView}">
+                <DataGridTextColumn Width="2.5*" Binding="{Binding TopView}">
                     <DataGridTextColumn.Header>
                         <TextBlock Text="Top Rebar" />
                     </DataGridTextColumn.Header>
@@ -143,7 +143,7 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Width="2*" Binding="{Binding BotView}">
+                <DataGridTextColumn Width="2.5*" Binding="{Binding BotView}">
                     <DataGridTextColumn.Header>
                         <TextBlock Text="Bottom Rebar" />
                     </DataGridTextColumn.Header>
@@ -163,19 +163,24 @@
             Grid.Row="1"
             Grid.ColumnSpan="3"
             LastChildFill="True">
+            <TextBlock Text="Width: " Width="50" TextAlignment="Center"  VerticalAlignment="Center"/>
+            <TextBox Width="150"  Margin="4" HorizontalAlignment="Right"
+                     Text="{Binding WidthFrame}"/>
+            <TextBlock Text="Height: " Width="50" TextAlignment="Center"  VerticalAlignment="Center"/>
+            <TextBox Width="150"  Margin="4" HorizontalAlignment="Right"
+                     Text="{Binding HeightFrame}"/>
             <Button
-                Width="200"
+                Width="150"
                 Margin="4"
                 Command="{Binding CreateSectionDetail}"
                 Content="OK"
                 DockPanel.Dock="Right" />
             <Button
-                Width="200"
+                Width="150"
                 Margin="4"
                 HorizontalAlignment="Right"
                 Command="{Binding FileExcelOpen}"
                 Content="Tệp Excel" />
-
         </DockPanel>
     </Grid>
 </Window>
