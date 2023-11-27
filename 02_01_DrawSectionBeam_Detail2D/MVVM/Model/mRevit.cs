@@ -44,8 +44,10 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
             }
         }
 
-        public void CreateSectionBeam2D(Document document, ObservableRangeCollection<mSectionBeam> mSectionBeams)
+        public static void CreateSectionBeam2D(UIApplication RevitApp,ObservableRangeCollection<mSectionBeam> mSectionBeams)
         {
+            UIDocument uIDocument = RevitApp.ActiveUIDocument;
+            Document document = uIDocument.Document;
             using (Transaction tran = new Transaction(document))
             {
                 tran.Start("Export DWF");

@@ -138,9 +138,9 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
         {
             try
             {
-                UIDocument uiDocument = RevitApp.ActiveUIDocument;
-                Document doc = uiDocument.Document;
-                mRevit.CreateSectionBeam2D(doc, DgSectionBeam);
+
+                mRevit.CreateSectionBeam2D(RevitApp, DgSectionBeam);
+                
                 MessageBox.Show(DgSectionBeam.Count.ToString());
 
             }

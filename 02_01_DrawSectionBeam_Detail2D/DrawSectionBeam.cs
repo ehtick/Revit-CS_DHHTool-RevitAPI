@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel.vmMain;
 
 namespace _02_01_DrawSectionBeam_Detail2D
 {
@@ -15,6 +16,7 @@ namespace _02_01_DrawSectionBeam_Detail2D
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
+            RevitApp = commandData.Application;
             var win = new vMain();
             win.Show();
             return Result.Succeeded;
