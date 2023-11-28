@@ -14,19 +14,26 @@ namespace _02_01_DrawSectionBeam_Detail2D
     [Transaction(TransactionMode.Manual)]
     public class DrawSectionBeam: IExternalCommand
     {
+        //public UIApplication RevitApp { get; private set; }
+
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            RevitApp = commandData.Application;
-            var win = new vMain();
-            win.Show();
+            UIApplication uIApplication = commandData.Application;
+            RevitApp = uIApplication;
+            UIDocument uIDocument = RevitApp.ActiveUIDocument;
+            Document document = uIDocument.Document;
+            using (TransactionGroup transGroup = new TransactionGroup(document))
+            {
+                transGroup.Start("Detail Beam 2D");
+                vMain win = new vMain();
+                bool? dialog = win.ShowDialog();
+                if (dialog == false) return Result.Succeeded;
+                transGroup.Commit();
+            }
+
             return Result.Succeeded;
         }
-        //public Result Execute(UIApplication application)
-        //{
-        //    var win = new vMain();
-        //    win.Show();
-        //    return Result.Succeeded;
-        //}
+
 
     }
 }

@@ -11,18 +11,25 @@ using System.Windows;
 using Microsoft.Office.Interop.Excel;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.DB;
+using System.Reflection;
+using Autodesk.Revit.Creation;
+using Document = Autodesk.Revit.DB.Document;
+using static _02_01_DrawSectionBeam_Detail2D.MVVM.Model.mRevit;
+
+using _02_01_DrawSectionBeam_Detail2D.MVVM.View;
+using System.Windows.Forms;
 
 namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
 {
-    public class vmMain: PropertyChangedBase
+    public class vmMain : PropertyChangedBase
     {
         private static vmMain _dcMain = new vmMain();
 
-        public static vmMain DcMain {get { return _dcMain; }}
+        public static vmMain DcMain { get { return _dcMain; } }
 
+        public static string Apploc = Assembly.GetExecutingAssembly().Location;
         private ObservableRangeCollection<mSectionBeam> _dgSectionBeam = new ObservableRangeCollection<mSectionBeam>();
 
-        mRevit mRevit = new mRevit();
 
         public static UIControlledApplication RevitCtrlApp;
         public static UIApplication RevitApp;
@@ -31,10 +38,11 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
         private Range _excelRange;
         public Range ExcelRange
         {
-            get 
+            get
             {
                 _excelRange = mExcel.xlRange;
-                return _excelRange; }
+                return _excelRange;
+            }
             set
             {
                 _excelRange = value;
@@ -99,7 +107,7 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
             try
             {
                 int lastrow = mExcel.OpenExcelFile();
-                for (int i =36;i< lastrow+1;i++)
+                for (int i = 36; i < lastrow + 1; i++)
                 {
                     mSectionBeam mSectionBeam = mExcel.SectionBeam(i);
                     DgSectionBeam.Add(mSectionBeam);
@@ -136,18 +144,15 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
 
         private void PerformCreateSectionDetail()
         {
+
             try
             {
-
-                mRevit.CreateSectionBeam2D(RevitApp, DgSectionBeam);
-                
-                MessageBox.Show(DgSectionBeam.Count.ToString());
-
+                CreateSectionBeam2D(RevitApp.ActiveUIDocument.Document, DgSectionBeam);
             }
-            catch 
-            {
 
-            }
+            catch { }
+
         }
+
     }
 }

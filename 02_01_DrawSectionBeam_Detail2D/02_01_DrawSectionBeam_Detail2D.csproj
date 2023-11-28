@@ -96,6 +96,7 @@
     <Compile Include="MVVM\Model\mExcel.cs" />
     <Compile Include="MVVM\Model\mRevit.cs" />
     <Compile Include="MVVM\Model\mSectionBeam.cs" />
+    <Compile Include="MVVM\ViewModel\handleMain.cs" />
     <Compile Include="MVVM\ViewModel\vmMain.cs" />
     <Compile Include="MVVM\View\vMain.xaml.cs">
       <DependentUpon>vMain.xaml</DependentUpon>
@@ -108,7 +109,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\00-01.DHHTools_Library\00-01.Library.csproj">
+      <Project>{C1343206-2654-4111-B0FA-B296CBBA6B66}</Project>
+      <Name>00-01.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Page Include="MVVM\View\vMain.xaml">
       <SubType>Designer</SubType>

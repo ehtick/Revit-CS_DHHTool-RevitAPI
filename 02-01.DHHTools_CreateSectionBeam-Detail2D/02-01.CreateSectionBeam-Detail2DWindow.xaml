@@ -3,18 +3,22 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:dhhTools="clr-namespace:DHHTools;assembly=DHHTools_Library"
     xmlns:dhhTools1="clr-namespace:DHHTools"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Name="MainWindow"
     Title="Beam Section 2D"
-    ResizeMode="NoResize"
     Width="1120"
     Height="600"
+    d:DesignHeight="500"
+    d:DesignWidth="600"
+    Background="White"
+    ResizeMode="NoResize"
     ShowInTaskbar="True"
     Topmost="False"
     WindowStartupLocation="CenterScreen"
-    mc:Ignorable="d" Background="White" WindowStyle="ThreeDBorderWindow" d:DesignWidth="600" d:DesignHeight="500">
+    WindowStyle="ThreeDBorderWindow"
+    mc:Ignorable="d">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -22,49 +26,52 @@
                 <ResourceDictionary Source="/DHHTools_Library;component/WPF/Resource/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-        
+
     </Window.Resources>
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
             </Grid.RowDefinitions>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="225"/>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="225" />
                 </Grid.ColumnDefinitions>
                 <Grid>
-                    <DockPanel LastChildFill="True" Margin="0">
-                        <DataGrid BorderThickness="1"
-                                  BorderBrush="Black"
-                                  AutoGenerateColumns="False"
-                                  ItemsSource="{Binding AllExcelData}"
-                                  Style="{DynamicResource DataGridStyle}" >
+                    <DockPanel Margin="0" LastChildFill="True">
+                        <DataGrid
+                            AutoGenerateColumns="False"
+                            BorderBrush="Black"
+                            BorderThickness="1"
+                            ItemsSource="{Binding AllExcelData}"
+                            Style="{DynamicResource DataGridStyle}">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn MinWidth="50">
-                                    <DataGridTemplateColumn.HeaderTemplate >
-                                        <DataTemplate >
+                                    <DataGridTemplateColumn.HeaderTemplate>
+                                        <DataTemplate>
                                             <Grid Height="75">
-                                                <TextBlock  FontStyle="Italic"
-                                                    FontFamily="Arial"
-                                                    Width="35" 
-                                                    TextAlignment="Center" 
+                                                <TextBlock
+                                                    Width="35"
                                                     HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center" 
+                                                    VerticalAlignment="Center"
+                                                    FontFamily="Arial"
+                                                    FontStyle="Italic"
+                                                    FontWeight="Bold"
                                                     Text="Tên dầm"
-                                                    TextWrapping="Wrap" FontWeight="Bold"/>
+                                                    TextAlignment="Center"
+                                                    TextWrapping="Wrap" />
                                             </Grid>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.HeaderTemplate>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Grid Margin="0,0,-1.5,0" >
-                                                <TextBox 
-                                                    VerticalContentAlignment="Center"
+                                            <Grid Margin="0,0,-1.5,0">
+                                                <TextBox
                                                     HorizontalContentAlignment="Center"
-                                                    Text="{Binding BeamName}"/>
+                                                    VerticalContentAlignment="Center"
+                                                    Text="{Binding BeamName}" />
                                             </Grid>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
@@ -73,24 +80,26 @@
                                     <DataGridTemplateColumn.HeaderTemplate>
                                         <DataTemplate DataType="dhhTools:ExcelDataExtension">
                                             <Grid Height="75">
-                                                <TextBlock  TextBlock.FontStyle="Italic"
-                                                    TextBlock.FontFamily="Arial"
-                                                    Width="35" 
-                                                    TextAlignment="Center" 
+                                                <TextBlock
+                                                    Width="35"
                                                     HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center" 
+                                                    VerticalAlignment="Center"
+                                                    FontWeight="Bold"
                                                     Text="Vị trí"
-                                                    TextWrapping="Wrap" FontWeight="Bold"/>
+                                                    TextAlignment="Center"
+                                                    TextBlock.FontFamily="Arial"
+                                                    TextBlock.FontStyle="Italic"
+                                                    TextWrapping="Wrap" />
                                             </Grid>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.HeaderTemplate>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Grid Margin="0,0,-1.5,0">
-                                                <TextBox 
-                                                    VerticalContentAlignment="Center"
+                                                <TextBox
                                                     HorizontalContentAlignment="Center"
-                                                    Text="{Binding Location}"/>
+                                                    VerticalContentAlignment="Center"
+                                                    Text="{Binding Location}" />
                                             </Grid>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
@@ -99,24 +108,24 @@
                                     <DataGridTemplateColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Grid Width="100" Height="75">
-                                                <TextBlock  FontStyle="Italic"
-                                                    FontFamily="Arial"
-                                                    TextAlignment="Center" 
+                                                <TextBlock
                                                     HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center" 
+                                                    VerticalAlignment="Center"
+                                                    FontFamily="Arial"
+                                                    FontStyle="Italic"
+                                                    FontWeight="Bold"
                                                     Text="Tiết diện"
-                                                    FontWeight="Bold"/>
+                                                    TextAlignment="Center" />
                                             </Grid>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.HeaderTemplate>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Grid 
-                                                Margin="0,0,-1.5,0">
-                                                <TextBox 
-                                                    VerticalContentAlignment="Center"
+                                            <Grid Margin="0,0,-1.5,0">
+                                                <TextBox
                                                     HorizontalContentAlignment="Center"
-                                                    Text="{Binding Section}"/>
+                                                    VerticalContentAlignment="Center"
+                                                    Text="{Binding Section}" />
                                             </Grid>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
@@ -126,175 +135,219 @@
                                         <DataTemplate>
                                             <Grid Height="75">
                                                 <Grid.RowDefinitions>
-                                                    <RowDefinition Height="*"/>
-                                                    <RowDefinition Height="2*"/>
+                                                    <RowDefinition Height="*" />
+                                                    <RowDefinition Height="2*" />
                                                 </Grid.RowDefinitions>
-                                                <Border 
-                                                     BorderBrush="Black" 
-                                                        BorderThickness="0,0,0,1" 
-                                                        Width="Auto" Height="25" 
-                                                        VerticalAlignment="Stretch" 
-                                                        HorizontalAlignment="Stretch"
-                                                        Margin="-1,0">
-                                                    <TextBlock  FontStyle="Italic"
-                                                                FontFamily="Arial" 
-                                                                TextAlignment="Center" 
-                                                                HorizontalAlignment="Center"
-                                                                VerticalAlignment="Center" 
-                                                                Text="Thép chủ"
-                                                                FontWeight="Bold"/>
+                                                <Border
+                                                    Width="Auto"
+                                                    Height="25"
+                                                    Margin="-1,0"
+                                                    HorizontalAlignment="Stretch"
+                                                    VerticalAlignment="Stretch"
+                                                    BorderBrush="Black"
+                                                    BorderThickness="0,0,0,1">
+                                                    <TextBlock
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        FontFamily="Arial"
+                                                        FontStyle="Italic"
+                                                        FontWeight="Bold"
+                                                        Text="Thép chủ"
+                                                        TextAlignment="Center" />
                                                 </Border>
-                                                <Border Grid.Row="1"
-                                                        BorderBrush="Black" 
-                                                        BorderThickness="0,0,0,0.5" 
-                                                        Width="400" Height="50" 
-                                                        VerticalAlignment="Stretch" 
-                                                        Margin="-1,0">
+                                                <Border
+                                                    Grid.Row="1"
+                                                    Width="400"
+                                                    Height="50"
+                                                    Margin="-1,0"
+                                                    VerticalAlignment="Stretch"
+                                                    BorderBrush="Black"
+                                                    BorderThickness="0,0,0,0.5">
                                                     <Grid>
                                                         <Grid.ColumnDefinitions>
-                                                            <ColumnDefinition Width="*"/>
-                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="*" />
+                                                            <ColumnDefinition Width="*" />
                                                         </Grid.ColumnDefinitions>
-                                                        <Border BorderBrush="Black" 
-                                                                BorderThickness="0,0,1,0" 
-                                                                Width="200" Height="50" 
-                                                                VerticalAlignment="Stretch" 
-                                                                Margin="-1,0">
+                                                        <Border
+                                                            Width="200"
+                                                            Height="50"
+                                                            Margin="-1,0"
+                                                            VerticalAlignment="Stretch"
+                                                            BorderBrush="Black"
+                                                            BorderThickness="0,0,1,0">
                                                             <Grid>
                                                                 <Grid.RowDefinitions>
-                                                                    <RowDefinition Height="*"/>
-                                                                    <RowDefinition Height="*"/>
+                                                                    <RowDefinition Height="*" />
+                                                                    <RowDefinition Height="*" />
                                                                 </Grid.RowDefinitions>
-                                                                <Border BorderBrush="Black" 
-                                                                    BorderThickness="0,0,1,1" 
-                                                                    Width="Auto" 
-                                                                    Height="Auto" 
-                                                                    Margin="-1,0">
-                                                                    <TextBlock  FontStyle="Italic"
-                                                                            FontFamily="Arial" 
-                                                                            TextAlignment="Center" 
-                                                                            HorizontalAlignment="Center"
-                                                                            VerticalAlignment="Center" 
-                                                                            Text="Thép lớp trên"
-                                                                            FontWeight="Bold"/>
+                                                                <Border
+                                                                    Width="Auto"
+                                                                    Height="Auto"
+                                                                    Margin="-1,0"
+                                                                    BorderBrush="Black"
+                                                                    BorderThickness="0,0,1,1">
+                                                                    <TextBlock
+                                                                        HorizontalAlignment="Center"
+                                                                        VerticalAlignment="Center"
+                                                                        FontFamily="Arial"
+                                                                        FontStyle="Italic"
+                                                                        FontWeight="Bold"
+                                                                        Text="Thép lớp trên"
+                                                                        TextAlignment="Center" />
                                                                 </Border>
-                                                                <Border Grid.Row="1"
-                                                                    BorderBrush="Black" 
-                                                                    Height="25" 
-                                                                    Margin="0,0,1,0">
+                                                                <Border
+                                                                    Grid.Row="1"
+                                                                    Height="25"
+                                                                    Margin="0,0,1,0"
+                                                                    BorderBrush="Black">
                                                                     <Grid Width="200">
                                                                         <Grid.ColumnDefinitions>
-                                                                            <ColumnDefinition Width="*"/>
-                                                                            <ColumnDefinition Width="*"/>
-                                                                            <ColumnDefinition Width="*"/>
-                                                                            <ColumnDefinition Width="*"/>
+                                                                            <ColumnDefinition Width="*" />
+                                                                            <ColumnDefinition Width="*" />
+                                                                            <ColumnDefinition Width="*" />
+                                                                            <ColumnDefinition Width="*" />
                                                                         </Grid.ColumnDefinitions>
-                                                                        <Border BorderBrush="Black" 
-                                                                                BorderThickness="0,0,1,0" 
-                                                                                Height="25" Width="50" VerticalAlignment="Stretch" >
-                                                                            <TextBlock Text="L1 - S/L" 
-                                                                                       HorizontalAlignment="Center" 
-                                                                                       VerticalAlignment="Center"/>
+                                                                        <Border
+                                                                            Width="50"
+                                                                            Height="25"
+                                                                            VerticalAlignment="Stretch"
+                                                                            BorderBrush="Black"
+                                                                            BorderThickness="0,0,1,0">
+                                                                            <TextBlock
+                                                                                HorizontalAlignment="Center"
+                                                                                VerticalAlignment="Center"
+                                                                                Text="L1 - S/L" />
                                                                         </Border>
-                                                                        <Border Grid.Column="1"
-                                                                                BorderBrush="Black" 
-                                                                                BorderThickness="0,0,1,0" 
-                                                                                Height="25" 
-                                                                                Margin="0,0,-1,0" Width="50">
-                                                                            <TextBlock Text="L1 - Đ/K" 
-                                                                                       HorizontalAlignment="Center" 
-                                                                                       VerticalAlignment="Center"/>
+                                                                        <Border
+                                                                            Grid.Column="1"
+                                                                            Width="50"
+                                                                            Height="25"
+                                                                            Margin="0,0,-1,0"
+                                                                            BorderBrush="Black"
+                                                                            BorderThickness="0,0,1,0">
+                                                                            <TextBlock
+                                                                                HorizontalAlignment="Center"
+                                                                                VerticalAlignment="Center"
+                                                                                Text="L1 - Đ/K" />
                                                                         </Border>
-                                                                        <Border Grid.Column="2"
-                                                                                BorderBrush="Black" 
-                                                                                BorderThickness="0,0,1,0" 
-                                                                                Height="25" 
-                                                                                Margin="0,0,-1,0" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                                            <TextBlock Text="L2 - S/L" 
-                                                                                       HorizontalAlignment="Center" 
-                                                                                       VerticalAlignment="Center"/>
+                                                                        <Border
+                                                                            Grid.Column="2"
+                                                                            Width="50"
+                                                                            Height="25"
+                                                                            Margin="0,0,-1,0"
+                                                                            HorizontalAlignment="Center"
+                                                                            VerticalAlignment="Center"
+                                                                            BorderBrush="Black"
+                                                                            BorderThickness="0,0,1,0">
+                                                                            <TextBlock
+                                                                                HorizontalAlignment="Center"
+                                                                                VerticalAlignment="Center"
+                                                                                Text="L2 - S/L" />
                                                                         </Border>
-                                                                        <Border Grid.Column="3"
-                                                                                BorderBrush="Black" 
-                                                                                BorderThickness="0,0,1,0" 
-                                                                                Height="25" 
-                                                                                Margin="0,0,-1,0" Width="50">
-                                                                            <TextBlock Text="L2 - Đ/K" 
-                                                                                       HorizontalAlignment="Center" 
-                                                                                       VerticalAlignment="Center"/>
+                                                                        <Border
+                                                                            Grid.Column="3"
+                                                                            Width="50"
+                                                                            Height="25"
+                                                                            Margin="0,0,-1,0"
+                                                                            BorderBrush="Black"
+                                                                            BorderThickness="0,0,1,0">
+                                                                            <TextBlock
+                                                                                HorizontalAlignment="Center"
+                                                                                VerticalAlignment="Center"
+                                                                                Text="L2 - Đ/K" />
                                                                         </Border>
                                                                     </Grid>
-                                                                  </Border>
+                                                                </Border>
                                                             </Grid>
                                                         </Border>
-                                                        <Border Grid.Column="1"
-                                                                BorderBrush="Black" 
-                                                                BorderThickness="0,0,1,0" 
-                                                                Width="200" Height="50" 
-                                                                VerticalAlignment="Stretch" 
-                                                                Margin="-1,0">
+                                                        <Border
+                                                            Grid.Column="1"
+                                                            Width="200"
+                                                            Height="50"
+                                                            Margin="-1,0"
+                                                            VerticalAlignment="Stretch"
+                                                            BorderBrush="Black"
+                                                            BorderThickness="0,0,1,0">
                                                             <Grid>
                                                                 <Grid.RowDefinitions>
-                                                                    <RowDefinition Height="*"/>
-                                                                    <RowDefinition Height="*"/>
+                                                                    <RowDefinition Height="*" />
+                                                                    <RowDefinition Height="*" />
                                                                 </Grid.RowDefinitions>
-                                                                <Border BorderBrush="Black" 
-                                                                    BorderThickness="0,0,1,1" 
-                                                                    Width="Auto" 
-                                                                    Height="Auto" 
-                                                                    Margin="-1,0">
-                                                                    <TextBlock  FontStyle="Italic"
-                                                                            FontFamily="Arial" 
-                                                                            TextAlignment="Center" 
-                                                                            HorizontalAlignment="Center"
-                                                                            VerticalAlignment="Center" 
-                                                                            Text="Thép lớp dưới"
-                                                                            FontWeight="Bold"/>
+                                                                <Border
+                                                                    Width="Auto"
+                                                                    Height="Auto"
+                                                                    Margin="-1,0"
+                                                                    BorderBrush="Black"
+                                                                    BorderThickness="0,0,1,1">
+                                                                    <TextBlock
+                                                                        HorizontalAlignment="Center"
+                                                                        VerticalAlignment="Center"
+                                                                        FontFamily="Arial"
+                                                                        FontStyle="Italic"
+                                                                        FontWeight="Bold"
+                                                                        Text="Thép lớp dưới"
+                                                                        TextAlignment="Center" />
                                                                 </Border>
-                                                                <Border Grid.Row="1"
-                                                                    BorderBrush="Black" 
-                                                                    Height="25" 
-                                                                    Margin="0,0,1,0">
+                                                                <Border
+                                                                    Grid.Row="1"
+                                                                    Height="25"
+                                                                    Margin="0,0,1,0"
+                                                                    BorderBrush="Black">
                                                                     <Grid Width="200">
                                                                         <Grid.ColumnDefinitions>
-                                                                            <ColumnDefinition Width="*"/>
-                                                                            <ColumnDefinition Width="*"/>
-                                                                            <ColumnDefinition Width="*"/>
-                                                                            <ColumnDefinition Width="*"/>
+                                                                            <ColumnDefinition Width="*" />
+                                                                            <ColumnDefinition Width="*" />
+                                                                            <ColumnDefinition Width="*" />
+                                                                            <ColumnDefinition Width="*" />
                                                                         </Grid.ColumnDefinitions>
-                                                                        <Border BorderBrush="Black" 
-                                                                                BorderThickness="0,0,1,0" 
-                                                                                Height="25" Width="50" VerticalAlignment="Stretch" >
-                                                                            <TextBlock Text="L1 - S/L" 
-                                                                                       HorizontalAlignment="Center" 
-                                                                                       VerticalAlignment="Center"/>
+                                                                        <Border
+                                                                            Width="50"
+                                                                            Height="25"
+                                                                            VerticalAlignment="Stretch"
+                                                                            BorderBrush="Black"
+                                                                            BorderThickness="0,0,1,0">
+                                                                            <TextBlock
+                                                                                HorizontalAlignment="Center"
+                                                                                VerticalAlignment="Center"
+                                                                                Text="L1 - S/L" />
                                                                         </Border>
-                                                                        <Border Grid.Column="1"
-                                                                                BorderBrush="Black" 
-                                                                                BorderThickness="0,0,1,0" 
-                                                                                Height="25" 
-                                                                                Margin="0,0,-1,0" Width="50">
-                                                                            <TextBlock Text="L1 - Đ/K" 
-                                                                                       HorizontalAlignment="Center" 
-                                                                                       VerticalAlignment="Center"/>
+                                                                        <Border
+                                                                            Grid.Column="1"
+                                                                            Width="50"
+                                                                            Height="25"
+                                                                            Margin="0,0,-1,0"
+                                                                            BorderBrush="Black"
+                                                                            BorderThickness="0,0,1,0">
+                                                                            <TextBlock
+                                                                                HorizontalAlignment="Center"
+                                                                                VerticalAlignment="Center"
+                                                                                Text="L1 - Đ/K" />
                                                                         </Border>
-                                                                        <Border Grid.Column="2"
-                                                                                BorderBrush="Black" 
-                                                                                BorderThickness="0,0,1,0" 
-                                                                                Height="25" 
-                                                                                Margin="0,0,-1,0" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                                            <TextBlock Text="L2 - S/L" 
-                                                                                       HorizontalAlignment="Center" 
-                                                                                       VerticalAlignment="Center"/>
+                                                                        <Border
+                                                                            Grid.Column="2"
+                                                                            Width="50"
+                                                                            Height="25"
+                                                                            Margin="0,0,-1,0"
+                                                                            HorizontalAlignment="Center"
+                                                                            VerticalAlignment="Center"
+                                                                            BorderBrush="Black"
+                                                                            BorderThickness="0,0,1,0">
+                                                                            <TextBlock
+                                                                                HorizontalAlignment="Center"
+                                                                                VerticalAlignment="Center"
+                                                                                Text="L2 - S/L" />
                                                                         </Border>
-                                                                        <Border Grid.Column="3"
-                                                                                BorderBrush="Black" 
-                                                                                BorderThickness="0,0,1,0" 
-                                                                                Height="25" 
-                                                                                Margin="0,0,-1,0" Width="50">
-                                                                            <TextBlock Text="L2 - Đ/K" 
-                                                                                       HorizontalAlignment="Center" 
-                                                                                       VerticalAlignment="Center"/>
+                                                                        <Border
+                                                                            Grid.Column="3"
+                                                                            Width="50"
+                                                                            Height="25"
+                                                                            Margin="0,0,-1,0"
+                                                                            BorderBrush="Black"
+                                                                            BorderThickness="0,0,1,0">
+                                                                            <TextBlock
+                                                                                HorizontalAlignment="Center"
+                                                                                VerticalAlignment="Center"
+                                                                                Text="L2 - Đ/K" />
                                                                         </Border>
                                                                     </Grid>
                                                                 </Border>
@@ -309,47 +362,54 @@
                                         <DataTemplate>
                                             <Grid Width="400">
                                                 <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
                                                 </Grid.ColumnDefinitions>
-                                                <TextBox 
-                                                    VerticalContentAlignment="Center"
+                                                <TextBox
                                                     HorizontalContentAlignment="Center"
-                                                    Text="{Binding SLThepTrenL1}"/>
-                                                <TextBox 
                                                     VerticalContentAlignment="Center"
+                                                    Text="{Binding SLThepTrenL1}" />
+                                                <TextBox
+                                                    Grid.Column="1"
                                                     HorizontalContentAlignment="Center"
-                                                    Text="{Binding DkThepTrenL1}" Grid.Column="1" />
-                                                <TextBox 
                                                     VerticalContentAlignment="Center"
+                                                    Text="{Binding DkThepTrenL1}" />
+                                                <TextBox
+                                                    Grid.Column="2"
                                                     HorizontalContentAlignment="Center"
-                                                    Text="{Binding SLThepTrenL2}" Grid.Column="2" />
-                                                <TextBox 
                                                     VerticalContentAlignment="Center"
+                                                    Text="{Binding SLThepTrenL2}" />
+                                                <TextBox
+                                                    Grid.Column="3"
                                                     HorizontalContentAlignment="Center"
-                                                    Text="{Binding DkThepTrenL2}" Grid.Column="3" />
-                                                <TextBox 
                                                     VerticalContentAlignment="Center"
+                                                    Text="{Binding DkThepTrenL2}" />
+                                                <TextBox
+                                                    Grid.Column="4"
                                                     HorizontalContentAlignment="Center"
-                                                    Text="{Binding SLThepDuoiL1}" Grid.Column="4" />
-                                                <TextBox 
                                                     VerticalContentAlignment="Center"
+                                                    Text="{Binding SLThepDuoiL1}" />
+                                                <TextBox
+                                                    Grid.Column="5"
                                                     HorizontalContentAlignment="Center"
-                                                    Text="{Binding DkThepDuoiL1}" Grid.Column="5" />
-                                                <TextBox 
                                                     VerticalContentAlignment="Center"
+                                                    Text="{Binding DkThepDuoiL1}" />
+                                                <TextBox
+                                                    Grid.Column="6"
                                                     HorizontalContentAlignment="Center"
-                                                    Text="{Binding SLThepDuoiL2}" Grid.Column="6" />
-                                                <TextBox 
                                                     VerticalContentAlignment="Center"
+                                                    Text="{Binding SLThepDuoiL2}" />
+                                                <TextBox
+                                                    Grid.Column="7"
                                                     HorizontalContentAlignment="Center"
-                                                    Text="{Binding DkThepDuoiL2}" Grid.Column="7" />
+                                                    VerticalContentAlignment="Center"
+                                                    Text="{Binding DkThepDuoiL2}" />
                                             </Grid>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
@@ -359,72 +419,78 @@
                                         <DataTemplate>
                                             <Grid Height="75" MinWidth="150">
                                                 <Grid.RowDefinitions>
-                                                    <RowDefinition Height="2*"/>
-                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="2*" />
+                                                    <RowDefinition Height="*" />
                                                 </Grid.RowDefinitions>
                                                 <Grid>
-                                                    <Border BorderBrush="Black" 
-                                                        BorderThickness="0,0,0,1" 
-                                                        Height="50" 
-                                                        VerticalAlignment="Stretch" >
-                                                        <TextBlock TextBlock.FontStyle="Italic"
-                                                                TextBlock.FontFamily="Arial" 
-                                                                TextAlignment="Center" 
-                                                                HorizontalAlignment="Center"
-                                                                VerticalAlignment="Center" 
-                                                                Text="Thép đai"
-                                                                FontWeight="Bold"/>
+                                                    <Border
+                                                        Height="50"
+                                                        VerticalAlignment="Stretch"
+                                                        BorderBrush="Black"
+                                                        BorderThickness="0,0,0,1">
+                                                        <TextBlock
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            FontWeight="Bold"
+                                                            Text="Thép đai"
+                                                            TextAlignment="Center"
+                                                            TextBlock.FontFamily="Arial"
+                                                            TextBlock.FontStyle="Italic" />
                                                     </Border>
                                                 </Grid>
                                                 <Grid Grid.Row="1">
                                                     <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
                                                     </Grid.ColumnDefinitions>
-                                                    <Grid >
-                                                        <Border BorderBrush="Black" 
-                                                                BorderThickness="0,0,1,0" 
-                                                                VerticalAlignment="Stretch" >
-                                                            <TextBlock  TextBlock.FontStyle="Italic"
-                                                                    TextBlock.FontFamily="Arial" 
-                                                                    TextAlignment="Center" 
-                                                                    HorizontalAlignment="Center"
-                                                                    VerticalAlignment="Center" 
-                                                                    Text="Đ/K"
-                                                                    Width="Auto"    
-                                                                    FontWeight="Bold"/>
+                                                    <Grid>
+                                                        <Border
+                                                            VerticalAlignment="Stretch"
+                                                            BorderBrush="Black"
+                                                            BorderThickness="0,0,1,0">
+                                                            <TextBlock
+                                                                Width="Auto"
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                FontWeight="Bold"
+                                                                Text="Đ/K"
+                                                                TextAlignment="Center"
+                                                                TextBlock.FontFamily="Arial"
+                                                                TextBlock.FontStyle="Italic" />
                                                         </Border>
                                                     </Grid>
                                                     <Grid Grid.Column="1">
-                                                        <Border 
-                                                            BorderBrush="Black" 
-                                                            BorderThickness="0,0,1,0" 
-                                                            VerticalAlignment="Stretch" >
-                                                            <TextBlock TextBlock.FontStyle="Italic"
-                                                                    TextBlock.FontFamily="Arial" 
-                                                                    TextAlignment="Center" 
-                                                                    HorizontalAlignment="Center"
-                                                                    VerticalAlignment="Center" 
-                                                                    Text="Nhánh"
-                                                                    FontWeight="Bold"/>
+                                                        <Border
+                                                            VerticalAlignment="Stretch"
+                                                            BorderBrush="Black"
+                                                            BorderThickness="0,0,1,0">
+                                                            <TextBlock
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                FontWeight="Bold"
+                                                                Text="Nhánh"
+                                                                TextAlignment="Center"
+                                                                TextBlock.FontFamily="Arial"
+                                                                TextBlock.FontStyle="Italic" />
                                                         </Border>
 
                                                     </Grid>
                                                     <Grid Grid.Column="2">
-                                                        <Border 
-                                                            BorderBrush="Black" 
-                                                            BorderThickness="0,0,1,0" 
-                                                            VerticalAlignment="Stretch" >
-                                                        <TextBlock Grid.Column="2"
-                                                                    TextBlock.FontStyle="Italic"
-                                                                    TextBlock.FontFamily="Arial" 
-                                                                    TextAlignment="Center" 
-                                                                    HorizontalAlignment="Stretch"
-                                                                    VerticalAlignment="Center" 
-                                                                    Text="K/C"
-                                                                    FontWeight="Bold"/>
-                                                    </Border>
+                                                        <Border
+                                                            VerticalAlignment="Stretch"
+                                                            BorderBrush="Black"
+                                                            BorderThickness="0,0,1,0">
+                                                            <TextBlock
+                                                                Grid.Column="2"
+                                                                HorizontalAlignment="Stretch"
+                                                                VerticalAlignment="Center"
+                                                                FontWeight="Bold"
+                                                                Text="K/C"
+                                                                TextAlignment="Center"
+                                                                TextBlock.FontFamily="Arial"
+                                                                TextBlock.FontStyle="Italic" />
+                                                        </Border>
                                                     </Grid>
                                                 </Grid>
                                             </Grid>
@@ -432,24 +498,26 @@
                                     </DataGridTemplateColumn.HeaderTemplate>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Grid MinWidth="150" >
+                                            <Grid MinWidth="150">
                                                 <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
                                                 </Grid.ColumnDefinitions>
-                                                <TextBox 
-                                                    VerticalContentAlignment="Center"
+                                                <TextBox
                                                     HorizontalContentAlignment="Center"
-                                                    Text="{Binding DkThepDai}"/>
-                                                <TextBox 
                                                     VerticalContentAlignment="Center"
+                                                    Text="{Binding DkThepDai}" />
+                                                <TextBox
+                                                    Grid.Column="1"
                                                     HorizontalContentAlignment="Center"
-                                                    Text="{Binding SLThepDai}" Grid.Column="1" />
-                                                <TextBox 
                                                     VerticalContentAlignment="Center"
+                                                    Text="{Binding SLThepDai}" />
+                                                <TextBox
+                                                    Grid.Column="2"
                                                     HorizontalContentAlignment="Center"
-                                                    Text="{Binding KCThepDai}" Grid.Column="2" />
+                                                    VerticalContentAlignment="Center"
+                                                    Text="{Binding KCThepDai}" />
                                             </Grid>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
@@ -459,54 +527,59 @@
                                         <DataTemplate>
                                             <Grid Height="75" MinWidth="100">
                                                 <Grid.RowDefinitions>
-                                                    <RowDefinition Height="2*"/>
-                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="2*" />
+                                                    <RowDefinition Height="*" />
                                                 </Grid.RowDefinitions>
                                                 <Border
-                                                        BorderBrush="Black" 
-                                                        BorderThickness="0,0,0,1" 
-                                                        Height="50" 
-                                                        VerticalAlignment="Stretch" 
-                                                        Margin="-1.5,0">
-                                                    <TextBlock  FontStyle="Italic"
-                                                                FontFamily="Arial" 
-                                                                TextAlignment="Center" 
-                                                                HorizontalAlignment="Center"
-                                                                VerticalAlignment="Center" 
-                                                                Text="Thép giá"
-                                                                FontWeight="Bold"/>
+                                                    Height="50"
+                                                    Margin="-1.5,0"
+                                                    VerticalAlignment="Stretch"
+                                                    BorderBrush="Black"
+                                                    BorderThickness="0,0,0,1">
+                                                    <TextBlock
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        FontFamily="Arial"
+                                                        FontStyle="Italic"
+                                                        FontWeight="Bold"
+                                                        Text="Thép giá"
+                                                        TextAlignment="Center" />
                                                 </Border>
                                                 <Grid Grid.Row="1">
                                                     <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
                                                     </Grid.ColumnDefinitions>
-                                                    <Border BorderBrush="Black" 
-                                                            BorderThickness="0,0,1,0" 
-                                                            Height="25" 
-                                                            VerticalAlignment="Stretch" 
-                                                            Margin="-1,0">
-                                                        <TextBlock  FontStyle="Italic"
-                                                                    FontFamily="Arial" 
-                                                                    TextAlignment="Center" 
-                                                                    HorizontalAlignment="Center"
-                                                                    VerticalAlignment="Center" 
-                                                                    Text="Đ/K"
-                                                                    FontWeight="Bold"/>
+                                                    <Border
+                                                        Height="25"
+                                                        Margin="-1,0"
+                                                        VerticalAlignment="Stretch"
+                                                        BorderBrush="Black"
+                                                        BorderThickness="0,0,1,0">
+                                                        <TextBlock
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            FontFamily="Arial"
+                                                            FontStyle="Italic"
+                                                            FontWeight="Bold"
+                                                            Text="Đ/K"
+                                                            TextAlignment="Center" />
                                                     </Border>
-                                                    <Border Grid.Column="1"
-                                                            BorderBrush="Black" 
-                                                            BorderThickness="0,0,1,0" 
-                                                            Height="25" 
-                                                            VerticalAlignment="Stretch" 
-                                                            Margin="-1,0">
-                                                    <TextBlock FontStyle="Italic"
-                                                               FontFamily="Arial" 
-                                                               TextAlignment="Center" 
-                                                               HorizontalAlignment="Center"
-                                                               VerticalAlignment="Center" 
-                                                               Text="S/L"
-                                                               FontWeight="Bold"/>
+                                                    <Border
+                                                        Grid.Column="1"
+                                                        Height="25"
+                                                        Margin="-1,0"
+                                                        VerticalAlignment="Stretch"
+                                                        BorderBrush="Black"
+                                                        BorderThickness="0,0,1,0">
+                                                        <TextBlock
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            FontFamily="Arial"
+                                                            FontStyle="Italic"
+                                                            FontWeight="Bold"
+                                                            Text="S/L"
+                                                            TextAlignment="Center" />
                                                     </Border>
                                                 </Grid>
                                             </Grid>
@@ -516,17 +589,18 @@
                                         <DataTemplate>
                                             <Grid MinWidth="100">
                                                 <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
                                                 </Grid.ColumnDefinitions>
-                                                <TextBox 
-                                                    VerticalContentAlignment="Center"
+                                                <TextBox
                                                     HorizontalContentAlignment="Center"
-                                                    Text="{Binding DkThepGia}"/>
-                                                <TextBox 
                                                     VerticalContentAlignment="Center"
+                                                    Text="{Binding DkThepGia}" />
+                                                <TextBox
+                                                    Grid.Column="1"
                                                     HorizontalContentAlignment="Center"
-                                                    Text="{Binding SLThepGia}" Grid.Column="1" />
+                                                    VerticalContentAlignment="Center"
+                                                    Text="{Binding SLThepGia}" />
                                             </Grid>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
@@ -536,31 +610,34 @@
                     </DockPanel>
                 </Grid>
             </Grid>
-            <Grid   Grid.Row="1"
-                    Height="50"
-                    VerticalAlignment="Bottom">
+            <Grid
+                Grid.Row="1"
+                Height="50"
+                VerticalAlignment="Bottom">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <DockPanel  LastChildFill="True"
-                            HorizontalAlignment="Left">
-                    <Button HorizontalAlignment="Left"
-                            Content="Import Excel"
-                            DockPanel.Dock="Right"
-                            Click="Btn_ClickImportExcel"
-                            Height ="32"
-                            Style="{DynamicResource ButtonStyle}" />
-                    <Button HorizontalAlignment="Left"
-                            Content="Cancel"
-                            DockPanel.Dock="Right"
-                            Click="Btn_ClickCancel"
-                            Height ="32"
-                            Style="{DynamicResource ButtonStyle}" />
-                    <Button Content="OK"
-                            Height ="32"
-                            DockPanel.Dock="Right"
-                            Click="Btn_ClickOK"
-                            Style="{DynamicResource ButtonStyle}" />
+                <DockPanel HorizontalAlignment="Left" LastChildFill="True">
+                    <Button
+                        Height="32"
+                        HorizontalAlignment="Left"
+                        Click="Btn_ClickImportExcel"
+                        Content="Import Excel"
+                        DockPanel.Dock="Right"
+                        Style="{DynamicResource ButtonStyle}" />
+                    <Button
+                        Height="32"
+                        HorizontalAlignment="Left"
+                        Click="Btn_ClickCancel"
+                        Content="Cancel"
+                        DockPanel.Dock="Right"
+                        Style="{DynamicResource ButtonStyle}" />
+                    <Button
+                        Height="32"
+                        Click="Btn_ClickOK"
+                        Content="OK"
+                        DockPanel.Dock="Right"
+                        Style="{DynamicResource ButtonStyle}" />
                 </DockPanel>
             </Grid>
         </Grid>
