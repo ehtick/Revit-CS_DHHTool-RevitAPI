@@ -101,17 +101,18 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
                         #region Section Family
                         XYZ insPointStartSection = new XYZ(DhhUnitUtils.MmToFeet(B) * i, DhhUnitUtils.MmToFeet(H/2 + 300), 0);
                         XYZ insPointContSection = new XYZ(DhhUnitUtils.MmToFeet(B/2), 0, 0);
-                        FamilyInstance sectionFamily = document.Create.NewFamilyInstance(insPointStartSection + insPointContSection, fselement, document.ActiveView);
+                        XYZ insPoint = insPointStartSection + insPointContSection;
+                        FamilyInstance sectionFamily = document.Create.NewFamilyInstance(insPoint, fselement, document.ActiveView);
                         Parameter b_Frame = sectionFamily.LookupParameter("b_khung");
                         b_Frame.Set(DhhUnitUtils.MmToFeet(B));
                         Parameter h_Frame = sectionFamily.LookupParameter("h_khung");
                         h_Frame.Set(DhhUnitUtils.MmToFeet(H));
-                        Parameter b_Section = sectionFamily.LookupParameter("b_Section");
+                        Parameter b_Section = sectionFamily.LookupParameter("b");
                         double width = mSectionBeams[i].B;
                         b_Section.Set(DhhUnitUtils.MmToFeet(width));
-                        Parameter h_Section = sectionFamily.LookupParameter("h_Section");
+                        Parameter h_Section = sectionFamily.LookupParameter("h");
                         h_Section.Set(DhhUnitUtils.MmToFeet(mSectionBeams[i].H));
-                        CreateDimensionBeam(document, sectionFamily);
+                        CreateDimensionBeam(document, sectionFamily, insPoint, mSectionBeams[i].B, mSectionBeams[i].H);
                         #endregion
                     }
 
@@ -122,89 +123,34 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
 
 
         }
-        public static void CreateDimensionBeam(Document doc, FamilyInstance sectionBeam)
+        public static void CreateDimensionBeam(Document doc, FamilyInstance sectionBeam, XYZ insPoint, double b, double h)
         {
+            ReferenceArray bRa = new ReferenceArray();
+            ReferenceArray hRa = new ReferenceArray();
+            //listElements.Add(ebeamDetail);
+            Reference brefRight = sectionBeam.GetReferenceByName("Right");
+            Reference brefLeft = sectionBeam.GetReferenceByName("Left");
+            bRa.Append(brefLeft);
+            bRa.Append(brefRight);
+            Reference hrefTop = sectionBeam.GetReferenceByName("Top");
+            Reference hrefBot = sectionBeam.GetReferenceByName("Bottom");
+            hRa.Append(hrefTop);
+            hRa.Append(hrefBot);
 
-                        List<Line> curvesb = new List<Line>();
-                        List<Line> curvesh = new List<Line>();
-                        ReferenceArray bRa = new ReferenceArray();
-                        ReferenceArray hRa = new ReferenceArray();
-                        //listElements.Add(ebeamDetail);
-                        Parameter bPara = sectionBeam.LookupParameter("b_Section");
-                        Parameter hPara = sectionBeam.LookupParameter("h_Section");
-                        double b = Math.Round(DhhUnitUtils.FeetToMm(bPara.AsDouble()));
-                        double h = Math.Round(DhhUnitUtils.FeetToMm(hPara.AsDouble()));
-                        LocationPoint eLp = sectionBeam.Location as LocationPoint;
-                        if (eLp != null)
-                        {
-                            XYZ eXyz = eLp.Point;
-                            double xeXyz = Math.Round(DhhUnitUtils.FeetToMm(eXyz.X));
-                            double yeXyz = Math.Round(DhhUnitUtils.FeetToMm(eXyz.Y));
-                            double zeXyz = Math.Round(DhhUnitUtils.FeetToMm(eXyz.Z));
-                            //str.Add(xeXyz.ToString(CultureInfo.InvariantCulture) + "," + yeXyz.ToString(CultureInfo.InvariantCulture) + "," + zeXyz.ToString(CultureInfo.InvariantCulture));
-                            //strSection.Add(bPara.AsValueString() + "x" + hPara.AsValueString());
-                            Options option = new Options();
-                            option.ComputeReferences = true;
-                            option.View = doc.ActiveView;
-                            GeometryElement geoElement = sectionBeam.get_Geometry(option);
-                            foreach (GeometryObject geoObject in geoElement)
-                            {
-                                if (geoObject is GeometryInstance geoInstance)
-                                {
-                                    GeometryElement geoElement2 = geoInstance.GetSymbolGeometry();
-                                    foreach (GeometryObject geoObject2 in geoElement2)
-                                    {
-                                        if (geoObject2 is Curve curve)
-                                        {
-                                            if (curve.IsCyclic == false)
-                                            {
-                                                Line lineDtComponent = curve as Line;
-                                                XYZ direction = lineDtComponent?.Direction;
-                                                if (!(lineDtComponent is null))
-                                                {
-                                                    double lelineDtComponent =
-                                                        Math.Round(DhhUnitUtils.FeetToMm(lineDtComponent.Length));
-                                                    if (direction != null &&
-                                                        (Math.Abs(Math.Abs(lelineDtComponent) - b) < 0.0001
-                                                         && (Math.Abs(direction.AngleTo(XYZ.BasisX) -
-                                                                      DhhUnitUtils.DegreesToRadians(0)) < 0.0001
-                                                             || Math.Abs(direction.AngleTo(XYZ.BasisX) -
-                                                                         DhhUnitUtils.DegreesToRadians(180)) < 0.0001)))
-                                                    {
-                                                        curvesb.Add(lineDtComponent);
-                                                        bRa.Append(lineDtComponent.Reference);
-                                                    }
+            double xeXyz = Math.Round(DhhUnitUtils.FeetToMm(insPoint.X));
+            double yeXyz = Math.Round(DhhUnitUtils.FeetToMm(insPoint.Y));
+            double zeXyz = Math.Round(DhhUnitUtils.FeetToMm(insPoint.Z));
+            Line lineh = Line.CreateBound(new XYZ(DhhUnitUtils.MmToFeet(xeXyz + b / 2 + 120), 0, 0),
+                new XYZ(DhhUnitUtils.MmToFeet(xeXyz + b / 2 + 120), DhhUnitUtils.MmToFeet(200), 0));
+            Line lineb = Line.CreateBound(new XYZ(0, (DhhUnitUtils.MmToFeet(yeXyz - h / 2 - 120)), 0),
+                new XYZ(DhhUnitUtils.MmToFeet(200), DhhUnitUtils.MmToFeet(yeXyz - h / 2 - 120), 0));
 
-                                                    if (direction != null &&
-                                                        (Math.Abs(Math.Abs(lelineDtComponent) - h) < 0.0001
-                                                         && (Math.Abs(direction.AngleTo(XYZ.BasisY) -
-                                                                      DhhUnitUtils.DegreesToRadians(0)) < 0.0001
-                                                             || Math.Abs(direction.AngleTo(XYZ.BasisY) -
-                                                                         DhhUnitUtils.DegreesToRadians(180)) < 0.0001)))
-                                                    {
-                                                        curvesh.Add(lineDtComponent);
-                                                        hRa.Append(lineDtComponent.Reference);
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+            doc.Create.NewDimension(doc.ActiveView, lineb, bRa);
+            doc.Create.NewDimension(doc.ActiveView, lineh, hRa);
 
+            //}
 
-                                Line lineb = Line.CreateBound(new XYZ(DhhUnitUtils.MmToFeet(xeXyz - b / 2 - 150), 0, 0),
-                                    new XYZ(DhhUnitUtils.MmToFeet(xeXyz - b / 2 - 150), DhhUnitUtils.MmToFeet(200), 0));
-                                Line lineh =
-                                    Line.CreateBound(new XYZ(0, (DhhUnitUtils.MmToFeet(yeXyz - h / 2 - 150)), 0),
-                                        new XYZ(DhhUnitUtils.MmToFeet(200), DhhUnitUtils.MmToFeet(yeXyz - h / 2 - 150),
-                                            0));
-                                doc.Create.NewDimension(doc.ActiveView, lineb, bRa);
-                                doc.Create.NewDimension(doc.ActiveView, lineh, hRa);
-
-                        }
-                    
-                }
+        }
 
             }
         
