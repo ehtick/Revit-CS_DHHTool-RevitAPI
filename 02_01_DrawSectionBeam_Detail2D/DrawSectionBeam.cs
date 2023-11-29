@@ -27,7 +27,8 @@ namespace _02_01_DrawSectionBeam_Detail2D
                 transGroup.Start("Detail Beam 2D");
                 vMain win = new vMain();
                 bool? dialog = win.ShowDialog();
-                if (dialog == false) return Result.Succeeded;
+                if (dialog != false) 
+                return Result.Succeeded;
                 transGroup.Commit();
             }
 

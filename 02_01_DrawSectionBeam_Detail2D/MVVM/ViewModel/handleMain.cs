@@ -23,7 +23,7 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
         {
             try
             {
-                mRevit.CreateSectionBeam2D(app.ActiveUIDocument.Document,vmMain.DcMain.DgSectionBeam);
+                mRevit.CreateSectionBeam2D(app.ActiveUIDocument.Document,vmMain.DcMain.DgSectionBeam, vmMain.DcMain.WidthFrame, vmMain.DcMain.HeightFrame);
             }
             catch (Exception e)
             {

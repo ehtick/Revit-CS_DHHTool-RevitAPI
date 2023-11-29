@@ -142,12 +142,13 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
             }
         }
 
-        private void PerformCreateSectionDetail()
+        private void PerformCreateSectionDetail(object par)
         {
 
             try
             {
-                CreateSectionBeam2D(RevitApp.ActiveUIDocument.Document, DgSectionBeam);
+                (par as vMain).Close();
+                CreateSectionBeam2D(RevitApp.ActiveUIDocument.Document, DgSectionBeam, WidthFrame,HeightFrame);
             }
 
             catch { }
