@@ -230,6 +230,20 @@ namespace DHHTools
                         DWGFolder = SelectFolder;
                     }
                     doc.Export(DWGFolder, " ", sheetIDs, dWGExportOptions);
+                    string[] stringPath = Directory.GetFiles(DWGFolder, "*.dwg", SearchOption.TopDirectoryOnly);
+                    foreach(string path in stringPath)
+                    {
+                        string oldname= Path.GetFileName(path);
+                        
+                        string newnameTemp = oldname.Remove(0, 10);
+                        int lengthTemp = newnameTemp.Length;
+                        string newname = newnameTemp.Remove(14, lengthTemp - 14);
+                        string directory = Path.GetDirectoryName(path);
+
+                        FileInfo fileInfo = new FileInfo(path);
+                        
+                        fileInfo.MoveTo(directory + "\\" + newname + fileInfo.Extension);
+                    }    
                     tran.Commit();
                 }
             }
