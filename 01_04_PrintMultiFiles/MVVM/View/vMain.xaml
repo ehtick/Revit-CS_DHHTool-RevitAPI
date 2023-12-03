@@ -1,0 +1,313 @@
+﻿<Window
+    x:Class="_01_04_PrintMultiFiles.MVVM.View.vMain"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_01_04_PrintMultiFiles.MVVM.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:vm="clr-namespace:_01_04_PrintMultiFiles.MVVM.ViewModel"
+    x:Name="vWinMain"
+    Width="1000"
+    Height="600"
+    d:DataContext="{d:DesignInstance Type=vm:vmMain}"
+    DataContext="{Binding Source={x:Static vm:vmMain.DcMain}}"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#006536" />
+            <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="#FFFFFF" />
+            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#F26522" />
+            <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="#FFFFFF" />
+            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#006536" />
+            <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="#FFFFFF" />
+            <SolidColorBrush x:Key="SecondaryAccentBrush" Color="#006536" />
+            <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="#FFFFFF" />
+            <SolidColorBrush x:Key="CamXuanMai" Color="#F26522" />
+            <SolidColorBrush x:Key="XanhXuanMai" Color="#006536" />
+            <SolidColorBrush x:Key="Hong" Color="#D25E5D" />
+            <SolidColorBrush x:Key="Tim" Color="#008472" />
+            <SolidColorBrush x:Key="Vang" Color="#E0BB1B" />
+            <SolidColorBrush x:Key="Xanh" Color="#024E72" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/Generic.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Font.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Window.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Badged.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Calendar.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Card.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.CheckBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Chip.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Clock.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ColorPicker.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ComboBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DataGrid.ComboBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DataGrid.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DatePicker.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DialogHost.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Expander.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Flipper.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Font.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.GridSplitter.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.GroupBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Hyperlink.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Label.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ListBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ListView.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Menu.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PasswordBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ProgressBar.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.RadioButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.RatingBar.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.RichTextBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ScrollBar.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ScrollViewer.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Shadows.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Slider.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.SmartHint.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Snackbar.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TabControl.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Thumb.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TimePicker.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToggleButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToolBar.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToolBarTray.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToolTip.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TreeView.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ValidationErrorTemplate.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Window.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="150" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid />
+        <Grid>
+            <DockPanel LastChildFill="True" ScrollViewer.CanContentScroll="True">
+                <DataGrid IsReadOnly="True"
+                    AutoGenerateColumns="False"
+                    CanUserAddRows="False"
+                    ItemsSource="{Binding DgRevitFile}"
+                    SelectedItem="{Binding DocumentSelectSheetSet}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*" Binding="{Binding FileName}" >
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="File Name" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn Width="180" Header="Sheet Set">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ComboBox
+                                        DisplayMemberPath="Name"
+                                        ItemsSource="{Binding AllSheetSet}"
+                                        SelectedIndex="0"
+                                        SelectedValue="{Binding DocumentSelectSheetSet, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <ComboBox
+                                        DisplayMemberPath="Name"
+                                        ItemsSource="{Binding DataContext.AllSheetSet, ElementName=vWinMain}"
+                                        SelectedItem="{Binding DocumentSelectSheetSet, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellEditingTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Width="130" Binding="{Binding NumberSheet}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="Number Sheets" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </Grid>
+        <DockPanel Grid.Row="1" LastChildFill="True">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="210" />
+                    <ColumnDefinition Width="350" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Margin="5">
+                    <TextBlock
+                        Height="25"
+                        VerticalAlignment="Center"
+                        DockPanel.Dock="Top"
+                        FontFamily="San Serif"
+                        FontSize="15"
+                        FontWeight="Bold"
+                        Style="{StaticResource MaterialDesignTextBlock}"
+                        Text="EXPORT Option: "
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
+                    <CheckBox
+                        Height="40"
+                        Content="Export CAD (*.dwg)"
+                        FontSize="15"
+                        IsChecked="{Binding IsCADSelected}"
+                        Style="{StaticResource MaterialDesignAccentCheckBox}" />
+                    <CheckBox
+                        Height="40"
+                        Content="Export DWF (*.dwf/*.dwfx)"
+                        FontSize="15"
+                        IsChecked="{Binding IsDWFSelected}" />
+                    <CheckBox
+                        Height="40"
+                        Content="Export PDF (*.pdf)"
+                        FontSize="15"
+                        IsChecked="{Binding IsPDFSelected}" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Column="1"
+                    Margin="5"
+                    DockPanel.Dock="Top">
+                    <TextBlock
+                        Height="25"
+                        Padding="3"
+                        VerticalAlignment="Center"
+                        DockPanel.Dock="Top"
+                        FontFamily="San Serif"
+                        FontSize="15"
+                        FontWeight="Bold"
+                        Text="EXPORT Setting: "
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
+                    <DockPanel
+                        Height="40"
+                        Margin="1"
+                        LastChildFill="True">
+                        <TextBlock
+                            Width="100"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontFamily="San Serif"
+                            FontSize="15"
+                            Text="CAD Version: "
+                            TextWrapping="Wrap" />
+                        <ComboBox
+                            Height="40"
+                            VerticalContentAlignment="Center"
+                            DockPanel.Dock="Right"
+                            FontSize="15"
+                            ItemsSource="{Binding CADVersionList}"
+                            SelectedItem="{Binding SelectCADVersion}" />
+                    </DockPanel>
+                    <DockPanel
+                        Height="40"
+                        Margin="1"
+                        LastChildFill="True">
+                        <TextBlock
+                            Width="100"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontFamily="San Serif"
+                            FontSize="15"
+                            Text="Printer Name: "
+                            TextAlignment="Left"
+                            TextWrapping="Wrap" />
+                        <ComboBox
+                            Height="40"
+                            VerticalContentAlignment="Center"
+                            DockPanel.Dock="Right"
+                            FontSize="15"
+                            ItemsSource="{Binding AllPrinterList}"
+                            SelectedItem="{Binding SelectPrinter}" />
+                    </DockPanel>
+                    <CheckBox
+                        Height="40"
+                        Content="Add Sheet Name"
+                        FontSize="15"
+                        IsChecked="{Binding IsAddSheetName}" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Column="2"
+                    Margin="5"
+                    DockPanel.Dock="Top">
+                    <TextBlock
+                        Height="25"
+                        Padding="3"
+                        VerticalAlignment="Center"
+                        DockPanel.Dock="Top"
+                        FontFamily="San Serif"
+                        FontSize="15"
+                        FontWeight="Bold"
+                        Text="Save Folder: "
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
+                    <TextBox
+                        Height="40"
+                        HorizontalContentAlignment="Left"
+                        VerticalContentAlignment="Center"
+                        DockPanel.Dock="Right"
+                        FontSize="15"
+                        Text="{Binding SelectFolder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <CheckBox
+                        Height="40"
+                        Content="Seprate By File"
+                        FontSize="15"
+                        IsChecked="{Binding IsSeprateByFile}" />
+                    <CheckBox
+                        Height="40"
+                        Content="Seprate Folder (DWG, DWF, PDF)"
+                        FontSize="15"
+                        IsChecked="{Binding IsSeprateFolder}" />
+
+                </StackPanel>
+            </Grid>
+        </DockPanel>
+        <DockPanel
+            Grid.Row="3"
+            Height="40"
+            HorizontalAlignment="Right"
+            DockPanel.Dock="Bottom"
+            LastChildFill="True">
+            <Button
+                Width="120"
+                Margin="2,0,4,0"
+                HorizontalAlignment="Right"
+                Content="Cancel"
+                DockPanel.Dock="Right" />
+            <Button
+                Width="120"
+                Margin="2,0,2,0"
+                Command="{Binding ExportFile}"
+                Content="OK"
+                DockPanel.Dock="Right" />
+            <Button
+                Width="120"
+                Margin="2,0,2,0"
+                Content="Save Location"
+                Command="{Binding SaveLocation}"
+                DockPanel.Dock="Right" />
+            <Button
+                Width="120"
+                Margin="2,0,2,0"
+                Content="Remove Files"
+                DockPanel.Dock="Right" />
+            <Button
+                Width="120"
+                Margin="2,0,2,0"
+                Command="{Binding AddFileBtn}"
+                Content="Add Files"
+                DockPanel.Dock="Right" />
+        </DockPanel>
+    </Grid>
+</Window>

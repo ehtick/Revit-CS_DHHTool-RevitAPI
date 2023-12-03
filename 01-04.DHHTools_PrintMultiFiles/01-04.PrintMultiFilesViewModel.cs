@@ -341,7 +341,7 @@ namespace DHHTools
             }
             if (file.ShowDialog() == DialogResult.OK) //if there is a file chosen by the user
             {
-                foreach (String filename in file.FileNames)
+                foreach (string filename in file.FileNames)
                 {
                     Document openedDoc = app.OpenDocumentFile(filename);
                     DocumentPlus docPlus = new DocumentPlus(openedDoc);

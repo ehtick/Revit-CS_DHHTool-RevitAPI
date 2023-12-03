@@ -15,7 +15,7 @@ namespace DHHTools
         ///     Get all View Sheet Set
         /// </summary>
 
-        public static ObservableCollection<ViewSheetSet> GetAllSheetSet(Document doc)
+        public static ObservableRangeCollection<ViewSheetSet> GetAllSheetSet(Document doc)
         {
             ObservableRangeCollection<ViewSheetSet> allViewSheetSet = new ObservableRangeCollection<ViewSheetSet>();
 
@@ -29,9 +29,9 @@ namespace DHHTools
             }
             return allViewSheetSet;
         }
-        public static ObservableCollection<string> GetNameAllSheetSet(Document doc)
+        public static ObservableRangeCollection<string> GetNameAllSheetSet(Document doc)
         {
-            ObservableCollection<string> allNameViewSheetSet = new ObservableCollection<string>();
+            ObservableRangeCollection<string> allNameViewSheetSet = new ObservableRangeCollection<string>();
 
             FilteredElementCollector colec = new FilteredElementCollector(doc);
             List<Element> allsheetset = colec.OfClass(typeof(ViewSheetSet)).ToElements().ToList();

@@ -15,7 +15,6 @@ using System.Reflection;
 using Autodesk.Revit.Creation;
 using Document = Autodesk.Revit.DB.Document;
 using static _02_01_DrawSectionBeam_Detail2D.MVVM.Model.mRevit;
-
 using _02_01_DrawSectionBeam_Detail2D.MVVM.View;
 using System.Windows.Forms;
 
@@ -28,8 +27,21 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
         public static vmMain DcMain { get { return _dcMain; } }
 
         public static string Apploc = Assembly.GetExecutingAssembly().Location;
-        private ObservableRangeCollection<mSectionBeam> _dgSectionBeam = new ObservableRangeCollection<mSectionBeam>();
 
+        private ObservableRangeCollection<mSectionBeam> _dgSectionBeam = new ObservableRangeCollection<mSectionBeam>();
+        public ObservableRangeCollection<mSectionBeam> DgSectionBeam
+        {
+            get
+            {
+
+                return _dgSectionBeam;
+            }
+            set
+            {
+                _dgSectionBeam = value;
+                OnPropertyChanged(nameof(DgSectionBeam));
+            }
+        }
 
         public static UIControlledApplication RevitCtrlApp;
         public static UIApplication RevitApp;
@@ -72,19 +84,7 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.ViewModel
             }
         }
 
-        public ObservableRangeCollection<mSectionBeam> DgSectionBeam
-        {
-            get
-            {
-
-                return _dgSectionBeam;
-            }
-            set
-            {
-                _dgSectionBeam = value;
-                OnPropertyChanged(nameof(DgSectionBeam));
-            }
-        }
+        
 
         //Method
         private ActionCommand fileExcelOpen;
