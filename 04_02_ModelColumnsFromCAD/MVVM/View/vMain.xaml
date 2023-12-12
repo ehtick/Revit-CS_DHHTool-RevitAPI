@@ -104,8 +104,10 @@
                 
             </TextBlock>
             <ComboBox Style="{DynamicResource MaterialDesignComboBox}"
-                      Height="40">
-                
+                      Height="40"
+                      ItemsSource="{Binding AllLayer}"
+                      DisplayMemberPath="Name">
+
             </ComboBox>
         </DockPanel>
         <DockPanel Grid.Row="1">
@@ -116,9 +118,12 @@
             </TextBlock>
             <ComboBox Style="{DynamicResource MaterialDesignComboBox}"
                       Width="120"
-                      Height="40">
+                      ItemsSource="{Binding AllLevel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding TopLevel}"
+                      DisplayMemberPath="Name"
+                      Height="40"/>
 
-            </ComboBox>
+
             <TextBlock Text="Offset:"
                        Margin="5"
                        Width="40" VerticalAlignment="Center">
@@ -136,6 +141,9 @@
             </TextBlock>
             <ComboBox Style="{DynamicResource MaterialDesignComboBox}"
                       Width="120"
+                      ItemsSource="{Binding AllLevel,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding BotLevel}"
+                      DisplayMemberPath="Name"
                       Height="40">
 
             </ComboBox>

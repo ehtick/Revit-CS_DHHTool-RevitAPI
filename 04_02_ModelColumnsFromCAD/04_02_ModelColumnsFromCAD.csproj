@@ -68,18 +68,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModelColumnsFromCAD.cs" />
+    <Compile Include="MVVM\Model\mAutoCAD.cs" />
     <Compile Include="MVVM\ViewModel\vmMain.cs" />
     <Compile Include="MVVM\View\vMain.xaml.cs">
       <DependentUpon>vMain.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Object\ImportInstanceSelectionFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MVVM\Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="MVVM\View\vMain.xaml">
       <SubType>Designer</SubType>
