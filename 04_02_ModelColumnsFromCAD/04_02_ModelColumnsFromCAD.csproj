@@ -73,6 +73,8 @@
     <Compile Include="MVVM\View\vMain.xaml.cs">
       <DependentUpon>vMain.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Object\ColumnData.cs" />
+    <Compile Include="Object\DeleteWarningSuper.cs" />
     <Compile Include="Object\ImportInstanceSelectionFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

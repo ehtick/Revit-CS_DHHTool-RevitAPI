@@ -6,13 +6,13 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Autodesk.Revit.DB;
 using System.Collections.Generic;
-//using DHHTools.MVVM.Model;
 using Application = Autodesk.Revit.ApplicationServices.Application;
 using System;
 using System.IO;
 using _04_02_ModelColumnsFromCAD.MVVM.View;
 using System.Windows;
 using _04_02_ModelColumnsFromCAD.MVVM.Model;
+using _04_02_ModelColumnsFromCAD.Object;
 using System.Windows.Controls;
 using System.Linq;
 
@@ -40,7 +40,7 @@ namespace _04_02_ModelColumnsFromCAD.MVVM.ViewModel
             get => _botOffset;
             set
             {
-                _topOffset = value;
+                _botOffset = value;
                 OnPropertyChanged(nameof(BotOffset));
             }
         }
@@ -68,6 +68,22 @@ namespace _04_02_ModelColumnsFromCAD.MVVM.ViewModel
                 _allLayer = value; OnPropertyChanged(nameof(AllLayer));
             }
         }
+
+        private string _selectLayer;
+        public string SelectLayer
+        {
+            get
+            {
+                _selectLayer = "S-Column";
+                return _selectLayer;
+            }
+            set
+            {
+                _selectLayer = value;
+                OnPropertyChanged(nameof(SelectLayer));
+            }
+        }
+
         private ObservableRangeCollection<Level> _allLevel = new ObservableRangeCollection<Level>();
         public ObservableRangeCollection<Level> AllLevel
         {
@@ -77,6 +93,7 @@ namespace _04_02_ModelColumnsFromCAD.MVVM.ViewModel
                         .OfClass(typeof(Level))
                         .Cast<Level>().ToList();
                 _allLevelList.OrderBy(x => x.Elevation);
+                _allLevelList.Distinct();
                 _allLevel.Clear();
                 foreach (Level level in _allLevelList)
                 {
@@ -92,6 +109,7 @@ namespace _04_02_ModelColumnsFromCAD.MVVM.ViewModel
                 OnPropertyChanged(nameof(AllLevel));
             }
         }
+
         private Level _bottomLevel;
         public Level BotLevel
         {
@@ -112,7 +130,7 @@ namespace _04_02_ModelColumnsFromCAD.MVVM.ViewModel
         {
             get
             {
-                _topLevel = _allLevel[1];
+                _topLevel = _allLevel[0];
                 return _topLevel;
             }
             set
@@ -121,8 +139,19 @@ namespace _04_02_ModelColumnsFromCAD.MVVM.ViewModel
                 OnPropertyChanged(nameof(TopLevel));
             }
         }
-        private ActionCommand _btnCancel;
 
+        private double _percent;
+        public double Percent
+        {
+            get => _percent;
+            set
+            {
+                _percent = value;
+                OnPropertyChanged(nameof(Percent));
+            }
+        }
+
+        private ActionCommand _btnCancel;
         public ICommand BtnCancel
         {
             get
@@ -135,14 +164,12 @@ namespace _04_02_ModelColumnsFromCAD.MVVM.ViewModel
                 return _btnCancel;
             }
         }
-
         private void PerformBtnCancel(object par)
         {
             (par as vMain).Close();
         }
 
         private ActionCommand _btnSelectCAD;
-
         public ICommand BtnSelectCAD
         {
             get
@@ -155,13 +182,39 @@ namespace _04_02_ModelColumnsFromCAD.MVVM.ViewModel
                 return _btnSelectCAD;
             }
         }
-
         private void PerformBtnSelectCAD(object par)
         {
             (par as vMain).Hide();
             CadLink = mAutoCAD.SelectCADLink();
             AllLayer = mAutoCAD.GetAllLayer(CadLink);
             (par as vMain).Show();
+        }
+
+        private ActionCommand btnOK;
+
+        public ICommand BtnOK
+        {
+            get
+            {
+                if (btnOK == null)
+                {
+                    btnOK = new ActionCommand(PerformBtnOK);
+                }
+
+                return btnOK;
+            }
+        }
+
+        private void PerformBtnOK(object par)
+        {
+            (par as vMain).Close();
+            List<ColumnData> columnDatas = mAutoCAD.GetAllColumnHatch(CadLink, SelectLayer);
+            double value = 0;
+            foreach(ColumnData columnData in columnDatas)
+            {
+                value = value + 1;
+                Percent = value / columnDatas.Count();
+            }    
         }
     }
 }

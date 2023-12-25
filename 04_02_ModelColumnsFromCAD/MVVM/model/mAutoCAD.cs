@@ -58,8 +58,6 @@ namespace _04_02_ModelColumnsFromCAD.MVVM.Model
                 OnPropertyChanged(nameof(_document));
             }
         }
-        
-
         public ImportInstance SelectCADLink()
         {
             Reference r = uiDocument.Selection.PickObject(ObjectType.Element,new ImportInstanceSelectionFilter(), "CHỌN CAD LINK");
@@ -118,6 +116,82 @@ namespace _04_02_ModelColumnsFromCAD.MVVM.Model
             }
             allLayers  = new ObservableRangeCollection<string>(allLayers.Distinct());
             return allLayers;
+        }
+        public static List<Solid> GetSolids(ImportInstance cadInstance)
+        {
+            List<Solid> allSolids = new List<Solid>();
+
+            // Defaults to medium detail, no references and no view.
+            Options option = new Options();
+            GeometryElement geoElement = cadInstance.get_Geometry(option);
+
+            foreach (GeometryObject geoObject in geoElement)
+            {
+                if (geoObject is GeometryInstance)
+                {
+                    GeometryInstance geoInstance = geoObject as GeometryInstance;
+                    GeometryElement geoElement2 = geoInstance.GetInstanceGeometry();
+                    foreach (GeometryObject geoObject2 in geoElement2)
+                    {
+                        if (geoObject2 is Solid)
+                        {
+                            Solid solid = geoObject2 as Solid;
+                            if (solid.SurfaceArea > 0) allSolids.Add(solid);
+                        }
+                    }
+                }
+            }
+
+            return allSolids;
+        }
+        public static List<PlanarFace> GetHatchHaveName(ImportInstance cadInstance, string layerName)
+        {
+            List<PlanarFace> allHatch = new List<PlanarFace>();
+
+            List<Solid> solids = GetSolids(cadInstance);
+            if (solids.Count == 0) return allHatch;
+
+            foreach (Solid solid in solids)
+            {
+                foreach (Face face in solid.Faces)
+                {
+                    GraphicsStyle graphicsStyle =
+                           cadInstance.Document.GetElement(face.GraphicsStyleId)
+                           as GraphicsStyle;
+
+                    if (graphicsStyle == null) continue;
+                    Category styleCategory = graphicsStyle.GraphicsStyleCategory;
+
+                    if (styleCategory.Name.Equals(layerName))
+                    {
+                        allHatch.Add(face as PlanarFace);
+                    }
+                }
+            }
+
+            return allHatch;
+        }
+
+        public List<ColumnData> GetAllColumnHatch(ImportInstance SelectedCadLink, string SelectedLayer)
+        {
+            #region Lấy về maximum những element cần chạy
+
+            List<PlanarFace> hatchToCreateColumn = GetHatchHaveName(SelectedCadLink, SelectedLayer);
+
+            List<ColumnData> allColumnsData = new List<ColumnData>();
+
+            foreach (PlanarFace hatch in hatchToCreateColumn)
+            {
+                ColumnData columnData = new ColumnData(hatch);
+                allColumnsData.Add(columnData);
+            }
+            return allColumnsData;
+            #endregion
+
+            #region Code
+
+
+            #endregion
         }
     }
 }

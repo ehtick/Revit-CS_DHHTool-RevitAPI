@@ -101,67 +101,89 @@
             <TextBlock Text="Layer CAD:"
                        Margin="3"
                        Width="80" VerticalAlignment="Center">
-                
             </TextBlock>
             <ComboBox Style="{DynamicResource MaterialDesignComboBox}"
                       Height="40"
-                      ItemsSource="{Binding AllLayer}"
-                      DisplayMemberPath="Name">
-
+                      VerticalContentAlignment="Center"
+                      SelectedItem="{Binding SelectLayer}"
+                      ItemsSource="{Binding AllLayer}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock Text="{Binding}" TextAlignment="Center" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
             </ComboBox>
         </DockPanel>
         <DockPanel Grid.Row="1">
             <TextBlock Text="Top Column:"
                        Margin="3"
                        Width="100" VerticalAlignment="Center">
-
             </TextBlock>
             <ComboBox Style="{DynamicResource MaterialDesignComboBox}"
                       Width="120"
-                      ItemsSource="{Binding AllLevel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      SelectedItem="{Binding TopLevel}"
-                      DisplayMemberPath="Name"
-                      Height="40"/>
-
-
+                      VerticalContentAlignment="Center"
+                      ItemsSource="{Binding AllLevel,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding ToptLevel}"
+                      Height="40">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}" TextAlignment="Center"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
             <TextBlock Text="Offset:"
                        Margin="5"
                        Width="40" VerticalAlignment="Center">
-
             </TextBlock>
-            <TextBox Text="{Binding TopOffset}">
-                
+            <TextBox Text="{Binding TopOffset}"
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Center">
             </TextBox>
         </DockPanel>
         <DockPanel Grid.Row="2">
             <TextBlock Text="Bottom Column:"
                        Margin="3"
                        Width="100" VerticalAlignment="Center">
-
             </TextBlock>
             <ComboBox Style="{DynamicResource MaterialDesignComboBox}"
                       Width="120"
+                      VerticalContentAlignment="Center"
                       ItemsSource="{Binding AllLevel,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       SelectedItem="{Binding BotLevel}"
-                      DisplayMemberPath="Name"
                       Height="40">
-
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}" TextAlignment="Center"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
             </ComboBox>
             <TextBlock Text="Offset:"
                        Margin="5"
                        Width="40" VerticalAlignment="Center">
 
             </TextBlock>
-            <TextBox Text="{Binding BotOffset}">
+            <TextBox Text="{Binding BotOffset}"
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Center">
 
             </TextBox>
         </DockPanel>
-        <ProgressBar Grid.Row="3"
-                     Margin="2"
-                     Height="40"
+        <ProgressBar Grid.Row="3" Margin="2" Height="40"
+                     Minimum ="0"
+                     Maximum="100"
+                     Value="{Binding Percent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     Name="pbStatus"
                      Style="{DynamicResource MaterialDesignLinearProgressBar}">
-            
         </ProgressBar>
+        <TextBlock  Grid.Row="3"
+                    Text="{Binding ElementName=pbStatus, Path=Value, StringFormat={}{0:0}%}" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" />
         <Grid Grid.Row="4" Width="Auto">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -177,6 +199,8 @@
             <Button Grid.Column="1"
                 Margin="2"
                 Content="OK"
+                Command="{Binding BtnOK}"
+                CommandParameter="{Binding ElementName=ModelColumnByCAD}"
                 DockPanel.Dock="Right" />
             <Button Grid.Column="2"
                 Margin="2"
