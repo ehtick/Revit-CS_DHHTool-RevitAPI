@@ -1,9 +1,0 @@
-D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_CreateRibbon\bin\x64\Debug\00.CreateRibbon.dll
-D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_CreateRibbon\bin\x64\Debug\00.CreateRibbon.pdb
-D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_CreateRibbon\bin\x64\Debug\DHHTools_Library.dll
-D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_CreateRibbon\bin\x64\Debug\DHHTools_Library.pdb
-D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_CreateRibbon\obj\x64\Debug\00.DHHTools_CreateRibbon.csproj.AssemblyReference.cache
-D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_CreateRibbon\obj\x64\Debug\00.DHHTools_CreateRibbon.csproj.CoreCompileInputs.cache
-D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_CreateRibbon\obj\x64\Debug\00.DHHTools_CreateRibbon.csproj.CopyComplete
-D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_CreateRibbon\obj\x64\Debug\00.CreateRibbon.dll
-D:\01. WORKING\00. C-Sharp\C-Sharp_LapTrinhRevitAPI_DHH-Tools\00.DHHTools_CreateRibbon\obj\x64\Debug\00.CreateRibbon.pdb
