@@ -12,6 +12,7 @@ using DHHTools.MVVM.ViewModel;
 using System.Windows.Controls;
 using System.Collections.ObjectModel;
 using DHHTools.Object;
+using System.Xml.Linq;
 
 
 namespace DHHTools.MVVM.Model
@@ -59,11 +60,39 @@ namespace DHHTools.MVVM.Model
                 OnPropertyChanged(nameof(_document));
             }
         }
+        //private Element _selectedBeam;
+        //public Element SelectedBeam
+        //{
+        //    get
+        //    {
+        //        _selectedBeam = vmMain.DcMain.SelectedBeam;
+        //        return _selectedBeam;
+        //    }
+                
+        //    set
+        //    {
+        //        _selectedBeam = value;
+        //        OnPropertyChanged(nameof(SelectedBeam));
+        //    }
+        //}
         public Element SelectBeam()
         {
             Reference r = uiDocument.Selection.PickObject(ObjectType.Element, new BeamSelectionFilter(), "Chọn Dầm");
             Element SelectedBeam = Document.GetElement(r) as Element;
             return SelectedBeam;
         }
+        public ObservableRangeCollection<Element> CheckIntersectElements(Element SelectedBeam)
+        {
+            ObservableRangeCollection<Element> elements = new ObservableRangeCollection<Element>();
+            var collector2 = new FilteredElementCollector(Document).OfCategory(BuiltInCategory.OST_StructuralColumns).OfClass(typeof(FamilyInstance));
+            var pipeIntersectFilter = new ElementIntersectsElementFilter(SelectedBeam);
+            List<Element> result = collector2.WherePasses(pipeIntersectFilter).ToList().ConvertAll(x => x as Element);
+            foreach (var element in result)
+            {
+                elements.Add(element);
+            }
+            return elements;
+        }
+
     }
 }

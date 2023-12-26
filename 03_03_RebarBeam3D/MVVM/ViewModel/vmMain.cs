@@ -92,8 +92,11 @@ namespace DHHTools.MVVM.ViewModel
         {
             (par as vMain).Hide();
             SelectedBeam = mRevitObject.SelectBeam();
+            ListElement = mRevitObject.CheckIntersectElements(SelectedBeam);
             (par as vMain).Show();
+            MessageBox.Show(ListElement.Count.ToString());
         }
+
 
         private ObservableRangeCollection<PathDetail> _ItemsToShowInCanvas = new ObservableRangeCollection<PathDetail>
         {
@@ -115,6 +118,17 @@ namespace DHHTools.MVVM.ViewModel
                 _ItemsToShowInCanvas = value; OnPropertyChanged(nameof(ItemsToShowInCanvas));
             }
         }
-
+        private ObservableRangeCollection<Element> _listElement;
+        public ObservableRangeCollection<Element> ListElement
+        {
+            get
+            {
+                return _listElement;
+            }
+            set
+            {
+                _listElement = value; OnPropertyChanged(nameof(ListElement));
+            }
+        }
     }
 }
