@@ -5,6 +5,8 @@ using System.Windows.Input;
 using Autodesk.Revit.DB;
 using System.Collections.Generic;
 using Application = Autodesk.Revit.ApplicationServices.Application;
+using Rectangle = System.Windows.Shapes.Rectangle;
+using Brushes = System.Windows.Media.Brushes;
 using System;
 using System.IO;
 using DHHTools.MVVM.View;
@@ -13,6 +15,9 @@ using System.Windows.Controls;
 using System.Linq;
 using Autodesk.Revit.UI;
 using BIMSoftLib.MVVM;
+using System.Collections.ObjectModel;
+using DHHTools.Object;
+using DHHTools.MVVM.Model;
 
 namespace DHHTools.MVVM.ViewModel
 {
@@ -22,6 +27,17 @@ namespace DHHTools.MVVM.ViewModel
         public static vmMain DcMain { get { return _dcMain; } }
         public static UIApplication RevitApp;
         public static Application RevitAppService;
+        readonly mRevit mRevitObject = new mRevit();
+        private Element _selectedBeam;
+        public Element SelectedBeam
+        {
+            get => _selectedBeam;
+            set
+            {
+                _selectedBeam = value;
+                OnPropertyChanged(nameof(SelectedBeam));
+            }
+        }
 
         private ActionCommand _cancelRebarBeam;
         public ICommand CancelRebarBeam
@@ -69,13 +85,36 @@ namespace DHHTools.MVVM.ViewModel
                     _selectBeam = new ActionCommand(PerformSelectBeam);
                 }
 
-                return _createRebarBeam;
+                return _selectBeam;
             }
         }
         private void PerformSelectBeam(object par)
         {
             (par as vMain).Hide();
+            SelectedBeam = mRevitObject.SelectBeam();
             (par as vMain).Show();
         }
+
+        private ObservableRangeCollection<PathDetail> _ItemsToShowInCanvas = new ObservableRangeCollection<PathDetail>
+        {
+            new PathDetail
+            {
+                Geometry = PathGeometryLibrary.GetBeamPath(200,200,100,100,10,10),
+                TopSet = 10,
+                LeftSet = 20,
+            }
+        };
+        public ObservableRangeCollection<PathDetail> ItemsToShowInCanvas
+        {
+            get
+            {
+                return _ItemsToShowInCanvas;
+            }
+            set
+            {
+                _ItemsToShowInCanvas = value; OnPropertyChanged(nameof(ItemsToShowInCanvas));
+            }
+        }
+
     }
 }

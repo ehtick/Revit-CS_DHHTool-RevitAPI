@@ -67,17 +67,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\Model\mRevit.cs" />
     <Compile Include="MVVM\ViewModel\vmMain.cs" />
     <Compile Include="MVVM\View\vMain.xaml.cs">
       <DependentUpon>vMain.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Object\BeamSelectionFilter.cs" />
+    <Compile Include="Object\PathDetail.cs" />
+    <Compile Include="Object\PathGeometryLibrary.cs" />
     <Compile Include="RebarBeam3D.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MVVM\Model\" />
-    <Folder Include="Object\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
