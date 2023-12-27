@@ -103,9 +103,10 @@ namespace DHHTools.MVVM.ViewModel
             new PathDetail
             {
                 //Geometry = PathGeometryLibrary.GetFootPath(300,200,100,100,50,50),
-                Geometry = PathGeometryLibrary.GetBeamPath(1200,200,0.3),
-                TopSet = 200,
-                LeftSet = 200,
+                //Geometry = PathGeometryLibrary.GetBeamPath(1200,200,0.3),
+                Geometry = PathGeometryLibrary.GetMiddleColumnPath(200,400,0.5),
+                TopSet = 10,
+                LeftSet = 10,
             }
         };
         public ObservableRangeCollection<PathDetail> ItemsToShowInCanvas

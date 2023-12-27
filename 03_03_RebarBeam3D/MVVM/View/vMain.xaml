@@ -12,8 +12,8 @@
              DataContext="{Binding Source={x:Static vm:vmMain.DcMain}}"
              ResizeMode="NoResize"
              WindowStartupLocation="CenterScreen"
-             Width="1000"
-             Height="600">
+             Width="1200"
+             Height="700">
     <Window.Resources>
         <ResourceDictionary>
             <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#006536" />
