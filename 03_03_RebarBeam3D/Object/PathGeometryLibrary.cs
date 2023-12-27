@@ -12,7 +12,7 @@ namespace DHHTools.Object
 { 
     class PathGeometryLibrary
     {
-        public static PathGeometry GetBeamPath(double Width, double Height, double WPedestal, double HPedestal, double WDiferrent, double HDiferrent)
+        public static PathGeometry GetFootPath(double Width, double Height, double WPedestal, double HPedestal, double WDiferrent, double HDiferrent)
         {
             PathGeometry footPath = new PathGeometry();
 
@@ -22,35 +22,35 @@ namespace DHHTools.Object
             lineSegA.Point = new System.Windows.Point((WDiferrent - WPedestal / 2), (HDiferrent - HPedestal / 2));
             LineSegment lineSegAB = new LineSegment();
             lineSegAB.Point = new System.Windows.Point((WDiferrent + WPedestal / 2), (HDiferrent - HPedestal / 2));
-            LineSegment lineSegBConer = new LineSegment();
-            lineSegBConer.Point = new System.Windows.Point(Width, 0);
-            LineSegment lineSegCConer = new LineSegment();
-            lineSegCConer.Point = new System.Windows.Point(Width, Height);
-            LineSegment lineSegC = new LineSegment();
-            lineSegC.Point = new System.Windows.Point((WDiferrent + WPedestal / 2), (HDiferrent + HPedestal / 2));
-            LineSegment lineSegCB = new LineSegment();
-            lineSegCB.Point = new System.Windows.Point((WDiferrent + WPedestal / 2), (HDiferrent - HPedestal / 2));
-            LineSegment lineSegBA = new LineSegment();
-            lineSegBA.Point = new System.Windows.Point((WDiferrent - WPedestal / 2), (HDiferrent - HPedestal / 2));
-            LineSegment lineSegD = new LineSegment();
-            lineSegD.Point = new System.Windows.Point((WDiferrent - WPedestal / 2), (HDiferrent + HPedestal / 2));
-            LineSegment lineSegDConer = new LineSegment();
-            lineSegDConer.Point = new System.Windows.Point(0, Height);
-            LineSegment lineSegCD = new LineSegment();
-            lineSegCD.Point = new System.Windows.Point((WDiferrent - WPedestal / 2), (HDiferrent + HPedestal / 2));
+            //LineSegment lineSegBConer = new LineSegment();
+            //lineSegBConer.Point = new System.Windows.Point(Width, 0);
+            //LineSegment lineSegCConer = new LineSegment();
+            //lineSegCConer.Point = new System.Windows.Point(Width, Height);
+            //LineSegment lineSegC = new LineSegment();
+            //lineSegC.Point = new System.Windows.Point((WDiferrent + WPedestal / 2), (HDiferrent + HPedestal / 2));
+            //LineSegment lineSegCB = new LineSegment();
+            //lineSegCB.Point = new System.Windows.Point((WDiferrent + WPedestal / 2), (HDiferrent - HPedestal / 2));
+            //LineSegment lineSegBA = new LineSegment();
+            //lineSegBA.Point = new System.Windows.Point((WDiferrent - WPedestal / 2), (HDiferrent - HPedestal / 2));
+            //LineSegment lineSegD = new LineSegment();
+            //lineSegD.Point = new System.Windows.Point((WDiferrent - WPedestal / 2), (HDiferrent + HPedestal / 2));
+            //LineSegment lineSegDConer = new LineSegment();
+            //lineSegDConer.Point = new System.Windows.Point(0, Height);
+            //LineSegment lineSegCD = new LineSegment();
+            //lineSegCD.Point = new System.Windows.Point((WDiferrent - WPedestal / 2), (HDiferrent + HPedestal / 2));
             PathSegmentCollection myPathSegmentCollection = new PathSegmentCollection();
             myPathSegmentCollection.Add(lineSegA);
             myPathSegmentCollection.Add(lineSegAB);
-            myPathSegmentCollection.Add(lineSegBConer);
-            myPathSegmentCollection.Add(lineSegCConer);
-            myPathSegmentCollection.Add(lineSegC);
-            myPathSegmentCollection.Add(lineSegCB);
-            myPathSegmentCollection.Add(lineSegBA);
-            myPathSegmentCollection.Add(lineSegD);
-            myPathSegmentCollection.Add(lineSegDConer);
-            myPathSegmentCollection.Add(lineSegCConer);
-            myPathSegmentCollection.Add(lineSegC);
-            myPathSegmentCollection.Add(lineSegCD);
+            //myPathSegmentCollection.Add(lineSegBConer);
+            //myPathSegmentCollection.Add(lineSegCConer);
+            //myPathSegmentCollection.Add(lineSegC);
+            //myPathSegmentCollection.Add(lineSegCB);
+            //myPathSegmentCollection.Add(lineSegBA);
+            //myPathSegmentCollection.Add(lineSegD);
+            //myPathSegmentCollection.Add(lineSegDConer);
+            //myPathSegmentCollection.Add(lineSegCConer);
+            //myPathSegmentCollection.Add(lineSegC);
+            //myPathSegmentCollection.Add(lineSegCD);
             pthFigure.Segments = myPathSegmentCollection;
             PathFigureCollection pthFigureCollection = new PathFigureCollection();
             pthFigureCollection.Add(pthFigure);
@@ -92,6 +92,59 @@ namespace DHHTools.Object
             //else if ((element as FamilyInstance).FacingFlipped == true && (element as FamilyInstance).HandFlipped == true)
             //{ path.RenderTransform = vhtransform; }
             return path;
+        }
+
+        public static PathGeometry GetBeamPath(double Length, double Height, double Scale)
+        {
+            PathGeometry BeamPath = new PathGeometry();
+            PathFigure pthFigure = new PathFigure();
+            pthFigure.StartPoint = new System.Windows.Point(0, 0);// starting cordinates of arcs => đi từ trên xuống, trái qua phải
+            LineSegment lineSegTop = new LineSegment();
+            lineSegTop.Point = new System.Windows.Point(Length*Scale, 0); // cạnh trên
+            LineSegment lineSegRight = new LineSegment();
+            lineSegRight.Point = new System.Windows.Point(Length * Scale, Height * Scale);// cạnh phải; - là đi lên, + là đi xuống
+            lineSegRight.IsStroked = false;
+            LineSegment lineSegBottom = new LineSegment();
+            lineSegBottom.Point = new System.Windows.Point(0, Height * Scale);// cạnh dưới; - là đi lên, + là đi xuống
+            LineSegment lineSegLeft = new LineSegment();
+            lineSegLeft.Point = new System.Windows.Point(0, 0);// cạnh trái;
+            lineSegLeft.IsStroked = false;
+            PathSegmentCollection myPathSegmentCollection = new PathSegmentCollection();
+            myPathSegmentCollection.Add(lineSegTop);
+            myPathSegmentCollection.Add(lineSegRight);
+            myPathSegmentCollection.Add(lineSegBottom);
+            myPathSegmentCollection.Add(lineSegLeft);
+            pthFigure.Segments = myPathSegmentCollection;
+            PathFigureCollection pthFigureCollection = new PathFigureCollection();
+            pthFigureCollection.Add(pthFigure);
+            BeamPath.Figures = pthFigureCollection;
+            return BeamPath;
+        }
+
+        public static PathGeometry GetStartColumnPath(double Width, double Height,double HeightBeam, double Scale)
+        {
+            PathGeometry startColumnPath = new PathGeometry();
+            PathFigure pthFigure = new PathFigure();
+            pthFigure.StartPoint = new System.Windows.Point(0, 0);// starting cordinates of arcs => đi từ trên xuống, trái qua phải
+            LineSegment lineSegTop = new LineSegment();
+            lineSegTop.Point = new System.Windows.Point(Width * Scale, 0); // cạnh trên
+            LineSegment lineSegRight = new LineSegment();
+            lineSegRight.Point = new System.Windows.Point(Width * Scale, Height * Scale);// cạnh phải; - là đi lên, + là đi xuống
+            return startColumnPath;
+        }
+
+        public static PathGeometry GetMiddleColumnPath()
+        {
+            PathGeometry middleColumnPath = new PathGeometry();
+
+            return middleColumnPath;
+        }
+
+        public static PathGeometry GetEndColumnPath()
+        {
+            PathGeometry endColumnPath = new PathGeometry();
+
+            return endColumnPath;
         }
     }
 }

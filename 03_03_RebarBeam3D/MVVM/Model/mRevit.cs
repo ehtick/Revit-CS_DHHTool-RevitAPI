@@ -60,21 +60,6 @@ namespace DHHTools.MVVM.Model
                 OnPropertyChanged(nameof(_document));
             }
         }
-        //private Element _selectedBeam;
-        //public Element SelectedBeam
-        //{
-        //    get
-        //    {
-        //        _selectedBeam = vmMain.DcMain.SelectedBeam;
-        //        return _selectedBeam;
-        //    }
-                
-        //    set
-        //    {
-        //        _selectedBeam = value;
-        //        OnPropertyChanged(nameof(SelectedBeam));
-        //    }
-        //}
         public Element SelectBeam()
         {
             Reference r = uiDocument.Selection.PickObject(ObjectType.Element, new BeamSelectionFilter(), "Chọn Dầm");
@@ -84,15 +69,22 @@ namespace DHHTools.MVVM.Model
         public ObservableRangeCollection<Element> CheckIntersectElements(Element SelectedBeam)
         {
             ObservableRangeCollection<Element> elements = new ObservableRangeCollection<Element>();
-            var collector2 = new FilteredElementCollector(Document).OfCategory(BuiltInCategory.OST_StructuralColumns).OfClass(typeof(FamilyInstance));
-            var pipeIntersectFilter = new ElementIntersectsElementFilter(SelectedBeam);
-            List<Element> result = collector2.WherePasses(pipeIntersectFilter).ToList().ConvertAll(x => x as Element);
-            foreach (var element in result)
+            //var collector2 = new FilteredElementCollector(Document).OfCategory(BuiltInCategory.OST_StructuralColumns).OfClass(typeof(FamilyInstance));
+            //var pipeIntersectFilter = new ElementIntersectsElementFilter(SelectedBeam);
+            //IList<Element> result = collector2.WherePasses(pipeIntersectFilter).ToList().ConvertAll(x => x as Element);I
+            IList<ElementId> result = (IList<ElementId>)JoinGeometryUtils.GetJoinedElements(Document, SelectedBeam);
+            foreach (var elementid in result)
             {
-                elements.Add(element);
+                Element element = Document.GetElement(elementid);
+                if(element.Category.Name == "Structural Columns")
+                {
+                    elements.Add(element);
+                }    
             }
             return elements;
         }
+
+
 
     }
 }
