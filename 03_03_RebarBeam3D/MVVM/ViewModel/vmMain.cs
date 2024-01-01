@@ -18,6 +18,7 @@ using BIMSoftLib.MVVM;
 using System.Collections.ObjectModel;
 using DHHTools.Object;
 using DHHTools.MVVM.Model;
+using System.Windows.Documents;
 
 namespace DHHTools.MVVM.ViewModel
 {
@@ -38,7 +39,43 @@ namespace DHHTools.MVVM.ViewModel
                 OnPropertyChanged(nameof(SelectedBeam));
             }
         }
+        private ObservableRangeCollection<PathDetail> _ItemsToShowInCanvas = new ObservableRangeCollection<PathDetail>
+        {
+            new PathDetail
+            {
+                //Geometry = PathGeometryLibrary.GetFootPath(300,200,100,100,50,50),
+                //Geometry = PathGeometryLibrary.GetBeamPath(1200,200,0.3),
+                Geometry = PathGeometryLibrary.GetMiddleColumnPath(200,400,0.5),
+                TopSet = 10,
+                LeftSet = 10,
+            }
+        };
+        public ObservableRangeCollection<PathDetail> ItemsToShowInCanvas
+        {
+            get
+            {
+                return _ItemsToShowInCanvas;
+            }
+            set
+            {
+                _ItemsToShowInCanvas = value; OnPropertyChanged(nameof(ItemsToShowInCanvas));
+            }
+        }
+        private ObservableRangeCollection<Element> _listColumn;
+        public ObservableRangeCollection<Element> ListColumn
+        {
+            get
+            {
+                return _listColumn;
+            }
+            set
+            {
+                _listColumn = value; OnPropertyChanged(nameof(ListColumn));
+            }
+        }
 
+
+        #region Method
         private ActionCommand _cancelRebarBeam;
         public ICommand CancelRebarBeam
         {
@@ -91,46 +128,30 @@ namespace DHHTools.MVVM.ViewModel
         private void PerformSelectBeam(object par)
         {
             (par as vMain).Hide();
+            List<double> listColumnWidth = new List<double>();
             SelectedBeam = mRevitObject.SelectBeam();
-            ListElement = mRevitObject.CheckIntersectElements(SelectedBeam);
+            ListColumn = mRevitObject.CheckIntersectElements(SelectedBeam);
+            List<Solid> listPathDetail = mRevitObject.ListPathDetail(SelectedBeam, ListColumn, 20, 20);
+            foreach (Element column in ListColumn)
+            {
+                listColumnWidth.Add(mRevitObject.CheckWidthColumn(SelectedBeam, column));
+            }
             (par as vMain).Show();
-            MessageBox.Show(ListElement.Count.ToString());
+            string allitems = string.Empty;
+            foreach (double item in listColumnWidth)
+            {
+                if (listColumnWidth.Count > 0)
+                {
+                    allitems += "\n";
+                }
+                else { } //todo nothing
+
+                allitems += item;
+            }
+            MessageBox.Show($"my items:\n{allitems}", "items");
         }
+        #endregion
 
 
-        private ObservableRangeCollection<PathDetail> _ItemsToShowInCanvas = new ObservableRangeCollection<PathDetail>
-        {
-            new PathDetail
-            {
-                //Geometry = PathGeometryLibrary.GetFootPath(300,200,100,100,50,50),
-                //Geometry = PathGeometryLibrary.GetBeamPath(1200,200,0.3),
-                Geometry = PathGeometryLibrary.GetMiddleColumnPath(200,400,0.5),
-                TopSet = 10,
-                LeftSet = 10,
-            }
-        };
-        public ObservableRangeCollection<PathDetail> ItemsToShowInCanvas
-        {
-            get
-            {
-                return _ItemsToShowInCanvas;
-            }
-            set
-            {
-                _ItemsToShowInCanvas = value; OnPropertyChanged(nameof(ItemsToShowInCanvas));
-            }
-        }
-        private ObservableRangeCollection<Element> _listElement;
-        public ObservableRangeCollection<Element> ListElement
-        {
-            get
-            {
-                return _listElement;
-            }
-            set
-            {
-                _listElement = value; OnPropertyChanged(nameof(ListElement));
-            }
-        }
     }
 }

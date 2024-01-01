@@ -33,6 +33,30 @@ namespace DHHTools
             return allSolids[0];
         }
         #endregion
+
+        #region GetAllSolidFromElement
+        public static List<Solid> GetAllSolids(Element element)
+        {
+            List<Solid> allSolids = new List<Solid>();
+            // Defaults to medium detail, no references and no view.
+            Options option = new Options();
+            option.ComputeReferences = true;
+            option.DetailLevel = ViewDetailLevel.Fine;
+            GeometryElement geoElement = element.get_Geometry(option);
+            foreach (GeometryObject geomObj in geoElement)
+            {
+                if (geomObj is Solid)
+                {
+                    Solid solid = geomObj as Solid;
+                    if (Math.Round(solid.SurfaceArea) > 0)
+                    {
+                        allSolids.Add(solid);
+                    }
+                }
+            }
+            return allSolids;
+        }
+        #endregion
         #region LineToXline
         /// <summary>
         ///     Convert Line to XLine.
@@ -131,8 +155,8 @@ namespace DHHTools
                 }
             }
 
-            List<Face> returnFaces = planarFaces.Distinct().ToList();
-            return returnFaces;
+            List<Face> SideFaces = planarFaces.Distinct().ToList();
+            return SideFaces;
         }
         #endregion
         #region Offset Face by Vector
