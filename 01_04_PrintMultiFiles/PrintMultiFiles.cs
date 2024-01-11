@@ -17,7 +17,6 @@ namespace DHHTools
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-
             UIApplication uIApplication = commandData.Application;
             RevitApp = uIApplication;
             RevitAppService = RevitApp.Application;
