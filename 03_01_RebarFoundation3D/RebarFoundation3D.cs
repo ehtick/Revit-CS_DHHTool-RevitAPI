@@ -6,8 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autodesk.Revit.Attributes;
+using DHHTools.MVVM.View;
+using static DHHTools.MVVM.ViewModel.vmMain;
 
-namespace _03_01_RebarFoundation3D
+
+namespace DHHTools
 {
     [Transaction(TransactionMode.Manual)]
     public class RebarFoundation3D : IExternalCommand
