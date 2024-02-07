@@ -165,8 +165,6 @@ namespace DHHTools.MVVM.Model
                     }
                 }
             }
-            
-            
         }
 
         public void exportDWF(mRevitDoc revitDoc, string SelectFolder, bool IsSeprateFolder, bool IsSeprateByFile, string FileName)

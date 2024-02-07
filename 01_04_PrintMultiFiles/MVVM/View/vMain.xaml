@@ -98,47 +98,45 @@
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
         <Grid />
-        <Grid>
-            <DockPanel LastChildFill="True" ScrollViewer.CanContentScroll="True">
-                <DataGrid IsReadOnly="True"
+        <DockPanel LastChildFill="True" ScrollViewer.CanContentScroll="True">
+            <DataGrid IsReadOnly="True"
                     AutoGenerateColumns="False"
                     CanUserAddRows="False"
                     ItemsSource="{Binding DgRevitFile}"
                     SelectedItem="{Binding DocumentSelectSheetSet}">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Width="*" Binding="{Binding FileName}" >
-                            <DataGridTextColumn.Header>
-                                <TextBlock Text="File Name" />
-                            </DataGridTextColumn.Header>
-                        </DataGridTextColumn>
-                        <DataGridTemplateColumn Width="180" Header="Sheet Set">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <ComboBox
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" Binding="{Binding FileName}" >
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="File Name" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTemplateColumn Width="180" Header="Sheet Set">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox
                                         DisplayMemberPath="Name"
                                         ItemsSource="{Binding AllSheetSet}"
                                         SelectedIndex="0"
                                         SelectedValue="{Binding DocumentSelectSheetSet, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                            <DataGridTemplateColumn.CellEditingTemplate>
-                                <DataTemplate>
-                                    <ComboBox
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox
                                         DisplayMemberPath="Name"
                                         ItemsSource="{Binding DataContext.AllSheetSet, ElementName=vWinMain}"
                                         SelectedItem="{Binding DocumentSelectSheetSet, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellEditingTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTextColumn Width="130" Binding="{Binding NumberSheet}">
-                            <DataGridTextColumn.Header>
-                                <TextBlock Text="Number Sheets" />
-                            </DataGridTextColumn.Header>
-                        </DataGridTextColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </DockPanel>
-        </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Width="130" Binding="{Binding NumberSheet}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="Number Sheets" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
         <DockPanel Grid.Row="1" LastChildFill="True">
             <Grid>
                 <Grid.ColumnDefinitions>

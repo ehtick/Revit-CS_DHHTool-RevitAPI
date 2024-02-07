@@ -67,6 +67,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\Model\mFoundation.cs" />
     <Compile Include="MVVM\ViewModel\vmMain.cs" />
     <Compile Include="MVVM\View\vMain.xaml.cs">
       <DependentUpon>vMain.xaml</DependentUpon>
@@ -74,9 +75,7 @@
     <Compile Include="RebarFoundation3D.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MVVM\Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="MVVM\View\vMain.xaml">
       <SubType>Designer</SubType>

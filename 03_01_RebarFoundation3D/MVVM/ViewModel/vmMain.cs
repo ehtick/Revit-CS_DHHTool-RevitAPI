@@ -11,6 +11,7 @@ using System.Linq;
 using Autodesk.Revit.UI;
 using BIMSoftLib.MVVM;
 using System.Collections.ObjectModel;
+using DHHTools.MVVM.Model;
 
 namespace DHHTools.MVVM.ViewModel
 {
@@ -20,5 +21,18 @@ namespace DHHTools.MVVM.ViewModel
         public static vmMain DcMain { get { return _dcMain; } }
         public static UIApplication RevitApp;
         public static Application RevitAppService;
+        private ObservableRangeCollection<mFoundation> _dgFoundation = new ObservableRangeCollection<mFoundation>();
+        public ObservableRangeCollection<mFoundation> DgFoundation
+        {
+            get
+            {
+              return _dgFoundation;
+            }
+            set
+            {
+                _dgFoundation = value;
+                OnPropertyChanged(nameof(DgFoundation));
+            }
+        }
     }
 }
