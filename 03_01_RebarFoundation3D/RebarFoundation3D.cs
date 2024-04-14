@@ -25,7 +25,7 @@ namespace DHHTools
             Document document = uIDocument.Document;
             using (TransactionGroup transGroup = new TransactionGroup(document))
             {
-                transGroup.Start("Rebar Beams");
+                transGroup.Start("Foundation Details");
                 vMain win = new vMain();
                 bool? dialog = win.ShowDialog();
                 if (dialog != false)

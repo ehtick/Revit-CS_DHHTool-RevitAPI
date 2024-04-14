@@ -87,7 +87,7 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
                            b_khungParameter = titleFamily.LookupParameter("b");
                            b_khungParameter.Set(DhhUnitUtils.MmToFeet(B * countlist));
                            Parameter beamName = titleFamily.LookupParameter("Beam_Name");
-                            beamName.Set(mSectionBeams[i].BeamName);
+                           beamName.Set(mSectionBeams[i].BeamName);
                         }
                         else if (mSectionBeams[i].BeamName != mSectionBeams[i - 1].BeamName)
                         {

@@ -118,7 +118,6 @@ D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Deb
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHLibrary.dll
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHLibrary.pdb
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\bin\Debug\BIMSoftLib.dll
-D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\00-01.Library.csproj.CopyComplete
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\bin\Debug\BIMSoftLib.dll
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\00-01.Library.csproj.CopyComplete
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\bin\Debug\DHHLibrary.dll
@@ -129,3 +128,4 @@ D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHLibr
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\00-01.Library.csproj.CopyComplete
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHLibrary.dll
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\00-01.DHHTools_Library\obj\Debug\DHHLibrary.pdb
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\00-01.DHHTools_Library\obj\Debug\00-01.Li.B5830707.Up2Date

@@ -1,16 +1,17 @@
 ﻿<Window
     x:Class="DHHTools.MVVM.View.vMain"
+    x:Name="CreateSectionWin"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:DHHTools.MVVM.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:DHHTools.MVVM.ViewModel"
+    d:DataContext="{d:DesignInstance Type=vm:vmMain}"
     d:DesignHeight="450"
     d:DesignWidth="800"
-    mc:Ignorable="d"
-    d:DataContext="{d:DesignInstance Type=vm:vmMain}"
-    DataContext="{Binding Source={x:Static vm:vmMain.DcMain}}">
+    DataContext="{Binding Source={x:Static vm:vmMain.DcMain}}"
+    mc:Ignorable="d">
     <Window.Resources>
         <ResourceDictionary>
             <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#006536" />
@@ -89,73 +90,141 @@
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="45" />
             <RowDefinition Height="*" />
             <RowDefinition Height="45" />
         </Grid.RowDefinitions>
-        <DockPanel LastChildFill="True" ScrollViewer.CanContentScroll="True">
-            <DataGrid IsReadOnly="True"
-            AutoGenerateColumns="False"
-            CanUserAddRows="False"
-            ItemsSource="{Binding DgRevitFile}"
-            SelectedItem="{Binding DocumentSelectSheetSet}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="150" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Padding="5"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Text="Chọn family móng: " />
+            <ComboBox
+                Grid.Column="1"
+                Height="40"
+                VerticalContentAlignment="Center"
+                FontSize="15"
+                DisplayMemberPath="Name"
+                ItemsSource="{Binding DgFouFamilyList}"
+                SelectedItem="{Binding DgFouFamilySelect}" />
+            <Button
+                Grid.Column="2"
+                Width="140"
+                HorizontalAlignment="Center"
+                Command="{Binding CreateRebarFoundation}"
+                Content="Đặt mặc định" />
+        </Grid>
+        <DockPanel
+            Grid.Row="1"
+            LastChildFill="True"
+            ScrollViewer.CanContentScroll="True">
+            <DataGrid
+                AutoGenerateColumns="False"
+                CanUserAddRows="False"
+                ItemsSource="{Binding DgFoundation}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Width="*" Binding="{Binding FileName}" >
+                    <DataGridTextColumn IsReadOnly="True" Width="*" Binding="{Binding FoundationName}">
                         <DataGridTextColumn.Header>
-                            <TextBlock Text="File Name" />
+                            <TextBlock Text="Tên móng" />
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>
-                    <DataGridTemplateColumn Width="180" Header="Sheet Set">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <ComboBox
-                                DisplayMemberPath="Name"
-                                ItemsSource="{Binding AllSheetSet}"
-                                SelectedIndex="0"
-                                SelectedValue="{Binding DocumentSelectSheetSet, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                        <DataGridTemplateColumn.CellEditingTemplate>
-                            <DataTemplate>
-                                <ComboBox
-                                DisplayMemberPath="Name"
-                                ItemsSource="{Binding DataContext.AllSheetSet, ElementName=vWinMain}"
-                                SelectedItem="{Binding DocumentSelectSheetSet, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellEditingTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTextColumn Width="130" Binding="{Binding NumberSheet}">
+                    <DataGridTextColumn IsReadOnly="True" Width="*" Binding="{Binding FoundationWidth}">
                         <DataGridTextColumn.Header>
-                            <TextBlock Text="Number Sheets" />
+                            <TextBlock Text="Chiều rộng" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn IsReadOnly="True" Width="*" Binding="{Binding FoundationLength}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="Chiều dài" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn IsReadOnly="True" Width="*" Binding="{Binding FoundationHeight}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="Chiều cao" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn IsReadOnly="True" Width="*" Binding="{Binding FoundationHeightSub}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="Chiều cao đế" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Binding="{Binding DiaRebarBotX}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="d_BotX" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Binding="{Binding SpaRebarBotX}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="a_BotX" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Binding="{Binding DiaRebarBotY}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="d_BotY" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Binding="{Binding SpaRebarBotY}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="a_BotY" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridCheckBoxColumn x:Name="RebarTop"
+                        Width="*" 
+                         Binding="{Binding IsRebarTop}">
+                        <DataGridCheckBoxColumn.Header>
+                            <TextBlock Text="Lớp trên?" />
+                        </DataGridCheckBoxColumn.Header>
+                    </DataGridCheckBoxColumn>
+                    <DataGridTextColumn 
+                        Width="*" Binding="{Binding DiaRebarTopX}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="d_TopX" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn 
+                        Width="*" Binding="{Binding SpaRebarTopX}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="a_TopX" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Binding="{Binding DiaRebarTopY}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="d_TopY" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Binding="{Binding SpaRebarTopY}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="a_TopY" />
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
-        <DockPanel Grid.Row="1">
+        <DockPanel Grid.Row="2">
             <RadioButton
                 Width="100"
-                Content="Móng đơn"
-                GroupName="ScopeFooting"
-                IsChecked="{Binding IsSingleFooting}"
+                Content="Vẽ thép 2D"
+                GroupName="ScopeRebarFooting"
+                IsChecked="{Binding IsRebar2D}"
                 Style="{DynamicResource MaterialDesignAccentRadioButton}" />
             <RadioButton
                 Width="100"
-                Content="Móng băng"
-                GroupName="ScopeFooting"
-                IsChecked="{Binding IsStripFooting}"
-                Style="{DynamicResource MaterialDesignAccentRadioButton}" />
-            <RadioButton
-                Width="75"
-                Content="Đài cọc"
-                GroupName="ScopeFooting"
-                IsChecked="{Binding IsPileCap}"
+                Content="Vẽ thép 3D"
+                GroupName="ScopeRebarFooting"
+                IsChecked="{Binding IsRebar3D}"
                 Style="{DynamicResource MaterialDesignAccentRadioButton}" />
             <Button
                 Width="150"
                 Margin="2,0,4,0"
                 Command="{Binding CancelRebarFoundation}"
                 CommandParameter="{Binding ElementName=CreateSectionWin}"
-                Content="Cancel"
+                Content="Hủy bỏ"
                 DockPanel.Dock="Right" />
             <Button
                 Width="150"
@@ -163,7 +232,7 @@
                 HorizontalAlignment="Right"
                 Command="{Binding CreateRebarFoundation}"
                 CommandParameter="{Binding ElementName=CreateSectionWin}"
-                Content="OK"
+                Content="Vẽ chi tiết"
                 DockPanel.Dock="Right" />
             <Button
                 Width="150"
