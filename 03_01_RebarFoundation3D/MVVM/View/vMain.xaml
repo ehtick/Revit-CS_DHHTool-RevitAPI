@@ -154,24 +154,14 @@
                             <TextBlock Text="Chiều cao đế" />
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>
-                    <DataGridTextColumn Width="*" Binding="{Binding DiaRebarBotX}">
+                    <DataGridTextColumn Width="*" Binding="{Binding RebarBotX}">
                         <DataGridTextColumn.Header>
-                            <TextBlock Text="d_BotX" />
+                            <TextBlock Text="Thép dưới X" />
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>
-                    <DataGridTextColumn Width="*" Binding="{Binding SpaRebarBotX}">
+                    <DataGridTextColumn Width="*" Binding="{Binding RebarBotY}">
                         <DataGridTextColumn.Header>
-                            <TextBlock Text="a_BotX" />
-                        </DataGridTextColumn.Header>
-                    </DataGridTextColumn>
-                    <DataGridTextColumn Width="*" Binding="{Binding DiaRebarBotY}">
-                        <DataGridTextColumn.Header>
-                            <TextBlock Text="d_BotY" />
-                        </DataGridTextColumn.Header>
-                    </DataGridTextColumn>
-                    <DataGridTextColumn Width="*" Binding="{Binding SpaRebarBotY}">
-                        <DataGridTextColumn.Header>
-                            <TextBlock Text="a_BotY" />
+                            <TextBlock Text="Thép dưới Y" />
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>
                     <DataGridCheckBoxColumn x:Name="RebarTop"
@@ -182,25 +172,15 @@
                         </DataGridCheckBoxColumn.Header>
                     </DataGridCheckBoxColumn>
                     <DataGridTextColumn 
-                        Width="*" Binding="{Binding DiaRebarTopX}">
+                        Width="*" Binding="{Binding RebarTopX}">
                         <DataGridTextColumn.Header>
-                            <TextBlock Text="d_TopX" />
+                            <TextBlock Text="Thép trên X" />
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>
                     <DataGridTextColumn 
-                        Width="*" Binding="{Binding SpaRebarTopX}">
+                        Width="*" Binding="{Binding RebarTopY}">
                         <DataGridTextColumn.Header>
-                            <TextBlock Text="a_TopX" />
-                        </DataGridTextColumn.Header>
-                    </DataGridTextColumn>
-                    <DataGridTextColumn Width="*" Binding="{Binding DiaRebarTopY}">
-                        <DataGridTextColumn.Header>
-                            <TextBlock Text="d_TopY" />
-                        </DataGridTextColumn.Header>
-                    </DataGridTextColumn>
-                    <DataGridTextColumn Width="*" Binding="{Binding SpaRebarTopY}">
-                        <DataGridTextColumn.Header>
-                            <TextBlock Text="a_TopY" />
+                            <TextBlock Text="Thép trên Y" />
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>
                 </DataGrid.Columns>

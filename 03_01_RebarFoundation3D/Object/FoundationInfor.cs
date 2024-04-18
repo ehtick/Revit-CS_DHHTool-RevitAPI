@@ -10,6 +10,7 @@ namespace DHHTools.Object
 {
     public class FoundationInfor: PropertyChangedBase
     {
+        #region Thông tin móng
         private Element _foundation;
         public Element Foundation
         {
@@ -70,49 +71,30 @@ namespace DHHTools.Object
                 OnPropertyChanged(nameof(FoundationHeightSub));
             }
         }
-        #region Thép lớp dưới
-        private double _diaRebarBotX;
-        public double DiaRebarBotX
+        #endregion
+        #region Thép Cạnh X
+        private string _rebarBotX;
+        public string RebarBotX
         {
-            get => _diaRebarBotX;
+            get => _rebarBotX;
             set
             {
-                _diaRebarBotX = value;
-                OnPropertyChanged(nameof(DiaRebarBotX));
+                _rebarBotX = value;
+                OnPropertyChanged(nameof(RebarBotX));
             }
         }
-        private double _spaRebarBotX;
-        public double SpaRebarBotX
+        private string _rebarTopX;
+        public string RebarTopX
         {
-            get => _spaRebarBotX;
+            get => _rebarTopX;
             set
             {
-                _spaRebarBotX = value;
-                OnPropertyChanged(nameof(SpaRebarBotX));
-            }
-        }
-        private double _diarebarBotY;
-        public double DiaRebarBotY
-        {
-            get => _diarebarBotY;
-            set
-            {
-                _diarebarBotY = value;
-                OnPropertyChanged(nameof(DiaRebarBotY));
-            }
-        }
-        private double _spaRebarBotY;
-        public double SpaRebarBotY
-        {
-            get => _spaRebarBotY;
-            set
-            {
-                _spaRebarBotY = value;
-                OnPropertyChanged(nameof(SpaRebarBotY));
+                _rebarTopX = value;
+                OnPropertyChanged(nameof(RebarTopX));
             }
         }
         #endregion
-        #region Thép lớp trên
+        #region Thép Cạnh Y
         private bool _isRebarTop;
         public bool IsRebarTop
         {
@@ -123,47 +105,28 @@ namespace DHHTools.Object
                 OnPropertyChanged(nameof(IsRebarTop));
             }
         }
-        private double _diarebarTopX;
-        public double DiaRebarTopX
+        private string _rebarBotY;
+        public string RebarBotY
         {
-            get => _diarebarTopX;
+            get => _rebarBotY;
             set
             {
-                _diarebarTopX = value;
-                OnPropertyChanged(nameof(DiaRebarTopX));
+                _rebarBotY = value;
+                OnPropertyChanged(nameof(RebarBotY));
             }
         }
-        private double _sparebarTopX;
-        public double SpaRebarTopX
+        private string _rebarTopY;
+        public string RebarTopY
         {
-            get => _sparebarTopX;
+            get => _rebarTopY;
             set
             {
-                _sparebarTopX = value;
-                OnPropertyChanged(nameof(SpaRebarTopX));
-            }
-        }
-        private double _diarebarTopY;
-        public double DiaRebarTopY
-        {
-            get => _diarebarTopY;
-            set
-            {
-                _diarebarTopY = value;
-                OnPropertyChanged(nameof(DiaRebarTopY));
-            }
-        }
-        private double _sparebarTopY;
-        public double SpaRebarTopY
-        {
-            get => _sparebarTopY;
-            set
-            {
-                _sparebarTopY = value;
-                OnPropertyChanged(nameof(SpaRebarTopY));
+                _rebarTopY = value;
+                OnPropertyChanged(nameof(RebarTopY));
             }
         }
         #endregion
+        
         public FoundationInfor(FamilyInstance element)
         {
             Foundation = element;
@@ -177,15 +140,13 @@ namespace DHHTools.Object
             FoundationHeight = DhhUnitUtils.FeetToMm(h_par.AsDouble());
             Parameter hSub_par = element.LookupParameter("Dai_Cao");
             FoundationHeightSub = DhhUnitUtils.FeetToMm(hSub_par.AsDouble());
-            DiaRebarBotX = 12;
-            SpaRebarBotX = 150;
-            DiaRebarBotY = 12;
-            SpaRebarBotY = 150;
+            RebarBotX = "12a150";
+            RebarTopX = "12a150";
             IsRebarTop = false;
-            DiaRebarTopX = 10;
-            SpaRebarTopX = 300;
-            DiaRebarTopY = 10;
-            SpaRebarTopY = 300;
+            RebarBotY = "10a300";
+            RebarTopY = "10a300";
+            
+            
 
         }
     }
