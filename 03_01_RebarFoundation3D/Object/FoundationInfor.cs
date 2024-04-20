@@ -141,9 +141,9 @@ namespace DHHTools.Object
             Parameter hSub_par = element.LookupParameter("Dai_Cao");
             FoundationHeightSub = DhhUnitUtils.FeetToMm(hSub_par.AsDouble());
             RebarBotX = "12a150";
-            RebarTopX = "12a150";
+            RebarTopX = "10a300";
             IsRebarTop = false;
-            RebarBotY = "10a300";
+            RebarBotY = "12a150";
             RebarTopY = "10a300";
             
             

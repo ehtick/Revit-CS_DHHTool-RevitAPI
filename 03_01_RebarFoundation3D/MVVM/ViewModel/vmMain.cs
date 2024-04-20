@@ -119,8 +119,14 @@ namespace DHHTools.MVVM.ViewModel
             }
         }
 
-        private void PerformCreateRebarFoundation()
+        private void PerformCreateRebarFoundation(object par)
         {
+            try
+            {
+                (par as vMain).Close();
+                mFoundation.FoundationDetail(DgFoundation);
+            }
+            catch { }
         }
 
         private ActionCommand cancelRebarFoundation;
