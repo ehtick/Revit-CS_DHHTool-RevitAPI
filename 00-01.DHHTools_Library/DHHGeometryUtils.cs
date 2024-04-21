@@ -347,10 +347,10 @@ namespace DHHTools
         }
         #endregion
         #region Get Intersect Line Between Solid and Solid in View
-        public static List<Line> GetIntersectLineBetweenSolidAndElementInView(Solid solid, Element element, ViewPlan viewPlan)
+        public static List<List<Line>> GetIntersectLineBetweenSolidAndElementInView(Solid solid, Element element, ViewPlan viewPlan)
         {
             // xem lại link này https://www.youtube.com/watch?v=VkH6QboUKkw
-            List<Line> Listline = new List<Line>();
+            List<List<Line>> listListLine = new List<List<Line>>();
             List<Face> sideFace = DhhGeometryUtils.GetSideFaceFromSolid(solid);
             Solid SolidElement = DhhGeometryUtils.GetSolids(element);
             List<Face> TopFaceSolidelement = DhhGeometryUtils.GetTopFaceFromSolid(SolidElement);
@@ -358,6 +358,8 @@ namespace DHHTools
             {
                 foreach (Face face1 in TopFaceSolidelement) 
                 {
+
+                    List<Line> Listline = new List<Line>();
                     SetComparisonResult result = (SetComparisonResult)face1.Intersect(face, out Curve intersection);
                     if(result == SetComparisonResult.Disjoint)
                     {
@@ -366,7 +368,8 @@ namespace DHHTools
                     Listline.Add(intersection as Line); 
                 }
             }
-            return Listline;
+            listListLine.Distinct();
+            return listListLine;
         }
         #endregion
     }

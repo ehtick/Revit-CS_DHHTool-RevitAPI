@@ -124,15 +124,18 @@ namespace DHHTools.MVVM.Model
                     boundingBoxXYZ.Min = outline.MinimumPoint;
                     boundingBoxXYZ.Max = outline.MaximumPoint;
                     Solid OutlineSolid = DhhGeometryUtils.CreateSolidFromBoundingBox(boundingBoxXYZ);
-                    List<Element> beaminView = new FilteredElementCollector(Document, viewPlan.Id) 
+                     List<Element> beaminView = new FilteredElementCollector(Document, viewPlan.Id) 
                         .OfCategory(BuiltInCategory.OST_StructuralFraming)
                         .WherePasses(filter)
                         .Cast<Element>()
                         .ToList();
                     foreach (Element eBeam in beaminView)
                     {
-                        List<Autodesk.Revit.DB.Line> intersectline = DhhGeometryUtils.GetIntersectLineBetweenSolidAndElementInView(OutlineSolid, eBeam, viewPlan); 
-                        MessageBox.Show(intersectline.Count().ToString());
+                        List<List<Autodesk.Revit.DB.Line>> intersectline = DhhGeometryUtils.GetIntersectLineBetweenSolidAndElementInView(OutlineSolid, eBeam, viewPlan);
+                        Solid eBeamSolid = DhhGeometryUtils.GetSolids(eBeam);
+
+                        MessageBox.Show(DhhGeometryUtils.GetTopFaceFromSolid(eBeamSolid).Count.ToString());
+                        //MessageBox.Show(intersectline.Count().ToString());
                     }    
                 }
                 transaction.Commit();
