@@ -26,6 +26,7 @@ namespace DHHTools.MVVM.ViewModel
         public static UIApplication RevitApp;
         public static Application RevitAppService;
         public mRevit mFoundation = new mRevit();
+
         private ObservableRangeCollection<FoundationInfor> _dgFoundation = new ObservableRangeCollection<FoundationInfor>();
         public ObservableRangeCollection<FoundationInfor> DgFoundation
         {

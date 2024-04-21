@@ -78,7 +78,6 @@ namespace DHHTools.MVVM.Model
                 OnPropertyChanged(nameof(FoundationList));
             }
         }
-
         public ObservableRangeCollection<FoundationInfor> SelectFoundations(FamilySymbol familySymbol)
         {
             FoundationList.Clear();
