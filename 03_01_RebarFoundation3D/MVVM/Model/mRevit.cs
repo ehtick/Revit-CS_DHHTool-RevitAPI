@@ -134,7 +134,6 @@ namespace DHHTools.MVVM.Model
                         List<List<Autodesk.Revit.DB.Line>> intersectline = DhhGeometryUtils.GetIntersectLineBetweenSolidAndElementInView(OutlineSolid, eBeam, viewPlan);
                         Solid eBeamSolid = DhhGeometryUtils.GetSolids(eBeam);
 
-
                         MessageBox.Show(DhhGeometryUtils.GetTopFaceFromSolid(eBeamSolid).Count.ToString());
                         //MessageBox.Show(intersectline.Count().ToString());
                     }    

@@ -36,8 +36,7 @@
     <Reference Include="BIMSoftLib">
       <HintPath>..\..\00.CS_Library\BIMSoftLib.dll</HintPath>
     </Reference>
-    <Reference Include="DHHLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="DHHLibrary">
       <HintPath>..\00-01.DHHTools_Library\bin\Debug\DHHLibrary.dll</HintPath>
     </Reference>
     <Reference Include="MaterialDesignColors, Version=2.1.4.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
