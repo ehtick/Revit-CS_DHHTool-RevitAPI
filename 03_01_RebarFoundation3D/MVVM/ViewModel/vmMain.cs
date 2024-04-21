@@ -98,7 +98,6 @@ namespace DHHTools.MVVM.ViewModel
             {
                 (par as vMain).Hide();
                 mFoundation.SelectFoundations(DgFouFamilySelect);
-                MessageBox.Show(DgFoundation.Count.ToString());
                 (par as vMain).ShowDialog();
                 
             }
