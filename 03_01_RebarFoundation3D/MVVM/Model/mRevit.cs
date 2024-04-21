@@ -113,6 +113,7 @@ namespace DHHTools.MVVM.Model
                     viewPlan.CropBoxActive = true;
                     viewPlan.CropBoxVisible = false;
                     viewPlan.CropBox = bBoxView;
+
                     Outline outline = new Outline
                         (
                             new XYZ(bBoxView.Min.X, bBoxView.Min.Y, -100), 
