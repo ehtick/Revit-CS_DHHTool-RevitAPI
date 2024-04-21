@@ -107,21 +107,33 @@ namespace DHHTools.MVVM.Model
                 foreach (FoundationInfor element in foundationInfor)
                 {
                     ViewPlan viewPlan = ViewPlan.Create(Document, viewTypeId, element.Foundation.LevelId);
-                    BoundingBoxXYZ boundingBoxXYZ1 = element.Foundation.get_BoundingBox(viewPlan);
-                    BoundingBoxXYZ boundingBox = new BoundingBoxXYZ();
-                    boundingBox.Min = boundingBoxXYZ1.Min.Add(new XYZ(DhhUnitUtils.MmToFeet(-200), DhhUnitUtils.MmToFeet(-200), 0));
-                    boundingBox.Max = boundingBoxXYZ1.Max.Add(new XYZ(DhhUnitUtils.MmToFeet(200), DhhUnitUtils.MmToFeet(200), 0));
+                    BoundingBoxXYZ bBoxFoun = element.Foundation.get_BoundingBox(viewPlan);
+                    BoundingBoxXYZ bBoxView = new BoundingBoxXYZ();
+                    bBoxView.Min = bBoxFoun.Min.Add(new XYZ(DhhUnitUtils.MmToFeet(-200), DhhUnitUtils.MmToFeet(-200), 0));
+                    bBoxView.Max = bBoxFoun.Max.Add(new XYZ(DhhUnitUtils.MmToFeet(200), DhhUnitUtils.MmToFeet(200), 0));
                     viewPlan.CropBoxActive = true;
                     viewPlan.CropBoxVisible = false;
-                    viewPlan.CropBox = boundingBox;
-                    Outline outline = new Outline(boundingBox.Min, boundingBox.Max);
+                    viewPlan.CropBox = bBoxView;
+                    Outline outline = new Outline
+                        (
+                            new XYZ(bBoxView.Min.X, bBoxView.Min.Y, -100), 
+                            new XYZ(bBoxView.Max.X, bBoxView.Max.Y, 100)
+                        );
                     BoundingBoxIntersectsFilter filter = new BoundingBoxIntersectsFilter(outline);
-                    List<Element> beamFilter = new FilteredElementCollector(Document, viewPlan.Id) 
+                    BoundingBoxXYZ boundingBoxXYZ = new BoundingBoxXYZ();
+                    boundingBoxXYZ.Min = outline.MinimumPoint;
+                    boundingBoxXYZ.Max = outline.MaximumPoint;
+                    Solid OutlineSolid = DhhGeometryUtils.CreateSolidFromBoundingBox(boundingBoxXYZ);
+                    List<Element> beaminView = new FilteredElementCollector(Document, viewPlan.Id) 
                         .OfCategory(BuiltInCategory.OST_StructuralFraming)
                         .WherePasses(filter)
                         .Cast<Element>()
                         .ToList();
-                    MessageBox.Show(beamFilter.Count.ToString());
+                    foreach (Element eBeam in beaminView)
+                    {
+                        List<Autodesk.Revit.DB.Line> intersectline = DhhGeometryUtils.GetIntersectLineBetweenSolidAndElementInView(OutlineSolid, eBeam, viewPlan); 
+                        MessageBox.Show(intersectline.Count().ToString());
+                    }    
                 }
                 transaction.Commit();
             }

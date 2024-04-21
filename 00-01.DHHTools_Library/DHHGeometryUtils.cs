@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace DHHTools
 {
-    public class DhhGeometryUtils
+    public static class DhhGeometryUtils
     {
         #region GetSolidFromElement
         public static Solid GetSolids(Element element)
@@ -33,7 +33,6 @@ namespace DHHTools
             return allSolids[0];
         }
         #endregion
-
         #region GetAllSolidFromElement
         public static List<Solid> GetAllSolids(Element element)
         {
@@ -316,6 +315,58 @@ namespace DHHTools
                 eFace.Intersect(interFace, out Curve inteCurve);
             }
             return listCurve;
+        }
+        #endregion
+        #region CreateSolidFromBoundingBox
+        public static Solid CreateSolidFromBoundingBox(BoundingBoxXYZ bbActiveView)
+        {
+
+            XYZ pt0 = new XYZ(bbActiveView.Min.X, bbActiveView.Min.Y, bbActiveView.Min.Z);
+            XYZ pt1 = new XYZ(bbActiveView.Max.X, bbActiveView.Min.Y, bbActiveView.Min.Z);
+            XYZ pt2 = new XYZ(bbActiveView.Max.X, bbActiveView.Max.Y, bbActiveView.Min.Z);
+            XYZ pt3 = new XYZ(bbActiveView.Min.X, bbActiveView.Max.Y, bbActiveView.Min.Z);
+
+            Line edge00 = Line.CreateBound(pt0, pt1);
+            Line edge11 = Line.CreateBound(pt1, pt2);
+            Line edge22 = Line.CreateBound(pt2, pt3);
+            Line edge33 = Line.CreateBound(pt3, pt0);
+
+            List<Curve> edges0 = new List<Curve>();
+            edges0.Add(edge00);
+            edges0.Add(edge11);
+            edges0.Add(edge22);
+            edges0.Add(edge33);
+
+            CurveLoop baseLoop0 = CurveLoop.Create(edges0);
+            List<CurveLoop> loopList0 = new List<CurveLoop>();
+            loopList0.Add(baseLoop0);
+            Solid preTransformSolid = GeometryCreationUtilities.CreateExtrusionGeometry(loopList0, XYZ.BasisZ, bbActiveView.Max.Z - bbActiveView.Min.Z);
+            return preTransformSolid;
+            //return preTransformSolid;
+
+        }
+        #endregion
+        #region Get Intersect Line Between Solid and Solid in View
+        public static List<Line> GetIntersectLineBetweenSolidAndElementInView(Solid solid, Element element, ViewPlan viewPlan)
+        {
+            // xem lại link này https://www.youtube.com/watch?v=VkH6QboUKkw
+            List<Line> Listline = new List<Line>();
+            List<Face> sideFace = DhhGeometryUtils.GetSideFaceFromSolid(solid);
+            Solid SolidElement = DhhGeometryUtils.GetSolids(element);
+            List<Face> TopFaceSolidelement = DhhGeometryUtils.GetTopFaceFromSolid(SolidElement);
+            foreach (Face face in sideFace)
+            {
+                foreach (Face face1 in TopFaceSolidelement) 
+                {
+                    SetComparisonResult result = (SetComparisonResult)face1.Intersect(face, out Curve intersection);
+                    if(result == SetComparisonResult.Disjoint)
+                    {
+                        continue;
+                    }
+                    Listline.Add(intersection as Line); 
+                }
+            }
+            return Listline;
         }
         #endregion
     }
