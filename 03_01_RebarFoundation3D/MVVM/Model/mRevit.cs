@@ -196,15 +196,15 @@ namespace DHHTools.MVVM.Model
                     {
                         FamilyInstance titleFamily = Document.Create.NewFamilyInstance(new XYZ(xYZs[i].X, xYZs[i].Y, viewPlan.Origin.Z), fselement, viewPlan);
                         Autodesk.Revit.DB.Line axis = Autodesk.Revit.DB.Line.CreateUnbound(new XYZ(xYZs[i].X, xYZs[i].Y, viewPlan.Origin.Z), XYZ.BasisZ);
-                        double angleRotation = 0;
+                        double angleRotation1 = 0;
                         double angleRotation2 = 0;
                         LocationCurve locationCurve = (LocationCurve)(orderElement[i].Location as Location);
+                        Curve curve = locationCurve.Curve;
+                        Autodesk.Revit.DB.Line lineBeam = curve as Autodesk.Revit.DB.Line;               
+                        angleRotation1 = XYZ.BasisY.AngleOnPlaneTo((orderSideFace[i] as PlanarFace).FaceNormal, XYZ.BasisZ);
+                        ElementTransformUtils.RotateElement(Document, titleFamily.Id, axis, angleRotation1);
 
-                            Curve curve = locationCurve.Curve;
-                            Autodesk.Revit.DB.Line lineBeam = curve as Autodesk.Revit.DB.Line;
-
-                        angleRotation = lineBeam.Direction.AngleOnPlaneTo((orderSideFace[i] as PlanarFace).FaceNormal, XYZ.BasisZ);
-                        angleRotation2 = XYZ.BasisY.AngleOnPlaneTo((orderSideFace[i] as PlanarFace).FaceNormal, XYZ.BasisZ);
+                        angleRotation2 = lineBeam.Direction.AngleOnPlaneTo((orderSideFace[i] as PlanarFace).FaceNormal, XYZ.BasisZ);
                         ElementTransformUtils.RotateElement(Document, titleFamily.Id, axis, angleRotation2);
                     }   
                     
