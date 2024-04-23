@@ -19,6 +19,7 @@ using DHHTools.Object;
 using System.Windows;
 using System.Xml.Linq;
 using Autodesk.Revit.DB.Electrical;
+using DHHTools.Method;
 
 namespace DHHTools.MVVM.Model
 {
@@ -101,7 +102,7 @@ namespace DHHTools.MVVM.Model
                 .Cast<ViewFamilyType>()
                 .Where(x => x.ViewFamily == ViewFamily.StructuralPlan);
             ElementId viewTypeId = viewFamilyTypes.Where(x => x.Name == "02.MB-ChiTiet-Mong").First().Id;
-            FamilySymbol fselement = (FamilySymbol)new FilteredElementCollector(Document)
+            FamilySymbol fsymbol_BreakDetail = (FamilySymbol)new FilteredElementCollector(Document)
                 .WhereElementIsElementType()
                 .OfCategory(BuiltInCategory.OST_DetailComponents)
                 .OfClass(typeof(FamilySymbol))
@@ -113,101 +114,94 @@ namespace DHHTools.MVVM.Model
                 foreach (FoundationInfor element in foundationInfor)
                 {
                     ViewPlan viewPlan = ViewPlan.Create(Document, viewTypeId, element.Foundation.LevelId);
-                    List<XYZ> xYZs = new List<XYZ>();
                     BoundingBoxXYZ bBoxFoun = element.Foundation.get_BoundingBox(viewPlan);
                     BoundingBoxXYZ bBoxView = new BoundingBoxXYZ();
-                    bBoxView.Min = bBoxFoun.Min.Add(new XYZ(DhhUnitUtils.MmToFeet(-200), DhhUnitUtils.MmToFeet(-200), 0));
-                    bBoxView.Max = bBoxFoun.Max.Add(new XYZ(DhhUnitUtils.MmToFeet(200), DhhUnitUtils.MmToFeet(200), 0));
+                    bBoxView.Min = bBoxFoun.Min.Add(new XYZ(DhhUnitUtils.MmToFeet(-300), DhhUnitUtils.MmToFeet(-300), 0));
+                    bBoxView.Max = bBoxFoun.Max.Add(new XYZ(DhhUnitUtils.MmToFeet(300), DhhUnitUtils.MmToFeet(300), 0));
                     viewPlan.CropBoxActive = true;
                     viewPlan.CropBoxVisible = false;
                     viewPlan.CropBox = bBoxView;
-                    Outline outline = new Outline
-                        (
-                            new XYZ(bBoxView.Min.X, bBoxView.Min.Y, -100),
-                            new XYZ(bBoxView.Max.X, bBoxView.Max.Y, 100)
-                        );
-                    BoundingBoxIntersectsFilter filter = new BoundingBoxIntersectsFilter(outline);
-                    BoundingBoxXYZ boundingBoxXYZ = new BoundingBoxXYZ();
-                    boundingBoxXYZ.Min = outline.MinimumPoint;
-                    boundingBoxXYZ.Max = outline.MaximumPoint;
-                    Solid OutlineSolid = DhhGeometryUtils.CreateSolidFromBoundingBox(boundingBoxXYZ);
-                    #region Lấy vị trí đặt break vào 100 so với View Boudary
-                    BoundingBoxXYZ bBoxTemp = new BoundingBoxXYZ();
-                    bBoxTemp.Min = bBoxFoun.Min.Add(new XYZ(DhhUnitUtils.MmToFeet(-100), DhhUnitUtils.MmToFeet(-100), 0));
-                    bBoxTemp.Max = bBoxFoun.Max.Add(new XYZ(DhhUnitUtils.MmToFeet(100), DhhUnitUtils.MmToFeet(100), 0));
-                    Outline outlineTemp = new Outline
-                        (
-                            new XYZ(bBoxTemp.Min.X, bBoxTemp.Min.Y, -100),
-                            new XYZ(bBoxTemp.Max.X, bBoxTemp.Max.Y, 100)
-                        );
-                    BoundingBoxXYZ boundingBoxXYZTemp = new BoundingBoxXYZ();
-                    boundingBoxXYZTemp.Min = outlineTemp.MinimumPoint;
-                    boundingBoxXYZTemp.Max = outlineTemp.MaximumPoint;
-                    Solid OutlineSolidTemp = DhhGeometryUtils.CreateSolidFromBoundingBox(boundingBoxXYZTemp);
-                    List<Face> sideFace = DhhGeometryUtils.GetSideFaceFromSolid(OutlineSolidTemp);
-                    List<Face> orderSideFace = new List<Face>();
-                    List<Element> orderElement = new List<Element>();
+                    FoundationRebarMethod.InsertBreakDetailItem(Document,viewPlan,fsymbol_BreakDetail,element);
+                    #region Backup
+                    //List<XYZ> xYZs = new List<XYZ>();
+                    //List<Face> orderSideFace = new List<Face>();
+                    //List<Element> orderElement = new List<Element>();
+                    //Outline outline = new Outline(new XYZ(bBoxView.Min.X, bBoxView.Min.Y, -100),new XYZ(bBoxView.Max.X, bBoxView.Max.Y, 100));
+                    //BoundingBoxIntersectsFilter filter = new BoundingBoxIntersectsFilter(outline);
+                    //List<Element> beaminView = new FilteredElementCollector(Document, viewPlan.Id)
+                    //   .OfCategory(BuiltInCategory.OST_StructuralFraming)
+                    //   .WherePasses(filter)
+                    //   .Cast<Element>()
+                    //   .ToList();
+                    //#region Lấy vị trí đặt break vào 100 so với View Boudary
+                    //BoundingBoxXYZ bBoxTemp = new BoundingBoxXYZ();
+                    //bBoxTemp.Min = bBoxFoun.Min.Add(new XYZ(DhhUnitUtils.MmToFeet(-100), DhhUnitUtils.MmToFeet(-100), 0));
+                    //bBoxTemp.Max = bBoxFoun.Max.Add(new XYZ(DhhUnitUtils.MmToFeet(100), DhhUnitUtils.MmToFeet(100), 0));
+                    //Outline outlineTemp = new Outline(new XYZ(bBoxTemp.Min.X, bBoxTemp.Min.Y, -100),new XYZ(bBoxTemp.Max.X, bBoxTemp.Max.Y, 100));
+                    //BoundingBoxXYZ boundingBoxXYZTemp = new BoundingBoxXYZ();
+                    //boundingBoxXYZTemp.Min = outlineTemp.MinimumPoint;
+                    //boundingBoxXYZTemp.Max = outlineTemp.MaximumPoint;
+                    //Solid OutlineSolidTemp = DhhGeometryUtils.CreateSolidFromBoundingBox(boundingBoxXYZTemp);
+                    //List<Face> sideFace = DhhGeometryUtils.GetSideFaceFromSolid(OutlineSolidTemp);
+                    //#endregion
+
+                    //#region Kiểm tra Dầm có cắt solid của view hay không
+                    ////Đoạn này chỉ dùng được cho dầm thẳng, dầm cong chưa biết làm.
+                    //foreach (Element eBeam in beaminView)
+                    //{ 
+                    //    LocationCurve locationCurve = eBeam.Location as LocationCurve;
+
+                    //    Curve beamCurve = locationCurve.Curve;
+                    //    Autodesk.Revit.DB.Line beamLocationLine = beamCurve as Autodesk.Revit.DB.Line;
+                    //    XYZ startPoint = beamLocationLine.GetEndPoint(0);
+                    //    XYZ endPoint = beamLocationLine.GetEndPoint(1);
+                    //    XYZ MidPoint = (startPoint + endPoint) / 2;
+
+                    //    Solid eBeamSolid = DhhGeometryUtils.GetSolids(eBeam);
+                    //    BoundingBoxXYZ eBeamBBox = eBeam.get_BoundingBox(viewPlan);
+                    //    XYZ xYZeBeam = eBeamSolid.ComputeCentroid();
+                    //    ////Chuyển đường beamCurve về tâm của dầm để lấy điểm chèn giữa dầm)
+                    //    Transform transform = Transform.CreateTranslation(xYZeBeam - MidPoint);
+                    //    Curve beamCenterLine = beamLocationLine.CreateTransformed(transform);
+
+                    //    foreach (Face eSideFace in sideFace)
+                    //    {
+                    //        SetComparisonResult intersects =  (SetComparisonResult)eSideFace.Intersect(beamCenterLine, out var intersections);
+                    //        if (intersects == SetComparisonResult.Disjoint)
+                    //        {
+                    //            continue;
+                    //        }
+                    //        else
+                    //        {
+                    //            // Get the first intersection point
+                    //            var intersection = intersections.Cast<IntersectionResult>().First();
+                    //            var intersectionPoint = intersection.XYZPoint;
+                    //            xYZs.Add(intersectionPoint);
+                    //            orderSideFace.Add(eSideFace);
+                    //            orderElement.Add(eBeam);
+                    //        }  
+                    //    }
+                    //}
+                    //#endregion
+
+                    //for (int i = 0; i< xYZs.Count; i++)
+                    //{
+                    //    FamilyInstance titleFamily = Document.Create.NewFamilyInstance(new XYZ(xYZs[i].X, xYZs[i].Y, viewPlan.Origin.Z), fselement, viewPlan);
+                    //    Autodesk.Revit.DB.Line axis = Autodesk.Revit.DB.Line.CreateUnbound(new XYZ(xYZs[i].X, xYZs[i].Y, viewPlan.Origin.Z), XYZ.BasisZ);
+                    //    double angleRotation1 = 0;
+                    //    double angleRotation2 = 0;
+                    //    LocationCurve locationCurve = (LocationCurve)(orderElement[i].Location as Location);
+                    //    Curve curve = locationCurve.Curve;
+                    //    Autodesk.Revit.DB.Line lineBeam = curve as Autodesk.Revit.DB.Line;               
+                    //    angleRotation1 = XYZ.BasisY.AngleOnPlaneTo((orderSideFace[i] as PlanarFace).FaceNormal, XYZ.BasisZ);
+                    //    ElementTransformUtils.RotateElement(Document, titleFamily.Id, axis, angleRotation1);
+                    //    angleRotation2 = (orderSideFace[i] as PlanarFace).FaceNormal.AngleOnPlaneTo(lineBeam.Direction, XYZ.BasisZ);
+                    //    if (angleRotation2 < DhhUnitUtils.DegreesToRadians(45) || angleRotation2 > DhhUnitUtils.DegreesToRadians(270))
+                    //    {ElementTransformUtils.RotateElement(Document, titleFamily.Id, axis, angleRotation2);}
+                    //    else ElementTransformUtils.RotateElement(Document, titleFamily.Id, axis, angleRotation2 + DhhUnitUtils.DegreesToRadians(180));
+                        
+                    //}
                     #endregion
-                    List<Element> beaminView = new FilteredElementCollector(Document, viewPlan.Id)
-                       .OfCategory(BuiltInCategory.OST_StructuralFraming)
-                       .WherePasses(filter)
-                       .Cast<Element>()
-                       .ToList();
-                    #region Kiểm tra Dầm có cắt solid của view hay không
-                    //Đoạn này chỉ dùng được cho dầm thẳng, dầm cong chưa biết làm.
-                    foreach (Element eBeam in beaminView)
-                    { 
-                        LocationCurve locationCurve = eBeam.Location as LocationCurve;
-
-                        Curve beamCurve = locationCurve.Curve;
-                        Autodesk.Revit.DB.Line beamLocationLine = beamCurve as Autodesk.Revit.DB.Line;
-                        XYZ startPoint = beamLocationLine.GetEndPoint(0);
-                        XYZ endPoint = beamLocationLine.GetEndPoint(1);
-                        XYZ MidPoint = (startPoint + endPoint) / 2;
-
-                        Solid eBeamSolid = DhhGeometryUtils.GetSolids(eBeam);
-                        BoundingBoxXYZ eBeamBBox = eBeam.get_BoundingBox(viewPlan);
-                        XYZ xYZeBeam = eBeamSolid.ComputeCentroid();
-                        ////Chuyển đường beamCurve về tâm của dầm để lấy điểm chèn giữa dầm)
-                        Transform transform = Transform.CreateTranslation(xYZeBeam - MidPoint);
-                        Curve beamCenterLine = beamLocationLine.CreateTransformed(transform);
-
-                        foreach (Face eSideFace in sideFace)
-                        {
-                            SetComparisonResult intersects =  (SetComparisonResult)eSideFace.Intersect(beamCenterLine, out var intersections);
-                            if (intersects == SetComparisonResult.Disjoint)
-                            {
-                                continue;
-                            }
-                            else
-                            {
-                                // Get the first intersection point
-                                var intersection = intersections.Cast<IntersectionResult>().First();
-                                var intersectionPoint = intersection.XYZPoint;
-                                xYZs.Add(intersectionPoint);
-                                orderSideFace.Add(eSideFace);
-                                orderElement.Add(eBeam);
-                            }  
-                        }
-                    }
-                    #endregion
-
-                    for (int i = 0; i< xYZs.Count; i++)
-                    {
-                        FamilyInstance titleFamily = Document.Create.NewFamilyInstance(new XYZ(xYZs[i].X, xYZs[i].Y, viewPlan.Origin.Z), fselement, viewPlan);
-                        Autodesk.Revit.DB.Line axis = Autodesk.Revit.DB.Line.CreateUnbound(new XYZ(xYZs[i].X, xYZs[i].Y, viewPlan.Origin.Z), XYZ.BasisZ);
-                        double angleRotation1 = 0;
-                        double angleRotation2 = 0;
-                        LocationCurve locationCurve = (LocationCurve)(orderElement[i].Location as Location);
-                        Curve curve = locationCurve.Curve;
-                        Autodesk.Revit.DB.Line lineBeam = curve as Autodesk.Revit.DB.Line;               
-                        angleRotation1 = XYZ.BasisY.AngleOnPlaneTo((orderSideFace[i] as PlanarFace).FaceNormal, XYZ.BasisZ);
-                        ElementTransformUtils.RotateElement(Document, titleFamily.Id, axis, angleRotation1);
-
-                        angleRotation2 = lineBeam.Direction.AngleOnPlaneTo((orderSideFace[i] as PlanarFace).FaceNormal, XYZ.BasisZ);
-                        ElementTransformUtils.RotateElement(Document, titleFamily.Id, axis, angleRotation2);
-                    }   
-                    
                 }
                 transaction.Commit();
 
