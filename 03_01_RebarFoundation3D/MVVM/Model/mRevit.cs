@@ -116,12 +116,13 @@ namespace DHHTools.MVVM.Model
                     ViewPlan viewPlan = ViewPlan.Create(Document, viewTypeId, element.Foundation.LevelId);
                     BoundingBoxXYZ bBoxFoun = element.Foundation.get_BoundingBox(viewPlan);
                     BoundingBoxXYZ bBoxView = new BoundingBoxXYZ();
-                    bBoxView.Min = bBoxFoun.Min.Add(new XYZ(DhhUnitUtils.MmToFeet(-300), DhhUnitUtils.MmToFeet(-300), 0));
-                    bBoxView.Max = bBoxFoun.Max.Add(new XYZ(DhhUnitUtils.MmToFeet(300), DhhUnitUtils.MmToFeet(300), 0));
+                    bBoxView.Min = bBoxFoun.Min.Add(new XYZ(DhhUnitUtils.MmToFeet(-400), DhhUnitUtils.MmToFeet(-400), 0));
+                    bBoxView.Max = bBoxFoun.Max.Add(new XYZ(DhhUnitUtils.MmToFeet(400), DhhUnitUtils.MmToFeet(400), 0));
                     viewPlan.CropBoxActive = true;
                     viewPlan.CropBoxVisible = false;
                     viewPlan.CropBox = bBoxView;
-                    FoundationRebarMethod.InsertBreakDetailItem(Document,viewPlan,fsymbol_BreakDetail,element);
+                    FoundationRebarPlanMethod.InsertBreakDetailItem(Document,viewPlan,fsymbol_BreakDetail,element);
+                    FoundationRebarPlanMethod.InSertDimention(Document,viewPlan, element);
                     #region Backup
                     //List<XYZ> xYZs = new List<XYZ>();
                     //List<Face> orderSideFace = new List<Face>();

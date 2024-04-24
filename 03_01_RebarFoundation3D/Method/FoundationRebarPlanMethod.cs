@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DHHTools.Method
 {
-     public static class FoundationRebarMethod
+     public static class FoundationRebarPlanMethod
     {
         public static void InsertBreakDetailItem(Document Document,ViewPlan viewPlan, FamilySymbol familySymbol, FoundationInfor element)
         {
@@ -99,6 +99,41 @@ namespace DHHTools.Method
                 else ElementTransformUtils.RotateElement(Document, BreakDetailIns.Id, axis, angleRotation2 + DhhUnitUtils.DegreesToRadians(180));
             }
             #endregion
+        }
+
+        public static void InSertDimention(Document document , ViewPlan viewPlan, FoundationInfor element)
+        {
+            ReferenceArray referenceArrayX = new ReferenceArray();
+            ReferenceArray referenceArrayY = new ReferenceArray();
+            Element Foudation = element.Foundation;
+            BoundingBoxXYZ bBoxFoun = Foudation.get_BoundingBox(viewPlan);
+            Solid FouSolid = DhhGeometryUtils.GetSolids(Foudation);
+            List<Face> SideFace = DhhGeometryUtils.GetSideFaceFromSolid(FouSolid);
+            foreach (Face sideFace in SideFace) 
+            {
+                
+                if (DhhGeometryUtils.IsVectorParallel(XYZ.BasisX, (sideFace as PlanarFace).FaceNormal) == true)
+                {
+                    Reference reference = sideFace.Reference;
+                    referenceArrayX.Append(reference);
+                }
+                else
+                {
+                    Reference reference = sideFace.Reference;
+                    referenceArrayY.Append(reference);  
+                }
+
+                
+            }
+            XYZ startX = bBoxFoun.Min + new XYZ(0, DhhUnitUtils.MmToFeet(-300), 0);
+            XYZ endX = startX + new XYZ(DhhUnitUtils.MmToFeet(300), 0, 0);
+            Line lineX =  Line.CreateBound(startX, endX);
+            document.Create.NewDimension(viewPlan, lineX, referenceArrayX);
+           
+            XYZ startY = bBoxFoun.Max + new XYZ(DhhUnitUtils.MmToFeet(300),0, 0);
+            XYZ endY = startY + new XYZ(0, DhhUnitUtils.MmToFeet(-300), 0);
+            Line lineY = Line.CreateBound(startY, endY);
+            document.Create.NewDimension(viewPlan, lineY, referenceArrayY);
         }
     }
 }
