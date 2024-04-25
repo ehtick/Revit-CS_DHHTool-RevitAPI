@@ -114,7 +114,7 @@ namespace DHHTools.Method
                 
                 if (DhhGeometryUtils.IsVectorParallel(XYZ.BasisX, (sideFace as PlanarFace).FaceNormal) == true)
                 {
-                    Reference reference = sideFace.Reference;
+                    Reference reference = sideFace.Reference; 
                     referenceArrayX.Append(reference);
                 }
                 else
