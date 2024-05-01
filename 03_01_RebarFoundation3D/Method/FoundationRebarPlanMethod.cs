@@ -109,7 +109,7 @@ namespace DHHTools.Method
         {
             ReferenceArray referenceArrayX = new ReferenceArray();
             ReferenceArray referenceArrayY = new ReferenceArray();
-            Element Foudation = element.Foundation;
+           Element Foudation = element.Foundation;
             Parameter ChieuDai_Para = Foudation.LookupParameter("ChieuDai_Mong");
             double ChieuDai = Math.Round(DhhUnitUtils.FeetToMm(ChieuDai_Para.AsDouble()));
             Parameter ChieuRong_Para = Foudation.LookupParameter("ChieuRong_Mong");
@@ -183,34 +183,61 @@ namespace DHHTools.Method
                     referenceArrayY.Append(reference);  
                 }
             }
-            //Line on Top Foundation Face
-            Face TopFaceFoun = DhhGeometryUtils.GetTopFaceFromSolid(FouSolid)[0];
+            
+            //Lấy về Reference Line trên top Faces
+            PlanarFace TopFaceFoun = DhhGeometryUtils.GetTopFaceFromSolid(FouSolid)[0] as PlanarFace;
             List<Line> listLineTop = new List<Line>();
-            IList<CurveLoop> curveLoops = TopFaceFoun.GetEdgesAsCurveLoops();
-            foreach (CurveLoop curveLoop in curveLoops)
+            EdgeArrayArray curveLoops = TopFaceFoun.EdgeLoops;
+            foreach (EdgeArray edgeLoop in curveLoops)
             {
-                foreach (Curve curve in curveLoop)
+                foreach (Edge curve in edgeLoop)
                 {
-                    Line line = curve as Line;
-                    listLineTop.Add(line);
-                }
-            }
-            foreach (Line line in listLineTop)
-            {
-                XYZ direction = line.Direction;
-                foreach (Face sideFaceFou in SideFaceFoun)
+                    Curve curveLine = curve.AsCurve();
+                    Line line = curveLine as Line;
+                    XYZ direction = line.Direction;
+                    XYZ origin = line.Origin;
                     if (Math.Round(direction.DotProduct(basisX)) == 0)
                     {
-                        Reference referLine = line.Reference;
+                        Reference referLine = curve.Reference;
                         referenceArrayX.Append(referLine);
                     }
                     else if (Math.Round(direction.DotProduct(basisY)) == 0)
                     {
-                        Reference referLine = line.Reference;
+                        Reference referLine = curve.Reference;
                         referenceArrayY.Append(referLine);
                     }
-            }
+                    //foreach (Face FouFace in SideFaceFoun)
+                    //{
+                    //    //if (direction.DotProduct((FouFace as PlanarFace).FaceNormal) == )
+                    //    XYZ originFaceFou = (FouFace as PlanarFace).Origin;
+                    //    XYZ NormalFaceFou = (FouFace as PlanarFace).FaceNormal;
+                    //    Plane plane_Temp = Plane.CreateByNormalAndOrigin(NormalFaceFou, originFaceFou);
+                    //    UV uV = new UV();
+                    //    double dis;
+                    //    plane_Temp.Project(origin, out uV, out dis);
+                    //    double dis2 = Math.Round(DhhUnitUtils.FeetToMm(dis));
+                    //    if (dis2 == 0 || dis2 == ChieuDai || dis2 == ChieuRong) //Kiểm tra face cột trùng face móng
+                    //    {
+                    //        continue;
+                    //    }
+                    //    else
+                    //    {
+                    //        if (Math.Round(direction.DotProduct(basisX)) == 0)
+                    //        {
+                    //            Reference referLine = curve.Reference;
+                    //            referenceArrayX.Append(referLine);
+                    //        }
+                    //        else if (Math.Round(direction.DotProduct(basisY)) == 0)
+                    //        {
+                    //            Reference referLine = curve.Reference;
+                    //            referenceArrayY.Append(referLine);
+                    //        }
 
+                    //    }
+                    //}
+                    
+                }
+            }
             Transform transform1 = Transform.CreateRotationAtPoint(transform.BasisZ, XYZ.BasisX.AngleOnPlaneTo(basisX, XYZ.BasisZ), (bBoxFoun.Min + bBoxFoun.Max)/2);
             XYZ start;
             Line lineX;
