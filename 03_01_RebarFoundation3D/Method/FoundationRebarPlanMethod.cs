@@ -110,13 +110,64 @@ namespace DHHTools.Method
             ReferenceArray referenceArrayX = new ReferenceArray();
             ReferenceArray referenceArrayY = new ReferenceArray();
             Element Foudation = element.Foundation;
-            BoundingBoxXYZ bBoxFoun = Foudation.get_BoundingBox(viewPlan);
+            Parameter ChieuDai_Para = Foudation.LookupParameter("ChieuDai_Mong");
+            double ChieuDai = Math.Round(DhhUnitUtils.FeetToMm(ChieuDai_Para.AsDouble()));
+            Parameter ChieuRong_Para = Foudation.LookupParameter("ChieuRong_Mong");
+            double ChieuRong = Math.Round(DhhUnitUtils.FeetToMm(ChieuRong_Para.AsDouble()));
             Solid FouSolid = DhhGeometryUtils.GetSolids(Foudation);
-            List<Face> SideFace = DhhGeometryUtils.GetSideFaceFromSolid(FouSolid);
+            BoundingBoxXYZ bBoxFoun = element.Foundation.get_BoundingBox(viewPlan);
+            Outline outline = new Outline(new XYZ(bBoxFoun.Min.X, bBoxFoun.Min.Y, bBoxFoun.Min.Z + DhhUnitUtils.MmToFeet(-100)), 
+                                        new XYZ(bBoxFoun.Max.X, bBoxFoun.Max.Y, bBoxFoun.Max.Z + DhhUnitUtils.MmToFeet(100)));
+            BoundingBoxIntersectsFilter filter = new BoundingBoxIntersectsFilter(outline);
+            List<Element> ColumnInView = new FilteredElementCollector(document, viewPlan.Id)
+               .OfCategory(BuiltInCategory.OST_StructuralColumns)
+               .WherePasses(filter)
+               .Cast<Element>()
+               .ToList();
+            List<Face> SideFaceFoun = DhhGeometryUtils.GetSideFaceFromSolid(FouSolid);
+            List<PlanarFace> SideFace = new List<PlanarFace>();
+            foreach (Face face in SideFaceFoun) { SideFace.Add(face as PlanarFace); }
+            // Lấy Face của cottj để DIM
+            foreach (Element Column in ColumnInView)
+            {
+                Solid ColumnSolid = DhhGeometryUtils.GetSolids(Column);
+                List<Face> SideFaceColumn = DhhGeometryUtils.GetSideFaceFromSolid(ColumnSolid);
+                foreach (Face eFace in SideFaceFoun) 
+                {
+                    XYZ originFaceFou = (eFace as PlanarFace).Origin;
+                    XYZ NormalFaceFou = (eFace as PlanarFace).FaceNormal;
+                    Plane plane_Temp = Plane.CreateByNormalAndOrigin(NormalFaceFou, originFaceFou);
+                    foreach (Face ColumnFace in SideFaceColumn)
+                    {
+                        PlanarFace ColumnPlaFace = ColumnFace as PlanarFace;
+                        double checkPar = Math.Round(ColumnPlaFace.FaceNormal.DotProduct(NormalFaceFou));
+                        if (checkPar == 1 || checkPar == -1)
+                        {
+                            XYZ origin = (ColumnFace as PlanarFace).Origin;
+                            UV uV = new UV();
+                            double dis;
+                            plane_Temp.Project(origin, out uV, out dis);
+                            double dis2 = Math.Round(DhhUnitUtils.FeetToMm(dis));
+                            if (dis2 == 0 || dis2 == ChieuDai || dis2 == ChieuRong) //Kiểm tra face cột trùng face móng
+                            {
+                                continue;
+                            }
+                            else {SideFace.Add(ColumnPlaFace); }
+                        }    
+
+                    }    
+                }   
+            }
+            List<PlanarFace> SideFace_Temp = new List<PlanarFace>();
+            foreach (Face eFace in SideFace)
+            {
+                SideFace_Temp.Add(eFace as  PlanarFace);    
+            }
+            List < PlanarFace > SideFaceNew = SideFace_Temp.GroupBy(f => f.Origin).SelectMany(f => f).Distinct().ToList();
             Transform transform = (Foudation as FamilyInstance).GetTransform();
             XYZ basisX = transform.BasisX;
             XYZ basisY = transform.BasisY;
-            foreach (Face sideFace in SideFace) 
+            foreach (Face sideFace in SideFaceNew) 
             {
                 if (Math.Round(basisX.DotProduct((sideFace as PlanarFace).FaceNormal)) == 1||
                     Math.Round(basisX.DotProduct((sideFace as PlanarFace).FaceNormal)) == -1)
