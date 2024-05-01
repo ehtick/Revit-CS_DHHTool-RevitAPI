@@ -125,6 +125,7 @@ namespace DHHTools.Method
                .Cast<Element>()
                .ToList();
             List<Face> SideFaceFoun = DhhGeometryUtils.GetSideFaceFromSolid(FouSolid);
+           
             List<PlanarFace> SideFace = new List<PlanarFace>();
             foreach (Face face in SideFaceFoun) { SideFace.Add(face as PlanarFace); }
             // Lấy Face của cottj để DIM
@@ -182,6 +183,34 @@ namespace DHHTools.Method
                     referenceArrayY.Append(reference);  
                 }
             }
+            //Line on Top Foundation Face
+            Face TopFaceFoun = DhhGeometryUtils.GetTopFaceFromSolid(FouSolid)[0];
+            List<Line> listLineTop = new List<Line>();
+            IList<CurveLoop> curveLoops = TopFaceFoun.GetEdgesAsCurveLoops();
+            foreach (CurveLoop curveLoop in curveLoops)
+            {
+                foreach (Curve curve in curveLoop)
+                {
+                    Line line = curve as Line;
+                    listLineTop.Add(line);
+                }
+            }
+            foreach (Line line in listLineTop)
+            {
+                XYZ direction = line.Direction;
+                foreach (Face sideFaceFou in SideFaceFoun)
+                    if (Math.Round(direction.DotProduct(basisX)) == 0)
+                    {
+                        Reference referLine = line.Reference;
+                        referenceArrayX.Append(referLine);
+                    }
+                    else if (Math.Round(direction.DotProduct(basisY)) == 0)
+                    {
+                        Reference referLine = line.Reference;
+                        referenceArrayY.Append(referLine);
+                    }
+            }
+
             Transform transform1 = Transform.CreateRotationAtPoint(transform.BasisZ, XYZ.BasisX.AngleOnPlaneTo(basisX, XYZ.BasisZ), (bBoxFoun.Min + bBoxFoun.Max)/2);
             XYZ start;
             Line lineX;

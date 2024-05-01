@@ -96,9 +96,7 @@ namespace DHHTools
                     double normalX = Math.Round(planarFace.FaceNormal.X);
                     double normalY = Math.Round(planarFace.FaceNormal.Y);
                     double normalZ = Math.Round(planarFace.FaceNormal.Z);
-                    if (normalX.ToString() == "0" &&
-                        normalY.ToString() == "0" &&
-                        normalZ.ToString() == "1")
+                    if (Math.Round(planarFace.FaceNormal.DotProduct(XYZ.BasisZ)) == 1)
                     {
                         topPlanarFaces.Add(planarFace as Face);
                     }
