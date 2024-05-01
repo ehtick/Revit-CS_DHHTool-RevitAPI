@@ -295,7 +295,7 @@ namespace DHHTools
                 vector2Z = Math.Round(vector2.Z) / Math.Abs(Math.Round(vector2.Z));
             }
             XYZ vector2Uv = new XYZ(vector2X, vector2Y, vector2Z);
-            double round = Math.Round(vector1Uv.DotProduct(vector2Uv));
+            double round = Math.Round(vector1.DotProduct(vector2));
             if (round == 1 || round == -1)
             {
                 return true;

@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Shapes;
+using Line = Autodesk.Revit.DB.Line;
 
 namespace DHHTools.Method
 {
@@ -87,8 +89,10 @@ namespace DHHTools.Method
                 Parameter BPara_Beam = BeamType.LookupParameter("b");
                 Parameter Left_Para = BreakDetailIns.LookupParameter("left");
                 Parameter Right_Para = BreakDetailIns.LookupParameter("right");
+                Parameter Depth_Para = BreakDetailIns.LookupParameter("Masking depth");
                 Left_Para.Set(BPara_Beam.AsDouble() / 2 + DhhUnitUtils.MmToFeet(25));
                 Right_Para.Set(BPara_Beam.AsDouble() / 2 + DhhUnitUtils.MmToFeet(25));
+                Depth_Para.Set(DhhUnitUtils.MmToFeet(1000));
                 Curve curve = locationCurve.Curve;
                 Line lineBeam = curve as Line;
                 angleRotation1 = XYZ.BasisY.AngleOnPlaneTo((orderSideFace[i] as PlanarFace).FaceNormal, XYZ.BasisZ);
@@ -101,7 +105,7 @@ namespace DHHTools.Method
             #endregion
         }
 
-        public static void InSertDimention(Document document , ViewPlan viewPlan, FoundationInfor element)
+        public static void InSertDimention(Document document, ViewPlan viewPlan, FoundationInfor element)
         {
             ReferenceArray referenceArrayX = new ReferenceArray();
             ReferenceArray referenceArrayY = new ReferenceArray();
@@ -109,30 +113,42 @@ namespace DHHTools.Method
             BoundingBoxXYZ bBoxFoun = Foudation.get_BoundingBox(viewPlan);
             Solid FouSolid = DhhGeometryUtils.GetSolids(Foudation);
             List<Face> SideFace = DhhGeometryUtils.GetSideFaceFromSolid(FouSolid);
+            Transform transform = (Foudation as FamilyInstance).GetTransform();
+            XYZ basisX = transform.BasisX;
+            XYZ basisY = transform.BasisY;
             foreach (Face sideFace in SideFace) 
             {
-                
-                if (DhhGeometryUtils.IsVectorParallel(XYZ.BasisX, (sideFace as PlanarFace).FaceNormal) == true)
+                if (Math.Round(basisX.DotProduct((sideFace as PlanarFace).FaceNormal)) == 1||
+                    Math.Round(basisX.DotProduct((sideFace as PlanarFace).FaceNormal)) == -1)
                 {
                     Reference reference = sideFace.Reference; 
                     referenceArrayX.Append(reference);
                 }
-                else
+                else if (Math.Round(basisY.DotProduct((sideFace as PlanarFace).FaceNormal)) == 1 ||
+                    Math.Round(basisY.DotProduct((sideFace as PlanarFace).FaceNormal)) == -1)
                 {
                     Reference reference = sideFace.Reference;
                     referenceArrayY.Append(reference);  
                 }
-
-                
             }
-            XYZ startX = bBoxFoun.Min + new XYZ(0, DhhUnitUtils.MmToFeet(-300), 0);
-            XYZ endX = startX + new XYZ(DhhUnitUtils.MmToFeet(300), 0, 0);
-            Line lineX =  Line.CreateBound(startX, endX);
+            Transform transform1 = Transform.CreateRotationAtPoint(transform.BasisZ, XYZ.BasisX.AngleOnPlaneTo(basisX, XYZ.BasisZ), (bBoxFoun.Min + bBoxFoun.Max)/2);
+            XYZ start;
+            Line lineX;
+            Line lineY;
+            double dotPro = Math.Round(basisX.DotProduct(XYZ.BasisX));
+            if (dotPro == 1|| dotPro == -1 || dotPro == 0) 
+            {
+                start = new XYZ(bBoxFoun.Min.X, bBoxFoun.Min.Y + DhhUnitUtils.MmToFeet(-300), bBoxFoun.Min.Z);
+                lineX = Line.CreateUnbound(start , XYZ.BasisX);
+                lineY = Line.CreateUnbound(start + new XYZ(DhhUnitUtils.MmToFeet(-300), 0, 0), XYZ.BasisY);
+            }
+            else 
+            {
+                start = transform1.OfPoint(bBoxFoun.Min);
+                lineX = Line.CreateUnbound(start, basisX);
+                lineY = Line.CreateUnbound(start, basisY);
+            }
             document.Create.NewDimension(viewPlan, lineX, referenceArrayX);
-           
-            XYZ startY = bBoxFoun.Max + new XYZ(DhhUnitUtils.MmToFeet(300),0, 0);
-            XYZ endY = startY + new XYZ(0, DhhUnitUtils.MmToFeet(-300), 0);
-            Line lineY = Line.CreateBound(startY, endY);
             document.Create.NewDimension(viewPlan, lineY, referenceArrayY);
         }
     }
