@@ -104,12 +104,11 @@ namespace DHHTools.Method
             }
             #endregion
         }
-
         public static void InSertDimention(Document document, ViewPlan viewPlan, FoundationInfor element)
         {
             ReferenceArray referenceArrayX = new ReferenceArray();
             ReferenceArray referenceArrayY = new ReferenceArray();
-           Element Foudation = element.Foundation;
+            Element Foudation = element.Foundation;
             Parameter ChieuDai_Para = Foudation.LookupParameter("ChieuDai_Mong");
             double ChieuDai = Math.Round(DhhUnitUtils.FeetToMm(ChieuDai_Para.AsDouble()));
             Parameter ChieuRong_Para = Foudation.LookupParameter("ChieuRong_Mong");
@@ -125,10 +124,9 @@ namespace DHHTools.Method
                .Cast<Element>()
                .ToList();
             List<Face> SideFaceFoun = DhhGeometryUtils.GetSideFaceFromSolid(FouSolid);
-           
             List<PlanarFace> SideFace = new List<PlanarFace>();
             foreach (Face face in SideFaceFoun) { SideFace.Add(face as PlanarFace); }
-            // Lấy Face của cottj để DIM
+            // Lấy Face của cột để DIM
             foreach (Element Column in ColumnInView)
             {
                 Solid ColumnSolid = DhhGeometryUtils.GetSolids(Column);
@@ -160,33 +158,34 @@ namespace DHHTools.Method
                 }   
             }
             List<PlanarFace> SideFace_Temp = new List<PlanarFace>();
-            foreach (Face eFace in SideFace)
-            {
-                SideFace_Temp.Add(eFace as  PlanarFace);    
-            }
+            foreach (Face eFace in SideFace) {SideFace_Temp.Add(eFace as  PlanarFace);}
             List < PlanarFace > SideFaceNew = SideFace_Temp.GroupBy(f => f.Origin).SelectMany(f => f).Distinct().ToList();
             Transform transform = (Foudation as FamilyInstance).GetTransform();
             XYZ basisX = transform.BasisX;
             XYZ basisY = transform.BasisY;
+            List<Face> listFaceFouRefX = new List<Face>();
+            List<Face> listFaceFouRefY = new List<Face>();
             foreach (Face sideFace in SideFaceNew) 
             {
                 if (Math.Round(basisX.DotProduct((sideFace as PlanarFace).FaceNormal)) == 1||
                     Math.Round(basisX.DotProduct((sideFace as PlanarFace).FaceNormal)) == -1)
                 {
+                    listFaceFouRefX.Add(sideFace);
                     Reference reference = sideFace.Reference; 
                     referenceArrayX.Append(reference);
                 }
                 else if (Math.Round(basisY.DotProduct((sideFace as PlanarFace).FaceNormal)) == 1 ||
                     Math.Round(basisY.DotProduct((sideFace as PlanarFace).FaceNormal)) == -1)
                 {
+                    listFaceFouRefY.Add(sideFace);
                     Reference reference = sideFace.Reference;
                     referenceArrayY.Append(reference);  
                 }
             }
-            
             //Lấy về Reference Line trên top Faces
             PlanarFace TopFaceFoun = DhhGeometryUtils.GetTopFaceFromSolid(FouSolid)[0] as PlanarFace;
-            List<Line> listLineTop = new List<Line>();
+            List<Edge> listCurveTopRefX = new List<Edge>();
+            List<Edge> listCurveTopRefY = new List<Edge>();
             EdgeArrayArray curveLoops = TopFaceFoun.EdgeLoops;
             foreach (EdgeArray edgeLoop in curveLoops)
             {
@@ -198,45 +197,52 @@ namespace DHHTools.Method
                     XYZ origin = line.Origin;
                     if (Math.Round(direction.DotProduct(basisX)) == 0)
                     {
-                        Reference referLine = curve.Reference;
-                        referenceArrayX.Append(referLine);
+                        listCurveTopRefX.Add(curve);
                     }
                     else if (Math.Round(direction.DotProduct(basisY)) == 0)
                     {
-                        Reference referLine = curve.Reference;
-                        referenceArrayY.Append(referLine);
+                        listCurveTopRefY.Add(curve);
                     }
-                    //foreach (Face FouFace in SideFaceFoun)
-                    //{
-                    //    //if (direction.DotProduct((FouFace as PlanarFace).FaceNormal) == )
-                    //    XYZ originFaceFou = (FouFace as PlanarFace).Origin;
-                    //    XYZ NormalFaceFou = (FouFace as PlanarFace).FaceNormal;
-                    //    Plane plane_Temp = Plane.CreateByNormalAndOrigin(NormalFaceFou, originFaceFou);
-                    //    UV uV = new UV();
-                    //    double dis;
-                    //    plane_Temp.Project(origin, out uV, out dis);
-                    //    double dis2 = Math.Round(DhhUnitUtils.FeetToMm(dis));
-                    //    if (dis2 == 0 || dis2 == ChieuDai || dis2 == ChieuRong) //Kiểm tra face cột trùng face móng
-                    //    {
-                    //        continue;
-                    //    }
-                    //    else
-                    //    {
-                    //        if (Math.Round(direction.DotProduct(basisX)) == 0)
-                    //        {
-                    //            Reference referLine = curve.Reference;
-                    //            referenceArrayX.Append(referLine);
-                    //        }
-                    //        else if (Math.Round(direction.DotProduct(basisY)) == 0)
-                    //        {
-                    //            Reference referLine = curve.Reference;
-                    //            referenceArrayY.Append(referLine);
-                    //        }
-
-                    //    }
-                    //}
-                    
                 }
+            }
+            foreach(Edge EgdeX in listCurveTopRefX)
+            {
+                Curve curveX = EgdeX.AsCurve();
+                Line line = curveX as Line;
+                XYZ direction = line.Direction;
+                XYZ origin = line.Origin;
+                XYZ originFaceFou = (listFaceFouRefX[0] as PlanarFace).Origin;
+                XYZ NormalFaceFou = (listFaceFouRefX[0] as PlanarFace).FaceNormal;
+                Plane plane_Temp = Plane.CreateByNormalAndOrigin(NormalFaceFou, originFaceFou);
+                UV uV = new UV();
+                double dis;
+                plane_Temp.Project(origin, out uV, out dis);
+                double dis2 = Math.Round(DhhUnitUtils.FeetToMm(dis));
+                if (dis2 == 0 || dis2 == ChieuDai || dis2 == ChieuRong) //Kiểm tra face cột trùng face móng
+                {
+                    continue;
+                }
+                else { referenceArrayX.Append(EgdeX.Reference); }
+
+            }
+            foreach (Edge EgdeY in listCurveTopRefY)
+            {
+                Curve curveY = EgdeY.AsCurve();
+                Line line = curveY as Line;
+                XYZ direction = line.Direction;
+                XYZ origin = line.Origin;
+                XYZ originFaceFou = (listFaceFouRefY[0] as PlanarFace).Origin;
+                XYZ NormalFaceFou = (listFaceFouRefY[0] as PlanarFace).FaceNormal;
+                Plane plane_Temp = Plane.CreateByNormalAndOrigin(NormalFaceFou, originFaceFou);
+                UV uV = new UV();
+                double dis;
+                plane_Temp.Project(origin, out uV, out dis);
+                double dis2 = Math.Round(DhhUnitUtils.FeetToMm(dis));
+                if (dis2 == 0 || dis2 == ChieuDai || dis2 == ChieuRong) //Kiểm tra face cột trùng face móng
+                {
+                    continue;
+                }
+                else { referenceArrayY.Append(EgdeY.Reference); }
             }
             Transform transform1 = Transform.CreateRotationAtPoint(transform.BasisZ, XYZ.BasisX.AngleOnPlaneTo(basisX, XYZ.BasisZ), (bBoxFoun.Min + bBoxFoun.Max)/2);
             XYZ start;
