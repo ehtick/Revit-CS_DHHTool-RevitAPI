@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Shapes;
 using Line = Autodesk.Revit.DB.Line;
 
@@ -261,8 +262,47 @@ namespace DHHTools.Method
                 lineX = Line.CreateUnbound(start, basisX);
                 lineY = Line.CreateUnbound(start, basisY);
             }
-            document.Create.NewDimension(viewPlan, lineX, referenceArrayX);
-            document.Create.NewDimension(viewPlan, lineY, referenceArrayY);
+            Dimension dimensionX = document.Create.NewDimension(viewPlan, lineX, referenceArrayX);
+            Dimension dimensionY = document.Create.NewDimension(viewPlan, lineY, referenceArrayY);
+            Parameter parameter = dimensionX.DimensionType.LookupParameter("Dimension Line Snap Distance");
+            
+        }
+
+        public static void SetGridLine(Document Document, ViewPlan viewPlan, FoundationInfor foundationInfor)
+        {
+            BoundingBoxXYZ bBoxFoun = foundationInfor.Foundation.get_BoundingBox(viewPlan);
+            BoundingBoxXYZ bBoxView = new BoundingBoxXYZ();
+            bBoxView.Min = bBoxFoun.Min.Add(new XYZ(DhhUnitUtils.MmToFeet(-200), DhhUnitUtils.MmToFeet(-200), 0));
+            bBoxView.Max = bBoxFoun.Max.Add(new XYZ(DhhUnitUtils.MmToFeet(200), DhhUnitUtils.MmToFeet(200), 0));
+            Outline outline = new Outline(new XYZ(bBoxView.Min.X, bBoxView.Min.Y, -100), new XYZ(bBoxView.Max.X, bBoxView.Max.Y, 100));
+            BoundingBoxIntersectsFilter filter = new BoundingBoxIntersectsFilter(outline);
+            List<Element> GridInView = new FilteredElementCollector(Document, viewPlan.Id)
+                   .OfCategory(BuiltInCategory.OST_Grids)
+                   //.WherePasses(filter)
+                   .WhereElementIsNotElementType()
+                   .Cast<Element>()
+                   .ToList();
+            if(GridInView.Count > 0)
+            {
+                foreach(Grid grid in GridInView)
+                {
+                    bool check = grid.CanBeVisibleInView(viewPlan);
+                    if(check == false) { continue;}
+                    else 
+                    {
+                        IList<Curve> curves = grid.GetCurvesInView(DatumExtentType.ViewSpecific,viewPlan);
+                        foreach(Curve curve in curves)
+                        {
+                            XYZ startPoint = curve.GetEndPoint(0);
+                            XYZ endPoint = curve.GetEndPoint(1);
+                            Document.Create.NewDetailCurve(viewPlan, curve);
+                        }
+                        MessageBox.Show(curves.Count().ToString());
+                    }
+                    
+                }    
+               
+            }
         }
     }
 }
