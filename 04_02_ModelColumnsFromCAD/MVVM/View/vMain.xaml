@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:_04_02_ModelColumnsFromCAD.MVVM.View"
-            xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              xmlns:vm="clr-namespace:_04_02_ModelColumnsFromCAD.MVVM.ViewModel"
              d:DataContext="{d:DesignInstance Type=vm:vmMain}"
@@ -90,6 +90,10 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="83*"/>
+            <ColumnDefinition Width="117*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -97,7 +101,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <DockPanel>
+        <DockPanel Grid.ColumnSpan="2" Margin="0,0,0,47" Grid.RowSpan="2">
             <TextBlock Text="Layer CAD:"
                        Margin="3"
                        Width="80" VerticalAlignment="Center">
@@ -116,7 +120,7 @@
                 </ComboBox.ItemTemplate>
             </ComboBox>
         </DockPanel>
-        <DockPanel Grid.Row="1">
+        <DockPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,0,46" Grid.RowSpan="2">
             <TextBlock Text="Top Column:"
                        Margin="3"
                        Width="100" VerticalAlignment="Center">
@@ -144,7 +148,7 @@
                      HorizontalContentAlignment="Center">
             </TextBox>
         </DockPanel>
-        <DockPanel Grid.Row="2">
+        <DockPanel Grid.Row="2" Grid.ColumnSpan="2">
             <TextBlock Text="Bottom Column:"
                        Margin="3"
                        Width="100" VerticalAlignment="Center">
@@ -174,17 +178,17 @@
 
             </TextBox>
         </DockPanel>
-        <ProgressBar Grid.Row="3" Margin="2" Height="40"
+        <ProgressBar Grid.Row="3" Margin="2,4,2,3" Height="40"
                      Minimum ="0"
                      Maximum="100"
                      Value="{Binding Percent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      Name="pbStatus"
-                     Style="{DynamicResource MaterialDesignLinearProgressBar}">
+                     Style="{DynamicResource MaterialDesignLinearProgressBar}" Grid.ColumnSpan="2">
         </ProgressBar>
         <TextBlock  Grid.Row="3"
                     Text="{Binding ElementName=pbStatus, Path=Value, StringFormat={}{0:0}%}" 
-                    HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <Grid Grid.Row="4" Width="Auto">
+                    HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Margin="26,0,0,0" />
+        <Grid Grid.Row="3" Width="Auto" Grid.ColumnSpan="2" Margin="0,47,0,0" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>

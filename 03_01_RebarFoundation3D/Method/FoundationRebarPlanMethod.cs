@@ -267,7 +267,6 @@ namespace DHHTools.Method
             Parameter parameter = dimensionX.DimensionType.LookupParameter("Dimension Line Snap Distance");
             
         }
-
         public static void SetGridLine(Document Document, ViewPlan viewPlan, FoundationInfor foundationInfor)
         {
             BoundingBoxXYZ bBoxFoun = foundationInfor.Foundation.get_BoundingBox(viewPlan);

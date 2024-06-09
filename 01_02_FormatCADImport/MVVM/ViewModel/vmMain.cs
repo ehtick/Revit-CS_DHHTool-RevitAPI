@@ -1,0 +1,334 @@
+﻿using Autodesk.Revit.ApplicationServices;
+using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using BIMSoftLib.MVVM;
+using Microsoft.Xaml.Behaviors.Core;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using _01_02_FormatCADImport.MVVM.View;
+using _01_02_FormatCADImport.MVVM.Model;
+using System.Windows;
+using Application = Autodesk.Revit.ApplicationServices.Application;
+using Autodesk.Revit.Creation;
+
+
+namespace _01_02_FormatCADImport.MVVM.ViewModel
+{
+    public class vmMain : PropertyChangedBase
+    {
+        private static vmMain _dcMain = new vmMain();
+        public static vmMain DcMain { get { return _dcMain; } }
+        public static UIApplication RevitApp;
+        public static Application RevitAppService;
+        private ObservableRangeCollection<mImportInstancePlus> _dgSelectdImportCAD = new ObservableRangeCollection<mImportInstancePlus>();
+        public ObservableRangeCollection<mImportInstancePlus> DgSelectedImportCAD
+        {
+            get
+            {
+                return _dgSelectdImportCAD;
+            }
+            set
+            {
+                _dgSelectdImportCAD = value;
+                OnPropertyChanged(nameof(DgSelectedImportCAD));
+            }
+        }
+
+        private ObservableRangeCollection<mImportInstancePlus> _dgAllImportCAD = new ObservableRangeCollection<mImportInstancePlus>();
+        public ObservableRangeCollection<mImportInstancePlus> DgAllImportCAD
+        {
+            get
+            {
+                return _dgAllImportCAD;
+            }
+            set
+            {
+                _dgAllImportCAD = value;
+                OnPropertyChanged(nameof(DgAllImportCAD));
+            }
+        }
+
+        private ObservableRangeCollection<mCategoryPlus> _dgCategory = new ObservableRangeCollection<mCategoryPlus>();
+        public ObservableRangeCollection<mCategoryPlus> DgCategory
+        {
+            get
+            {
+                return _dgCategory;
+            }
+            set
+            {
+                _dgCategory = value;
+                OnPropertyChanged(nameof(DgCategory));
+            }
+        }
+
+        private ObservableRangeCollection<mCategoryPlus> _dgCategoryGetTotal = new ObservableRangeCollection<mCategoryPlus>();
+        public ObservableRangeCollection<mCategoryPlus> DgCategoryGetTotal
+        {
+            get
+            {
+                return _dgCategoryGetTotal;
+            }
+            set
+            {
+                _dgCategoryGetTotal = value;
+                OnPropertyChanged(nameof(DgCategoryGetTotal));
+                OnPropertyChanged(nameof(MaxValue));
+            }
+        }
+
+        private ObservableRangeCollection<mCategoryPlus> _categoryPlusListChange = new ObservableRangeCollection<mCategoryPlus>();
+        public ObservableRangeCollection<mCategoryPlus> CategoryPlusListChange
+        {
+            get
+            {
+                return _categoryPlusListChange;
+            }
+            set
+            {
+                _categoryPlusListChange = value;
+                OnPropertyChanged(nameof(CategoryPlusListChange));
+            }
+        }
+
+        private ObservableRangeCollection<string> _categoryListChange = new ObservableRangeCollection<string>();
+        public ObservableRangeCollection<string> CategoryListChange
+        {
+            get
+            {
+                return _categoryListChange;
+            }
+            set
+            {
+                _categoryListChange = value;
+                OnPropertyChanged(nameof(CategoryListChange));
+            }
+        }
+
+        #region Process Bar 
+        private double _percent;
+        public double Percent
+        {
+            get
+            {
+                return _percent = LoadValue * 100 / MaxValue;
+            }
+            set
+            {
+                _percent = value;
+                OnPropertyChanged(nameof(LoadValue));
+                OnPropertyChanged(nameof(Percent));
+            }
+        }
+
+        private int _loadValue;
+        public int LoadValue
+        {
+            get => _loadValue;
+            set
+            {
+                _loadValue = value;
+                OnPropertyChanged(nameof(LoadValue));
+                OnPropertyChanged(nameof(Percent));
+            }
+        }
+
+        private int _maxValue;
+        public int MaxValue
+        {
+            get
+            {
+                return _maxValue =  DgCategoryGetTotal.Count; ;
+            }
+            set
+            {
+                _maxValue = value;
+                OnPropertyChanged(nameof(MaxValue));
+                OnPropertyChanged(nameof(Percent));
+                OnPropertyChanged(nameof(DgCategoryGetTotal));
+            }
+        }
+
+        #endregion
+
+        #region vMain Command
+        //Select
+        private ActionCommand selectCADFile;
+        public ICommand SelectCADFile
+        {
+            get
+            {
+                if (selectCADFile == null)
+                {
+                    selectCADFile = new ActionCommand(PerformSelectCADFile);
+                }
+
+                return selectCADFile;
+            }
+        }
+        private void PerformSelectCADFile()
+        {
+            try
+            {
+                vGetCADFile vGetCADFileWin = new vGetCADFile();
+                vGetCADFileWin.Show();
+                DgAllImportCAD = methodAddCADFile.GetCADFile(RevitApp.ActiveUIDocument.Document);
+            }
+            catch { }
+        }
+        
+        //Cancel
+        private ActionCommand cancelSetCADFile;
+        public ICommand CancelSetCADFile
+        {
+            get
+            {
+                if (cancelSetCADFile == null)
+                {
+                    cancelSetCADFile = new ActionCommand(PerformCancelSetCADFile);
+                }
+
+                return cancelSetCADFile;
+            }
+        }
+        private void PerformCancelSetCADFile(object para)
+        {
+           (para as vMain).Close();
+        }
+        
+        //Confirm
+        private ActionCommand setCADFile;
+        public ICommand SetCADFile
+        {
+            get
+            {
+                if (setCADFile == null)
+                {
+                    setCADFile = new ActionCommand(PerformSetCADFile);
+                }
+
+                return setCADFile;
+            }
+        }
+        private void PerformSetCADFile(object par)
+        {
+            //Lấy ra các Layer có thay đổi trên Tất cả các Layer
+            foreach (mCategoryPlus category in DgCategory)
+            {
+                if (category.LinePatternSelect != "<No Override>" || category.LineWeightSelect != "<No Override>")
+                {
+                    CategoryPlusListChange.Add(category);
+                    CategoryListChange.Add(category.Category.Name);
+                }
+            }
+            //MessageBox.Show(CategoryListChange.Count.ToString());
+            using (Transaction tran = new Transaction(RevitApp.ActiveUIDocument.Document))
+            {
+                tran.Start("Set AutoCAD Layer");
+                //Kiểm tra trong file CAD, Đối chiếu với list Layer ở trên
+                foreach (mImportInstancePlus instancePlus in DgSelectedImportCAD)
+                {
+                    ImportInstance importInstance = instancePlus.ImportInstance;
+                    CategoryNameMap layers = importInstance.Category.SubCategories;
+                    foreach (var layer in layers)
+                    {
+                        LoadValue += 1;
+                        Category CategorylayerCAD = layer as Category;
+                        int indexofLayer = CategoryListChange.IndexOf(CategorylayerCAD.Name);
+                        if (indexofLayer != -1)
+                        {
+                            string LineWeightSelect = CategoryPlusListChange[indexofLayer].LineWeightSelect;
+                            string LinePatternSelect = CategoryPlusListChange[indexofLayer].LinePatternSelect;
+                            //Set Line Weight
+                            if (LineWeightSelect == "<No Override>") { continue; }
+                            else { CategorylayerCAD.SetLineWeight(Int32.Parse(LineWeightSelect), GraphicsStyleType.Projection); MaxValue += 1; }
+                            //Set Line Pattern
+                            if (LinePatternSelect == "<No Override>") { continue; }
+                            else if (LinePatternSelect == "Solid")
+                            {
+                                ElementId solidLinePatternId = LinePatternElement.GetSolidPatternId();
+                                CategorylayerCAD.SetLinePatternId(solidLinePatternId, GraphicsStyleType.Projection);
+                            }
+                            else
+                            {
+                                LinePatternElement linePatternElement = LinePatternElement.GetLinePatternElementByName(RevitApp.ActiveUIDocument.Document, LinePatternSelect);
+                                ElementId linePatternId = linePatternElement.Id;
+                                CategorylayerCAD.SetLinePatternId(linePatternId, GraphicsStyleType.Projection);
+                            }
+                        }
+
+
+                    }
+                }
+                tran.Commit();
+            }
+            MessageBox.Show($"Đã chỉnh sửa: {CategoryListChange.Count} layer");
+            (par as vMain).Close();
+
+        }
+        #endregion
+
+        #region vGetFileCAD
+        //Confirm
+        private ActionCommand cFCADFile;
+        public ICommand CFCADFile
+        {
+            get
+            {
+                if (cFCADFile == null)
+                {
+                    cFCADFile = new ActionCommand(PerformCFCADFile);
+                }
+
+                return cFCADFile;
+            }
+        }
+        private void PerformCFCADFile(object par)
+        {
+            try
+            {
+                (par as vGetCADFile).Close();
+                DgSelectedImportCAD.Clear();
+                foreach(mImportInstancePlus instancePlus in DgAllImportCAD)
+                {
+                    if(instancePlus.IsCheck == true)
+                    {
+                        DgSelectedImportCAD.Add(instancePlus);
+                    }    
+                    
+                }
+                DgCategory.Clear();
+                DgCategory = methodAddCADFile.GetcategoryUnique(DgSelectedImportCAD,RevitApp.ActiveUIDocument.Document);
+                DgCategoryGetTotal = methodAddCADFile.Getcategory(DgSelectedImportCAD, RevitApp.ActiveUIDocument.Document);
+                
+            }
+            catch { }
+
+        }
+        
+        //Cancel
+        private ActionCommand cancelSelectCADFile;
+        public ICommand CancelSelectCADFile
+        {
+            get
+            {
+                if (cancelSelectCADFile == null)
+                {
+                    cancelSelectCADFile = new ActionCommand(PerformCancelSelectCADFile);
+                }
+
+                return cancelSelectCADFile;
+            }
+        }
+        private void PerformCancelSelectCADFile(object parr)
+        {
+            (parr as  vGetCADFile).Close();
+        }
+        #endregion
+    }
+}
+
