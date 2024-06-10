@@ -16,6 +16,7 @@ using _01_02_FormatCADImport.MVVM.Model;
 using System.Windows;
 using Application = Autodesk.Revit.ApplicationServices.Application;
 using Autodesk.Revit.Creation;
+using static _01_02_FormatCADImport.MVVM.Model.mHandler;
 
 
 namespace _01_02_FormatCADImport.MVVM.ViewModel
@@ -25,7 +26,8 @@ namespace _01_02_FormatCADImport.MVVM.ViewModel
         private static vmMain _dcMain = new vmMain();
         public static vmMain DcMain { get { return _dcMain; } }
         public static UIApplication RevitApp;
-        public static Application RevitAppService;
+        public static Application RevitAppService;  
+
         private ObservableRangeCollection<mImportInstancePlus> _dgSelectdImportCAD = new ObservableRangeCollection<mImportInstancePlus>();
         public ObservableRangeCollection<mImportInstancePlus> DgSelectedImportCAD
         {
@@ -240,64 +242,12 @@ namespace _01_02_FormatCADImport.MVVM.ViewModel
         {
             try
             {
-                //Lấy ra các Layer có thay đổi trên Tất cả các Layer
-                #region Backup
-                //foreach (mCategoryPlus category in DgCategory)
-                //{
-                //    if (category.LinePatternSelect != "<No Override>" || category.LineWeightSelect != "<No Override>")
-                //    {
-                //        CategoryPlusListChange.Add(category);
-                //        CategoryListChange.Add(category.Category.Name);
-                //    }
-                //}
-                //using (Transaction tran = new Transaction(RevitApp.ActiveUIDocument.Document, "Set AutoCAD Layer"))
-                //{
-                //    tran.Start();
-                //    //Kiểm tra trong file CAD, Đối chiếu với list Layer ở trên
-                //    foreach (mImportInstancePlus instancePlus in DgSelectedImportCAD)
-                //    {
-                //        ImportInstance importInstance = instancePlus.ImportInstance;
-                //        CategoryNameMap layers = importInstance.Category.SubCategories;
-                //        foreach (var layer in layers)
-                //        {
-                //            LoadValue += 1;
-                //            Category CategorylayerCAD = layer as Category;
-                //            int indexofLayer = CategoryListChange.IndexOf(CategorylayerCAD.Name);
-                //            if (indexofLayer != -1)
-                //            {
-                //                string LineWeightSelect = CategoryPlusListChange[indexofLayer].LineWeightSelect;
-                //                string LinePatternSelect = CategoryPlusListChange[indexofLayer].LinePatternSelect;
-                //                //Set Line Weight
-                //                if (LineWeightSelect == "<No Override>") { continue; }
-                //                else { CategorylayerCAD.SetLineWeight(Int32.Parse(LineWeightSelect), GraphicsStyleType.Projection); MaxValue += 1; }
-                //                //Set Line Pattern
-                //                if (LinePatternSelect == "<No Override>") { continue; }
-                //                else if (LinePatternSelect == "Solid")
-                //                {
-                //                    ElementId solidLinePatternId = LinePatternElement.GetSolidPatternId();
-                //                    CategorylayerCAD.SetLinePatternId(solidLinePatternId, GraphicsStyleType.Projection);
-                //                }
-                //                else
-                //                {
-                //                    LinePatternElement linePatternElement = LinePatternElement.GetLinePatternElementByName(RevitApp.ActiveUIDocument.Document, LinePatternSelect);
-                //                    ElementId linePatternId = linePatternElement.Id;
-                //                    CategorylayerCAD.SetLinePatternId(linePatternId, GraphicsStyleType.Projection);
-                //                }
-                //            }
-
-
-                //        }
-                //    }
-                //    tran.Commit();
-                //}
-                //MessageBox.Show($"Đã chỉnh sửa: {CategoryListChange.Count} layer");
-                #endregion
-                methodAddCADFile.SetGraphicStyleForLayerCAD(RevitApp.ActiveUIDocument.Document, DgSelectedImportCAD, DgCategory);
-                (par as vMain).Close();
+                mHandler.DgCategory = DgCategory;
+                mHandler.DgSelectedImportCAD = DgSelectedImportCAD;
+                mHandlerEvent.Raise();
+                //(par as vMain).Close();
             }
             catch { }
-            
-
         }
         #endregion
 

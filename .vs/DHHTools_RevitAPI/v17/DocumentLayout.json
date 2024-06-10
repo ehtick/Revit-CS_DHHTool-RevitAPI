@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{38F23DE5-7EB8-4A15-B171-4C21D7DC97F7}|01_02_FormatCADImport\\01_02_FormatCADImport.csproj|d:\\study\\programming\\c-sharp\\04.cs_dhhtool_revitapi\\01_02_formatcadimport\\mvvm\\model\\mhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38F23DE5-7EB8-4A15-B171-4C21D7DC97F7}|01_02_FormatCADImport\\01_02_FormatCADImport.csproj|solutionrelative:01_02_formatcadimport\\mvvm\\model\\mhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{38F23DE5-7EB8-4A15-B171-4C21D7DC97F7}|01_02_FormatCADImport\\01_02_FormatCADImport.csproj|D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\01_02_formatcadimport\\mvvm\\viewmodel\\vmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{38F23DE5-7EB8-4A15-B171-4C21D7DC97F7}|01_02_FormatCADImport\\01_02_FormatCADImport.csproj|solutionrelative:01_02_formatcadimport\\mvvm\\viewmodel\\vmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38F23DE5-7EB8-4A15-B171-4C21D7DC97F7}|01_02_FormatCADImport\\01_02_FormatCADImport.csproj|d:\\study\\programming\\c-sharp\\04.cs_dhhtool_revitapi\\01_02_formatcadimport\\mvvm\\model\\methodaddcadfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38F23DE5-7EB8-4A15-B171-4C21D7DC97F7}|01_02_FormatCADImport\\01_02_FormatCADImport.csproj|solutionrelative:01_02_formatcadimport\\mvvm\\model\\methodaddcadfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38F23DE5-7EB8-4A15-B171-4C21D7DC97F7}|01_02_FormatCADImport\\01_02_FormatCADImport.csproj|d:\\study\\programming\\c-sharp\\04.cs_dhhtool_revitapi\\01_02_formatcadimport\\mvvm\\view\\vmain.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{38F23DE5-7EB8-4A15-B171-4C21D7DC97F7}|01_02_FormatCADImport\\01_02_FormatCADImport.csproj|D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\01_02_formatcadimport\\mvvm\\view\\vmain.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{38F23DE5-7EB8-4A15-B171-4C21D7DC97F7}|01_02_FormatCADImport\\01_02_FormatCADImport.csproj|solutionrelative:01_02_formatcadimport\\mvvm\\view\\vmain.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0CFF3D09-06CE-44CE-A074-D43029FF1F7F}|03_03_RebarBeam3D\\03_03_RebarBeam3D.csproj|d:\\study\\programming\\c-sharp\\04.cs_dhhtool_revitapi\\03_03_rebarbeam3d\\mvvm\\model\\mrevit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0CFF3D09-06CE-44CE-A074-D43029FF1F7F}|03_03_RebarBeam3D\\03_03_RebarBeam3D.csproj|solutionrelative:03_03_rebarbeam3d\\mvvm\\model\\mrevit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{38F23DE5-7EB8-4A15-B171-4C21D7DC97F7}|01_02_FormatCADImport\\01_02_FormatCADImport.csproj|d:\\study\\programming\\c-sharp\\04.cs_dhhtool_revitapi\\01_02_formatcadimport\\formatcad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38F23DE5-7EB8-4A15-B171-4C21D7DC97F7}|01_02_FormatCADImport\\01_02_FormatCADImport.csproj|solutionrelative:01_02_formatcadimport\\formatcad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38F23DE5-7EB8-4A15-B171-4C21D7DC97F7}|01_02_FormatCADImport\\01_02_FormatCADImport.csproj|D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\01_02_formatcadimport\\mvvm\\model\\methodaddcadfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38F23DE5-7EB8-4A15-B171-4C21D7DC97F7}|01_02_FormatCADImport\\01_02_FormatCADImport.csproj|solutionrelative:01_02_formatcadimport\\mvvm\\model\\methodaddcadfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,17 +30,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "mHandler.cs",
+              "DocumentMoniker": "D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\01_02_FormatCADImport\\MVVM\\Model\\mHandler.cs",
+              "RelativeDocumentMoniker": "01_02_FormatCADImport\\MVVM\\Model\\mHandler.cs",
+              "ToolTip": "D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\01_02_FormatCADImport\\MVVM\\Model\\mHandler.cs",
+              "RelativeToolTip": "01_02_FormatCADImport\\MVVM\\Model\\mHandler.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAhwB4AAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-10T12:37:10Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormatCAD.cs",
+              "DocumentMoniker": "D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\01_02_FormatCADImport\\FormatCAD.cs",
+              "RelativeDocumentMoniker": "01_02_FormatCADImport\\FormatCAD.cs",
+              "ToolTip": "D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\01_02_FormatCADImport\\FormatCAD.cs",
+              "RelativeToolTip": "01_02_FormatCADImport\\FormatCAD.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAhwAwAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-10T12:30:29.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "methodAddCADFile.cs",
               "DocumentMoniker": "D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\01_02_FormatCADImport\\MVVM\\Model\\methodAddCADFile.cs",
               "RelativeDocumentMoniker": "01_02_FormatCADImport\\MVVM\\Model\\methodAddCADFile.cs",
               "ToolTip": "D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\01_02_FormatCADImport\\MVVM\\Model\\methodAddCADFile.cs",
               "RelativeToolTip": "01_02_FormatCADImport\\MVVM\\Model\\methodAddCADFile.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAFAAAA",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAiwJEAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-09T09:55:59.206Z",
               "EditorCaption": ""
@@ -55,49 +85,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "vmMain.cs",
               "DocumentMoniker": "D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\01_02_FormatCADImport\\MVVM\\ViewModel\\vmMain.cs",
               "RelativeDocumentMoniker": "01_02_FormatCADImport\\MVVM\\ViewModel\\vmMain.cs",
               "ToolTip": "D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\01_02_FormatCADImport\\MVVM\\ViewModel\\vmMain.cs",
               "RelativeToolTip": "01_02_FormatCADImport\\MVVM\\ViewModel\\vmMain.cs",
-              "ViewState": "AQIAAIkAAAAAAAAAAAAYwIAAAAAcAAAA",
+              "ViewState": "AQIAAOQAAAAAAAAAAAAgwPoAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-07T15:48:34.628Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "3b7fea32-daa3-44b5-a9a1-5e00b1a65084",
-        "Display": 1,
-        "X": -5,
-        "Y": 80,
-        "Width": 1565,
-        "Height": 957,
-        "WindowState": 2
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "mRevit.cs",
-              "DocumentMoniker": "D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\03_03_RebarBeam3D\\MVVM\\Model\\mRevit.cs",
-              "RelativeDocumentMoniker": "03_03_RebarBeam3D\\MVVM\\Model\\mRevit.cs",
-              "ToolTip": "D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\03_03_RebarBeam3D\\MVVM\\Model\\mRevit.cs",
-              "RelativeToolTip": "03_03_RebarBeam3D\\MVVM\\Model\\mRevit.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T09:44:44.874Z",
               "EditorCaption": ""
             }
           ]

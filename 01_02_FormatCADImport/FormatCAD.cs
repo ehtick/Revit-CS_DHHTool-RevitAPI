@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using static _01_02_FormatCADImport.MVVM.ViewModel.vmMain;
 using static _01_02_FormatCADImport.MVVM.View.vMain;
 using _01_02_FormatCADImport.MVVM.View;
+using _01_02_FormatCADImport.MVVM.Model;
+using static _01_02_FormatCADImport.MVVM.Model.mHandler;
 
 
 namespace _01_02_FormatCADImport
@@ -18,11 +20,12 @@ namespace _01_02_FormatCADImport
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            UIApplication uIApplication = commandData.Application;
-            RevitApp = uIApplication;
+            UIApplication uIApp = commandData.Application;
+            RevitApp = uIApp;
+            mHandlerEvent = ExternalEvent.Create(new mHandler());
             RevitAppService = RevitApp.Application;
-            UIDocument uIDocument = RevitApp.ActiveUIDocument;
-            Document document = uIDocument.Document;
+            UIDocument uIDoc = RevitApp.ActiveUIDocument;
+            Document document = uIDoc.Document;
             using (TransactionGroup transGroup = new TransactionGroup(document))
             {
                 transGroup.Start("Format CAD");
