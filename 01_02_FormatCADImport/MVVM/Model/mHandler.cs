@@ -15,7 +15,7 @@ namespace _01_02_FormatCADImport.MVVM.Model
         public static ObservableRangeCollection<mImportInstancePlus> DgSelectedImportCAD = new ObservableRangeCollection<mImportInstancePlus>();
         public static ObservableRangeCollection<mCategoryPlus> DgCategory = new ObservableRangeCollection<mCategoryPlus>();
         public static ExternalEvent mHandlerEvent = null;
-
+        public static int LoadValue = 0;
 
 
         void IExternalEventHandler.Execute(UIApplication app)
@@ -45,6 +45,7 @@ namespace _01_02_FormatCADImport.MVVM.Model
                         CategoryNameMap layers = importInstance.Category.SubCategories;
                         foreach (var layer in layers)
                         {
+                            LoadValue += 1;
                             Category CategorylayerCAD = layer as Category;
 
                             int indexofLayer = CategoryListChange.IndexOf(CategorylayerCAD.Name);

@@ -150,7 +150,7 @@ namespace _01_02_FormatCADImport.MVVM.ViewModel
         private int _loadValue;
         public int LoadValue
         {
-            get => _loadValue;
+            get => _loadValue = mHandler.LoadValue;
             set
             {
                 _loadValue = value;
