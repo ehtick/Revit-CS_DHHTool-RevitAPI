@@ -1,5 +1,7 @@
 ﻿using _01_02_FormatCADImport.MVVM.ViewModel;
 using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using Application = Autodesk.Revit.ApplicationServices.Application;
 using BIMSoftLib.MVVM;
 using System;
 using System.Collections.Generic;
@@ -8,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+
 
 namespace _01_02_FormatCADImport.MVVM.Model
 {
@@ -75,61 +78,79 @@ namespace _01_02_FormatCADImport.MVVM.Model
             return AllCategory;
         }
         #region Backup
-        //public static void SetGraphicStyleForLayerCAD(Document document, ObservableRangeCollection<mImportInstancePlus> SelectedImportCADList, ObservableRangeCollection<mCategoryPlus> CategoryList)
-        //{
-        //    ObservableRangeCollection<mCategoryPlus> CategoryPlusListChange = new ObservableRangeCollection<mCategoryPlus>();
-        //    ObservableRangeCollection<string> CategoryListChange = new ObservableRangeCollection<string>();
-        //    //Lấy ra các Layer có thay đổi trên Tất cả các Layer
-        //    foreach (mCategoryPlus category in CategoryList)
-        //    {
-        //        if(category.LinePatternSelect != "<No Override>" ||category.LineWeightSelect != "<No Override>")
-        //        {
-        //            CategoryPlusListChange.Add(category);
-        //            CategoryListChange.Add(category.Category.Name);
-        //        }    
-        //    }
-        //    MessageBox.Show(CategoryListChange.Count.ToString());
-        //    using (Transaction tran = new Transaction(document))
-        //    {
-        //        tran.Start("Set AutoCAD Layer");
-        //        //Kiểm tra trong file CAD, Đối chiếu với list Layer ở trên
-        //        foreach (mImportInstancePlus instancePlus in SelectedImportCADList)
-        //        {
-        //            ImportInstance importInstance = instancePlus.ImportInstance;
-        //            CategoryNameMap layers = importInstance.Category.SubCategories;
-        //            foreach (var layer in layers)
-        //            {
-        //                Category CategorylayerCAD = layer as Category;
-                        
-        //                int indexofLayer = CategoryListChange.IndexOf(CategorylayerCAD.Name);
-        //                if (indexofLayer != -1)
-        //                {
-        //                    string LineWeightSelect = CategoryPlusListChange[indexofLayer].LineWeightSelect;
-        //                    string LinePatternSelect = CategoryPlusListChange[indexofLayer].LinePatternSelect;
-        //                    //Set Line Weight
-        //                    if (LineWeightSelect == "<No Override>") { continue; }
-        //                    else { CategorylayerCAD.SetLineWeight(Int32.Parse(LineWeightSelect), GraphicsStyleType.Projection); }
-        //                    //Set Line Pattern
-        //                    if (LinePatternSelect == "<No Override>") { continue; }
-        //                    else if (LinePatternSelect == "Solid")
-        //                    {
-        //                        ElementId solidLinePatternId = LinePatternElement.GetSolidPatternId();
-        //                        CategorylayerCAD.SetLinePatternId(solidLinePatternId,GraphicsStyleType.Projection);
-        //                    }
-        //                    else
-        //                    {
-        //                        LinePatternElement linePatternElement = LinePatternElement.GetLinePatternElementByName(document, LinePatternSelect);
-        //                        ElementId linePatternId = linePatternElement.Id;
-        //                        CategorylayerCAD.SetLinePatternId(linePatternId, GraphicsStyleType.Projection);
-        //                    }    
-        //                }
+        public static void SetGraphicStyleForLayerCAD(Document document, ObservableRangeCollection<mImportInstancePlus> SelectedImportCADList, ObservableRangeCollection<mCategoryPlus> CategoryList)
+        {
+            ObservableRangeCollection<mCategoryPlus> CategoryPlusListChange = new ObservableRangeCollection<mCategoryPlus>();
+            ObservableRangeCollection<string> CategoryListChange = new ObservableRangeCollection<string>();
+            //Lấy ra các Layer có thay đổi trên Tất cả các Layer
+            foreach (mCategoryPlus category in CategoryList)
+            {
+                if (category.LinePatternSelect != "<No Override>" || category.LineWeightSelect != "<No Override>")
+                {
+                    CategoryPlusListChange.Add(category);
+                    CategoryListChange.Add(category.Category.Name);
+                }
+            }
+            MessageBox.Show(CategoryListChange.Count.ToString());
+            using (Transaction tran = new Transaction(document))
+            {
+                tran.Start("Set AutoCAD Layer");
+                //Kiểm tra trong file CAD, Đối chiếu với list Layer ở trên
+                foreach (mImportInstancePlus instancePlus in SelectedImportCADList)
+                {
+                    ImportInstance importInstance = instancePlus.ImportInstance;
+                    CategoryNameMap layers = importInstance.Category.SubCategories;
+                    foreach (var layer in layers)
+                    {
+                        Category CategorylayerCAD = layer as Category;
+
+                        int indexofLayer = CategoryListChange.IndexOf(CategorylayerCAD.Name);
+                        if (indexofLayer != -1)
+                        {
+                            string LineWeightSelect = CategoryPlusListChange[indexofLayer].LineWeightSelect;
+                            string LinePatternSelect = CategoryPlusListChange[indexofLayer].LinePatternSelect;
+                            //Set Line Weight
+                            if (LineWeightSelect == "<No Override>") { continue; }
+                            else { CategorylayerCAD.SetLineWeight(Int32.Parse(LineWeightSelect), GraphicsStyleType.Projection); }
+                            //Set Line Pattern
+                            if (LinePatternSelect == "<No Override>") { continue; }
+                            else if (LinePatternSelect == "Solid")
+                            {
+                                ElementId solidLinePatternId = LinePatternElement.GetSolidPatternId();
+                                CategorylayerCAD.SetLinePatternId(solidLinePatternId, GraphicsStyleType.Projection);
+                            }
+                            else
+                            {
+                                LinePatternElement linePatternElement = LinePatternElement.GetLinePatternElementByName(document, LinePatternSelect);
+                                ElementId linePatternId = linePatternElement.Id;
+                                CategorylayerCAD.SetLinePatternId(linePatternId, GraphicsStyleType.Projection);
+                            }
+                        }
 
 
-        //            }
-        //        }
-        //        tran.Commit();
-        //    }
-        //}
+                    }
+                }
+                tran.Commit();
+
+            }
+            MessageBox.Show($"Đã chỉnh sửa: {CategoryListChange.Count} layer");
+        }
         #endregion
+
+        public static void SelectAllCAD(ObservableRangeCollection<mImportInstancePlus> ListCADSelect)
+        {
+            foreach (mImportInstancePlus CadSelect in ListCADSelect)
+            {
+                CadSelect.IsCheck = true;
+            }    
+        }
+
+        public static void SelectNoneCAD(ObservableRangeCollection<mImportInstancePlus> ListCADSelect)
+        {
+            foreach (mImportInstancePlus CadSelect in ListCADSelect)
+            {
+                CadSelect.IsCheck = false;
+            }
+        }
     }
 }

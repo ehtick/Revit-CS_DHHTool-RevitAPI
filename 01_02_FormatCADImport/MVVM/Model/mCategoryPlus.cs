@@ -99,7 +99,7 @@ namespace _01_02_FormatCADImport.MVVM.Model
                 AllLineWeight.Add(number.ToString());
             }
             AllLineWeight.Insert(0, "<No Override>");
-            LineWeightSelect = AllLineWeight[0];
+            LineWeightSelect = AllLineWeight[1];
             List<LinePatternElement> linePatterns = new FilteredElementCollector(document)
                 .OfClass(typeof(LinePatternElement))
                 .Cast<LinePatternElement>()

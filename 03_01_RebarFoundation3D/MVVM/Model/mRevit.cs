@@ -94,7 +94,6 @@ namespace DHHTools.MVVM.Model
             }
             return FoundationList;
         }
-
         public void FoundationDetail(ObservableRangeCollection<FoundationInfor> foundationInfor)
         {
             IEnumerable<ViewFamilyType> viewFamilyTypes = new FilteredElementCollector(Document)

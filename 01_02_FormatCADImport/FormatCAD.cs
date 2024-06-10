@@ -25,8 +25,7 @@ namespace _01_02_FormatCADImport
             Document document = uIDocument.Document;
             using (TransactionGroup transGroup = new TransactionGroup(document))
             {
-
-                transGroup.Start("Foundation Details");
+                transGroup.Start("Format CAD");
                 vMain win = new vMain();
                 bool? dialog = win.ShowDialog();
                 if (dialog != false)

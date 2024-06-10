@@ -13,6 +13,7 @@
     Height="500"
     MinWidth="700"
     WindowStartupLocation="CenterScreen"
+    Visibility="{Binding VisibleWindow, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
     d:DataContext="{d:DesignInstance Type=vm:vmMain}"
     DataContext="{Binding Source={x:Static vm:vmMain.DcMain}}"
     mc:Ignorable="d">
@@ -162,9 +163,11 @@
         </DataGrid>
         <DockPanel Grid.Row="1" LastChildFill="True">
             <ProgressBar  
-                Value="{Binding Percent}"
+                Value="{Binding Percent, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                 Maximum="100"
-                Foreground="AliceBlue"
+                Minimum="0"
+                Background="White"
+                Foreground="BlueViolet"
                 Style="{DynamicResource MaterialDesignLinearProgressBar}"
                 Height="40">
             </ProgressBar>

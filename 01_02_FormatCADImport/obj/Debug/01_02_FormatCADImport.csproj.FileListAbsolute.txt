@@ -21,3 +21,28 @@ D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\obj\De
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\obj\Debug\01_02_FormatCADImport.pdb
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\obj\Debug\MVVM\View\vGetCADFile.g.cs
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\obj\Debug\MVVM\View\vGetCADFile.baml
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\bin\Debug\01_02_FormatCADImport.dll
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\bin\Debug\01_02_FormatCADImport.pdb
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\bin\Debug\BIMSoftLib.dll
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\bin\Debug\MaterialDesignColors.dll
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\bin\Debug\Microsoft.Xaml.Behaviors.dll
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\bin\Debug\MaterialDesignColors.pdb
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\bin\Debug\Microsoft.Xaml.Behaviors.xml
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\obj\Debug\01_02_FormatCADImport.csproj.AssemblyReference.cache
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\obj\Debug\MVVM\View\vGetCADFile.g.cs
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\obj\Debug\MVVM\View\vMain.g.cs
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\obj\Debug\01_02_FormatCADImport_MarkupCompile.cache
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\obj\Debug\01_02_FormatCADImport_MarkupCompile.lref
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\obj\Debug\MVVM\View\vGetCADFile.baml
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\obj\Debug\MVVM\View\vMain.baml
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\obj\Debug\01_02_FormatCADImport.g.resources
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\obj\Debug\01_02_FormatCADImport.csproj.CoreCompileInputs.cache
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\obj\Debug\01_02_FormatCADImport.csproj.CopyComplete
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\obj\Debug\01_02_FormatCADImport.dll
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\obj\Debug\01_02_FormatCADImport.pdb
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\obj\Debug\MVVM\View\vLoadFileCAD.g.cs
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_02_FormatCADImport\obj\Debug\MVVM\View\vLoadFileCAD.baml
