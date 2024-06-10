@@ -163,7 +163,7 @@
         </DataGrid>
         <DockPanel Grid.Row="1" LastChildFill="True">
             <ProgressBar  
-                Value="{Binding Percent, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
+                Value="{Binding Percent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                 Maximum="100"
                 Minimum="0"
                 Background="White"

@@ -17,7 +17,6 @@ namespace _01_02_FormatCADImport.MVVM.Model
         public static ExternalEvent mHandlerEvent = null;
         public static int LoadValue = 0;
 
-
         void IExternalEventHandler.Execute(UIApplication app)
         {
             try
