@@ -70,6 +70,7 @@
     <Compile Include="FormatCAD.cs" />
     <Compile Include="MVVM\Model\mCategoryPlus.cs" />
     <Compile Include="MVVM\Model\methodAddCADFile.cs" />
+    <Compile Include="MVVM\Model\mHandler.cs" />
     <Compile Include="MVVM\Model\mImportInstancePlus.cs" />
     <Compile Include="MVVM\ViewModel\vmMain.cs" />
     <Compile Include="MVVM\View\vGetCADFile.xaml.cs">

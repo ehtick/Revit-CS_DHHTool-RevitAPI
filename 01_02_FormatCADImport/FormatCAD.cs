@@ -29,7 +29,7 @@ namespace _01_02_FormatCADImport
                 vMain win = new vMain();
                 bool? dialog = win.ShowDialog();
                 if (dialog != false)
-                    return Result.Succeeded;
+                return Result.Succeeded;
                 transGroup.Commit();
             }
             return Result.Succeeded;

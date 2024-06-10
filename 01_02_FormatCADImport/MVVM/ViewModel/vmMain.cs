@@ -26,7 +26,6 @@ namespace _01_02_FormatCADImport.MVVM.ViewModel
         public static vmMain DcMain { get { return _dcMain; } }
         public static UIApplication RevitApp;
         public static Application RevitAppService;
-        public methodAddCADFile newmethodAddCADFile = new methodAddCADFile();
         private ObservableRangeCollection<mImportInstancePlus> _dgSelectdImportCAD = new ObservableRangeCollection<mImportInstancePlus>();
         public ObservableRangeCollection<mImportInstancePlus> DgSelectedImportCAD
         {
