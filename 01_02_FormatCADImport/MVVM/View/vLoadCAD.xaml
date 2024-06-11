@@ -11,7 +11,7 @@
     Height="50"
     WindowStyle="None"
     WindowState="Normal"
-    d:DataContext="{d:DesignInstance Type=vm:vmMain}"
+    d:DataContext="{d:DesignData Type=vm:vmMain}"
     DataContext="{Binding Source={x:Static vm:vmMain.DcMain}}"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
@@ -97,7 +97,9 @@
             Height="70"
             Maximum="{Binding MaxCountCAD, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
             Minimum="0"
-            Value="{Binding ValueCountCAD, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            Value="{Binding ValueCountCAD, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+            BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" 
+            SmallChange="1" Cursor="Arrow" AutomationProperties.IsRowHeader="True" />
         <TextBlock
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
