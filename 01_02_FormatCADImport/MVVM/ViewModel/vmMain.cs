@@ -17,7 +17,7 @@ using System.Windows;
 using Application = Autodesk.Revit.ApplicationServices.Application;
 using Autodesk.Revit.Creation;
 using static _01_02_FormatCADImport.MVVM.Model.mHandler;
-
+using System.Windows.Forms;
 
 namespace _01_02_FormatCADImport.MVVM.ViewModel
 {
@@ -278,8 +278,7 @@ namespace _01_02_FormatCADImport.MVVM.ViewModel
             {
                 (par as vGetCADFile).Hide();
                 vLoadCAD vLoadCADWin = new vLoadCAD();
-                vLoadCADWin.Show();
-               
+                vLoadCADWin.ShowDialog();
                 DgSelectedImportCAD.Clear();
                 foreach (mImportInstancePlus instancePlus in DgAllImportCAD)
                 {
@@ -288,8 +287,6 @@ namespace _01_02_FormatCADImport.MVVM.ViewModel
                         DgSelectedImportCAD.Add(instancePlus);
                     }
                 }
-                
-                
                 DgCategory.Clear();
                 DgCategory = methodAddCADFile.GetcategoryUnique(DgSelectedImportCAD, RevitApp.ActiveUIDocument.Document);
                 DgCategoryGetTotal = methodAddCADFile.Getcategory(DgSelectedImportCAD, RevitApp.ActiveUIDocument.Document);
