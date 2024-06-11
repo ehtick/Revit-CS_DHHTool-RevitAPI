@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace _01_02_FormatCADImport.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for vLoadFileCAD.xaml
+    /// Interaction logic for vLoadCAD.xaml
     /// </summary>
-    public partial class vLoadFileCAD : Window
+    public partial class vLoadCAD : Window
     {
-        public vLoadFileCAD()
+        public vLoadCAD()
         {
             InitializeComponent();
         }

@@ -23,6 +23,9 @@ namespace _01_02_FormatCADImport.MVVM.ViewModel
 {
     public class vmMain : PropertyChangedBase
     {
+        #region vMain
+
+        #region vMainProperty
         private static vmMain _dcMain = new vmMain();
         public static vmMain DcMain { get { return _dcMain; } }
         public static UIApplication RevitApp;
@@ -114,7 +117,6 @@ namespace _01_02_FormatCADImport.MVVM.ViewModel
         }
 
         private System.Windows.Visibility _visibleWindow;
-
         public System.Windows.Visibility VisibleWindow
         {
             get => _visibleWindow;
@@ -177,6 +179,8 @@ namespace _01_02_FormatCADImport.MVVM.ViewModel
 
         #endregion
 
+        #endregion
+
         #region vMain Command
         //Select
         private ActionCommand selectCADFile;
@@ -198,8 +202,8 @@ namespace _01_02_FormatCADImport.MVVM.ViewModel
             {
                 VisibleWindow = System.Windows.Visibility.Hidden;
                 vGetCADFile vGetCADFileWin = new vGetCADFile();
-                vGetCADFileWin.Show();
                 DgAllImportCAD = methodAddCADFile.GetCADFile(RevitApp.ActiveUIDocument.Document);
+                vGetCADFileWin.Show();
                 
             }
             catch { }
@@ -251,6 +255,8 @@ namespace _01_02_FormatCADImport.MVVM.ViewModel
         }
         #endregion
 
+        #endregion
+
         #region vGetFileCAD
         //Confirm
         private ActionCommand cFCADFile;
@@ -270,19 +276,27 @@ namespace _01_02_FormatCADImport.MVVM.ViewModel
         {
             try
             {
-                (par as vGetCADFile).Close();
+                (par as vGetCADFile).Hide();
+                vLoadCAD vLoadCADWin = new vLoadCAD();
+                vLoadCADWin.Show();
+               
                 DgSelectedImportCAD.Clear();
-                foreach(mImportInstancePlus instancePlus in DgAllImportCAD)
+                foreach (mImportInstancePlus instancePlus in DgAllImportCAD)
                 {
-                    if(instancePlus.IsCheck == true)
+                    if (instancePlus.IsCheck == true)
                     {
                         DgSelectedImportCAD.Add(instancePlus);
-                    }    
+                    }
                 }
+                
+                
                 DgCategory.Clear();
-                DgCategory = methodAddCADFile.GetcategoryUnique(DgSelectedImportCAD,RevitApp.ActiveUIDocument.Document);
+                DgCategory = methodAddCADFile.GetcategoryUnique(DgSelectedImportCAD, RevitApp.ActiveUIDocument.Document);
                 DgCategoryGetTotal = methodAddCADFile.Getcategory(DgSelectedImportCAD, RevitApp.ActiveUIDocument.Document);
+                //vLoadCADWin.Visibility = System.Windows.Visibility.Hidden;
+                vLoadCADWin.Close();
                 VisibleWindow = System.Windows.Visibility.Visible;
+
             }
             catch { }
 
@@ -345,9 +359,91 @@ namespace _01_02_FormatCADImport.MVVM.ViewModel
             methodAddCADFile.SelectAllCAD(DgAllImportCAD);
         }
 
+        #endregion
+
+        #region vLoadCAD
+
+        private int _valueCountCAD;
+        public int ValueCountCAD
+        {
+            get => _valueCountCAD;
+            set
+            {
+                _valueCountCAD = value;
+                OnPropertyChanged(nameof(ValueCountCAD));
+                OnPropertyChanged(nameof(ValueDisplay));
+            }
+        }
+
+        private int _maxCountCAD;
+        public int MaxCountCAD
+        {
+            get => _maxCountCAD = DgAllImportCAD.Count();
+            set
+            {
+                _maxCountCAD = value;
+                OnPropertyChanged(nameof(MaxCountCAD));
+                OnPropertyChanged(nameof(ValueDisplay));
+            }
+        }
+
+        private string _valueDisplay;
+        public string ValueDisplay
+        {
+            get
+            {
+                return _valueDisplay = $"{ValueCountCAD} / {MaxCountCAD}";
+            }
+            set
+            {
+                _valueDisplay = value;
+                OnPropertyChanged(nameof(ValueDisplay));
+            }
+        }
+
+        private ActionCommand testnut;
+
+        public ICommand Testnut
+        {
+            get
+            {
+                if (testnut == null)
+                {
+                    testnut = new ActionCommand(PerformTestnut);
+                }
+
+                return testnut;
+            }
+        }
+
+        private void PerformTestnut(object par)
+        {
+            try
+            {
+                (par as vMain).Hide();
+                vLoadCAD vLoadCADWin = new vLoadCAD();
+                vLoadCADWin.Show();
+                DgSelectedImportCAD.Clear();
+                foreach (mImportInstancePlus instancePlus in DgAllImportCAD)
+                {
+                    if (instancePlus.IsCheck == true)
+                    {
+                        DgSelectedImportCAD.Add(instancePlus);
+                    }
+                }
 
 
+                DgCategory.Clear();
+                DgCategory = methodAddCADFile.GetcategoryUnique(DgSelectedImportCAD, RevitApp.ActiveUIDocument.Document);
+                DgCategoryGetTotal = methodAddCADFile.Getcategory(DgSelectedImportCAD, RevitApp.ActiveUIDocument.Document);
+                //vLoadCADWin.Visibility = System.Windows.Visibility.Hidden;
+                vLoadCADWin.Close();
+                VisibleWindow = System.Windows.Visibility.Visible;
 
+            }
+            catch { }
+
+        }
         #endregion
     }
 }

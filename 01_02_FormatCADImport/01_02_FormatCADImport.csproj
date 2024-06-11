@@ -76,8 +76,8 @@
     <Compile Include="MVVM\View\vGetCADFile.xaml.cs">
       <DependentUpon>vGetCADFile.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MVVM\View\vLoadFileCAD.xaml.cs">
-      <DependentUpon>vLoadFileCAD.xaml</DependentUpon>
+    <Compile Include="MVVM\View\vLoadCAD.xaml.cs">
+      <DependentUpon>vLoadCAD.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\vMain.xaml.cs">
       <DependentUpon>vMain.xaml</DependentUpon>
@@ -93,7 +93,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MVVM\View\vLoadFileCAD.xaml">
+    <Page Include="MVVM\View\vLoadCAD.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
