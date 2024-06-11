@@ -276,12 +276,13 @@ namespace _01_02_FormatCADImport.MVVM.ViewModel
         {
             try
             {
-                (par as vGetCADFile).Hide();
+                (par as vGetCADFile).Close();
                 vLoadCAD vLoadCADWin = new vLoadCAD();
-                vLoadCADWin.ShowDialog();
+                vLoadCADWin.Show();
                 DgSelectedImportCAD.Clear();
                 foreach (mImportInstancePlus instancePlus in DgAllImportCAD)
                 {
+                    ValueCountCAD += 1;
                     if (instancePlus.IsCheck == true)
                     {
                         DgSelectedImportCAD.Add(instancePlus);
@@ -291,7 +292,7 @@ namespace _01_02_FormatCADImport.MVVM.ViewModel
                 DgCategory = methodAddCADFile.GetcategoryUnique(DgSelectedImportCAD, RevitApp.ActiveUIDocument.Document);
                 DgCategoryGetTotal = methodAddCADFile.Getcategory(DgSelectedImportCAD, RevitApp.ActiveUIDocument.Document);
                 //vLoadCADWin.Visibility = System.Windows.Visibility.Hidden;
-                vLoadCADWin.Close();
+                //vLoadCADWin.Close();
                 VisibleWindow = System.Windows.Visibility.Visible;
 
             }
@@ -389,7 +390,12 @@ namespace _01_02_FormatCADImport.MVVM.ViewModel
         {
             get
             {
-                return _valueDisplay = $"{ValueCountCAD} / {MaxCountCAD}";
+                if (MaxCountCAD == 0 || ValueCountCAD == 0)
+                {
+                    _valueDisplay = $"0 / 0";
+                }
+                else { _valueDisplay = $"{ValueCountCAD}/{MaxCountCAD}"; }
+                return _valueDisplay;
             }
             set
             {
@@ -434,14 +440,14 @@ namespace _01_02_FormatCADImport.MVVM.ViewModel
                 DgCategory = methodAddCADFile.GetcategoryUnique(DgSelectedImportCAD, RevitApp.ActiveUIDocument.Document);
                 DgCategoryGetTotal = methodAddCADFile.Getcategory(DgSelectedImportCAD, RevitApp.ActiveUIDocument.Document);
                 //vLoadCADWin.Visibility = System.Windows.Visibility.Hidden;
-                vLoadCADWin.Close();
+                //vLoadCADWin.Close();
                 VisibleWindow = System.Windows.Visibility.Visible;
 
             }
             catch { }
 
         }
-        #endregion
+        #endregion  
     }
 }
 
