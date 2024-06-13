@@ -94,11 +94,11 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="40" />
-            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
         <DataGrid
             AutoGenerateColumns="False"
             CanUserAddRows="False"
+            IsSynchronizedWithCurrentItem="True"
             ItemsSource="{Binding DgCategory}"
             Style="{StaticResource MaterialDesignDataGrid}">
             <DataGrid.Columns>
@@ -106,6 +106,7 @@
                     Width="*"
                     Binding="{Binding Name}"
                     Header="Layer"
+                    Selector.IsSelected="False"
                     IsReadOnly="true">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
@@ -161,23 +162,8 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <DockPanel Grid.Row="1" LastChildFill="True">
-            <ProgressBar  
-                Value="{Binding Percent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                Maximum="100"
-                Minimum="0"
-                Style="{DynamicResource MaterialDesignLinearProgressBar}"
-                Height="40">
-            </ProgressBar>
-            <TextBlock 
-                FontSize="15"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Text="{Binding Percent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat={}{0}% }">
-            </TextBlock>
-            
-        </DockPanel>
-        <DockPanel Grid.Row="2">
+
+        <DockPanel Grid.Row="1">
             <Button
                 Width="150"
                 Margin="2,0,4,0"
