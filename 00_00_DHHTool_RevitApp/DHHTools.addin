@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>DHH Tools</Name>
+    <Assembly>DhhToolsApp.RibbonApp</Assembly>
+    <FullClassName></FullClassName>
+    <ClientId>5e38c3bd-8f71-4845-ae78-0d744fd24020</ClientId>
+    <VendorId>Dhh Tool - Tool Revit</VendorId>
+    <VendorDescription>Dhh Tool - Tool Revit</VendorDescription>
+  </AddIn>
+</RevitAddIns>

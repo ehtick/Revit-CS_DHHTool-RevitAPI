@@ -106,15 +106,15 @@ namespace DHHTools
         public DhhConstraint(ControlledApplication a = null)
         {
             #region   Khai báo các biến
-            RibbonName = "Q'Apps Training";
-            Icon16X16 = "QApps16x16.png";
-            Icon32X32 = "QApps32x32.png";
+            RibbonName = "DHHTools";
+            Icon16X16 = "DHHApps16x16.png";
+            Icon32X32 = "DHHApp32x32.png";
             IconWindowIco = "About.ico";
             Other32X32 = "Other32x32.png";
             Other16X16 = "Other16x16.png";
-            ContentsFolder = "C:\\ProgramData\\Autodesk\\ApplicationPlugins\\Q'AppsTraining.bundle\\Contents";
+            ContentsFolder = "C:\\ProgramData\\Autodesk\\ApplicationPlugins\\DHHTools.bundle\\Contents";
             SettingFolder = "C:\\ProgramData\\Autodesk\\ApplicationPlugins" +
-                            "\\Q'AppsTraining.bundle\\Contents\\Resources\\Setting";
+                            "\\DHHTools.bundle\\Contents\\Resources\\Setting";
             HelperPath = Path.Combine(ContentsFolder,
                 "Resources", "Help", "Q'AppsHelper.pdf");
             MessageBoxCaption = string.Concat(RibbonName, " - Effective Add-ins for Autodesk Revit");
@@ -133,15 +133,7 @@ namespace DHHTools
             {
                 switch (a.VersionNumber)
                 {
-                    case "2017":
-                        DllFolder = Path.Combine(ContentsFolder, "2017", "dll");
-                        break;
-                    case "2018":
-                        DllFolder = Path.Combine(ContentsFolder, "2018", "dll");
-                        break;
-                    case "2019":
-                        DllFolder = Path.Combine(ContentsFolder, "2019", "dll");
-                        break;
+
                     case "2020":
                         DllFolder = Path.Combine(ContentsFolder, "2020", "dll");
                         break;
