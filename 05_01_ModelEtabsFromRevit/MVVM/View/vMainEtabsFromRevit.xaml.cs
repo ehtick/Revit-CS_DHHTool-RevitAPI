@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace _05_01_ModelEtabsFromRevit.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for vMainEtabsFrRevit.xaml
+    /// Interaction logic for vMainEtabsFromRevit.xaml
     /// </summary>
-    public partial class vMainEtabsFrRevit : Window
+    public partial class vMainEtabsFromRevit : Window
     {
-        public vMainEtabsFrRevit()
+        public vMainEtabsFromRevit()
         {
             InitializeComponent();
         }

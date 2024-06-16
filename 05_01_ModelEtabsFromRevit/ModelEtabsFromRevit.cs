@@ -25,7 +25,7 @@ namespace _05_01_ModelEtabsFromRevit
             using (TransactionGroup transGroup = new TransactionGroup(document))
             {
                 transGroup.Start("Model ETABS From Revit");
-                vMainEtabsFrRevit win = new vMainEtabsFrRevit();
+                vMainEtabsFromRevit win = new vMainEtabsFromRevit();
                 bool? dialog = win.ShowDialog();
                 if (dialog != false)
                     return Result.Succeeded;

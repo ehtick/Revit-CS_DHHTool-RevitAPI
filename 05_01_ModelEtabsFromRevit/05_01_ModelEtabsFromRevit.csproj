@@ -76,9 +76,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModelEtabsFromRevit.cs" />
+    <Compile Include="MVVM\Model\mEtabsClass.cs" />
     <Compile Include="MVVM\ViewModel\vmEtabsFrRevit.cs" />
-    <Compile Include="MVVM\View\vMainEtabsFrRevit.xaml.cs">
-      <DependentUpon>vMainEtabsFrRevit.xaml</DependentUpon>
+    <Compile Include="MVVM\View\vMainEtabsFromRevit.xaml.cs">
+      <DependentUpon>vMainEtabsFromRevit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -86,11 +87,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MVVM\Model\" />
     <Folder Include="Resources\Image\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="MVVM\View\vMainEtabsFrRevit.xaml">
+    <Page Include="MVVM\View\vMainEtabsFromRevit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
