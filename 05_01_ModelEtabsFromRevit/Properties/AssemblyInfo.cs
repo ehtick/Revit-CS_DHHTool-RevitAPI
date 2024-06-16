@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DHHTool_App")]
+[assembly: AssemblyTitle("05_01_ModelEtabsFromRevit")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DHHTool_App")]
-[assembly: AssemblyCopyright("Copyright ©  2024")]
+[assembly: AssemblyCompany("Administrator")]
+[assembly: AssemblyProduct("05_01_ModelEtabsFromRevit")]
+[assembly: AssemblyCopyright("Copyright © Administrator 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("7d00c4cb-d15b-4535-b068-0436a5b5ec30")]
+[assembly: Guid("8947576d-fa30-48b5-8d97-be2c17191f3e")]
 
 // Version information for an assembly consists of the following four values:
 //

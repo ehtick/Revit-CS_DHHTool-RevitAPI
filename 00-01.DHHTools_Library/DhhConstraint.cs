@@ -105,11 +105,12 @@ namespace DHHTools
 
         public DhhConstraint(ControlledApplication a = null)
         {
+
             #region   Khai báo các biến
             RibbonName = "DHHTools";
             Icon16X16 = "DHHApps16x16.png";
             Icon32X32 = "DHHApp32x32.png";
-            IconWindowIco = "About.ico";
+            IconWindowIco = "AboutIcon.png";
             Other32X32 = "Other32x32.png";
             Other16X16 = "Other16x16.png";
             ContentsFolder = "C:\\ProgramData\\Autodesk\\ApplicationPlugins\\DHHTools.bundle\\Contents";

@@ -2,8 +2,8 @@
 <RevitAddIns>
   <AddIn Type="Application">
     <Name>DHH Tools</Name>
-    <Assembly>DhhToolsApp.RibbonApp</Assembly>
-    <FullClassName></FullClassName>
+    <Assembly>.\dll\00_00_DHHTool_RevitApp.dll</Assembly>
+    <FullClassName>DhhToolsApp.RibbonApp</FullClassName>
     <ClientId>5e38c3bd-8f71-4845-ae78-0d744fd24020</ClientId>
     <VendorId>Dhh Tool - Tool Revit</VendorId>
     <VendorDescription>Dhh Tool - Tool Revit</VendorDescription>
