@@ -113,23 +113,31 @@ namespace _05_01_ModelEtabsFromRevit.MVVM.Model
                 //};
                 FilteredElementCollector elementsLevel = new FilteredElementCollector(uIDocument.Document);
                 List<Level> levels = elements.OfCategory(BuiltInCategory.OST_Levels).OfClass(typeof(Level)).Cast<Level>().ToList();
-                int NumberLevel = levels.Count;
-                string[] StoryName = { "L1", "L2", "L3", "L4" };
-                double[] StoryHeight = { 3, 4, 5, 6 };
-                bool[] isMaterStory = { false, false, true, false };
-                string[] IsSimilarToStory = { "None", "None", "None", "None" };
-                bool[] SpliceAbove = { false, false, false, false };
-                double[] SpliceHeight = { 0, 0, 0, 0 };
-                int[] ColorList = { 0, 0, 0, 0 };
-                ////Story Definitions {Key: "Tower", "Story", "Height", "IsMaster", "SimilarTo", "IsSpliced", "Color", "GUID" }
-                ////Story Definitions {Name: "Tower", "Name", "Height", "Master Story", "Similar To", "Splice Story", "Color", "GUID" }
-                ////MySapModel.DatabaseTables.GetAllFieldsInTable("Story Definitions", ref TableVersion, ref NumberFields, ref FieldKey, ref FieldName, ref Description, ref UnitsString, ref IsImporttable);
-                ////MySapModel.DatabaseTables.GetAllTables(ref NumberTables, ref TableKey, ref TableName, ref ImportType, ref IsEmpty);
+                List<Level> levelSort = (List<Level>)levels.OrderBy(x => x.Elevation);
+                int NumberLevel = levelSort.Count;
+                List<string> StoryNameList = new List<string>();
+                List<double> StoryHeightList = new List<double>();
+                List<bool> IsMaterStoryList = new List<bool>();
+                List<string> IsSimilarToStoryList = new List<string>();
+                List<bool> SpliceAboveList = new List<bool>();
+                List<double> SpliceHeightList = new List<double>();
+                List<int> ColorList = new List<int>();
+
+                string[] StoryName = StoryNameList.ToArray();
+                double[] StoryHeight = StoryHeightList.ToArray();
+                bool[] isMaterStory = IsMaterStoryList.ToArray();
+                string[] IsSimilarToStory = IsSimilarToStoryList.ToArray();
+                bool[] SpliceAbove = SpliceAboveList.ToArray();
+                double[] SpliceHeight = SpliceHeightList.ToArray();
+                int[] Color = ColorList.ToArray();
+
+
                 MySapModel.DatabaseTables.SetTableForEditingArray("Grid Definitions - Grid Lines", ref TableVersion, ref FieldsKeysIncluded, NumberRecord, ref TableDataGrid);
                 MySapModel.DatabaseTables.ApplyEditedTables(FillImportLog, ref NumFatalErrors, ref NumErrorMsgs, ref NumWarnMsgs, ref NumInfoMsgs, ref ImportLog);
-                MySapModel.Story.SetStories_2(-2, 4, ref StoryName, ref StoryHeight, ref isMaterStory, ref IsSimilarToStory, ref SpliceAbove, ref SpliceHeight, ref ColorList);
+                MySapModel.Story.SetStories_2(-2, 4, ref StoryName, ref StoryHeight, ref isMaterStory, ref IsSimilarToStory, ref SpliceAbove, ref SpliceHeight, ref Color);
                 MySapModel.View.RefreshWindow();
                 MySapModel.View.RefreshView();
+                
                 #endregion
 
             }
