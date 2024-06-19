@@ -58,16 +58,17 @@ namespace _05_01_ModelEtabsFromRevit.MVVM.Model
                     if (Math.Round(check) == 0) { tabledata_Draft.Add("X (Cartesian)"); }
                     else { tabledata_Draft.Add("Y (Cartesian)"); }
                     tabledata_Draft.Add(name);
-                    XYZ checkPoint = new XYZ(pickPoint.X, pickPoint.Y, 0);
-                    curve.MakeBound(0, 1);
-                    Line line = Line.CreateBound
-                        (
-                            new XYZ(curve.GetEndPoint(0).X, curve.GetEndPoint(0).Y, 0),
-                            new XYZ(curve.GetEndPoint(1).X, curve.GetEndPoint(1).Y, 0)
-                        );
-                    Line XLine = DhhGeometryUtils.LineToXLine(line);
-                    double v = XLine.Distance(checkPoint);
-                    double distance = Math.Round(DhhUnitUtils.FeetToMeter(v), 1);
+                    //XYZ checkPoint = new XYZ(pickPoint.X, pickPoint.Y, 0);
+                    //curve.MakeBound(0, 1);
+                    //Line line = Line.CreateBound
+                    //    (
+                    //        new XYZ(curve.GetEndPoint(0).X, curve.GetEndPoint(0).Y, 0),
+                    //        new XYZ(curve.GetEndPoint(1).X, curve.GetEndPoint(1).Y, 0)
+                    //    );
+                    //Line XLine = DhhGeometryUtils.LineToXLine(line);
+                    double v = 0;
+                    if (Math.Round(check) == 0) { v = origin.X - pickPoint.X; }
+                    else { v = origin.Y - pickPoint.Y; }
                     tabledata_Draft.Add(DhhUnitUtils.FeetToMeter(v).ToString()); // Lưu ý xứ lý số liệu việc làm tròn
                     tabledata_Draft.Add("");
                     tabledata_Draft.Add("");
@@ -77,7 +78,7 @@ namespace _05_01_ModelEtabsFromRevit.MVVM.Model
                     if (Math.Round(check) == 0) { tabledata_Draft.Add("End"); }
                     else { tabledata_Draft.Add("Start"); }
                     tabledata_Draft.Add("Yes");
-                    //MessageBox.Show($"{name} + {check} + {distance}");
+                    //MessageBox.Show($"{name} + {check} + {origin.Y}");
                 }
                 TableDataGrid = tabledata_Draft.ToArray();
                 MessageBox.Show(grids.Count.ToString());
