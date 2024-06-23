@@ -1,37 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{8947576D-FA30-48B5-8D97-BE2C17191F3E}|05_01_ModelEtabsFromRevit\\05_01_ModelEtabsFromRevit.csproj|d:\\study\\programming\\c-sharp\\04.cs_dhhtool_revitapi\\05_01_modeletabsfromrevit\\mvvm\\model\\metabsclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8947576D-FA30-48B5-8D97-BE2C17191F3E}|05_01_ModelEtabsFromRevit\\05_01_ModelEtabsFromRevit.csproj|solutionrelative:05_01_modeletabsfromrevit\\mvvm\\model\\metabsclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "mEtabsClass.cs",
-              "DocumentMoniker": "D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\05_01_ModelEtabsFromRevit\\MVVM\\Model\\mEtabsClass.cs",
-              "RelativeDocumentMoniker": "05_01_ModelEtabsFromRevit\\MVVM\\Model\\mEtabsClass.cs",
-              "ToolTip": "D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\05_01_ModelEtabsFromRevit\\MVVM\\Model\\mEtabsClass.cs",
-              "RelativeToolTip": "05_01_ModelEtabsFromRevit\\MVVM\\Model\\mEtabsClass.cs",
-              "ViewState": "AQIAADEAAAAAAAAAAAAAwEgAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T08:44:13.727Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

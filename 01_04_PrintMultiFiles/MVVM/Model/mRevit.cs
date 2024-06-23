@@ -15,19 +15,22 @@ using System.Windows.Controls;
 using View = Autodesk.Revit.DB.View;
 using System.Windows.Shapes;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Diagnostics;
+using System.Windows.Media.Media3D;
+using Path = System.IO.Path;
 
 
 namespace DHHTools.MVVM.Model
 {
-    public class mRevit: PropertyChangedBase
+    public class mRevit : PropertyChangedBase
     {
         private Application _revitApp;
         public Application RevitApp
         {
-            get 
+            get
             {
                 _revitApp = vmMain.RevitAppService;
-                return _revitApp; 
+                return _revitApp;
             }
             set
             {
@@ -63,7 +66,7 @@ namespace DHHTools.MVVM.Model
             }
         }
         public List<Document> Listdoc { get; set; } = new List<Document>();
-        
+
         public List<Document> addFile()
         {
 
@@ -79,11 +82,11 @@ namespace DHHTools.MVVM.Model
             }
             if (file.ShowDialog() == DialogResult.OK) //if there is a file chosen by the user
             {
-                
+
                 foreach (string filename in file.FileNames)
                 {
                     FileInfo fileInfo = new FileInfo(filename);
-                    
+
                     try
                     {
                         Document document = RevitApp.OpenDocumentFile(filename);
@@ -94,7 +97,7 @@ namespace DHHTools.MVVM.Model
                         }
                     }
                     catch { }
-                   
+
                 }
 
             }
@@ -110,11 +113,11 @@ namespace DHHTools.MVVM.Model
             return new mRevitDoc()
             {
 
-               RevitFile = DocumentRevit,
-               AllSheetSet = sheet,
-               DocumentSelectSheetSet = viewSheetSet,
-               NumberSheet = numberSheet,
-               FileName = fileName, 
+                RevitFile = DocumentRevit,
+                AllSheetSet = sheet,
+                DocumentSelectSheetSet = viewSheetSet,
+                NumberSheet = numberSheet,
+                FileName = fileName,
             };
         }
 
@@ -175,7 +178,7 @@ namespace DHHTools.MVVM.Model
                 DWFExportOptions dWFExportOptions = new DWFExportOptions();
                 dWFExportOptions.MergedViews = true;
                 string DWFFolder = "";
-                if(IsSeprateByFile == true)
+                if (IsSeprateByFile == true)
                 {
                     if (IsSeprateFolder == true)
                     {
@@ -197,14 +200,88 @@ namespace DHHTools.MVVM.Model
                         DWFFolder = SelectFolder;
                     }
                 }
-                
+
                 revitDoc.RevitFile.Export(DWFFolder, revitDoc.RevitFile.Title, revitDoc.DocumentSelectSheetSet.Views, dWFExportOptions);
                 tran.Commit();
             }
 
         }
 
-        public void exportDWG(mRevitDoc revitDoc, string SelectFolder, string SelectCADVersion, bool IsCADSelected, bool IsSeprateFolder, bool IsSeprateByFile,  bool IsAddSheetName, string FileName)
+        public void exportPDF(mRevitDoc revitDoc, string SelectFolder, bool IsSeprateFolder, bool IsSeprateByFile, string FileName)
+        {
+            using (Transaction tran = new Transaction(revitDoc.RevitFile))
+            {
+                tran.Start("Export PDF");
+                PrintManager printManager = revitDoc.RevitFile.PrintManager;
+                string PDFFolder = "";
+                if (IsSeprateByFile == true)
+                {
+                    if (IsSeprateFolder == true)
+                    {
+                        PDFFolder = SelectFolder + "\\" + FileName + "\\PDF";
+                    }
+                    else
+                    {
+                        PDFFolder = SelectFolder + "\\" + FileName;
+                    }
+                }
+                else
+                {
+                    if (IsSeprateFolder == true)
+                    {
+                        PDFFolder = SelectFolder + "\\PDF";
+                    }
+                    else
+                    {
+                        PDFFolder = SelectFolder;
+                    }
+                }
+
+                printManager.PrintSetup.CurrentPrintSetting = printManager.PrintSetup.InSession;
+                printManager.PrintRange = Autodesk.Revit.DB.PrintRange.Select;
+                ViewSheetSetting viewSheetSetting = printManager.ViewSheetSetting;
+                viewSheetSetting.CurrentViewSheetSet.Views = revitDoc.DocumentSelectSheetSet.Views;
+                printManager.CombinedFile = true;
+
+                //printManager.SelectNewPrintDriver("Adobe PDF");
+                PrintSetup pSetup = printManager.PrintSetup;
+                PrintParameters pParam = pSetup.CurrentPrintSetting.PrintParameters;
+                //revitDoc.RevitFile.Export(PDFFolder, revitDoc.RevitFile.Title, revitDoc.DocumentSelectSheetSet.Views, dWFExportOptions);
+                pParam.ZoomType = ZoomType.FitToPage;
+
+                pParam.PaperPlacement = PaperPlacementType.Center;
+                foreach (Autodesk.Revit.DB.PaperSize pSize in printManager.PaperSizes)
+                {
+                    if (pSize.Name.Equals("A1"))//Work required to get actual Sheet size)
+                    {
+                        pParam.PaperSize = pSize;
+                        break;
+                    }
+                }
+
+
+                printManager.PrintToFile = true;
+                string fileName = Path.Combine(PDFFolder, FileName, ".pdf");
+                printManager.PrintToFileName = fileName;
+                //revitDoc.RevitFile.Print(revitDoc.DocumentSelectSheetSet.Views);
+
+                printManager.Apply();
+                try
+                {
+                    pSetup.SaveAs("C:\\Users\\Admin\\Desktop\\Test.pdf");
+                }
+                catch
+                {
+
+                }
+                printManager.SubmitPrint();
+
+                tran.Commit();
+            }
+
+        }
+
+        public void exportDWG(mRevitDoc revitDoc, string SelectFolder, string SelectCADVersion, bool IsCADSelected, bool IsSeprateFolder, bool IsSeprateByFile, bool IsAddSheetName, string FileName)
         {
             List<ElementId> sheetIDs = new List<ElementId>();
             List<string> sheetNames = new List<string>();
@@ -226,7 +303,7 @@ namespace DHHTools.MVVM.Model
                     { dWGExportOptions.FileVersion = ACADVersion.R2018; }
                     dWGExportOptions.TargetUnit = ExportUnit.Millimeter;
                     foreach (ViewSheet item in revitDoc.DocumentSelectSheetSet.Views)
-                    { 
+                    {
                         sheetIDs.Add(item.Id);
                         sheetNames.Add(item.Name);
                         sheetNumbers.Add(item.SheetNumber);
@@ -264,20 +341,20 @@ namespace DHHTools.MVVM.Model
                         string newname = null;
                         if (IsAddSheetName == true)
                         {
-                           newname = sheetNumbers[i] + " - " + sheetNames[i];
+                            newname = sheetNumbers[i] + " - " + sheetNames[i];
                         }
-                        else 
+                        else
                         {
                             newname = sheetNumbers[i];
                         }
                         fileInfo.MoveTo(directory + "\\" + newname + fileInfo.Extension);
                     }
-                    tran.Commit();  
+                    tran.Commit();
                 }
             }
         }
 
-        public void deletePCPFile(bool IsCADSelected, bool IsSeprateByFile,  bool IsSeprateFolder, string SelectFolder, string FileName)
+        public void deletePCPFile(bool IsCADSelected, bool IsSeprateByFile, bool IsSeprateFolder, string SelectFolder, string FileName)
         {
             string DWGFolder = "";
             if (IsSeprateByFile == true)
@@ -287,7 +364,7 @@ namespace DHHTools.MVVM.Model
 
                     if (IsSeprateFolder == true)
                     {
-                        DWGFolder = SelectFolder + "\\" + FileName +  "\\DWG";
+                        DWGFolder = SelectFolder + "\\" + FileName + "\\DWG";
                     }
                     else
                     {
@@ -300,7 +377,7 @@ namespace DHHTools.MVVM.Model
             {
                 if (IsCADSelected == true)
                 {
-                    
+
                     if (IsSeprateFolder == true)
                     {
                         DWGFolder = SelectFolder + "\\DWG";
