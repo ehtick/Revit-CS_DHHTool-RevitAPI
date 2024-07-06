@@ -6,14 +6,15 @@
     xmlns:local="clr-namespace:_05_01_ModelEtabsFromRevit.MVVM.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:rs="clr-namespace:DHHTools;assembly=DHHLibrary"
     xmlns:vm="clr-namespace:_05_01_ModelEtabsFromRevit.MVVM.ViewModel"
-    Title="Etabs From Revit"
-    Visibility="{Binding VisibleWindow}"
     x:Name="WinEtabsFromRevit"
+    Title="Etabs From Revit"
     Width="800"
     Height="450"
     d:DataContext="{d:DesignInstance Type=vm:vmMainEtabsFrRevit}"
     DataContext="{Binding Source={x:Static vm:vmMainEtabsFrRevit.DcMainEtabsFrRevit}}"
+    Visibility="{Binding VisibleWindow}"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Window.Resources>
@@ -33,6 +34,7 @@
             <SolidColorBrush x:Key="Vang" Color="#E0BB1B" />
             <SolidColorBrush x:Key="Xanh" Color="#024E72" />
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/DHHLibrary;component/WPF/Resource/Styles.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/Generic.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Font.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
@@ -89,6 +91,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
+
     <Grid>
         <TabControl Style="{DynamicResource MaterialDesignFilledTabControl}" TabStripPlacement="Left">
             <TabItem>
@@ -107,14 +110,12 @@
                 <StackPanel>
                     <Button
                         Width="200"
-                        Margin="4"
-                        HorizontalAlignment="Stretch"
                         Command="{Binding ConnectETABS}"
-                        Content="Connect ETABS"
-                        Style="{DynamicResource MaterialDesignFlatLightBgButton}" />
+                        Style="{DynamicResource ButtonStyle}"
+                        Content="Connect ETABS" />
                     <Button
-                        Margin="4"
                         Width="200"
+                        Margin="4"
                         HorizontalAlignment="Stretch"
                         Command="{Binding DrawGrid}"
                         CommandParameter="{Binding ElementName=WinEtabsFromRevit}"

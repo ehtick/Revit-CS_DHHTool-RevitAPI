@@ -12,8 +12,6 @@
         <ResourceDictionary Source="TreeViewStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <!--<SolidColorBrush x:Key="MauChu" Color="MediumVioletRed"/>
-    <SolidColorBrush x:Key="MauNen" Color="LemonChiffon"/>-->
     <SolidColorBrush x:Key="MauChu" Color="#cd6300" />
     <SolidColorBrush x:Key="MauNen" Color="White" />
 
@@ -22,7 +20,7 @@
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="FontFamily" Value="Time News Roman"/>
+        <Setter Property="FontFamily" Value="Arial"/>
     </Style>
 
     <Style TargetType="{x:Type ListBox}">

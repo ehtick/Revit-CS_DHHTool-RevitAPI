@@ -1,12 +1,36 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8947576D-FA30-48B5-8D97-BE2C17191F3E}|05_01_ModelEtabsFromRevit\\05_01_ModelEtabsFromRevit.csproj|d:\\study\\programming\\c-sharp\\04.cs_dhhtool_revitapi\\05_01_modeletabsfromrevit\\mvvm\\view\\vmainetabsfromrevit.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8947576D-FA30-48B5-8D97-BE2C17191F3E}|05_01_ModelEtabsFromRevit\\05_01_ModelEtabsFromRevit.csproj|solutionrelative:05_01_modeletabsfromrevit\\mvvm\\view\\vmainetabsfromrevit.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "vMainEtabsFromRevit.xaml",
+              "DocumentMoniker": "D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\05_01_ModelEtabsFromRevit\\MVVM\\View\\vMainEtabsFromRevit.xaml",
+              "RelativeDocumentMoniker": "05_01_ModelEtabsFromRevit\\MVVM\\View\\vMainEtabsFromRevit.xaml",
+              "ToolTip": "D:\\STUDY\\Programming\\C-Sharp\\04.CS_DHHTool_RevitAPI\\05_01_ModelEtabsFromRevit\\MVVM\\View\\vMainEtabsFromRevit.xaml",
+              "RelativeToolTip": "05_01_ModelEtabsFromRevit\\MVVM\\View\\vMainEtabsFromRevit.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-29T05:00:20.732Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
