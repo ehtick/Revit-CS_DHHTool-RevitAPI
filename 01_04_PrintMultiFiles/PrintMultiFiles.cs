@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using _01_04_PrintMultiFiles.MVVM.View;
 using static _01_04_PrintMultiFiles.MVVM.ViewModel.vmMain;
-
 using Autodesk.Revit.Attributes;
 
 namespace DHHTools
@@ -22,6 +21,7 @@ namespace DHHTools
             RevitAppService = RevitApp.Application;
             UIDocument uIDocument = RevitApp.ActiveUIDocument;
             Document document = uIDocument.Document;
+
             using (TransactionGroup transGroup = new TransactionGroup(document))
             {
                 transGroup.Start("Print Multiple Files");

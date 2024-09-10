@@ -52,7 +52,7 @@ namespace _05_01_ModelEtabsFromRevit.MVVM.Model
                     tabledata_Draft.Add("G1");
                     string name = grid.Name;
                     Curve curve = grid.Curve;
-                    XYZ origin = (curve as Line).Origin;
+                      XYZ origin = (curve as Line).Origin;
                     XYZ direction = (curve as Line).Direction;
                     double check = direction.DotProduct(XYZ.BasisX);
                     if (Math.Round(check) == 0) { tabledata_Draft.Add("X (Cartesian)"); }
