@@ -21,14 +21,6 @@ namespace _00_00_DHHTool_RevitApp
         {
             try
             {
-                string versionName = app.ControlledApplication.VersionName;
-                string versionNumber = app.ControlledApplication.VersionNumber;
-                string versionBuild = app.ControlledApplication.VersionBuild;
-                string subVersionNumber = app.ControlledApplication.SubVersionNumber;
-                MessageBox.Show("VersionName: " + versionName + "\n" +
-                "VersionNumber: " + versionNumber + "\n" +
-                "VersionBuild: " + versionBuild + "\n" +
-                "SubVersionNumber: " + subVersionNumber + "\n");
                 CreateRibbonPanel(app);
                 return Result.Succeeded;
             }
@@ -80,7 +72,7 @@ namespace _00_00_DHHTool_RevitApp
             #endregion
 
             #region Create Print Multi File Revit Button 
-            
+
             string namePMF = "PrintMultiFile";
             string displayNamePMF = "Print Files";
             string dllNamePMF = "PrintMultiFiles.dll";
