@@ -111,8 +111,8 @@
                     <Button
                         Width="200"
                         Command="{Binding ConnectETABS}"
-                        Style="{DynamicResource ButtonStyle}"
-                        Content="Connect ETABS" />
+                        Content="Connect ETABS"
+                        Style="{DynamicResource ButtonStyle}" />
                     <Button
                         Width="200"
                         Margin="4"
