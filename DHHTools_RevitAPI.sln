@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.9.34728.123
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33423.256
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "00-01.Library", "00-01.DHHTools_Library\00-01.Library.csproj", "{C1343206-2654-4111-B0FA-B296CBBA6B66}"
 EndProject
@@ -24,6 +24,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_01_ModelEtabsFromRevit", "05_01_ModelEtabsFromRevit\05_01_ModelEtabsFromRevit.csproj", "{8947576D-FA30-48B5-8D97-BE2C17191F3E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_02_DrawSectionSlab_Detail2D", "02_02_DrawSectionSlab_Detail2D\02_02_DrawSectionSlab_Detail2D.csproj", "{DB8FA5B7-262C-4E3E-A22D-3E81D8D72675}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_04_RS2D_RebarSlab2D", "06_04_RS2D_RebarSlab2D\06_04_RS2D_RebarSlab2D.csproj", "{9391184C-76EA-4D4A-B19C-52D6DDA95437}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -167,6 +169,18 @@ Global
 		{DB8FA5B7-262C-4E3E-A22D-3E81D8D72675}.Release|x64.Build.0 = Release|Any CPU
 		{DB8FA5B7-262C-4E3E-A22D-3E81D8D72675}.Release|x86.ActiveCfg = Release|Any CPU
 		{DB8FA5B7-262C-4E3E-A22D-3E81D8D72675}.Release|x86.Build.0 = Release|Any CPU
+		{9391184C-76EA-4D4A-B19C-52D6DDA95437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9391184C-76EA-4D4A-B19C-52D6DDA95437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9391184C-76EA-4D4A-B19C-52D6DDA95437}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9391184C-76EA-4D4A-B19C-52D6DDA95437}.Debug|x64.Build.0 = Debug|Any CPU
+		{9391184C-76EA-4D4A-B19C-52D6DDA95437}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9391184C-76EA-4D4A-B19C-52D6DDA95437}.Debug|x86.Build.0 = Debug|Any CPU
+		{9391184C-76EA-4D4A-B19C-52D6DDA95437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9391184C-76EA-4D4A-B19C-52D6DDA95437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9391184C-76EA-4D4A-B19C-52D6DDA95437}.Release|x64.ActiveCfg = Release|Any CPU
+		{9391184C-76EA-4D4A-B19C-52D6DDA95437}.Release|x64.Build.0 = Release|Any CPU
+		{9391184C-76EA-4D4A-B19C-52D6DDA95437}.Release|x86.ActiveCfg = Release|Any CPU
+		{9391184C-76EA-4D4A-B19C-52D6DDA95437}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
