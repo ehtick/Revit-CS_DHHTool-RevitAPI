@@ -14,7 +14,7 @@ using _06_04_RS2D_RebarSlab2D.MVVM.Model;
 
 namespace _06_04_RS2D_RebarSlab2D.MVVM.ViewModel
 {
-    public class vmMainRebarSlab2DSchedule: PropertyChangedBase
+    public class vmMainRebarSlab2DSchedule : PropertyChangedBase
     {
         #region Khai báo View Model
         private static vmMainRebarSlab2DSchedule _dcMainRSlabSchedule = new vmMainRebarSlab2DSchedule();
@@ -54,12 +54,23 @@ namespace _06_04_RS2D_RebarSlab2D.MVVM.ViewModel
             }
         }
 
-        private void PerformBtnOK()
+        private void PerformBtnOK(object par)
         {
-            mViewPlan.RebarSchedule2D((ViewPlan)RevitUIApp.ActiveUIDocument.Document.ActiveView);
+            (par as vMainRebarSlab2DSchedule).Close();
+            // Create a filtered element collector to collect all Views in the document
+            FilteredElementCollector collector = new FilteredElementCollector(RevitUIApp.ActiveUIDocument.Document)
+                .OfClass(typeof(ViewPlan))
+                .OfCategory(BuiltInCategory.OST_Views);
+
+            // Use LINQ to find the view with the matching name
+            ViewPlan viewPlan = collector
+                .Cast<ViewPlan>()
+                .FirstOrDefault(v => v.Name.Equals("01.MBTS_Tang01_Duoi", StringComparison.InvariantCultureIgnoreCase));
+            mViewPlan.RebarSchedule2D((ViewPlan)viewPlan);
         }
 
         private ActionCommand _btnCancel;
+
         public ICommand BtnCancel
         {
             get
