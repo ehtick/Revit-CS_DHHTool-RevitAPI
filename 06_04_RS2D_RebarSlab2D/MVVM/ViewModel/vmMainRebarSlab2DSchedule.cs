@@ -65,7 +65,7 @@ namespace _06_04_RS2D_RebarSlab2D.MVVM.ViewModel
             // Use LINQ to find the view with the matching name
             ViewPlan viewPlan = collector
                 .Cast<ViewPlan>()
-                .FirstOrDefault(v => v.Name.Equals("01.MBTS_Tang01_Duoi", StringComparison.InvariantCultureIgnoreCase));
+                .FirstOrDefault(v =>  v.Name.Equals("01.MBTS_Tang01_Duoi", StringComparison.InvariantCultureIgnoreCase));
             mViewPlan.RebarSchedule2D((ViewPlan)viewPlan);
         }
 

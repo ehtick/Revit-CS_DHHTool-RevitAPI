@@ -70,32 +70,25 @@ namespace _06_04_RS2D_RebarSlab2D.MVVM.Model
             }
         }
 
-
-        private List<FamilyInstance> GetNestedInstances(FamilyInstance familyInstance)
-        {
-            List<FamilyInstance> nestedInstances = new List<FamilyInstance>();
-            foreach (ElementId id in familyInstance.GetSubComponentIds())
-            {
-                Element subComponent = familyInstance.Document.GetElement(id);
-                if (subComponent is FamilyInstance nestedInstance)
-                {
-                    nestedInstances.Add(nestedInstance);
-                }
-            }
-            return nestedInstances;
-        }
         public void RebarSchedule2D(ViewPlan viewPlan)
         {
-            FamilySymbol familyType = new FilteredElementCollector(Document)
-                .OfClass(typeof(FamilySymbol))
-                .Cast<FamilySymbol>()
-                .FirstOrDefault(fs => fs.Name.Equals("TK_TK2", StringComparison.InvariantCultureIgnoreCase));
+            //FamilySymbol familyType = new FilteredElementCollector(Document)
+            //    .OfClass(typeof(FamilySymbol))
+            //    .Cast<FamilySymbol>()
+            //    .FirstOrDefault(fs => fs.Name.Equals("TK_TK2", StringComparison.InvariantCultureIgnoreCase));
             FamilySymbol fsymbol_RebarSlab = (FamilySymbol)new FilteredElementCollector(Document)
                 .WhereElementIsElementType()
                 .OfCategory(BuiltInCategory.OST_DetailComponents)
                 .OfClass(typeof(FamilySymbol))
                 .Cast<FamilySymbol>()
                 .FirstOrDefault(s => s.Name.Contains("DHH_KC_ThepSan"));
+            FamilySymbol fsymbol_TK = (FamilySymbol)new FilteredElementCollector(Document)
+                .WhereElementIsElementType()
+                .OfCategory(BuiltInCategory.OST_GenericAnnotation)
+                .OfClass(typeof(FamilySymbol))
+                .Cast<FamilySymbol>()
+                .FirstOrDefault(s => s.Name.Contains("TT_TK2"));
+            //MessageBox.Show(fsymbol_TK.FamilyName);
             FamilySymbol fsymbol_RebarSchedule = (FamilySymbol)new FilteredElementCollector(Document)
                 .WhereElementIsElementType()
                 .OfCategory(BuiltInCategory.OST_DetailComponents)
@@ -124,12 +117,12 @@ namespace _06_04_RS2D_RebarSlab2D.MVVM.Model
                         //XYZ insPointContSection = new XYZ(DhhUnitUtils.MmToFeet(B / 2), 0, 0);
                         XYZ insPoint = insPointStartSection; //+ insPointContSection;
                         FamilyInstance sectionFamily = Document.Create.NewFamilyInstance(insPoint, fsymbol_RebarSchedule, Document.ActiveView);
-
-                        var nestedInstances = GetNestedInstances(sectionFamily);
-                        IList<Subelement> subelements = sectionFamily.GetSubelements();
-
+                        ElementFilter filter2 = new ElementClassFilter(typeof(FamilyInstance));
+                        IList<ElementId> elementIds = sectionFamily.GetDependentElements(filter2);
+                        Element element = Document.GetElement(elementIds[0]);
+                        MessageBox.Show(element.Name);
                         Parameter HDKTpara = sectionFamily.LookupParameter("HDKT");
-                        HDKTpara.AsElementId();
+                        HDKTpara.Set("TT_TK2");
 
                     }
 
