@@ -73,6 +73,8 @@
     <Compile Include="MVVM\View\vMainRebarSlab2DSchedule.xaml.cs">
       <DependentUpon>vMainRebarSlab2DSchedule.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Object\DetailItemInfor.cs" />
+    <Compile Include="Object\SortString.cs" />
     <Compile Include="RS2D_RebarSlab2D.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

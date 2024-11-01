@@ -22,6 +22,7 @@ using static System.Net.WebRequestMethods;
 using DHHTools;
 using System;
 using System.Windows.Media;
+using _06_04_RS2D_RebarSlab2D.Object;
 
 
 namespace _06_04_RS2D_RebarSlab2D.MVVM.Model
@@ -83,7 +84,7 @@ namespace _06_04_RS2D_RebarSlab2D.MVVM.Model
                 .OfCategory(BuiltInCategory.OST_GenericAnnotation)
                 .OfClass(typeof(FamilySymbol))
                 .Cast<FamilySymbol>()
-                .FirstOrDefault(s => s.Name.Contains("TT_TK4"));
+                .FirstOrDefault(s => s.Name.Contains("TD_TK1"));
             //MessageBox.Show(fsymbol_TK.FamilyName);
             FamilySymbol fsymbol_RebarSchedule = (FamilySymbol)new FilteredElementCollector(Document)
                 .WhereElementIsElementType()
@@ -96,6 +97,13 @@ namespace _06_04_RS2D_RebarSlab2D.MVVM.Model
             List<Element> familyInstances = elementsFilter.WherePasses(filter).ToElements().ToList();
             ViewType viewType = Document.ActiveView.ViewType;
             int scale = Document.ActiveView.Scale;
+            List<DetailItemInfor> Listelement = new List<DetailItemInfor>();
+            foreach(Element element in familyInstances)
+            {
+                DetailItemInfor detailItemInfor = new DetailItemInfor(element as FamilyInstance);
+                Listelement.Add(detailItemInfor);
+            }
+            List<DetailItemInfor> ListSort = Listelement.OrderBy(x => x.SoHieu, new NaturalStringComparer()).ToList();
             using (Transaction transaction = new Transaction(Document, "Thống kê thép sàn"))
             {
                 transaction.Start();
@@ -105,17 +113,20 @@ namespace _06_04_RS2D_RebarSlab2D.MVVM.Model
                 }
                 else
                 {
-                    for (int i = 0; i < familyInstances.Count; i++)
+                    for (int i = 0; i < Listelement.Count; i++)
                     {
+                        
                         XYZ insPointStartSection = new XYZ(0, DhhUnitUtils.MmToFeet(i * 8 * scale), 0);
-                        //XYZ insPointContSection = new XYZ(DhhUnitUtils.MmToFeet(B / 2), 0, 0);
-                        XYZ insPoint = insPointStartSection; //+ insPointContSection;
+                        XYZ insPoint = insPointStartSection;
                         FamilyInstance sectionFamily = Document.Create.NewFamilyInstance(insPoint, fsymbol_RebarSchedule, Document.ActiveView);
-                        ElementFilter filter2 = new ElementClassFilter(typeof(NestedFamilyTypeReference));
-                        IList<ElementId> elementIds = sectionFamily.GetDependentElements(filter2);
                         Parameter HDKTpara = sectionFamily.LookupParameter("HDKT");
                         HDKTpara.Set(fsymbol_TK.Id);
-
+                        Parameter SHpara = sectionFamily.LookupParameter("SH");
+                        SHpara.Set(ListSort[i].SoHieu);
+                        Parameter DKpara = sectionFamily.LookupParameter("DK");
+                        DKpara.Set(ListSort[i].DuongKinh);
+                        Parameter SLPara = sectionFamily.LookupParameter("SL");
+                        SLPara.Set(ListSort[i].Soluong);
                     }
 
                 }
