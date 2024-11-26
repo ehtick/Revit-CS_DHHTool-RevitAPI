@@ -101,11 +101,36 @@ namespace _06_04_RS2D_RebarSlab2D.Object
             }
         }
 
+        private double _d1;
+        public double D1
+        {
+            get => _d1;
+            set
+            {
+                _d1 = value;
+                OnPropertyChanged(nameof(D1));
+            }
+        }
+
+
+        private string _hdThep;
+        public string HDThep
+        {
+            get => _hdThep;
+            set
+            {
+                _hdThep = value;
+                OnPropertyChanged(nameof(HDThep));
+            }
+        }
         #endregion
+
 
         public DetailItemInfor(FamilyInstance element)
         {
-            DetailItem = element;
+            DetailItem = element; 
+            Parameter len_Para = element.LookupParameter("Length");
+            D1 = DhhUnitUtils.FeetToMm(len_Para.AsDouble());
             Parameter dk_par = element.LookupParameter("TS_DuongKinh");
             DuongKinh = (int)dk_par.AsInteger();
             Parameter sh_par = element.LookupParameter("TS_SoHieu");
@@ -118,6 +143,54 @@ namespace _06_04_RS2D_RebarSlab2D.Object
             RaiThepTrai = DhhUnitUtils.FeetToMm(raiPhai_par.AsDouble());
             TongkhoangRai = RaiThepPhai + RaiThepTrai;
             Soluong = (int)Math.Floor(TongkhoangRai / (Convert.ToDouble(KhoangCach))) + 1;
+            RaiThepTrai = DhhUnitUtils.FeetToMm(raiTrai_par.AsDouble());  
+            
+            Parameter TsTop_par = element.LookupParameter("TS_Top");
+            int TsTop = TsTop_par.AsInteger();
+            Parameter TsAdd_par = element.LookupParameter("TS_Add");
+            int TsAdd = TsAdd_par.AsInteger();
+            Parameter TsAdd1Side_par = element.LookupParameter("TS_Add1Side");
+            int TsAdd1Side = TsAdd1Side_par.AsInteger();
+            Parameter TsBotUni8_par = element.LookupParameter("TS_Bot_Uni8");
+            int TsBotUni8 = TsBotUni8_par.AsInteger();
+            string tag = TsTop.ToString() + TsAdd.ToString() + TsAdd1Side.ToString() + TsBotUni8.ToString();
+            switch(tag)
+            {
+                //Top
+                case "1000": //Top Uniform
+                    HDThep = "TT_TK1";
+                    break;
+                case "1100": //Top Add 
+                    HDThep = "TT_TK2";
+                    break;
+                case "1010": //Top Add 1 Side
+                    HDThep = "TT_TK1";
+                    break;
+
+                //Bottom
+                case "0000": //Bot Uniform
+                    HDThep = "TT_TK1";
+                    break;
+                case "0001": //Bot Uniform 8
+                    HDThep = "TT_TK4";
+                    break;
+                case "0100": //Bot Add
+                    HDThep = "TT_TK2";
+                    break;
+                case "0010": //Bot Uniform
+                    HDThep = "TT_TK1";
+                    break;
+                case "0011": //Bot Uniform 8
+                    HDThep = "TT_TK1";
+                    break;
+                case "0110": //Bot Add
+                    HDThep = "TT_TK2";
+                    break;
+                default:
+                    HDThep = "TT_TK2";
+                    break;
+            }    
+
         }
     }
 }

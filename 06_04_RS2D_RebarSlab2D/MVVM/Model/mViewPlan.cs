@@ -27,7 +27,7 @@ using _06_04_RS2D_RebarSlab2D.Object;
 
 namespace _06_04_RS2D_RebarSlab2D.MVVM.Model
 {
-    public class mViewPlan : PropertyChangedBase
+    public class mRebarSchedule2D : PropertyChangedBase
     {
         private Application _revitApp;
         public Application RevitApp
@@ -79,13 +79,14 @@ namespace _06_04_RS2D_RebarSlab2D.MVVM.Model
                 .OfClass(typeof(FamilySymbol))
                 .Cast<FamilySymbol>()
                 .FirstOrDefault(s => s.Name.Contains("DHH_KC_ThepSan"));
-            FamilySymbol fsymbol_TK = (FamilySymbol)new FilteredElementCollector(Document)
+
+            FamilySymbol fsymbol_RebarScheduleTitle = (FamilySymbol)new FilteredElementCollector(Document)
                 .WhereElementIsElementType()
-                .OfCategory(BuiltInCategory.OST_GenericAnnotation)
+                .OfCategory(BuiltInCategory.OST_DetailComponents)
                 .OfClass(typeof(FamilySymbol))
                 .Cast<FamilySymbol>()
-                .FirstOrDefault(s => s.Name.Contains("TD_TK1"));
-            //MessageBox.Show(fsymbol_TK.FamilyName);
+                .FirstOrDefault(s => s.Name.Contains("DHH_KC_DT_TKT-Title"));
+
             FamilySymbol fsymbol_RebarSchedule = (FamilySymbol)new FilteredElementCollector(Document)
                 .WhereElementIsElementType()
                 .OfCategory(BuiltInCategory.OST_DetailComponents)
@@ -96,7 +97,6 @@ namespace _06_04_RS2D_RebarSlab2D.MVVM.Model
             FilteredElementCollector elementsFilter = new FilteredElementCollector(Document, viewPlan.Id);
             List<Element> familyInstances = elementsFilter.WherePasses(filter).ToElements().ToList();
             ViewType viewType = Document.ActiveView.ViewType;
-            int scale = Document.ActiveView.Scale;
             List<DetailItemInfor> Listelement = new List<DetailItemInfor>();
             foreach(Element element in familyInstances)
             {
@@ -113,10 +113,17 @@ namespace _06_04_RS2D_RebarSlab2D.MVVM.Model
                 }
                 else
                 {
+                    XYZ insPointStart = new XYZ(0, DhhUnitUtils.MmToFeet(12), 0);
+                    FamilyInstance titleFamily = Document.Create.NewFamilyInstance(insPointStart, fsymbol_RebarScheduleTitle, Document.ActiveView);
                     for (int i = 0; i < Listelement.Count; i++)
                     {
-                        
-                        XYZ insPointStartSection = new XYZ(0, DhhUnitUtils.MmToFeet(i * 8 * scale), 0);
+                        FamilySymbol fsymbol_TK = (FamilySymbol)new FilteredElementCollector(Document)
+                                .WhereElementIsElementType()
+                                .OfCategory(BuiltInCategory.OST_GenericAnnotation)
+                                .OfClass(typeof(FamilySymbol))
+                                .Cast<FamilySymbol>()
+                                .FirstOrDefault(s => s.Name.Contains(ListSort[i].HDThep));
+                        XYZ insPointStartSection = new XYZ(0, DhhUnitUtils.MmToFeet(-i * 8), 0);
                         XYZ insPoint = insPointStartSection;
                         FamilyInstance sectionFamily = Document.Create.NewFamilyInstance(insPoint, fsymbol_RebarSchedule, Document.ActiveView);
                         Parameter HDKTpara = sectionFamily.LookupParameter("HDKT");
@@ -127,8 +134,9 @@ namespace _06_04_RS2D_RebarSlab2D.MVVM.Model
                         DKpara.Set(ListSort[i].DuongKinh);
                         Parameter SLPara = sectionFamily.LookupParameter("SL");
                         SLPara.Set(ListSort[i].Soluong);
+                        Parameter D1Para = sectionFamily.LookupParameter("D1");
+                        D1Para.Set(ListSort[i].D1);
                     }
-
                 }
                 transaction.Commit();
             }

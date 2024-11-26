@@ -9,8 +9,9 @@
              xmlns:vm="clr-namespace:_06_04_RS2D_RebarSlab2D.MVVM.ViewModel"
              d:DataContext="{d:DesignInstance Type=vm:vmMainRebarSlab2DSchedule}"
              DataContext="{Binding Source={x:Static vm:vmMainRebarSlab2DSchedule.DcMainRSlabSchedule}}"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+            WindowStartupLocation="CenterScreen"     
+            mc:Ignorable="d" 
+             Height="450" Width="700">
     <Window.Resources>
         <ResourceDictionary>
             <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#006536" />
@@ -90,8 +91,36 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <DockPanel LastChildFill="True">
-            <DataGrid>
-                
+            <DataGrid 
+                AutoGenerateColumns="False"
+                CanUserAddRows="False"
+                ItemsSource="{Binding DgViewPlanInfor}">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="500" Header="Mặt bằng">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox
+                                        DisplayMemberPath="Name"
+                                        ItemsSource="{Binding AllViewPlan}"
+                                        SelectedIndex="0"
+                                        SelectedValue="{Binding SelectViewPlan, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox
+                                        DisplayMemberPath="Name"
+                                        ItemsSource="{Binding DataContext.AllViewPlan, ElementName=RebarSlabSchedule2D}"
+                                        SelectedItem="{Binding SelectViewPlan, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Width="*" Binding="{Binding ViewNameSelect, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" >
+                        <DataGridColumn.Header>
+                            <TextBlock Text="View Name" />
+                        </DataGridColumn.Header>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
         <Grid Grid.Row="1" Width="Auto">
@@ -103,6 +132,18 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
+            <Button Grid.Column="2"
+                Margin="2"
+                Content="Thêm mặt bằng"
+                Command="{Binding BtnAdd}"
+                CommandParameter="{Binding ElementName=RebarSlabSchedule2D}"
+                DockPanel.Dock="Right" />
+            <Button Grid.Column="3"
+                Margin="2"
+                Content="Xóa mặt bằng"
+                Command="{Binding BtnRemove}"
+                CommandParameter="{Binding ElementName=RebarSlabSchedule2D}"
+                DockPanel.Dock="Right" />
             <Button Grid.Column="4"
                 Margin="2"
                 Content="OK"

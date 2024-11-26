@@ -75,6 +75,7 @@
     </Compile>
     <Compile Include="Object\DetailItemInfor.cs" />
     <Compile Include="Object\SortString.cs" />
+    <Compile Include="Object\ViewPlanInfor.cs" />
     <Compile Include="RS2D_RebarSlab2D.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
