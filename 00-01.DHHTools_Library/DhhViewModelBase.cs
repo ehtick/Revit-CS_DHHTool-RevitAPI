@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace DHHTools
 {
-    public class ViewModelBase : INotifyPropertyChanged
+    public class DhhViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>

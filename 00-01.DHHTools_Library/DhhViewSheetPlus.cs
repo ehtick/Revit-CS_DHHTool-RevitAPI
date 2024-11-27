@@ -7,7 +7,7 @@ using Autodesk.Revit.UI.Selection;
 
 namespace DHHTools
 {
-    public class ViewSheetPlus : ViewModelBase
+    public class ViewSheetPlus : DhhViewModelBase
     {
         private bool _isSelected;
         public ViewSheet ViewSheet { get; set; }

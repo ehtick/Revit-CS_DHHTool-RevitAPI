@@ -1,16 +1,3 @@
-D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\obj\Debug\03_01_RebarFoundation3D.csproj.AssemblyReference.cache
-D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\obj\Debug\MVVM\View\vMain.g.cs
-D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\obj\Debug\03_01_RebarFoundation3D_MarkupCompile.cache
-D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\obj\Debug\03_01_RebarFoundation3D_MarkupCompile.lref
-D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\bin\Debug\03_01_RebarFoundation3D.dll
-D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\bin\Debug\03_01_RebarFoundation3D.pdb
-D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\bin\Debug\BIMSoftLib.dll
-D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\obj\Debug\MVVM\View\vMain.baml
-D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\obj\Debug\03_01_RebarFoundation3D.g.resources
-D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\obj\Debug\03_01_RebarFoundation3D.csproj.CoreCompileInputs.cache
-D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\obj\Debug\03_01_RebarFoundation3D.csproj.CopyComplete
-D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\obj\Debug\03_01_RebarFoundation3D.dll
-D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\obj\Debug\03_01_RebarFoundation3D.pdb
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\bin\Debug\03_01_RebarFoundation3D.dll
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\bin\Debug\03_01_RebarFoundation3D.pdb
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\bin\Debug\BIMSoftLib.dll
@@ -56,6 +43,12 @@ D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\03_01_RebarFoundation3D\obj\Debug\03_01_
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\03_01_RebarFoundation3D\obj\Debug\03_01_RebarFoundation3D.pdb
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\bin\Debug\DHHLibrary.dll
 D:\WORKING\DHH\C-Sharp_DHHTool-RevitAPI\03_01_RebarFoundation3D\bin\Debug\DHHLibrary.dll
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\obj\Debug\MVVM\View\vMain.g.cs
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\obj\Debug\03_01_RebarFoundation3D_MarkupCompile.cache
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\obj\Debug\03_01_RebarFoundation3D_MarkupCompile.lref
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\bin\Debug\03_01_RebarFoundation3D.dll
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\bin\Debug\03_01_RebarFoundation3D.pdb
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\bin\Debug\BIMSoftLib.dll
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\bin\Debug\DHHLibrary.dll
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\bin\Debug\MaterialDesignColors.dll
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\bin\Debug\MaterialDesignThemes.Wpf.dll
@@ -66,3 +59,10 @@ D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\bin\De
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\bin\Debug\MaterialDesignThemes.Wpf.xml
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\bin\Debug\Microsoft.Xaml.Behaviors.xml
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\obj\Debug\03_01_RebarFoundation3D.csproj.AssemblyReference.cache
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\obj\Debug\MVVM\View\vMain.baml
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\obj\Debug\03_01_RebarFoundation3D.g.resources
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\obj\Debug\03_01_RebarFoundation3D.csproj.CoreCompileInputs.cache
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\obj\Debug\03_01_RebarFoundation3D.csproj.CopyComplete
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\obj\Debug\03_01_RebarFoundation3D.dll
+D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\03_01_RebarFoundation3D\obj\Debug\03_01_RebarFoundation3D.pdb

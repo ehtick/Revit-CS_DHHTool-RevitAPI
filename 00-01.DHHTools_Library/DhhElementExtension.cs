@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace DHHTools
 {
-    public class ElementExtension : ViewModelBase
+    public class ElementExtension : DhhViewModelBase
     {
         private bool _isSelected;
         public Element Element { get; set; }

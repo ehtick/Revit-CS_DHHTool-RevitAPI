@@ -13,6 +13,7 @@ using _06_04_RS2D_RebarSlab2D.MVVM.View;
 using _06_04_RS2D_RebarSlab2D.MVVM.Model;
 using _06_04_RS2D_RebarSlab2D.Object;
 using System.Windows;
+using DHHTools;
 
 namespace _06_04_RS2D_RebarSlab2D.MVVM.ViewModel
 {
@@ -75,16 +76,55 @@ namespace _06_04_RS2D_RebarSlab2D.MVVM.ViewModel
         private void PerformBtnOK(object par)
         {
             (par as vMainRebarSlab2DSchedule).Close();
-            // Create a filtered element collector to collect all Views in the document
-            FilteredElementCollector collector = new FilteredElementCollector(RevitUIApp.ActiveUIDocument.Document)
-                .OfClass(typeof(ViewPlan))
-                .OfCategory(BuiltInCategory.OST_Views);
+            //// Create a filtered element collector to collect all Views in the document
+            //FilteredElementCollector collector = new FilteredElementCollector(RevitUIApp.ActiveUIDocument.Document)
+            //    .OfClass(typeof(ViewPlan))
+            //    .OfCategory(BuiltInCategory.OST_Views);
 
-            // Use LINQ to find the view with the matching name
-            ViewPlan viewPlan = collector
-                .Cast<ViewPlan>()
-                .FirstOrDefault(v =>  v.Name.Equals("01.MBTS_Tang01_Duoi", StringComparison.InvariantCultureIgnoreCase));
-            mRebarSchedule.RebarSchedule2D((ViewPlan)viewPlan);
+            //// Use LINQ to find the view with the matching name
+            //ViewPlan viewPlan = collector
+            //    .Cast<ViewPlan>()
+            //    .FirstOrDefault(v =>  v.Name.Equals("01.MBTS_Tang01_Duoi", StringComparison.InvariantCultureIgnoreCase));
+            XYZ startpointTitle = new XYZ (0, 0, 0);
+            mRebarSchedule.RebarSchedule2DTitle(startpointTitle);
+            int j = 0;
+            for (int i = 0; i < DgViewPlanInfor.Count; i++)
+            {
+                XYZ startpointSchedule = new XYZ(0, 0, 0);
+                if (i == 0)
+                {
+                    startpointSchedule = new XYZ(0, DhhUnitUtils.MmToFeet(-12), 0);
+                }
+                else if (i==1)
+                {
+                    FamilySymbol fsymbol_RebarSlab = (FamilySymbol)new FilteredElementCollector(RevitUIApp.ActiveUIDocument.Document)
+                        .WhereElementIsElementType()
+                        .OfCategory(BuiltInCategory.OST_DetailComponents)
+                        .OfClass(typeof(FamilySymbol))
+                        .Cast<FamilySymbol>()
+                        .FirstOrDefault(s => s.Name.Contains("DHH_KC_ThepSan"));
+                    FamilyInstanceFilter filter = new FamilyInstanceFilter(RevitUIApp.ActiveUIDocument.Document, fsymbol_RebarSlab.Id);
+                    FilteredElementCollector elementsFilter = new FilteredElementCollector(RevitUIApp.ActiveUIDocument.Document, DgViewPlanInfor[i - 1].SelectViewPlan.Id);
+                    List<Element> familyInstances = elementsFilter.WherePasses(filter).ToElements().ToList();
+                    startpointSchedule = new XYZ(0, DhhUnitUtils.MmToFeet(-12 - familyInstances.Count), 0);
+                    j = j + familyInstances.Count;
+                }  
+                else
+                {
+                    FamilySymbol fsymbol_RebarSlab = (FamilySymbol)new FilteredElementCollector(RevitUIApp.ActiveUIDocument.Document)
+                        .WhereElementIsElementType()
+                        .OfCategory(BuiltInCategory.OST_DetailComponents)
+                        .OfClass(typeof(FamilySymbol))
+                        .Cast<FamilySymbol>()
+                        .FirstOrDefault(s => s.Name.Contains("DHH_KC_ThepSan"));
+                    FamilyInstanceFilter filter = new FamilyInstanceFilter(RevitUIApp.ActiveUIDocument.Document, fsymbol_RebarSlab.Id);
+                    FilteredElementCollector elementsFilter = new FilteredElementCollector(RevitUIApp.ActiveUIDocument.Document, DgViewPlanInfor[i - 1].SelectViewPlan.Id);
+                    List<Element> familyInstances = elementsFilter.WherePasses(filter).ToElements().ToList();
+                    startpointSchedule = new XYZ(0, DhhUnitUtils.MmToFeet(-12 - j*8), 0);
+                    j = j + familyInstances.Count;
+                }    
+                mRebarSchedule.RebarSchedule2D(DgViewPlanInfor[i].SelectViewPlan, startpointSchedule);
+            }    
         }
 
         private ActionCommand _btnCancel;
@@ -130,7 +170,6 @@ namespace _06_04_RS2D_RebarSlab2D.MVVM.ViewModel
                 allViewPlandraft.Add(viewPlan);
             }
             ViewPlan viewPlandraft = allViewPlandraft[0];
-            MessageBox.Show(allViewPlandraft.Count.ToString());
             ViewPlanInfor viewPlanInfor =
                 new ViewPlanInfor
                 {
@@ -153,7 +192,6 @@ namespace _06_04_RS2D_RebarSlab2D.MVVM.ViewModel
                 return btnRemove;
             }
         }
-
         private void PerformBtnRemove()
         {
         }

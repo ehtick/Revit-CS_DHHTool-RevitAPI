@@ -111,10 +111,11 @@
     <Compile Include="DhhViewPlus.cs" />
     <Compile Include="DhhViewSheetPlus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DhhSortString.cs" />
     <Compile Include="WPF\CustomControls\CustomDataGrid.cs" />
     <Compile Include="WPF\CustomControls\CustomListBox.cs" />
     <Compile Include="WPF\CustomControls\CustomTreeView.cs" />
-    <Compile Include="ViewModelBase.cs" />
+    <Compile Include="DhhViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="WPF\Resource\BorderGridStyle.xaml">

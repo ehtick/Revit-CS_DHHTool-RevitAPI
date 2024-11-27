@@ -51,6 +51,21 @@ namespace _06_04_RS2D_RebarSlab2D.Object
             }
         }
 
+        private ObservableRangeCollection<Element> _rebarSlab = new ObservableRangeCollection<Element>();
+        public ObservableRangeCollection<Element> RebarSlab
+        {
+            get
+            {
+                return _rebarSlab;
+            }
+            set
+            {
+                _rebarSlab = value;
+                OnPropertyChanged(nameof(AllViewPlan));
+                OnPropertyChanged(nameof(SelectViewPlan));
+            }
+        }
+
 
     }
 }
