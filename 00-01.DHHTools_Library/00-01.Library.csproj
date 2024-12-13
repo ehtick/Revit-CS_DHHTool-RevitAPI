@@ -107,6 +107,7 @@
     <Compile Include="DhhFloorSelectionFilter.cs" />
     <Compile Include="DhhGeometryUtils.cs" />
     <Compile Include="DhhPileSelectionFilter.cs" />
+    <Compile Include="DhhRebarScheduleFilter.cs" />
     <Compile Include="DhhUnitUtils.cs" />
     <Compile Include="DhhViewPlus.cs" />
     <Compile Include="DhhViewSheetPlus.cs" />

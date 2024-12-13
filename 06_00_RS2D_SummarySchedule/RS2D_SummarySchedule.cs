@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.DB;
+using DHHTools;
+using Autodesk.Revit.ApplicationServices;
 
 namespace _06_00_RS2D_SummarySchedule
 {
@@ -14,12 +13,14 @@ namespace _06_00_RS2D_SummarySchedule
     {
         Result IExternalCommand.Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            UIApplication uIApp = commandData.Application;
-            UIDocument uIDoc = uIApp.ActiveUIDocument;
-            Document document = uIDoc.Document;
+            UIApplication uiapp = commandData.Application;
+            UIDocument uidoc = uiapp.ActiveUIDocument;
+            Application app = uiapp.Application;
+            Document document = uidoc.Document;
             using (TransactionGroup transGroup = new TransactionGroup(document))
             {
-
+                transGroup.Start("Rebar Summary");
+                List<Element> pickelements = uidoc.Selection.PickElementsByRectangle(new DhhRebarScheduleFilter(), "Chọn bảng thống kê").ToList();
                 transGroup.Commit();
             }
             return Result.Succeeded;
