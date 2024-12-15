@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.33423.256
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "00-01.Library", "00-01.DHHTools_Library\00-01.Library.csproj", "{C1343206-2654-4111-B0FA-B296CBBA6B66}"
 EndProject

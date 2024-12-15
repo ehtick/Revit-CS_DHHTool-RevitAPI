@@ -5,7 +5,6 @@ D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\01_01_SiteByXYCoordinates\bi
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\01_01_SiteByXYCoordinates\bin\Debug\DHHLibrary.pdb
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\01_01_SiteByXYCoordinates\obj\Debug\01_01_SiteByXYCoordinates.csproj.AssemblyReference.cache
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\01_01_SiteByXYCoordinates\obj\Debug\01_01_SiteByXYCoordinates.csproj.CoreCompileInputs.cache
-D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\01_01_SiteByXYCoordinates\obj\Debug\01_01_Si.2973342C.Up2Date
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\01_01_SiteByXYCoordinates\obj\Debug\01_01_SiteByXYCoordinates.dll
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\01_01_SiteByXYCoordinates\obj\Debug\01_01_SiteByXYCoordinates.pdb
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_01_SiteByXYCoordinates\obj\Debug\01_01_SiteByXYCoordinates.csproj.CoreCompileInputs.cache
@@ -18,3 +17,4 @@ D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_01_SiteByXYCoordinates\obj\
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_01_SiteByXYCoordinates\obj\Debug\01_01_SiteByXYCoordinates.csproj.CopyComplete
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_01_SiteByXYCoordinates\obj\Debug\01_01_SiteByXYCoordinates.dll
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_01_SiteByXYCoordinates\obj\Debug\01_01_SiteByXYCoordinates.pdb
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\01_01_SiteByXYCoordinates\obj\Debug\01_01_SiteByXYCoordinates.csproj.CopyComplete

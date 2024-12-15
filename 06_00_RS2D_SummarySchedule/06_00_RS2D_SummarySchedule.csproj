@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>_06_00_RS2D_SummarySchedule</RootNamespace>
     <AssemblyName>06_00_RS2D_SummarySchedule</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,11 +35,14 @@
     <Reference Include="BIMSoftLib">
       <HintPath>..\..\00.CS_Library\BIMSoftLib.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="RevitAPI">
       <HintPath>C:\Program Files\Autodesk\Revit 2020\RevitAPI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="RevitAPIUI">
       <HintPath>C:\Program Files\Autodesk\Revit 2020\RevitAPIUI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -50,8 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetNestedFamilyParameter.cs" />
+    <Compile Include="RebarScheduleFilter.cs" />
     <Compile Include="RS2D_SummarySchedule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RSDetailInfor.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\00-01.DHHTools_Library\00-01.Library.csproj">

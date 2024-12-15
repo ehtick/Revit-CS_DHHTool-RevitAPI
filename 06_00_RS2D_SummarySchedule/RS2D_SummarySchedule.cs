@@ -5,6 +5,9 @@ using Autodesk.Revit.UI;
 using Autodesk.Revit.DB;
 using DHHTools;
 using Autodesk.Revit.ApplicationServices;
+using Autodesk.Revit.UI.Events;
+using System.Windows;
+using System;
 
 namespace _06_00_RS2D_SummarySchedule
 {
@@ -15,14 +18,37 @@ namespace _06_00_RS2D_SummarySchedule
         {
             UIApplication uiapp = commandData.Application;
             UIDocument uidoc = uiapp.ActiveUIDocument;
-            Application app = uiapp.Application;
+            //Autodesk.Revit.ApplicationServices.Application app = uiapp.Application;
             Document document = uidoc.Document;
-            using (TransactionGroup transGroup = new TransactionGroup(document))
+            try
             {
-                transGroup.Start("Rebar Summary");
-                List<Element> pickelements = uidoc.Selection.PickElementsByRectangle(new DhhRebarScheduleFilter(), "Chọn bảng thống kê").ToList();
-                transGroup.Commit();
+                using (TransactionGroup transGroup = new TransactionGroup(document))
+                {
+                    transGroup.Start("Rebar Summary");
+                    List<Element> pickelements = uidoc.Selection.PickElementsByRectangle(new RebarScheduleFilter(), "Chọn bảng thống kê").ToList();
+                    List<RSDetailInfor> List1 = new List<RSDetailInfor>();
+                    foreach (Element pickelement in pickelements)
+                    {
+                        FamilyInstance familyInstance = pickelement as FamilyInstance;
+                        Parameter parameterDK = familyInstance.LookupParameter("DK");
+                        string DK_String = parameterDK.AsValueString();
+
+                        Parameter parameterHDKT = familyInstance.LookupParameter("HDKT");
+                        ElementId nestedelementId = parameterHDKT.AsElementId();
+                        Element nestedelement = document.GetElement(nestedelementId);
+                        string TCD_String = GetNestedFamilyParameter.GetNestedFamilyParameterValue(document, familyInstance, nestedelement.Name, "TCD");
+
+
+                        MessageBox.Show(DK_String + " - " + TCD_String);
+
+
+
+
+                    }
+                    transGroup.Commit();
+                }
             }
+            catch { }
             return Result.Succeeded;
         }
     }

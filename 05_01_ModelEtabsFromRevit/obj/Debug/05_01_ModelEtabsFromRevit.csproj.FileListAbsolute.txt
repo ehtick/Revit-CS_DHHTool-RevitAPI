@@ -12,7 +12,6 @@ D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\05_01_ModelEtabsFromRevit\ob
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\05_01_ModelEtabsFromRevit\obj\Debug\05_01_ModelEtabsFromRevit_MarkupCompile.lref
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\05_01_ModelEtabsFromRevit\obj\Debug\05_01_ModelEtabsFromRevit.g.resources
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\05_01_ModelEtabsFromRevit\obj\Debug\05_01_ModelEtabsFromRevit.csproj.CoreCompileInputs.cache
-D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\05_01_ModelEtabsFromRevit\obj\Debug\05_01_Mo.BC51FD7C.Up2Date
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\05_01_ModelEtabsFromRevit\obj\Debug\05_01_ModelEtabsFromRevit.dll
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\05_01_ModelEtabsFromRevit\obj\Debug\05_01_ModelEtabsFromRevit.pdb
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\05_01_ModelEtabsFromRevit\obj\Debug\MVVM\View\vMainEtabsFromRevit.g.cs
@@ -35,3 +34,4 @@ D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\05_01_ModelEtabsFromRevit\obj\
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\05_01_ModelEtabsFromRevit\obj\Debug\05_01_ModelEtabsFromRevit.csproj.CopyComplete
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\05_01_ModelEtabsFromRevit\obj\Debug\05_01_ModelEtabsFromRevit.dll
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\05_01_ModelEtabsFromRevit\obj\Debug\05_01_ModelEtabsFromRevit.pdb
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\05_01_ModelEtabsFromRevit\obj\Debug\05_01_ModelEtabsFromRevit.csproj.CopyComplete
