@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.35425.106
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "00-01.Library", "00-01.DHHTools_Library\00-01.Library.csproj", "{C1343206-2654-4111-B0FA-B296CBBA6B66}"
 EndProject
@@ -28,6 +28,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_04_RS2D_RebarSlab2D", "06_04_RS2D_RebarSlab2D\06_04_RS2D_RebarSlab2D.csproj", "{9391184C-76EA-4D4A-B19C-52D6DDA95437}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_00_RS2D_SummarySchedule", "06_00_RS2D_SummarySchedule\06_00_RS2D_SummarySchedule.csproj", "{46CEFDC0-1EA6-4091-AA38-A82C0EF500BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_02_DrawDetailBeam_Detail2D", "02_02_DrawDetailBeam_Detail2D\02_02_DrawDetailBeam_Detail2D.csproj", "{D671163C-4737-4D50-BC5C-9DE535EBA5EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -195,6 +197,18 @@ Global
 		{46CEFDC0-1EA6-4091-AA38-A82C0EF500BB}.Release|x64.Build.0 = Release|Any CPU
 		{46CEFDC0-1EA6-4091-AA38-A82C0EF500BB}.Release|x86.ActiveCfg = Release|Any CPU
 		{46CEFDC0-1EA6-4091-AA38-A82C0EF500BB}.Release|x86.Build.0 = Release|Any CPU
+		{D671163C-4737-4D50-BC5C-9DE535EBA5EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D671163C-4737-4D50-BC5C-9DE535EBA5EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D671163C-4737-4D50-BC5C-9DE535EBA5EA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D671163C-4737-4D50-BC5C-9DE535EBA5EA}.Debug|x64.Build.0 = Debug|Any CPU
+		{D671163C-4737-4D50-BC5C-9DE535EBA5EA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D671163C-4737-4D50-BC5C-9DE535EBA5EA}.Debug|x86.Build.0 = Debug|Any CPU
+		{D671163C-4737-4D50-BC5C-9DE535EBA5EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D671163C-4737-4D50-BC5C-9DE535EBA5EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D671163C-4737-4D50-BC5C-9DE535EBA5EA}.Release|x64.ActiveCfg = Release|Any CPU
+		{D671163C-4737-4D50-BC5C-9DE535EBA5EA}.Release|x64.Build.0 = Release|Any CPU
+		{D671163C-4737-4D50-BC5C-9DE535EBA5EA}.Release|x86.ActiveCfg = Release|Any CPU
+		{D671163C-4737-4D50-BC5C-9DE535EBA5EA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
