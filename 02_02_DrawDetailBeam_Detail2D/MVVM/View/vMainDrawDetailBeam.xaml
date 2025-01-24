@@ -21,6 +21,14 @@
             <RowDefinition Height="200"/>
             <RowDefinition Height="52" />
         </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+        </Grid>
         <Canvas x:Name="viewCanvas"
             Background="WhiteSmoke"
             Grid.Row="1" Margin="5">
