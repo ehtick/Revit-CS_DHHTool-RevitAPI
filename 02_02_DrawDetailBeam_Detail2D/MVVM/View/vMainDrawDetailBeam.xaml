@@ -27,21 +27,27 @@
         </Canvas>
         <DockPanel Grid.Row="2" LastChildFill="True" HorizontalAlignment="Right">
             <Button
-                DockPanel.Dock="Right"
-                Width="140" Height="40"
+                 Width="140" Height="40"
                 Margin="3"
-                Command="{Binding BtnCancel}"
+                Command="{Binding BtnChonDam}"
                 CommandParameter="{Binding ElementName=DetailBeam2D}"
-                Content="Cancel" FontFamily="Arial"
+                Content="Chọn dầm" FontFamily="Arial"
                 Style="{DynamicResource ButtonStyle}" />
             <Button
                  Width="140" Height="40"
                 Margin="3"
                 Command="{Binding BtnOK}"
                 CommandParameter="{Binding ElementName=DetailBeam2D}"
-                Content="OK" FontFamily="Arial"
+                Content="Vẽ thép" FontFamily="Arial"
                 Style="{DynamicResource ButtonStyle}" />
-
+            <Button
+                Width="140" Height="40"
+                Margin="3"
+                Command="{Binding BtnCancel}"
+                CommandParameter="{Binding ElementName=DetailBeam2D}"
+                Content="Hủy bỏ" FontFamily="Arial"
+                Style="{DynamicResource ButtonStyle}" />
         </DockPanel>
     </Grid>
 </Window>
+ 
