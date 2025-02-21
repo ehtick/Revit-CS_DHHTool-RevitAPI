@@ -21,14 +21,28 @@
             <RowDefinition Height="200"/>
             <RowDefinition Height="52" />
         </Grid.RowDefinitions>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-        </Grid>
+        <TabControl TabStripPlacement="Left">
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Height="30" HorizontalAlignment="Left" Orientation="Horizontal">
+                        <TextBlock
+                            FontStyle="Normal"
+                            FontWeight="DemiBold"
+                            Text="Vẽ nhanh" />
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Height="30" HorizontalAlignment="Left" Orientation="Horizontal">
+                        <TextBlock
+                            FontStyle="Normal"
+                            FontWeight="DemiBold"
+                            Text="Vẽ chi tiết"/>
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+        </TabControl>
         <Canvas x:Name="viewCanvas"
             Background="WhiteSmoke"
             Grid.Row="1" Margin="5">
