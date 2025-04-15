@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.35425.106
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "00-01.Library", "00-01.DHHTools_Library\00-01.Library.csproj", "{C1343206-2654-4111-B0FA-B296CBBA6B66}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_01_DrawSectionBeam_Detail2D", "02_01_DrawSectionBeam_Detail2D\02_01_DrawSectionBeam_Detail2D.csproj", "{27629EA3-EB4A-4472-BD61-2D0500897A46}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_04_PrintMultiFiles", "01_04_PrintMultiFiles\01_04_PrintMultiFiles.csproj", "{83854EC6-4F78-4744-A0A2-9B2C2EFB4047}"
@@ -33,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_02_DrawDetailBeam_Detail
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "00-02.ChatbotAI", "00-02.ChatbotAI\00-02.ChatbotAI.csproj", "{F27C3F32-EFC5-4251-8BEB-BF3BB3282B43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "00-01.Library", "00-01.DHHTools_Library\00-01.Library.csproj", "{C1343206-2654-4111-B0FA-B296CBBA6B66}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,18 +43,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Debug|x64.ActiveCfg = Debug|x64
-		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Debug|x64.Build.0 = Debug|x64
-		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Debug|x86.ActiveCfg = Debug|x86
-		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Debug|x86.Build.0 = Debug|x86
-		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Release|x64.ActiveCfg = Release|x64
-		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Release|x64.Build.0 = Release|x64
-		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Release|x86.ActiveCfg = Release|x86
-		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Release|x86.Build.0 = Release|x86
 		{27629EA3-EB4A-4472-BD61-2D0500897A46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{27629EA3-EB4A-4472-BD61-2D0500897A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27629EA3-EB4A-4472-BD61-2D0500897A46}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -223,6 +211,18 @@ Global
 		{F27C3F32-EFC5-4251-8BEB-BF3BB3282B43}.Release|x64.Build.0 = Release|Any CPU
 		{F27C3F32-EFC5-4251-8BEB-BF3BB3282B43}.Release|x86.ActiveCfg = Release|Any CPU
 		{F27C3F32-EFC5-4251-8BEB-BF3BB3282B43}.Release|x86.Build.0 = Release|Any CPU
+		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Debug|x64.ActiveCfg = Debug|x64
+		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Debug|x64.Build.0 = Debug|x64
+		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Debug|x86.ActiveCfg = Debug|x86
+		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Debug|x86.Build.0 = Debug|x86
+		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Release|x64.ActiveCfg = Release|x64
+		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Release|x64.Build.0 = Release|x64
+		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Release|x86.ActiveCfg = Release|x86
+		{C1343206-2654-4111-B0FA-B296CBBA6B66}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

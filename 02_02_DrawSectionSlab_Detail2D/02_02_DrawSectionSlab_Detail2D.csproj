@@ -65,12 +65,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\00-01.DHHTools_Library\00-01.Library.csproj">
-      <Project>{c1343206-2654-4111-b0fa-b296cbba6b66}</Project>
-      <Name>00-01.Library</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Page Include="MVVM\View\view_SectionSlab2D.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -64,12 +64,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\00-01.DHHTools_Library\00-01.Library.csproj">
-      <Project>{c1343206-2654-4111-b0fa-b296cbba6b66}</Project>
-      <Name>00-01.Library</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="MVVM\Model\" />
   </ItemGroup>
   <ItemGroup>
