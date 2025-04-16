@@ -15,7 +15,6 @@ namespace _02_01_DrawSectionBeam_Detail2D
     public class DrawSectionBeam: IExternalCommand
     {
         //public UIApplication RevitApp { get; private set; }
-
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             UIApplication uIApplication = commandData.Application;
@@ -31,7 +30,6 @@ namespace _02_01_DrawSectionBeam_Detail2D
                 return Result.Succeeded;
                 transGroup.Commit();
             }
-
             return Result.Succeeded;
         }
 
