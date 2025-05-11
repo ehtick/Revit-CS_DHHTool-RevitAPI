@@ -114,14 +114,13 @@ namespace DHHTools
             Other32X32 = "Other32x32.png";
             Other16X16 = "Other16x16.png";
             ContentsFolder = "C:\\ProgramData\\Autodesk\\ApplicationPlugins\\DHHTools.bundle\\Contents";
-            SettingFolder = "C:\\ProgramData\\Autodesk\\ApplicationPlugins" +
-                            "\\DHHTools.bundle\\Contents\\Resources\\Setting";
+            SettingFolder = "C:\\ProgramData\\Autodesk\\ApplicationPlugins" + "\\DHHTools.bundle\\Contents\\Resources\\Setting";
             HelperPath = Path.Combine(ContentsFolder,
                 "Resources", "Help", "Q'AppsHelper.pdf");
             MessageBoxCaption = string.Concat(RibbonName, " - Effective Add-ins for Autodesk Revit");
 
 
-            ResourcesFolder = Path.Combine(ContentsFolder, "Resources");
+            //ResourcesFolder = Path.Combine(ContentsFolder, "Resources");
             HelpFolder = Path.Combine(ResourcesFolder, "Help");
             ImageFolder = Path.Combine(ResourcesFolder, "Image");
 

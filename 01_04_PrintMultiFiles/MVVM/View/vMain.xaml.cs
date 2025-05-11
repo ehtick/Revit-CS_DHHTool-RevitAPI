@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _01_04_PrintMultiFiles.MVVM.View
+namespace DHHTools.MVVM.View
 {
     /// <summary>
     /// Interaction logic for vMain.xaml

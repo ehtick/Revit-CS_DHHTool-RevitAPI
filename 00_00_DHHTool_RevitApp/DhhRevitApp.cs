@@ -16,7 +16,6 @@ namespace _00_00_DHHTool_RevitApp
         {
             return Result.Succeeded;
         }
-
         public Result OnStartup(UIControlledApplication app)
         {
             try
@@ -29,7 +28,6 @@ namespace _00_00_DHHTool_RevitApp
                 return Result.Failed;
             }
         }
-
 
         private void CreateRibbonPanel(UIControlledApplication a)
         {
@@ -48,26 +46,26 @@ namespace _00_00_DHHTool_RevitApp
 
             #region Create Format CAD Button 
 
-            string nameFC = "FormatCAD";
-            string displayNameFC = "Format\nCAD";
-            string dllNameFC = "01_02_FormatCADImport.dll";
-            string fullClassNameFC = "_01_02_FormatCADImport.FormatCAD";
-            string imageFC = "FormatCADIcon32x32.png";
-            string tooltipFC = "Đây là tooltip";
-            string helperPathFC = null;
-            string longDescriptionFC = null;
-            string tooltipimageFC = null;
-            string linkYoutubeFC = null;
-            PushButtonData pushButtonDataFC
-                = ribbonUtils.CreatePushButtonData(
-                    nameFC, displayNameFC,
-                    dllNameFC, fullClassNameFC,
-                    imageFC, tooltipFC,
-                    helperPathFC,
-                    longDescriptionFC,
-                    tooltipimageFC, linkYoutubeFC);
+            //string nameFC = "FormatCAD";
+            //string displayNameFC = "Format\nCAD";
+            //string dllNameFC = "01_02_FormatCADImport.dll";
+            //string fullClassNameFC = "_01_02_FormatCADImport.FormatCAD";
+            //string imageFC = "FormatCADIcon32x32.png";
+            //string tooltipFC = "Đây là tooltip";
+            //string helperPathFC = null;
+            //string longDescriptionFC = null;
+            //string tooltipimageFC = null;
+            //string linkYoutubeFC = null;
+            //PushButtonData pushButtonDataFC
+            //    = ribbonUtils.CreatePushButtonData(
+            //        nameFC, displayNameFC,
+            //        dllNameFC, fullClassNameFC,
+            //        imageFC, tooltipFC,
+            //        helperPathFC,
+            //        longDescriptionFC,
+            //        tooltipimageFC, linkYoutubeFC);
 
-            panel1.AddItem(pushButtonDataFC);
+            //panel1.AddItem(pushButtonDataFC);
 
             #endregion
 
