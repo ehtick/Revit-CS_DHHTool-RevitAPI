@@ -193,7 +193,7 @@ namespace _01_04_PrintMultiFiles.MVVM.ViewModel
         private void PerformExportFile()
         {
             try
-            {
+            {   
                 foreach (mRevitDoc mRevitDoc in DgRevitFile)
                 {
                     string FileFullName = mRevitDoc.FileName;
@@ -201,14 +201,13 @@ namespace _01_04_PrintMultiFiles.MVVM.ViewModel
                     string FileName = Path.GetFileNameWithoutExtension(fileInfo.FullName);
                     mRevit.createFolder(FileName, IsSeprateByFile, IsSeprateFolder, SelectFolder, IsCADSelected, IsDWFSelected, IsPDFSelected);
                     mRevit.exportDWF(mRevitDoc, SelectFolder, IsSeprateFolder, IsSeprateByFile, FileName);
-                    //mRevit.exportPDF(mRevitDoc, SelectFolder, IsSeprateFolder, IsSeprateByFile, FileName);
+                    mRevit.exportPDF(mRevitDoc, SelectFolder, IsSeprateFolder, IsSeprateByFile, FileName);
                     mRevit.exportDWG(mRevitDoc, SelectFolder, SelectCADVersion, IsCADSelected, IsSeprateFolder,IsSeprateByFile ,IsAddSheetName, FileName);
                     mRevit.deletePCPFile(IsCADSelected,IsSeprateByFile, IsSeprateFolder, SelectFolder, FileName);
                 }
             }
             catch { }
         }
-
 
         private ActionCommand saveLocation;
 

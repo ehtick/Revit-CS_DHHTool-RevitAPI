@@ -213,7 +213,8 @@ namespace DHHTools.MVVM.Model
             using (Transaction tran = new Transaction(revitDoc.RevitFile))
             {
                 tran.Start("Export PDF");
-                PrintManager printManager = revitDoc.RevitFile.PrintManager;
+                PDFExportOptions pDFExportOptions = new PDFExportOptions();
+                pDFExportOptions.Combine = true;
                 string PDFFolder = "";
                 if (IsSeprateByFile == true)
                 {
@@ -237,46 +238,51 @@ namespace DHHTools.MVVM.Model
                         PDFFolder = SelectFolder;
                     }
                 }
+                //PrintManager printManager = revitDoc.RevitFile.PrintManager;
+                //printManager.PrintSetup.CurrentPrintSetting = printManager.PrintSetup.InSession;
+                //printManager.PrintRange = Autodesk.Revit.DB.PrintRange.Select;
+                //ViewSheetSetting viewSheetSetting = printManager.ViewSheetSetting;
+                //viewSheetSetting.CurrentViewSheetSet.Views = revitDoc.DocumentSelectSheetSet.Views;
+                //printManager.CombinedFile = true;
 
-                printManager.PrintSetup.CurrentPrintSetting = printManager.PrintSetup.InSession;
-                printManager.PrintRange = Autodesk.Revit.DB.PrintRange.Select;
-                ViewSheetSetting viewSheetSetting = printManager.ViewSheetSetting;
-                viewSheetSetting.CurrentViewSheetSet.Views = revitDoc.DocumentSelectSheetSet.Views;
-                printManager.CombinedFile = true;
+                ////printManager.SelectNewPrintDriver("Adobe PDF");
+                //PrintSetup pSetup = printManager.PrintSetup;
+                //PrintParameters pParam = pSetup.CurrentPrintSetting.PrintParameters;
+                ////revitDoc.RevitFile.Export(PDFFolder, revitDoc.RevitFile.Title, revitDoc.DocumentSelectSheetSet.Views, dWFExportOptions);
+                //pParam.ZoomType = ZoomType.FitToPage;
 
-                //printManager.SelectNewPrintDriver("Adobe PDF");
-                PrintSetup pSetup = printManager.PrintSetup;
-                PrintParameters pParam = pSetup.CurrentPrintSetting.PrintParameters;
-                //revitDoc.RevitFile.Export(PDFFolder, revitDoc.RevitFile.Title, revitDoc.DocumentSelectSheetSet.Views, dWFExportOptions);
-                pParam.ZoomType = ZoomType.FitToPage;
+                //pParam.PaperPlacement = PaperPlacementType.Center;
+                //foreach (Autodesk.Revit.DB.PaperSize pSize in printManager.PaperSizes)
+                //{
+                //    if (pSize.Name.Equals("A1"))//Work required to get actual Sheet size)
+                //    {
+                //        pParam.PaperSize = pSize;
+                //        break;
+                //    }
+                //}
 
-                pParam.PaperPlacement = PaperPlacementType.Center;
-                foreach (Autodesk.Revit.DB.PaperSize pSize in printManager.PaperSizes)
+
+                //printManager.PrintToFile = true;
+                //string fileName = Path.Combine(PDFFolder, FileName, ".pdf");
+                //printManager.PrintToFileName = fileName;
+                ////revitDoc.RevitFile.Print(revitDoc.DocumentSelectSheetSet.Views);
+
+                //printManager.Apply();
+                //try
+                //{
+                //    pSetup.SaveAs("C:\\Users\\Admin\\Desktop\\Test.pdf");
+                //}
+                //catch
+                //{
+
+                //}
+                //printManager.SubmitPrint();
+                IList<ElementId> elementIds = new List<ElementId>();
+                foreach(ViewSheetSet view in revitDoc.DocumentSelectSheetSet.Views)
                 {
-                    if (pSize.Name.Equals("A1"))//Work required to get actual Sheet size)
-                    {
-                        pParam.PaperSize = pSize;
-                        break;
-                    }
-                }
-
-
-                printManager.PrintToFile = true;
-                string fileName = Path.Combine(PDFFolder, FileName, ".pdf");
-                printManager.PrintToFileName = fileName;
-                //revitDoc.RevitFile.Print(revitDoc.DocumentSelectSheetSet.Views);
-
-                printManager.Apply();
-                try
-                {
-                    pSetup.SaveAs("C:\\Users\\Admin\\Desktop\\Test.pdf");
-                }
-                catch
-                {
-
-                }
-                printManager.SubmitPrint();
-
+                    elementIds.Add(view.Id);
+                }    
+                revitDoc.RevitFile.Export(PDFFolder, elementIds, pDFExportOptions);
                 tran.Commit();
             }
 
