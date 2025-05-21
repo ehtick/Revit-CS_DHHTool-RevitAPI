@@ -102,8 +102,8 @@
             <DataGrid IsReadOnly="True"
                       AutoGenerateColumns="False"
                       CanUserAddRows="False"
-                      ItemsSource="{Binding DgRevitFile}"
-                      SelectedItem="{Binding DocumentSelectSheetSet}">
+                      ItemsSource="{Binding DgRevitFile}">
+                <!--SelectedItem="{Binding DocumentSelectSheetSet}">-->
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="*" Binding="{Binding FileName}" >
@@ -130,6 +130,25 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellEditingTemplate>
                     </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="180" Header="Print Setting">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox
+                                    DisplayMemberPath="Name"
+                                    ItemsSource="{Binding AllPrintSetting}"
+                                    SelectedIndex="0"
+                                    SelectedValue="{Binding PrintSettingSelect, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox
+                                    DisplayMemberPath="Name"
+                                    ItemsSource="{Binding DataContext.AllPrintSetting, ElementName=vWinMain}"
+                                    SelectedItem="{Binding PrintSettingSelect, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
                     <DataGridTextColumn Width="130" Binding="{Binding NumberSheet}">
                         <DataGridTextColumn.Header>
                             <TextBlock Text="Number Sheets" />
@@ -153,7 +172,6 @@
                         FontFamily="San Serif"
                         FontSize="15"
                         FontWeight="Bold"
-                        Style="{StaticResource MaterialDesignTextBlock}"
                         Text="EXPORT Option: "
                         TextAlignment="Center"
                         TextWrapping="Wrap" />
@@ -161,8 +179,7 @@
                         Height="40"
                         Content="Export CAD (*.dwg)"
                         FontSize="15"
-                        IsChecked="{Binding IsCADSelected}"
-                        Style="{StaticResource MaterialDesignAccentCheckBox}" />
+                        IsChecked="{Binding IsCADSelected}"/>
                     <CheckBox
                         Height="40"
                         Content="Export DWF (*.dwf/*.dwfx)"

@@ -142,3 +142,4 @@ D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\ru-RU\AdWindows.resources.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\zh-CN\AdWindows.resources.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\zh-TW\AdWindows.resources.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\ManagedMC3.dll

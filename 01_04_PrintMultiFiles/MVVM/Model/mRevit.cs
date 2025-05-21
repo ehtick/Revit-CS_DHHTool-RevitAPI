@@ -108,11 +108,14 @@ namespace DHHTools.MVVM.Model
         {
             string fileName = DocumentRevit.PathName;
             ObservableRangeCollection<ViewSheetSet> sheet = DhhDocumentUtil.GetAllSheetSet(DocumentRevit);
+            ObservableRangeCollection<PrintSetting> printSettings = DhhDocumentUtil.GetAllPrintSetting(DocumentRevit);
             ViewSheetSet viewSheetSet = sheet[0];
+            PrintSetting printSetting = printSettings[0];
             double numberSheet = viewSheetSet.Views.Size;
             return new mRevitDoc()
             {
-
+                AllPrintSetting = printSettings,
+                PrintSettingSelect = printSetting,
                 RevitFile = DocumentRevit,
                 AllSheetSet = sheet,
                 DocumentSelectSheetSet = viewSheetSet,
@@ -206,7 +209,6 @@ namespace DHHTools.MVVM.Model
             }
 
         }
-
 
         public void exportPDF(mRevitDoc revitDoc, string SelectFolder, bool IsSeprateFolder, bool IsSeprateByFile, string FileName)
         {

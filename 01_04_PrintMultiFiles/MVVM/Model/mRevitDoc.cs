@@ -60,6 +60,34 @@ namespace _01_04_PrintMultiFiles.MVVM.Model
                 OnPropertyChanged(nameof(DocumentSelectSheetSet));
             }
         }
+
+        private ObservableRangeCollection<PrintSetting> _allPrintSetting = new ObservableRangeCollection<PrintSetting>();
+        public ObservableRangeCollection<PrintSetting> AllPrintSetting
+        {
+            get
+            {
+
+                return _allPrintSetting;
+            }
+            set
+            {
+                _allPrintSetting = value;
+                OnPropertyChanged(nameof(AllPrintSetting));
+            }
+        }
+
+        private PrintSetting _printSettingSelect;
+        public PrintSetting PrintSettingSelect
+        {
+            get => _printSettingSelect;
+            set
+            {
+                _printSettingSelect = value;
+                OnPropertyChanged(nameof(PrintSettingSelect));
+                OnPropertyChanged(nameof(AllPrintSetting));
+            }
+        }
+
         private double _numberSheet;
         public double NumberSheet
         {

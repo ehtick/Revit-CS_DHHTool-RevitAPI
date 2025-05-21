@@ -36,9 +36,6 @@
     <Reference Include="BIMSoftLib">
       <HintPath>..\..\00.CS_Library\BIMSoftLib.dll</HintPath>
     </Reference>
-    <Reference Include="DHHLibrary">
-      <HintPath>..\00-01.DHHTools_Library\bin\Debug\DHHLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="MaterialDesignColors, Version=2.1.4.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.2.1.4\lib\net462\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -85,7 +82,12 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\00-01.DHHTools_Library\00-01.Library.csproj">
+      <Project>{c1343206-2654-4111-b0fa-b296cbba6b66}</Project>
+      <Name>00-01.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

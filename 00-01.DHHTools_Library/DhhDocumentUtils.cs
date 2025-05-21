@@ -43,6 +43,19 @@ namespace DHHTools
             }
             return allNameViewSheetSet;
         }
+        public static ObservableRangeCollection<PrintSetting> GetAllPrintSetting(Document doc)
+        {
+            ObservableRangeCollection<PrintSetting> allPrinterSetting = new ObservableRangeCollection<PrintSetting>();
+
+            FilteredElementCollector colec = new FilteredElementCollector(doc);
+            List<Element> allsheetset = colec.OfClass(typeof(PrintSetting)).ToElements().ToList();
+            foreach (Element item in allsheetset)
+            {
+                PrintSetting printSetting = (item as PrintSetting);
+                allPrinterSetting.Add(printSetting);
+            }
+            return allPrinterSetting;
+        }
 
         #endregion
     }
