@@ -210,7 +210,6 @@ namespace _01_04_PrintMultiFiles.MVVM.ViewModel
         }
 
         private ActionCommand saveLocation;
-
         public ICommand SaveLocation
         {
             get
@@ -223,7 +222,6 @@ namespace _01_04_PrintMultiFiles.MVVM.ViewModel
                 return saveLocation;
             }
         }
-
         private void PerformSaveLocation()
         {
             SelectFolder = mRevit.SelectFolder();
