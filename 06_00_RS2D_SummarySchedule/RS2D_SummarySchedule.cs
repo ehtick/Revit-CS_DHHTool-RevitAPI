@@ -37,14 +37,8 @@ namespace _06_00_RS2D_SummarySchedule
                         ElementId nestedelementId = parameterHDKT.AsElementId();
                         Element nestedelement = document.GetElement(nestedelementId);
                         string TCD_String = GetNestedFamilyParameter.GetNestedFamilyParameterValue(document, familyInstance, nestedelement.Name, "TCD");
-
-
                         MessageBox.Show(DK_String + " - " + TCD_String);
-
-
-
-
-                    }
+                     }
                     transGroup.Commit();
                 }
             }
