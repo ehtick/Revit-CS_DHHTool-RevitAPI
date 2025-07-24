@@ -44,26 +44,7 @@ D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\obj\Deb
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\obj\Debug\06_04_RS2D_RebarSlab2D.dll
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\obj\Debug\06_04_RS2D_RebarSlab2D.pdb
 D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\obj\Debug\06_04_RS2D_RebarSlab2D.csproj.CopyComplete
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\bin\Debug\06_04_RS2D_RebarSlab2D.dll
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\bin\Debug\06_04_RS2D_RebarSlab2D.pdb
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\bin\Debug\BIMSoftLib.dll
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\bin\Debug\DHHLibrary.dll
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\bin\Debug\MaterialDesignColors.dll
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\bin\Debug\MaterialDesignThemes.Wpf.dll
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\bin\Debug\Microsoft.Xaml.Behaviors.dll
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\bin\Debug\DHHLibrary.pdb
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\bin\Debug\MaterialDesignColors.pdb
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\bin\Debug\MaterialDesignThemes.Wpf.pdb
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\bin\Debug\MaterialDesignThemes.Wpf.xml
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\bin\Debug\Microsoft.Xaml.Behaviors.pdb
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\bin\Debug\Microsoft.Xaml.Behaviors.xml
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\obj\Debug\06_04_RS2D_RebarSlab2D.csproj.AssemblyReference.cache
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\obj\Debug\MVVM\View\vMainRebarSlab2DSchedule.g.cs
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\obj\Debug\06_04_RS2D_RebarSlab2D_MarkupCompile.cache
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\obj\Debug\06_04_RS2D_RebarSlab2D_MarkupCompile.lref
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\obj\Debug\MVVM\View\vMainRebarSlab2DSchedule.baml
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\obj\Debug\06_04_RS2D_RebarSlab2D.g.resources
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\obj\Debug\06_04_RS2D_RebarSlab2D.csproj.CoreCompileInputs.cache
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\obj\Debug\06_04_RS2D_RebarSlab2D.csproj.CopyComplete
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\obj\Debug\06_04_RS2D_RebarSlab2D.dll
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\06_04_RS2D_RebarSlab2D\obj\Debug\06_04_RS2D_RebarSlab2D.pdb

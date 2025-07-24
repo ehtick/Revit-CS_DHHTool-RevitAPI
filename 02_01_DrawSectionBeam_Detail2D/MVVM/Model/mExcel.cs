@@ -25,7 +25,7 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
             {
                 file.InitialDirectory = "C:\\";
                 file.DefaultExt = "xls";
-                file.Filter = "Excel File(*.xls; *.xlsx; *.xlsm)|*.xls; *.xlsx" + "|All Files (*.*)|*.*";
+                file.Filter = "Excel File(*.xls; *.xlsx; *.xlsm)|*.xls; *.xlsx; *.xlsm" + "|All Files (*.*)|*.*";
                 file.FilterIndex = 1;
                 file.RestoreDirectory = true;
             }
@@ -35,10 +35,11 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
                 xlSheet = xlsworkbook.Worksheets["Beam"];
                 Excel.Range xllast = xlSheet.Cells.SpecialCells(XlCellType.xlCellTypeLastCell, Type.Missing);
                 //xlRange = xlSheet.Range["A1", xllast];
-                lastrow = xlSheet.Cells.Find("*", System.Reflection.Missing.Value, System.Reflection.Missing.Value, System.Reflection.Missing.Value, Microsoft.Office.Interop.Excel.XlSearchOrder.xlByRows, Microsoft.Office.Interop.Excel.XlSearchDirection.xlPrevious, false, System.Reflection.Missing.Value, System.Reflection.Missing.Value).Row;
                 //xlRange = xlSheet.Cells[2,rowIndex];
                 //xlRange = xlSheet.UsedRange;
                 //xlRange = xlSheet.Range["A1", xlSheet.Cells[lastrow, 50]];
+                lastrow = xlSheet.Cells.Find("*", System.Reflection.Missing.Value, System.Reflection.Missing.Value, System.Reflection.Missing.Value, Microsoft.Office.Interop.Excel.XlSearchOrder.xlByRows, Microsoft.Office.Interop.Excel.XlSearchDirection.xlPrevious, false, System.Reflection.Missing.Value, System.Reflection.Missing.Value).Row;
+
             }
 
             return lastrow;
@@ -51,7 +52,6 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
             if ((xlSheet.Cells[i, 2] as Microsoft.Office.Interop.Excel.Range).Value == null)
             {
                 beamName = (xlSheet.Cells[i - 1, 2] as Microsoft.Office.Interop.Excel.Range).Value;
-
             }
             else
             {

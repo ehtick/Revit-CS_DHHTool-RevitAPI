@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="00_00_DHHShareLibrary">
+      <HintPath>..\..\01.CS_DHHTool_LibraryAPI\00_00_DHHShareLibrary\bin\Debug\00_00_DHHShareLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="BIMSoftLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\00.CS_Library\BIMSoftLib.dll</HintPath>
@@ -118,6 +121,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\00-01.DHHTools_Library\00-01.Library.csproj">
+      <Project>{c1343206-2654-4111-b0fa-b296cbba6b66}</Project>
+      <Name>00-01.Library</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />

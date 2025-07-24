@@ -43,6 +43,7 @@ D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debu
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\01_04_PrintMultiFiles.csproj.CopyComplete
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\PrintMultiFiles.dll
 D:\01. WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\PrintMultiFiles.pdb
+D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\01_04_Pr.A1CF61D2.Up2Date
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\PrintMultiFiles.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\PrintMultiFiles.pdb
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\BIMSoftLib.dll
@@ -50,23 +51,6 @@ D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\MaterialDesignColors.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\MaterialDesignThemes.Wpf.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\Microsoft.Xaml.Behaviors.dll
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\DHHLibrary.pdb
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\MaterialDesignColors.pdb
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\MaterialDesignThemes.Wpf.pdb
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\MaterialDesignThemes.Wpf.xml
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\Microsoft.Xaml.Behaviors.pdb
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\Microsoft.Xaml.Behaviors.xml
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\01_04_PrintMultiFiles.csproj.AssemblyReference.cache
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\MVVM\View\vMain.g.cs
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\PrintMultiFiles_MarkupCompile.cache
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\PrintMultiFiles_MarkupCompile.lref
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\MVVM\View\vMain.baml
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\PrintMultiFiles.g.resources
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\01_04_PrintMultiFiles.csproj.CoreCompileInputs.cache
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\01_04_PrintMultiFiles.csproj.CopyComplete
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\PrintMultiFiles.dll
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\PrintMultiFiles.pdb
-D:\STUDY\Programming\C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\01_04_Pr.A1CF61D2.Up2Date
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\RevitAPI.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\RevitAPIUI.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\AdpSDKCSharpWrapper.dll
@@ -107,7 +91,6 @@ D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\IntfATFAPI.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\TextEngineAPI.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\DBManagedServices.dll
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\AdWindows.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\RevitAddInUtility.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\APIInterop.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\UIFramework.dll
@@ -121,10 +104,18 @@ D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\EnergyAnalysisUtilitiesAPI.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\DetailUIAPI.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\UIFrameworkServices.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\AdWindows.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\Autodesk.UI.Windows.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\Autodesk.UI.Themes.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\Xceed.Wpf.AvalonDock.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\CompositionServices.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\ManagedMC3.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\DHHLibrary.pdb
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\MaterialDesignColors.pdb
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\Microsoft.Xaml.Behaviors.xml
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\RevitAPI.xml
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\RevitAPIUI.xml
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\RevitAddInUtility.xml
@@ -142,4 +133,13 @@ D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\ru-RU\AdWindows.resources.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\zh-CN\AdWindows.resources.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\zh-TW\AdWindows.resources.dll
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\bin\Debug\ManagedMC3.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\01_04_PrintMultiFiles.csproj.AssemblyReference.cache
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\MVVM\View\vMain.g.cs
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\PrintMultiFiles_MarkupCompile.cache
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\PrintMultiFiles_MarkupCompile.lref
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\MVVM\View\vMain.baml
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\PrintMultiFiles.g.resources
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\01_04_PrintMultiFiles.csproj.CoreCompileInputs.cache
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\01_04_PrintMultiFiles.csproj.CopyComplete
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\PrintMultiFiles.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\01_04_PrintMultiFiles\obj\Debug\PrintMultiFiles.pdb

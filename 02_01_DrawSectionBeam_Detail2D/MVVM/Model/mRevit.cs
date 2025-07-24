@@ -54,7 +54,7 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
                         .OfCategory(BuiltInCategory.OST_DetailComponents)
                         .OfClass(typeof(FamilySymbol))
                         .Cast<FamilySymbol>()
-                        .FirstOrDefault(s => s.Name.Equals("ICIC_KC_ThepDam"));
+                        .FirstOrDefault(s => s.Name.Equals("ICIC_KC_ThepDamV2"));
             FamilySymbol fTitle = (FamilySymbol)new FilteredElementCollector(document)
                             .WhereElementIsElementType()
                             .OfCategory(BuiltInCategory.OST_DetailComponents)
@@ -65,7 +65,7 @@ namespace _02_01_DrawSectionBeam_Detail2D.MVVM.Model
             ViewType viewType = document.ActiveView.ViewType;
             using (Transaction transaction = new Transaction(document))
             {
-                transaction.Start("Create Detail Beam");
+                transaction.Start("Triển khai mặt cắt dầm");
                 if (viewType != ViewType.DraftingView)
                 {
                     MessageBox.Show("You must Active Draftting View");
