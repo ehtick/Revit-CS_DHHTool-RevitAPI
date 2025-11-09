@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BIMSoftLib.MVVM;
 using Autodesk.Revit.DB;
-using Autodesk.Revit.UI;
+using Autodesk.Revit.DB.Structure;
 using DHHTools;
-
 namespace _06_04_RS2D_RebarSlab2D.Object
 {
     public class DetailItemInfor: PropertyChangedBase
