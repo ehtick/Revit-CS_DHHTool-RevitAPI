@@ -2,3 +2,16 @@ D:\PROGRAMMING\CS_DHHTool-RevitAPI\00_00_DHHTool_RevitApp\obj\Debug\net48\00_00_
 D:\PROGRAMMING\CS_DHHTool-RevitAPI\00_00_DHHTool_RevitApp\obj\Debug\net48\00_00_DHHTool_RevitApp.GeneratedMSBuildEditorConfig.editorconfig
 D:\PROGRAMMING\CS_DHHTool-RevitAPI\00_00_DHHTool_RevitApp\obj\Debug\net48\00_00_DHHTool_RevitApp.csproj.CoreCompileInputs.cache
 D:\PROGRAMMING\CS_DHHTool-RevitAPI\00_00_DHHTool_RevitApp\obj\Debug\net48\00_00_DHHTool_RevitApp.sourcelink.json
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00_00_DHHTool_RevitApp\bin\Debug\net48\DHHTools.addin
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00_00_DHHTool_RevitApp\bin\Debug\net48\00_00_DHHTool_RevitApp.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00_00_DHHTool_RevitApp\bin\Debug\net48\00_00_DHHTool_RevitApp.pdb
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00_00_DHHTool_RevitApp\bin\Debug\net48\DHHLibrary.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00_00_DHHTool_RevitApp\bin\Debug\net48\BIMSoftLib.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00_00_DHHTool_RevitApp\bin\Debug\net48\DHHLibrary.pdb
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00_00_DHHTool_RevitApp\obj\Debug\net48\00_00_DHHTool_RevitApp.csproj.AssemblyReference.cache
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00_00_DHHTool_RevitApp\obj\Debug\net48\00_00_DHHTool_RevitApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00_00_DHHTool_RevitApp\obj\Debug\net48\00_00_DHHTool_RevitApp.csproj.CoreCompileInputs.cache
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00_00_DHHTool_RevitApp\obj\Debug\net48\00_00_DHHTool_RevitApp.sourcelink.json
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00_00_DHHTool_RevitApp\obj\Debug\net48\00_00_DH.7EF75CEC.Up2Date
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00_00_DHHTool_RevitApp\obj\Debug\net48\00_00_DHHTool_RevitApp.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00_00_DHHTool_RevitApp\obj\Debug\net48\00_00_DHHTool_RevitApp.pdb

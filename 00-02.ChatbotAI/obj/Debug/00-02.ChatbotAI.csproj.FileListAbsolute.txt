@@ -174,10 +174,8 @@ D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\Deskt
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\APIUIAPI.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\RevitMFCAPI.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\EssentialsUIAPI.dll
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\EnergyAnalysisUtilitiesAPI.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\DetailUIAPI.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\UIFrameworkServices.dll
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\ManagedMC3.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\Autodesk.UI.Themes.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\Xceed.Wpf.AvalonDock.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\Autodesk.UI.Windows.dll
@@ -219,7 +217,6 @@ D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\obj\Debug\00-02
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\obj\Debug\ChatbotWindow.baml
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\obj\Debug\00-02.ChatbotAI.g.resources
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\obj\Debug\00-02.ChatbotAI.csproj.CoreCompileInputs.cache
-D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\obj\Debug\00-02.ChatbotAI.csproj.CopyComplete
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\obj\Debug\00-02.ChatbotAI.dll
 D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\obj\Debug\00-02.ChatbotAI.pdb
 D:\PROGRAMMING\CS_DHHTool-RevitAPI\00-02.ChatbotAI\bin\Debug\00-02.ChatbotAI.dll.config
@@ -332,3 +329,15 @@ D:\PROGRAMMING\CS_DHHTool-RevitAPI\00-02.ChatbotAI\obj\Debug\00-02.ChatbotAI.csp
 D:\PROGRAMMING\CS_DHHTool-RevitAPI\00-02.ChatbotAI\obj\Debug\00-02.Ch.79093952.Up2Date
 D:\PROGRAMMING\CS_DHHTool-RevitAPI\00-02.ChatbotAI\obj\Debug\00-02.ChatbotAI.dll
 D:\PROGRAMMING\CS_DHHTool-RevitAPI\00-02.ChatbotAI\obj\Debug\00-02.ChatbotAI.pdb
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\AdskRcManaged.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\RevitDBCoreAPI.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\IntfATFAPI.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\TextEngineAPI.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\InfrastructureDBAPI.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\ATFRevitCoreAPI.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\SSONET.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\CompositionServices.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\Autodesk.UI.Windows.WebOnDesktop.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\Microsoft.Web.WebView2.Wpf.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\bin\Debug\Microsoft.Web.WebView2.Core.dll
+D:\01_WORKING\00. C-Sharp\04.CS_DHHTool_RevitAPI\00-02.ChatbotAI\obj\Debug\00-02.Ch.79093952.Up2Date
